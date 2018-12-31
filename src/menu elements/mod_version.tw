@@ -1,0 +1,59 @@
+:: ModVersionJS [script]
+
+window.ModVersion = "0.004.4"
+
+:: Mod Version Info [nobr]
+<<back>><<set $menu to 1>><br>
+<br>
+
+(Besides the changes below, every version fixes at least one or two typos found in the game text);<br><br>
+
+__Mod Version 0.004.4, Game Version 0.1.13.1__<br>
+Added other virginities to the cheat menu, made them reset the related sexual statistic (mostly to trigger the virginity loss memory feature correctly);<br>
+<br><br>
+
+__Mod Version 0.004.3, Game Version 0.1.13.1__<br>
+Fixed softlock in Robin's event as a result of poor merging which left the Next button in the wrong place;<br>
+<br><br>
+
+__Mod Version 0.004.2, Game Version 0.1.13.1__<br>
+Added this changelog and mod version tracking;<br>
+<br><br>
+
+__Mod Version 0.004.1, Game Version 0.1.13.1__<br>
+Fixed amount of line breaks before the money counter to avoid it being shown right besides the character picture on Android;<br>
+Added back buttons to up and down of the list for convenience to settings menu;<br>
+<br><br>
+
+__Mod Version 0.004, Game Version 0.1.13.1__<br>
+Finished virginity loss memory for every type, test version;<br>
+Merged in compact sidebar by Mauno;<br>
+Some internal fixes that should remove code repetitions and other stuff nobody cares about;<br>
+<br><br>
+
+__Mod Version 0.003 (unreleased), Game Version 0.1.12.1__<br>
+Landry won't kick you out on the street from the pub anymore when you finish speaking with them;<br>
+Changed background color;<br>
+Started work on porting and making lots of scripts and tools for future work;<br>
+Added generated moans;<br>
+Added synonyms and word variations for various stuff;<br>
+Added images from Stuffed's mod pack;<br>
+Virginity loss memory test, female version only;<br>
+All virginity losses are tracked, restored Robin's unique dialogue line when you lose your virginity to him (it was bugged in the original since it was triggering for everyone regardless and was removed altogether);<br>
+Overhauled descriptions for genital widgets;<br>
+Prepare speech text modifiers (drunk, aroused, stutter, etc), not implemented yet;<br>
+<br><br>
+
+__Mod Version 0.002, Game Version 0.1.11.1__<br>
+Added Eden Shortcut event;<br>
+Added character relations to cheat menu (only Robin and Eden as the most significant at the moment);<br>
+Put a note how trauma traits work in cheat menu, remade their behavior so they won't reset trauma;<br>
+<br><br>
+
+__Mod Version 0.001, Game Version 0.1.11.1__<br>
+Ported cheat menu;<br>
+Added angel transformation options to cheat menu;<br>
+Changed cheat menu button from simple link to a menu button;<br>
+<br><br>
+
+<<back>>

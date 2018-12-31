@@ -1,0 +1,105 @@
+:: Mansion Widgets
+<<widget "mansionstatus">>
+
+<<set $gardenerstatus to "" >>
+<<set $mansionpartiesserved to 0 >>
+<<set $mansionpartysuccess to 0 >>
+<<set $mansionapronjobs to 0 >>
+<<set $gardenweeds to 0 >>
+<<set $gardenstares to 0 >>
+<<set $gardendoglove to 0 >>
+<<set $gardenmasterlove to 0 >>
+<<set $dollguyvisits to 0 >>
+<<set $heirloom to "" >>
+<<set $teaguylove to 0 >>
+<<set $teaguyneed to 0 >>
+<<set $teaguywhore to 0 >>
+<<set $ to "" >>
+
+<</widget>>
+
+:: Mansion 1
+/*
+Doll guy
+
+
+
+
+
+*/
+$dollguyvisits
+"I was thinking of holding a tea party in the garden but
+<<if $gardenerstatus is "sick">>"<<our>>(our my his her master's mistresses's) gardener is sick
+<<elseif $gardenerstatus is "busy">>our gardener is busy
+<<elseif $gardenerstatus is "noshow">>our gardener didn't show up
+<<elseif $gardenerstatus is "retired">>our gardener retired
+<<elseif $gardenerstatus is "fired">>our gardener was fired
+<<elseif $gardenerstatus is "dead">>our gardener died
+<<elseif $gardenerstatus is "vacation">>our gardener is on a vacation
+<<elseif $gardenerstatus is "tired">>our gardener is overworked
+<<elseif $gardenerstatus is "fine">>our gardener could use some help
+<<elseif $gardenerstatus is "inspired">>our gardener got excited about some new project
+<<elseif $gardenerstatus is "none">>we lack a gardener
+<<elseif $gardenerstatus is "unknown">>
+<<else>>
+<</if>>.
+"Hmm, right I think I heard something about garden supposedly needing weeding, You could take care of that I suppose.",
+
+"I was thinking of holding a tea party in the garden but before that it needs to be cleaned up a bit so I'll pay you £50 if you take care of it."
+
+
+:: Mansion 2
+$heirloom
+
+"But as it happens I do need something."
+
+"You're an insolent little thing," <<he>> says.
+"But as it happens I do need something.
+
+There's a family heirloom in my attic I need retrieved.
+I can't do it myself, it's too dusty up there. It will take up to an hour and I'll give you £15 for finding it."<br><br>
+
+<<if quest is "weeds">>
+<<print either("My garden has weeds that need to be taken care of.","My garden needs someone to tend to it for today.")>>
+<<print either("It will probably take around 4 hours and you'll get £50 for it","You'll get £50 and I'd expect it to take 4 hours")>>
+
+<</if>>
+
+:: Mansion 3
+$mansionpartiesserved
+$mansionpartysuccess
+$mansionapronjobs
+
+:: Mansion 4
+$gardendoglove
+$gardenweeds
+$gardenstares
+$gardenmasterlove
+
+:: Mansion 5
+$teaguylove
+$teaguywhore
+$teaguyneed
+
+"I feel embarrassed asking this of you but my garden has gotten rathe unsightly looking and I desperately need someone to clean it up a little"
+
+:: Mansion 6
+fountain mansion.
+
+
+:: Mansion 7
+foreigner mansion(letter delivery)
+
+"We do need someone to clear the garden of weeds, I hope you'll be up to the task"
+
+:: Mansion 8
+pub seduced guy
+
+:: Mansion 9
+danube meal mansion
+
+:: Mansion 10
+
+:: Mansion 11
+
+:: Mansion 12

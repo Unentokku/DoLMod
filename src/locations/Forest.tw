@@ -1,0 +1,357 @@
+:: Forest [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+<<if $foresthunt gte 1>>
+<span class="red">You are being hunted.</span><br><br>
+<</if>>
+<<if $arousal gte 10000>>
+<<orgasmforest>>
+<</if>>
+
+<<if $forest lte 0>><<set $forest to 0>>
+<<forestmove>><br><br>
+
+	<<if $stress gte 10000>><<passoutforest>>
+	<<elseif $foresthunt gte 10>>
+	<<foresthunt>>
+	<<else>>
+	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+		<<if $eventskip is 0>>
+			<<if $danger gte (9900 - ($allure * $forestmod))>>
+			<<eventforestoutskirts>>
+			<<else>>
+			<<eventforestsafe>>
+			<</if>>
+		<<elseif $eventskip gte 1>>
+		
+		
+You are in the forest outskirts. You can make out the town between the trees.<br><br>
+
+<<click [[Accessory Shop (0:05)|Accessory Shop]]>><<pass5>><</click>><br>
+<<if $edenfasttravel == 1>>
+	<<click [[Eden's Cabin (0:15)|Forest]]>><<set $forestmod = 1, $forest = 99, $forestmove = "edenin", $foresthunt += 2>><<pass15>><</click>><br>
+<</if>>
+<br>
+
+Go deeper into the forest<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest += 5>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest += 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest += 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Search this area<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Leave the forest<br>
+<<click [[Danube Street (0:10)|Danube Street]]>><<pass10>><<set $foresthunt to 0>><</click>><br>
+<<click [[Wolf Street (0:10)|Wolf Street]]>><<pass10>><<set $foresthunt to 0>><</click>><br>
+<<click [[Nightingale Street (0:10)|Nightingale Street]]>><<pass10>><<set $foresthunt to 0>><</click>><br>
+<br>
+
+
+			<<if $historytrait gte 3>>
+			<<click [[Take secret path deeper into the woods (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest += 50>><<set $forestmove to "secretin">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+			<</if>>
+		<</if>>
+	<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<elseif $forest lte 20>>
+<<forestmove>><br><br>
+
+	<<if $stress gte 10000>><<passoutforest>>
+	<<elseif $foresthunt gte 10>>
+	<<foresthunt>>
+	<<else>>
+	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+		<<if $eventskip is 0>>
+			<<if $danger gte (9900 - ($allure * $forestmod))>>
+			<<eventforestoutskirts>>
+			<<else>>
+			<<eventforestsafe>>
+			<</if>>
+		<<elseif $eventskip gte 1>>
+		
+You are in the forest. The trees are quite sparse, you can't be too far from town.<br><br>
+
+Go deeper into the forest<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest += 5>><<pass5>><<set $forestmove to "quickly">><<gharass>><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest += 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest += 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Search this area<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Go towards town<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest -= 5>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest -= 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest -= 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+		<</if>>
+	<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<elseif $forest lte 50>>
+<<forestmove>><br><br>
+
+	<<if $stress gte 10000>><<passoutforest>>
+	<<elseif $foresthunt gte 10>>
+	<<foresthunt>>
+	<<else>>
+	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+		<<if $eventskip is 0>>
+			<<if $danger gte (9900 - ($allure * $forestmod))>>
+			<<eventforest>>
+			<<else>>
+			<<eventforestsafe>>
+			<</if>>
+		<<elseif $eventskip gte 1>>
+		
+You are in the forest, surrounded by nature.<br><br>
+
+Go deeper into the forest<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest += 5>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest += 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest += 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Search this area<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Go towards town<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest -= 5>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest -= 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest -= 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+
+			<<if $historytrait gte 3>>
+			<<click [[Take secret path out of the woods (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest -= 50>><<set $forestmove to "secretout">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+			<</if>>
+
+		<</if>>
+	<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<elseif $forest lte 99>>
+<<forestmove>><br><br>
+
+	<<if $stress gte 10000>><<passoutforest>>
+	<<elseif $foresthunt gte 10>>
+	<<foresthunt>>
+	<<else>>
+	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+		<<if $eventskip is 0>>
+			<<if $danger gte (9900 - ($allure * $forestmod))>>
+			<<eventforestdeep>>
+			<<else>>
+			<<eventforestsafe>>
+			<</if>>
+		<<elseif $eventskip gte 1>>
+	
+You are deep in the forest. The trees are tall and dark, their branches twisting together to form the canopy.<br><br>
+
+	<<if $edenfreedom gte 1>>
+	<<click [[Eden's Cabin (0:10)|Eden Clearing]]>><<pass10>><</click>><br>
+	<<elseif $symdromeeden gte 1>>
+	<<click [[Eden's Cabin (0:10)|Eden Clearing]]>><<pass10>><</click>><br>
+	<</if>>
+	<<if $edenfasttravel == 1>>
+		<<click [[Forest Entrance (0:15)|Forest]]>><<set $forestmod = 1, $forest = 0, $forestmove = "edenout", $foresthunt += 2>><<pass15>><</click>><br>
+	<</if>>
+	
+	<<if $pubtask is 1 and $pubtask2 isnot 1>>
+		<<set $rng to random(1, 100)>>
+		<<if $pubtasksetting is "bear" and $bestialitydisable is "f">>
+		<<click [[Search for Landry's black box|Forest Bear Box]]>><</click>><br>
+		<<elseif $pubtasksetting is "pair">>
+		<<click [[Search for Landry's black box|Forest Box]]>><</click>><br>
+		<<elseif $rng gte 51 and $bestialitydisable is "f">>
+		<<click [[Search for Landry's black box|Forest Bear Box]]>><</click>><br>
+		<<else>>
+		<<click [[Search for Landry's black box|Forest Box]]>><</click>><br>
+		<</if>>
+	<</if>>
+<br>
+Go deeper into the forest<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest += 5>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest += 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest += 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Search this area<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Go towards town<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest -= 5>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest -= 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest -= 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+		<</if>>
+	<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<elseif $forest gte 100>><<set $forest to 100>>
+<<forestmove>><br><br>
+
+	<<if $stress gte 10000>><<passoutforest>>
+	<<elseif $foresthunt gte 10>>
+	<<foresthunt>>
+	<<else>>
+	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+		<<if $eventskip is 0>>
+			<<if $danger gte (9900 - ($allure * $forestmod))>>
+			<<eventforestdeep>>
+			<<else>>
+			<<eventforestsafe>>
+			<</if>>
+		<<elseif $eventskip gte 1>>
+	
+You are deep in the forest. You can make out the asylum through the trees.<br><br>
+
+
+
+Search this area<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+Go towards town<br>
+<<click [[Quickly (0:05)|Forest]]>><<set $forestmod to 3>><<set $forest -= 5>><<pass5>><<set $forestmove to "quickly">><<if $foresthunt gte 1>><<set $foresthunt += 0.5>><</if>><</click>><<gharass>><br>
+<<click [[Normally (0:10)|Forest]]>><<set $forestmod to 1.5>><<set $forest -= 5>><<set $forestmove to "normally">><<pass10>><<if $foresthunt gte 1>><<set $foresthunt += 1>><</if>><</click>><br>
+<<click [[Carefully (0:30)|Forest]]>><<set $forestmod to 1>><<set $forest -= 5>><<pass30>><<set $forestmove to "carefully">><<if $foresthunt gte 1>><<set $foresthunt += 2>><</if>><</click>><<lharass>><br>
+<br>
+
+		<</if>>
+	<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<</if>>
+<<set $eventskip to 0>>

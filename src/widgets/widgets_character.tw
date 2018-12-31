@@ -1,0 +1,1657 @@
+:: Widgets Named Npcs [widget]
+<<widget "endnpc">><<nobr>>
+<<if $npc is "Charlie">><<set $npc to 0>><<charlieend>><</if>>
+<<if $npc is "Darryl">><<set $npc to 0>><<darrylend>><</if>>
+<<if $npc is "Harper">><<set $npc to 0>><<harperend>><</if>>
+<<if $npc is "Jordan">><<set $npc to 0>><<jordanend>><</if>>
+<<if $npc is "Briar">><<set $npc to 0>><<briarend>><</if>>
+<<if $npc is "River">><<set $npc to 0>><<riverend>><</if>>
+<<if $npc is "Leighton">><<set $npc to 0>><<leightonend>><</if>>
+<<if $npc is "Mason">><<set $npc to 0>><<masonend>><</if>>
+<<if $npc is "Winter">><<set $npc to 0>><<winterend>><</if>>
+<<if $npc is "Doren">><<set $npc to 0>><<dorenend>><</if>>
+<<if $npc is "Sirris">><<set $npc to 0>><<sirrisend>><</if>>
+<<if $npc is "Eden">><<set $npc to 0>><<edenend>><</if>>
+<<if $npc is "Sam">><<set $npc to 0>><<samend>><</if>>
+<<if $npc is "Landry">><<set $npc to 0>><<landryend>><</if>>
+<<if $npc is "Bailey">><<set $npc to 0>><<baileyend>><</if>>
+<<if $npc is "Whitney">><<set $npc to 0>><<whitneyend>><</if>>
+<<if $npc is "Robin">><<set $npc to 0>><<robinend>><</if>>
+<</nobr>><</widget>>
+
+<<widget "initnpcgender">><<nobr>>
+
+<<if $charliegender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $charliegender to "f">>
+<<else>>
+<<set $charliegender to "m">>
+<</if>>
+<</if>>
+<<if $charliegenitals is undefined>>
+<<if $charliegender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $charliegenitals to "penis">>
+	<<else>>
+	<<set $charliegenitals to "vagina">>
+	<</if>>
+<<elseif $charliegender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $charliegenitals to "vagina">>
+	<<else>>
+	<<set $charliegenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $darrylgender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $darrylgender to "f">>
+<<else>>
+<<set $darrylgender to "m">>
+<</if>>
+<</if>>
+<<if $darrylgenitals is undefined>>
+<<if $darrylgender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $darrylgenitals to "penis">>
+	<<else>>
+	<<set $darrylgenitals to "vagina">>
+	<</if>>
+<<elseif $darrylgender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $darrylgenitals to "vagina">>
+	<<else>>
+	<<set $darrylgenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $harpergender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $harpergender to "f">>
+<<else>>
+<<set $harpergender to "m">>
+<</if>>
+<</if>>
+<<if $harpergenitals is undefined>>
+<<if $harpergender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $harpergenitals to "penis">>
+	<<else>>
+	<<set $harpergenitals to "vagina">>
+	<</if>>
+<<elseif $harpergender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $harpergenitals to "vagina">>
+	<<else>>
+	<<set $harpergenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $jordangender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $jordangender to "f">>
+<<else>>
+<<set $jordangender to "m">>
+<</if>>
+<</if>>
+<<if $jordangenitals is undefined>>
+<<if $jordangender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $jordangenitals to "penis">>
+	<<else>>
+	<<set $jordangenitals to "vagina">>
+	<</if>>
+<<elseif $jordangender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $jordangenitals to "vagina">>
+	<<else>>
+	<<set $jordangenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $briargender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $briargender to "f">>
+<<else>>
+<<set $briargender to "m">>
+<</if>>
+<</if>>
+<<if $briargenitals is undefined>>
+<<if $briargender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $briargenitals to "penis">>
+	<<else>>
+	<<set $briargenitals to "vagina">>
+	<</if>>
+<<elseif $briargender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $briargenitals to "vagina">>
+	<<else>>
+	<<set $briargenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $rivergender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $rivergender to "f">>
+<<else>>
+<<set $rivergender to "m">>
+<</if>>
+<</if>>
+<<if $rivergenitals is undefined>>
+<<if $rivergender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $rivergenitals to "penis">>
+	<<else>>
+	<<set $rivergenitals to "vagina">>
+	<</if>>
+<<elseif $rivergender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $rivergenitals to "vagina">>
+	<<else>>
+	<<set $rivergenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $leightongender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $leightongender to "f">>
+<<else>>
+<<set $leightongender to "m">>
+<</if>>
+<</if>>
+<<if $leightongenitals is undefined>>
+<<if $leightongender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $leightongenitals to "penis">>
+	<<else>>
+	<<set $leightongenitals to "vagina">>
+	<</if>>
+<<elseif $leightongender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $leightongenitals to "vagina">>
+	<<else>>
+	<<set $leightongenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $masongender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $masongender to "f">>
+<<else>>
+<<set $masongender to "m">>
+<</if>>
+<</if>>
+<<if $masongenitals is undefined>>
+<<if $masongender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $masongenitals to "penis">>
+	<<else>>
+	<<set $masongenitals to "vagina">>
+	<</if>>
+<<elseif $masongender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $masongenitals to "vagina">>
+	<<else>>
+	<<set $masongenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $wintergender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $wintergender to "f">>
+<<else>>
+<<set $wintergender to "m">>
+<</if>>
+<</if>>
+<<if $wintergenitals is undefined>>
+<<if $wintergender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $wintergenitals to "penis">>
+	<<else>>
+	<<set $wintergenitals to "vagina">>
+	<</if>>
+<<elseif $wintergender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $wintergenitals to "vagina">>
+	<<else>>
+	<<set $wintergenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $dorengender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $dorengender to "f">>
+<<else>>
+<<set $dorengender to "m">>
+<</if>>
+<</if>>
+<<if $dorengenitals is undefined>>
+<<if $dorengender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $dorengenitals to "penis">>
+	<<else>>
+	<<set $dorengenitals to "vagina">>
+	<</if>>
+<<elseif $dorengender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $dorengenitals to "vagina">>
+	<<else>>
+	<<set $dorengenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $sirrisgender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $sirrisgender to "f">>
+<<else>>
+<<set $sirrisgender to "m">>
+<</if>>
+<</if>>
+<<if $sirrisgenitals is undefined>>
+<<if $sirrisgender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $sirrisgenitals to "penis">>
+	<<else>>
+	<<set $sirrisgenitals to "vagina">>
+	<</if>>
+<<elseif $sirrisgender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $sirrisgenitals to "vagina">>
+	<<else>>
+	<<set $sirrisgenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $edengender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $edengender to "f">>
+<<else>>
+<<set $edengender to "m">>
+<</if>>
+<</if>>
+<<if $edengenitals is undefined>>
+<<if $edengender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $edengenitals to "penis">>
+	<<else>>
+	<<set $edengenitals to "vagina">>
+	<</if>>
+<<elseif $edengender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $edengenitals to "vagina">>
+	<<else>>
+	<<set $edengenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $samgender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $samgender to "f">>
+<<else>>
+<<set $samgender to "m">>
+<</if>>
+<</if>>
+<<if $samgenitals is undefined>>
+<<if $samgender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $samgenitals to "penis">>
+	<<else>>
+	<<set $samgenitals to "vagina">>
+	<</if>>
+<<elseif $samgender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $samgenitals to "vagina">>
+	<<else>>
+	<<set $samgenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $landrygender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $landrygender to "f">>
+<<else>>
+<<set $landrygender to "m">>
+<</if>>
+<</if>>
+<<if $landrygenitals is undefined>>
+<<if $landrygender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $landrygenitals to "penis">>
+	<<else>>
+	<<set $landrygenitals to "vagina">>
+	<</if>>
+<<elseif $landrygender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $landrygenitals to "vagina">>
+	<<else>>
+	<<set $landrygenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $baileygender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $baileygender to "f">>
+<<else>>
+<<set $baileygender to "m">>
+<</if>>
+<</if>>
+<<if $baileygenitals is undefined>>
+<<if $baileygender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $baileygenitals to "penis">>
+	<<else>>
+	<<set $baileygenitals to "vagina">>
+	<</if>>
+<<elseif $baileygender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $baileygenitals to "vagina">>
+	<<else>>
+	<<set $baileygenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $whitneygender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $whitneygender to "f">>
+<<else>>
+<<set $whitneygender to "m">>
+<</if>>
+<</if>>
+<<if $whitneygenitals is undefined>>
+<<if $whitneygender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $whitneygenitals to "penis">>
+	<<else>>
+	<<set $whitneygenitals to "vagina">>
+	<</if>>
+<<elseif $whitneygender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $whitneygenitals to "vagina">>
+	<<else>>
+	<<set $whitneygenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if $robingender is undefined>>
+<<if $malechance lt random(1, 100)>>
+<<set $robingender to "f">>
+<<else>>
+<<set $robingender to "m">>
+<</if>>
+<</if>>
+<<if $robingenitals is undefined>>
+<<if $robingender is "m">>
+	<<if random(0, 99) gte $cbchance>>
+	<<set $robingenitals to "penis">>
+	<<else>>
+	<<set $robingenitals to "vagina">>
+	<</if>>
+<<elseif $robingender is "f">>
+	<<if random(0, 99) gte $dgchance>>
+	<<set $robingenitals to "vagina">>
+	<<else>>
+	<<set $robingenitals to "penis">>
+	<</if>>
+<</if>>
+<</if>>
+
+
+<</nobr>><</widget>>
+
+
+<<widget "initcharlie">><<nobr>>
+<<set $initcharlie to 1>>
+
+<<set $charlietrust to 0>>
+<<set $charlielove to 0>>
+<<set $charliedom to 0>>
+
+
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "charlie">><<nobr>>
+<<if $initcharlie isnot 1>>
+<<initcharlie>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Charlie">>
+
+<<set $pronoun1 to $charliegender>><<set $charlieactivegender to $charliegender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+
+<<if $charliegenitals is "penis">>
+<<set $penis to "clothed">>
+<<elseif $charliegenitals is "vagina">>
+<<set $vagina to "clothed">>
+<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "dance coach">>
+<<else>>
+<<set $npcdescription to "dance coach">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "charlieend">><<nobr>>
+<<set $charlietrust to $charlietrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initdarryl">><<nobr>>
+<<set $initdarryl to 1>>
+
+<<set $darryltrust to 0>>
+<<set $darryllove to 0>>
+<<set $darryldom to 0>>
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "darryl">><<nobr>>
+<<if $initdarryl isnot 1>>
+<<initdarryl>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Darryl">>
+
+<<set $pronoun1 to $darrylgender>><<set $darrylactivegender to $darrylgender>>
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $darrylgenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $darrylgenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "club owner">>
+<<else>>
+<<set $npcdescription to "club owner">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "darrylend">><<nobr>>
+<<set $darryltrust to $darryltrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initharper">><<nobr>>
+<<set $initharper to 1>>
+
+<<set $harpertrust to 0>>
+<<set $harperlove to 0>>
+<<set $harperdom to 0>>
+
+
+
+<</nobr>><</widget>>
+
+<<widget "harper">><<nobr>>
+<<if $initharper isnot 1>>
+<<initharper>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Harper">>
+
+<<set $pronoun1 to $harpergender>><<set $harperactivegender to $harpergender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+
+		<<if $harpergenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $harpergenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "doctor">>
+<<else>>
+<<set $npcdescription to "doctor">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "harperend">><<nobr>>
+<<set $harpertrust to $harpertrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initjordan">><<nobr>>
+<<set $initjordan to 1>>
+
+<<set $jordantrust to 0>>
+<<set $jordanlove to 0>>
+<<set $jordandom to 0>>
+
+
+
+<</nobr>><</widget>>
+
+<<widget "jordan">><<nobr>>
+<<if $initjordan isnot 1>>
+<<initjordan>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Jordan">>
+
+<<set $pronoun1 to $jordangender>><<set $jordanactivegender to $jordangender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $jordangenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $jordangenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "priestess">>
+<<else>>
+<<set $npcdescription to "priest">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "jordanend">><<nobr>>
+<<set $jordantrust to $jordantrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initbriar">><<nobr>>
+<<set $initbriar to 1>>
+
+<<set $briartrust to 0>>
+<<set $briarlove to 0>>
+<<set $briardom to 0>>
+
+
+
+<</nobr>><</widget>>
+
+<<widget "briar">><<nobr>>
+<<if $initbriar isnot 1>>
+<<initbriar>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Briar">>
+
+<<set $pronoun1 to $briargender>><<set $briaractivegender to $briargender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $briargenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $briargenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "brothel owner">>
+<<else>>
+<<set $npcdescription to "brothel owner">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "briarend">><<nobr>>
+<<set $briartrust to $briartrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initriver">><<nobr>>
+<<set $initriver to 1>>
+
+<<set $rivertrust to 0>>
+<<set $riverlove to 0>>
+<<set $riverdom to 0>>
+
+
+
+<<if $malechance is 100>>
+//River teaches maths at the local school. His short brown hair is flecked with grey and his piercing blue eyes scrutinize his surroundings. Students tend to be well-behaved in his class.//
+<<elseif $malechance is 0>>
+//River teaches maths at the local school. Her long brown hair is flecked with grey and her piercing blue eyes scrutinize her surroundings. Students tend to be well-behaved in her class.//
+<<elseif $rivergender is "m">>
+//River teaches maths at the local school. His short brown hair is flecked with grey and his piercing blue eyes scrutinize his surroundings. Students tend to be well-behaved in his class.//
+<<else>>
+//River teaches maths at the local school. Her long brown hair is flecked with grey and her piercing blue eyes scrutinize her surroundings. Students tend to be well-behaved in her class.//
+<</if>>
+
+<</nobr>><</widget>>
+
+<<widget "river">><<nobr>>
+<<if $initriver isnot 1>>
+<<initriver>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "River">>
+
+<<set $pronoun1 to $rivergender>><<set $riveractivegender to $rivergender>>
+
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $rivergenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $rivergenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "maths teacher">>
+<<else>>
+<<set $npcdescription to "maths teacher">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "riverend">><<nobr>>
+<<set $rivertrust to $rivertrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initleighton">><<nobr>>
+<<set $initleighton to 1>>
+
+<<set $leightontrust to 0>>
+<<set $leightonlove to 0>>
+<<set $leightondom to 0>>
+
+
+
+<<if $malechance is 100>>
+//Leighton is the headmaster of the local school. He has green eyes and well-kept greying black hair. Tall and stately, he has a paternal, but firm attitude towards the students at his school.//
+<<elseif $malechance is 0>>
+//Leighton is the headmistress of the local school. She has green eyes and greying black hair, held behind her head in a bun. Tall and stately, she has a maternal, but firm attitude towards the students at her school.//
+<<elseif $leightongender is "m">>
+//Leighton is the headmaster of the local school. He has green eyes and well-kept greying black hair. Tall and stately, he has a paternal, but firm attitude towards the students at his school.//
+<<else>>
+//Leighton is the headmistress of the local school. She has green eyes and greying black hair, held behind her head in a bun. Tall and stately, she has a maternal, but firm attitude towards the students at her school.//
+<</if>>
+
+<</nobr>><</widget>>
+
+<<widget "leighton">><<nobr>>
+<<if $initleighton isnot 1>>
+<<initleighton>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Leighton">>
+
+<<set $pronoun1 to $leightongender>><<set $leightonactivegender to $leightongender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $leightongenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $leightongenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "headmistress">>
+<<else>>
+<<set $npcdescription to "headmaster">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "leightonend">><<nobr>>
+<<set $leightontrust to $leightontrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initmason">><<nobr>>
+<<set $initmason to 1>>
+
+<<set $masontrust to 0>>
+<<set $masonlove to 0>>
+<<set $masondom to 0>>
+
+
+
+<<if $malechance is 100>>
+//Mason is the swimming teacher at the local school. He's the youngest teacher, only a few years older than some of the students. His toned body is naturally shown off during class, but if he notices the way he's leered at, he gives no indication.//
+<<elseif $malechance is 0>>
+//Mason is the swimming teacher at the local school. She's the youngest teacher, only a few years older than some of the students. Her toned body is naturally shown off during class, but if she notices the way she's leered at, she gives no indication.//
+<<elseif $masongender is "m">>
+//Mason is the swimming teacher at the local school. He's the youngest teacher, only a few years older than some of the students. His toned body is naturally shown off during class, but if he notices the way he's leered at, he gives no indication.//
+<<else>>
+//Mason is the swimming teacher at the local school. She's the youngest teacher, only a few years older than some of the students. Her toned body is naturally shown off during class, but if she notices the way she's leered at, she gives no indication.//
+<</if>>
+
+<</nobr>><</widget>>
+
+<<widget "mason">><<nobr>>
+<<if $initmason isnot 1>>
+<<initmason>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Mason">>
+
+<<set $pronoun1 to $masongender>><<set $masonactivegender to $masongender>>
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $masongenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $masongenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "swimming teacher">>
+<<else>>
+<<set $npcdescription to "swimming teacher">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "masonend">><<nobr>>
+<<set $masontrust to $masontrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initwinter">><<nobr>>
+<<set $initwinter to 1>>
+
+<<set $wintertrust to 0>>
+<<set $winterlove to 0>>
+<<set $winterdom to 0>>
+
+
+
+<<if $malechance is 100>>
+//Winter teaches history at the local school. He's an older gentleman, well-groomed and sophisticated.//
+<<elseif $malechance is 0>>
+//Winter teaches history at the local school. She's an older lady, well-groomed and sophisticated.//
+<<elseif $wintergender is "m">>
+//Winter teaches history at the local school. He's an older gentleman, well-groomed and sophisticated.//
+<<else>>
+//Winter teaches history at the local school. She's an older lady, well-groomed and sophisticated.//
+<</if>>
+
+<</nobr>><</widget>>
+
+<<widget "winter">><<nobr>>
+<<if $initwinter isnot 1>>
+<<initwinter>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Winter">>
+
+<<set $pronoun1 to $wintergender>><<set $winteractivegender to $wintergender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $wintergenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $wintergenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "history teacher">>
+<<else>>
+<<set $npcdescription to "history teacher">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "winterend">><<nobr>>
+<<set $wintertrust to $wintertrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initdoren">><<nobr>>
+<<set $initdoren to 1>>
+
+<<set $dorentrust to 0>>
+<<set $dorenlove to 0>>
+<<set $dorendom to 0>>
+
+
+
+<<if $malechance is 100>>
+//Doren teaches english at the local school. His shaggy red hair and beard give him a savage look.//
+<<elseif $malechance is 0>>
+//Doren teaches english at the local school. Her shaggy red hair gives her a savage look.//
+<<elseif $dorengender is "m">>
+//Doren teaches english at the local school. His shaggy red hair and beard give him a savage look.//
+<<else>>
+//Doren teaches english at the local school. Her shaggy red hair gives her a savage look.//
+<</if>>
+
+<</nobr>><</widget>>
+
+<<widget "doren">><<nobr>>
+<<if $initdoren isnot 1>>
+<<initdoren>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Doren">>
+
+<<set $pronoun1 to $dorengender>><<set $dorenactivegender to $dorengender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $dorengenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $dorengenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "english teacher">>
+<<else>>
+<<set $npcdescription to "english teacher">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "dorenend">><<nobr>>
+<<set $dorentrust to $dorentrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initsirris">><<nobr>>
+<<set $initsirris to 1>>
+
+<<set $sirristrust to 0>>
+<<set $sirrislove to 0>>
+<<set $sirrisdom to 0>>
+
+
+
+<<if $malechance is 100>>
+//Sirris teaches science at the local school. He's calm and patient, which sometimes leads to a disordered classroom.//
+<<elseif $malechance is 0>>
+//Sirris teaches science at the local school. She's calm and patient, which sometimes leads to a disordered classroom.//
+<<elseif $sirrisgender is "m">>
+//Sirris teaches science at the local school. He's calm and patient, which sometimes leads to a disordered classroom.//
+<<else>>
+//Sirris teaches science at the local school. She's calm and patient, which sometimes leads to a disordered classroom.//
+<</if>>
+
+<</nobr>><</widget>>
+
+<<widget "sirris">><<nobr>>
+<<if $initsirris isnot 1>>
+<<initsirris>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Sirris">>
+
+<<set $pronoun1 to $sirrisgender>><<set $sirrisactivegender to $sirrisgender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $sirrisgenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $sirrisgenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "science teacher">>
+<<else>>
+<<set $npcdescription to "science teacher">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "sirrisend">><<nobr>>
+<<set $sirristrust to $sirristrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initeden">><<nobr>>
+<<set $initeden to 1>>
+
+<<set $edentrust to 0>>
+<<set $edenlove to 0>>
+<<set $edendom to 0>>
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "eden">><<nobr>>
+<<if $initeden isnot 1>>
+<<initeden>>
+<</if>>
+
+
+
+<<set $npc to "Eden">>
+
+<<set $pronoun1 to $edengender>><<set $edenactivegender to $edengender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $edengenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $edengenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "huntress">>
+<<else>>
+<<set $npcdescription to "hunter">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+<<set $enemyno to $enemyno + 1>>
+
+<</nobr>><</widget>>
+
+<<widget "edenend">><<nobr>>
+<<set $edentrust to $edentrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initsam">><<nobr>>
+<<set $initsam to 1>>
+
+<<set $samtrust to 0>>
+<<set $samlove to 0>>
+<<set $samdom to 0>>
+
+
+
+<</nobr>><</widget>>
+
+<<widget "sam">><<nobr>>
+<<if $initsam isnot 1>>
+<<initsam>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Sam">>
+
+<<set $pronoun1 to $samgender>><<set $samactivegender to $samgender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $samgenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $samgenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "cafe owner">>
+<<else>>
+<<set $npcdescription to "cafe owner">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "samend">><<nobr>>
+<<set $samtrust to $samtrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initlandry">><<nobr>>
+<<set $initlandry to 1>>
+
+<<set $landrytrust to 0>>
+<<set $landrylove to 0>>
+<<set $landrydom to 0>>
+
+
+
+<</nobr>><</widget>>
+
+<<widget "landry">><<nobr>>
+<<if $initlandry isnot 1>>
+<<initlandry>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Landry">>
+
+<<set $pronoun1 to $landrygender>><<set $landryactivegender to $landrygender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $landrygenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $landrygenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "criminal">>
+<<else>>
+<<set $npcdescription to "criminal">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+<</nobr>><</widget>>
+
+<<widget "landryend">><<nobr>>
+<<set $landrytrust to $landrytrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initbailey">><<nobr>>
+<<set $initbailey to 1>>
+
+<<set $baileytrust to 0>>
+<<set $baileylove to 0>>
+<<set $baileydom to 0>>
+
+
+
+<</nobr>><</widget>>
+
+<<widget "bailey">><<nobr>>
+<<if $initbailey isnot 1>>
+<<initbailey>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Bailey">>
+
+<<set $pronoun1 to $baileygender>><<set $baileyactivegender to $baileygender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $baileygenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $baileygenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "caretaker">>
+<<else>>
+<<set $npcdescription to "caretaker">>
+<</if>>
+<<set $npcadult1 to 1>>
+<<set $npcchild1 to 0>>
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "baileyend">><<nobr>>
+<<set $baileytrust to $baileytrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initwhitney">><<nobr>>
+<<set $initwhitney to 1>>
+
+<<set $whitneytrust to 0>>
+<<set $whitneylove to 0>>
+<<set $whitneydom to 0>>
+
+
+
+<</nobr>><</widget>>
+
+<<widget "whitney">><<nobr>>
+<<if $initwhitney isnot 1>>
+<<initwhitney>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Whitney">>
+
+<<set $pronoun1 to $whitneygender>><<set $whitneyactivegender to $whitneygender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $whitneygenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $whitneygenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "bully">>
+<<else>>
+<<set $npcdescription to "bully">>
+<</if>>
+<<set $npcadult1 to 0>>
+<<set $npcchild1 to 0>>
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "whitneyend">><<nobr>>
+<<set $whitneytrust to $whitneytrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "initrobin">><<nobr>>
+<<set $initrobin to 1>>
+
+<<set $robintrust to 0>>
+<<set $robinlove to 0>>
+<<set $robindom to 0>>
+<<set $robinlust to 0>>
+<<set $robintrauma to 0>>
+
+
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "robin">><<nobr>>
+<<if $initrobin isnot 1>>
+<<initrobin>>
+<</if>>
+
+<<set $enemyno to $enemyno + 1>>
+
+<<set $npc to "Robin">>
+
+<<set $pronoun1 to $robingender>><<set $robinactivegender to $robingender>>
+
+
+<<set $lefthand to 0>>
+<<set $righthand to 0>>
+<<set $mouth to 0>>
+<<set $anus to 0>>
+
+
+		<<if $robingenitals is "penis">>
+		<<set $penis to "clothed">>
+		<<elseif $robingenitals is "vagina">>
+		<<set $vagina to "clothed">>
+		<</if>>
+
+
+
+<<if $pronoun1 is "f">>
+<<set $npcdescription to "orphan">>
+<<else>>
+<<set $npcdescription to "orphan">>
+<</if>>
+<<set $npcadult1 to 0>>
+<<set $npcchild1 to 0>>
+
+
+
+
+<</nobr>><</widget>>
+
+<<widget "robinend">><<nobr>>
+<<set $robintrust to $robintrust + ($enemytrust / 100)>>
+<</nobr>><</widget>>
+
+

@@ -1,0 +1,233 @@
+:: Start [nobr]
+<<effects>>
+<<initnpcgender>>
+<<set $physiqueage to (1000 * $devlevel)>>
+
+
+<<set $physique to ($physiqueage / 7) * 3>>
+<<set $beauty to ($beautymax / 7)>>
+
+<<if $devlevel gte 12>>
+<<set $devstate to 1>>
+<<else>>
+<<set $devstate to 0>>
+<</if>>
+
+<<if $dev is 0>>
+<<set $devstate to 1>>
+<</if>>
+
+
+<<if $playergender is "f">>
+<<set $girlsgymsocks to 1>>
+<<set $uppersundressnew to 1>>
+<<set $lowersundressnew to 1>>
+<<set $upperpjsnew to 1>>
+<<set $lowerpjsnew to 1>>
+<<set $plainpantiesnew to 1>>
+<<set $schoolshirtnew to 1>>
+<<set $schoolskirtnew to 1>>
+<<set $upperschoolswimsuitnew to 1>>
+<<set $lowerschoolswimsuitnew to 1>>
+<<upperschoolswimsuit>><<lowerschoolswimsuit>><<schoolshirt>><<schoolskirt>><<upperpjs>><<lowerpjs>><<uppersundress>><<lowersundress>><<plainpanties>>
+<<set $uppersundressno to 1>>
+<<set $upperpjsno to 1>>
+<<set $lowersundressno to 1>>
+<<set $lowerpjsno to 1>>
+<<set $plainpantiesno to 1>>
+<<set $schoolshirtno to 1>>
+<<set $schoolskirtno to 1>>
+<<set $upperschoolswimsuitno to 1>>
+<<set $lowerschoolswimsuitno to 1>>
+<<set $sundresscolour to "white">>
+<<set $sundresscolourchoice to "white">>
+<<set $upperpjscolour to "blue">>
+<<set $upperpjscolourchoice to "blue">>
+<<set $lowerpjscolour to "blue">>
+<<set $lowerpjscolourchoice to "blue">>
+<<set $plainpantiescolour to "pink">>
+<<set $plainpantiescolourchoice to "pink">>
+<<set $schoolshirtcolour to "white">>
+<<set $schoolshirtcolourchoice to "white">>
+<<set $schoolskirtcolour to "black">>
+<<set $schoolskirtcolourchoice to "black">>
+<<set $schoolswimsuitcolour to "blue">>
+<<set $schoolswimsuitcolourchoice to "blue">>
+<<set $uppercolour to $sundresscolour>>
+<<set $lowercolour to $sundresscolour>>
+<<set $undercolour to $plainpantiescolour>>
+<<set $upperoff to 0>>
+<<set $loweroff to 0>>
+<<set $underoff to 0>>
+
+	<<if $devlevel lte 11>>
+	<<set $breastsize to 0>><<set $breastcup to "none">><<set $breastsizeold to 0>><<set $breastgrowthtimer to 350>>
+	<<elseif $devlevel lte 13>>
+	<<set $breastsize to 1>><<set $breastcup to "budding">><<set $breastsizeold to 1>><<set $breastgrowthtimer to 350>>
+	<<elseif $devlevel lte 15>>
+	<<set $breastsize to 2>><<set $breastcup to "AA">><<set $breastsizeold to 2>><<set $breastgrowthtimer to 350>>
+	<<else>>
+	<<set $breastsize to 3>><<set $breastcup to "B">><<set $breastsizeold to 3>><<set $breastgrowthtimer to 350>>
+	<</if>>
+<</if>>
+
+<<if $playergender is "m">>
+<<set $boysgymsocks to 1>>
+<<set $upperpjsnew to 1>>
+<<set $lowerpjsnew to 1>>
+<<set $tshirtnew to 1>>
+<<set $shortsnew to 1>>
+<<set $yfrontsnew to 1>>
+<<set $schoolshirtnew to 1>>
+<<set $schoolshortsnew to 1>>
+<<set $schoolswimshortsnew to 1>>
+<<schoolswimshorts>><<schoolshirt>><<schoolshorts>><<upperpjs>><<lowerpjs>><<shorts>><<tshirt>><<yfronts>>
+<<set $upperpjsno to 1>>
+<<set $lowerpjsno to 1>>
+<<set $tshirtno to 1>>
+<<set $shortsno to 1>>
+<<set $yfrontsno to 1>>
+<<set $schoolshirtno to 1>>
+<<set $schoolshortsno to 1>>
+<<set $schoolswimshortsno to 1>>
+<<set $upperpjscolour to "blue">>
+<<set $upperpjscolourchoice to "blue">>
+<<set $lowerpjscolour to "blue">>
+<<set $lowerpjscolourchoice to "blue">>
+<<set $tshirtcolour to "tangerine">>
+<<set $tshirtcolourchoice to "tangerine">>
+<<set $shortscolour to "blue">>
+<<set $shortscolourchoice to "blue">>
+<<set $yfrontscolour to "white">>
+<<set $yfrontscolourchoice to "white">>
+<<set $schoolshirtcolour to "white">>
+<<set $schoolshirtcolourchoice to "white">>
+<<set $schoolshortscolour to "black">>
+<<set $schoolshortscolourchoice to "black">>
+<<set $schoolswimshortscolour to "blue">>
+<<set $schoolswimshortscolourchoice to "blue">>
+<<set $uppercolour to $tshirtcolour>>
+<<set $lowercolour to $shortscolour>>
+<<set $undercolour to $yfrontscolour>>
+<<set $upperoff to 0>>
+<<set $loweroff to 0>>
+<<set $underoff to 0>>
+
+<<set $breastsize to 0>><<set $breastcup to "none">><<set $breastsizeold to 0>><<set $breastgrowthtimer to 350>>
+<</if>>
+
+<<set $intro to 0>>
+<<if $hairselect is "black">>
+<<set $haircolour to "black">>
+<<elseif $hairselect is "brown">>
+<<set $haircolour to "brown">>
+<<elseif $hairselect is "ginger">>
+<<set $haircolour to "ginger">>
+<<elseif $hairselect is "blond">>
+<<set $haircolour to "blond">>
+<<else>>
+<<set $haircolour to "red">>
+<</if>>
+<<set $naturalhaircolour to $haircolour>>
+
+<<if $eyeselect is "dark blue">>
+<<set $eyecolour to "dark blue">>
+<<elseif $eyeselect is "light blue">>
+<<set $eyecolour to "light blue">>
+<<elseif $eyeselect is "amber">>
+<<set $eyecolour to "amber">>
+<<elseif $eyeselect is "hazel">>
+<<set $eyecolour to "hazel">>
+<<elseif $eyeselect is "green">>
+<<set $eyecolour to "green">>
+<<else>>
+<<set $eyecolour to "purple">>
+<</if>>
+
+<<if $awareselect is "innocent">>
+<<elseif $awareselect is "knowledgeable">>
+<<set $awareness += 200>>
+<<set $awarelevel to 1>>
+<</if>>
+
+<<set $playergenderappearance to $playergender>>
+<<if $playergender is "f">>
+<<set $vaginause to 0>>
+<<set $vaginastate to 0>>
+<<set $vaginaexist to 1>>
+<<set $penisuse to "none">>
+<<set $penisstate to "none">>
+<<set $penisexist to 0>>
+<<elseif $playergender is "m">>
+<<set $vaginause to "none">>
+<<set $vaginastate to "none">>
+<<set $vaginaexist to 0>>
+<<set $penisuse to 0>>
+<<set $penisstate to 0>>
+<<set $penisexist to 1>>
+<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to Degrees of Lewdity!<br><br>
+
+
+
+If you want to avoid trouble, dress modestly and stick to safe, well-lit areas. Nights are particularly dangerous. Dressing lewd will attract attention, both good and bad.<br><br>
+
+The new school year starts tomorrow at 9:00. The bus service is the easiest way to get around town. Don't forget your uniform!<br><br>
+
+
+<span id="next"><<click [[Next|Orphanage Intro]]>><</click>></span>
+
+
+
+
+<br><br>
+
+
+
+
+<<if $debug is 1>>
+<<click [[School Start|Oxford Street]]>><<pass360>><<pass360>><<pass360>><<pass360>><</click>>
+<br>
+<<click [[Science Start|Oxford Street]]>><<pass360>><<pass360>><<pass360>><<pass360>><<pass60>><<pass60>><</click>>
+<br>
+<<click [[Maths Start|Oxford Street]]>><<pass360>><<pass360>><<pass360>><<pass360>><<pass60>><<pass60>><<pass60>><</click>>
+<br>
+<<click [[English Start|Oxford Street]]>><<pass360>><<pass360>><<pass360>><<pass360>><<pass60>><<pass60>><<pass60>><<pass60>><</click>>
+<br>
+<<click [[History Start|Oxford Street]]>><<pass360>><<pass360>><<pass360>><<pass360>><<pass60>><<pass60>><<pass60>><<pass60>><<pass60>><<pass60>><</click>>
+<br>
+<<click [[Swimming Start|Oxford Street]]>><<pass360>><<pass360>><<pass360>><<pass360>><<pass60>><<pass60>><<pass60>><<pass60>><<pass60>><<pass60>><<pass60>><</click>>
+<br>
+
+<</if>>
+

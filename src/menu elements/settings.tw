@@ -1,0 +1,858 @@
+
+:: Widgets Settings [widget]
+<<widget "initsettings">><<nobr>>
+
+Male <<radiobutton "$playergender" "m">>
+| Female <<radiobutton "$playergender" "f" checked>>
+<br><br>
+
+
+<<if $dev is 1>>
+
+
+<span class="red">Harder</span> <-----------------------------------------------> <span class="green">Easier</span><br>
+| 6 <<radiobutton "$devlevel" 6>>
+| 7 <<radiobutton "$devlevel" 7>>
+| 8 <<radiobutton "$devlevel" 8>>
+| 9 <<radiobutton "$devlevel" 9>>
+| 10 <<radiobutton "$devlevel" 10 checked>>
+| 11 <<radiobutton "$devlevel" 11>>
+| 12 <<radiobutton "$devlevel" 12>>
+| 13 <<radiobutton "$devlevel" 13>>
+| 14 <<radiobutton "$devlevel" 14>>
+| 15 <<radiobutton "$devlevel" 15>>
+| 16 <<radiobutton "$devlevel" 16>>
+
+<<else>>
+
+<span class="gold">Body size</span> - A smaller body makes you inflict less damage during encounters, making defiance harder.<br>
+| Tiny <<radiobutton "$devlevel" 6>>
+| Small <<radiobutton "$devlevel" 10 checked>>
+| Normal <<radiobutton "$devlevel" 12>>
+| Large <<radiobutton "$devlevel" 16>>
+
+<</if>>
+<br><br>
+
+Awareness - Whether your character knows a thing or two about sex despite their lack of experience.<br>
+Innocent <<radiobutton "$awareselect" "innocent" checked>>
+| Knowledgeable<<radiobutton "$awareselect" "knowledgeable">>
+<br><br>
+
+Eye Colour<br>
+<span class="purple">Purple</span> <<radiobutton "$eyeselect" "purple" checked>>
+| <span class="blue">Dark Blue</span> <<radiobutton "$eyeselect" "dark blue">>
+| <span class="lblue">Light Blue</span> <<radiobutton "$eyeselect" "light blue">>
+| <span class="tangerine">Amber</span> <<radiobutton "$eyeselect" "amber">>
+| <span class="brown">Hazel</span> <<radiobutton "$eyeselect" "hazel">>
+| <span class="green">Green</span> <<radiobutton "$eyeselect" "green">><br><br>
+
+Hair Colour<br>
+<span class="red">Red</span> <<radiobutton "$hairselect" "red" checked>>
+| <span class="black">Black</span> <<radiobutton "$hairselect" "black">>
+| <span class="brown">Brown</span> <<radiobutton "$hairselect" "brown">>
+| <span class="gold">Blond</span> <<radiobutton "$hairselect" "blond">>
+| <span class="tangerine">Ginger</span> <<radiobutton "$hairselect" "ginger">><br><br>
+
+
+
+<hr>
+
+Options (can be changed in-game from your bedroom)<br><br>
+
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+
+
+<<widget "settings">><<nobr>>
+
+Percentage of people attracted to you that are male.<br>
+<<numberslider "$malechance" $malechance 0 100 1>><br><br>
+
+<<if $dgchance gte 0>>
+Percentage of women that have penises.<br>
+<<numberslider "$dgchance" $dgchance 0 100 1>><br><br>
+<<else>>
+Percentage of women that have penises.<br>
+<<numberslider "$dgchance" 0 0 100 1>><br><br>
+<</if>>
+
+<<if $cbchance gte 0>>
+Percentage of men that have vaginas.<br>
+<<numberslider "$cbchance" $cbchance 0 100 1>><br><br>
+<<else>>
+Percentage of men that have vaginas.<br>
+<<numberslider "$cbchance" 0 0 100 1>><br><br>
+<</if>>
+
+<<if $whitechance isnot undefined>>
+Likelihood of npcs having pale skin.<br>
+<<numberslider "$whitechance" $whitechance 0 100 1>><br><br>
+<<else>>
+Likelihood of npcs having pale skin.<br>
+<<numberslider "$whitechance" 90 0 100 1>><br><br>
+<</if>>
+
+<<if $blackchance isnot undefined>>
+Likelihood of npcs having dark skin.<br>
+<<numberslider "$blackchance" $blackchance 0 100 1>><br><br>
+<<else>>
+Likelihood of npcs having dark skin.<br>
+<<numberslider "$blackchance" 10 0 100 1>><br><br>
+<</if>>
+
+
+
+<<if $bestialitydisable is "t">>
+Enable bestiality <<radiobutton "$bestialitydisable" "f">>
+| Disable bestiality <<radiobutton "$bestialitydisable" "t" checked>><br><br>
+<<else>>
+Enable bestiality <<radiobutton "$bestialitydisable" "f" checked>>
+| Disable bestiality <<radiobutton "$bestialitydisable" "t">><br><br>
+<</if>>
+
+<<if $swarmdisable is "t">>
+Enable swarms of tiny creatures (Eels, worms, bugs etc.) <<radiobutton "$swarmdisable" "f">>
+| Disable swarms <<radiobutton "$swarmdisable" "t" checked>><br><br>
+<<else>>
+Enable swarms of tiny creatures (Eels, worms, bugs etc.) <<radiobutton "$swarmdisable" "f" checked>>
+| Disable swarms <<radiobutton "$swarmdisable" "t">><br><br>
+<</if>>
+
+<<if $parasitedisable is "t">>
+Enable parasites <<radiobutton "$parasitedisable" "f">>
+| Disable parasites <<radiobutton "$parasitedisable" "t" checked>><br><br>
+<<else>>
+Enable parasites <<radiobutton "$parasitedisable" "f" checked>>
+| Disable parasites <<radiobutton "$parasitedisable" "t">><br><br>
+<</if>>
+
+<<if $slimedisable is "t">>
+Enable slimes <<radiobutton "$slimedisable" "f">>
+| Disable slimes <<radiobutton "$slimedisable" "t" checked>><br><br>
+<<else>>
+Enable slimes <<radiobutton "$slimedisable" "f" checked>>
+| Disable slimes <<radiobutton "$slimedisable" "t">><br><br>
+<</if>>
+
+<<if $voredisable is "t">>
+Enable vore <<radiobutton "$voredisable" "f">>
+| Disable vore <<radiobutton "$voredisable" "t" checked>><br><br>
+<<else>>
+Enable vore <<radiobutton "$voredisable" "f" checked>>
+| Disable vore <<radiobutton "$voredisable" "t">><br><br>
+<</if>>
+
+<<if $tentacledisable is "t">>
+Enable tentacles <<radiobutton "$tentacledisable" "f">>
+| Disable tentacles <<radiobutton "$tentacledisable" "t" checked>><br><br>
+<<else>>
+Enable tentacles <<radiobutton "$tentacledisable" "f" checked>>
+| Disable tentacles <<radiobutton "$tentacledisable" "t">><br><br>
+<</if>>
+
+<<if $analdisable is "t">>
+Enable anal <<radiobutton "$analdisable" "f">>
+| Disable anal <<radiobutton "$analdisable" "t" checked>><br><br>
+<<else>>
+Enable anal <<radiobutton "$analdisable" "f" checked>>
+| Disable anal <<radiobutton "$analdisable" "t">><br><br>
+<</if>>
+
+
+
+<<if $transformdisable is "t">>
+Enable transformations <<radiobutton "$transformdisable" "f">>
+| Disable transformations <<radiobutton "$transformdisable" "t" checked>><br><br>
+<<else>>
+Enable transformations <<radiobutton "$transformdisable" "f" checked>>
+| Disable transformations <<radiobutton "$transformdisable" "t">><br><br>
+<</if>>
+
+
+<<if $hirsutedisable is "f">>
+Enable hirsute/hairy wolf transformation <<radiobutton "$hirsutedisable" "f" checked>>
+| Disable hirsute/hairy wolf transformation <<radiobutton "$hirsutedisable" "t">><br><br>
+<<else>>
+Enable hirsute/hairy wolf transformation <<radiobutton "$hirsutedisable" "f">>
+| Disable hirsute/hairy wolf transformation <<radiobutton "$hirsutedisable" "t" checked>><br><br>
+<</if>>
+
+
+
+Maximum player character breast size. Breasts already above this size won't shrink.<br>
+
+<<if $breastsizemax is 0>>
+| Flat <<radiobutton "$breastsizemax" 0 checked>>
+<<else>>
+| Flat <<radiobutton "$breastsizemax" 0>>
+<</if>>
+<<if $breastsizemax is 1>>
+| Budding <<radiobutton "$breastsizemax" 1 checked>>
+<<else>>
+| Budding <<radiobutton "$breastsizemax" 1>>
+<</if>>
+<<if $breastsizemax is 2>>
+| Tiny <<radiobutton "$breastsizemax" 2 checked>>
+<<else>>
+| Tiny <<radiobutton "$breastsizemax" 2>>
+<</if>>
+<<if $breastsizemax is 3>>
+| Small <<radiobutton "$breastsizemax" 3 checked>>
+<<else>>
+| Small <<radiobutton "$breastsizemax" 3>>
+<</if>>
+<<if $breastsizemax is 4>>
+| Pert <<radiobutton "$breastsizemax" 4 checked>>
+<<else>>
+| Pert <<radiobutton "$breastsizemax" 4>>
+<</if>>
+<<if $breastsizemax is 5>>
+| Modest <<radiobutton "$breastsizemax" 5 checked>>
+<<else>>
+| Modest <<radiobutton "$breastsizemax" 5>>
+<</if>>
+<<if $breastsizemax is 6>>
+| Full <<radiobutton "$breastsizemax" 6 checked>>
+<<else>>
+| Full <<radiobutton "$breastsizemax" 6>>
+<</if>>
+<<if $breastsizemax is 7>>
+| Large <<radiobutton "$breastsizemax" 7 checked>>
+<<else>>
+| Large <<radiobutton "$breastsizemax" 7>>
+<</if>>
+<<if $breastsizemax is 8>>
+| Ample <<radiobutton "$breastsizemax" 8 checked>>
+<<else>>
+| Ample <<radiobutton "$breastsizemax" 8>>
+<</if>>
+<<if $breastsizemax is 9>>
+| Massive <<radiobutton "$breastsizemax" 9 checked>>
+<<else>>
+| Massive <<radiobutton "$breastsizemax" 9>>
+<</if>>
+<<if $breastsizemax is 10>>
+| Huge <<radiobutton "$breastsizemax" 10 checked>>
+<<else>>
+| Huge <<radiobutton "$breastsizemax" 10>>
+<</if>>
+<<if $breastsizemax is 11>>
+| Gigantic <<radiobutton "$breastsizemax" 11 checked>>
+<<else>>
+| Gigantic <<radiobutton "$breastsizemax" 11>>
+<</if>>
+<<if $breastsizemax is 12>>
+| Enormous <<radiobutton "$breastsizemax" 12 checked>>
+<<else>>
+| Enormous <<radiobutton "$breastsizemax" 12>>
+<</if>>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<if $tipdisable is "t">>
+Enable hints and tips <<radiobutton "$tipdisable" "f">>
+| Disable tips <<radiobutton "$tipdisable" "t" checked>><br><br>
+<<else>>
+Enable hints and tips <<radiobutton "$tipdisable" "f" checked>>
+| Disable tips <<radiobutton "$tipdisable" "t">><br><br>
+<</if>>
+
+
+
+
+
+Compact sidebar.<br>
+
+<<if $compactsidebar is not 1 and $compactsidebar is not 2>>
+| No <<radiobutton "$compactsidebar" 0 checked>>
+<<else>>
+| No <<radiobutton "$compactsidebar" 0>>
+<</if>>
+<<if $compactsidebar is 1>>
+| Yes <<radiobutton "$compactsidebar" 1 checked>>
+<<else>>
+| Yes <<radiobutton "$compactsidebar" 1>>
+<</if>>
+<<if $breastsizemax is 2>>
+| Very compact <<radiobutton "$compactsidebar" 2 checked>>
+<<else>>
+| Very compact <<radiobutton "$compactsidebar" 2>>
+<</if>>
+
+
+
+
+
+
+
+
+
+
+
+<</nobr>><</widget>>
+
+
+
+
+
+
+
+
+
+
+<<widget "npcsettings">><<nobr>>
+
+
+Robin the orphan<br>
+<<if $robingender is "f">>
+Female <<radiobutton "$robingender" "f" checked>>
+<<else>>
+Female <<radiobutton "$robingender" "f">>
+<</if>>
+ |
+<<if $robingender is "m">>
+Male <<radiobutton "$robingender" "m" checked>>
+<<else>>
+Male <<radiobutton "$robingender" "m">>
+<</if>>
+<br>
+<<if $robingenitals is "vagina">>
+Vagina <<radiobutton "$robingenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$robingenitals" "vagina">>
+<</if>>
+ |
+<<if $robingenitals is "penis">>
+Penis <<radiobutton "$robingenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$robingenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+Bailey<br>
+<<if $baileygender is "f">>
+Female <<radiobutton "$baileygender" "f" checked>>
+<<else>>
+Female <<radiobutton "$baileygender" "f">>
+<</if>>
+ |
+<<if $baileygender is "m">>
+Male <<radiobutton "$baileygender" "m" checked>>
+<<else>>
+Male <<radiobutton "$baileygender" "m">>
+<</if>>
+<br>
+<<if $baileygenitals is "vagina">>
+Vagina <<radiobutton "$baileygenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$baileygenitals" "vagina">>
+<</if>>
+ |
+<<if $baileygenitals is "penis">>
+Penis <<radiobutton "$baileygenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$baileygenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+Charlie the dance coach<br>
+<<if $charliegender is "f">>
+Female <<radiobutton "$charliegender" "f" checked>>
+<<else>>
+Female <<radiobutton "$charliegender" "f">>
+<</if>>
+ |
+<<if $charliegender is "m">>
+Male <<radiobutton "$charliegender" "m" checked>>
+<<else>>
+Male <<radiobutton "$charliegender" "m">>
+<</if>>
+<br>
+<<if $charliegenitals is "vagina">>
+Vagina <<radiobutton "$charliegenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$charliegenitals" "vagina">>
+<</if>>
+ |
+<<if $charliegenitals is "penis">>
+Penis <<radiobutton "$charliegenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$charliegenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+Darryl the club owner<br>
+<<if $darrylgender is "f">>
+Female <<radiobutton "$darrylgender" "f" checked>>
+<<else>>
+Female <<radiobutton "$darrylgender" "f">>
+<</if>>
+ |
+<<if $darrylgender is "m">>
+Male <<radiobutton "$darrylgender" "m" checked>>
+<<else>>
+Male <<radiobutton "$darrylgender" "m">>
+<</if>>
+<br>
+<<if $darrylgenitals is "vagina">>
+Vagina <<radiobutton "$darrylgenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$darrylgenitals" "vagina">>
+<</if>>
+ |
+<<if $darrylgenitals is "penis">>
+Penis <<radiobutton "$darrylgenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$darrylgenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+Harper the doctor<br>
+<<if $harpergender is "f">>
+Female <<radiobutton "$harpergender" "f" checked>>
+<<else>>
+Female <<radiobutton "$harpergender" "f">>
+<</if>>
+ |
+<<if $harpergender is "m">>
+Male <<radiobutton "$harpergender" "m" checked>>
+<<else>>
+Male <<radiobutton "$harpergender" "m">>
+<</if>>
+<br>
+<<if $harpergenitals is "vagina">>
+Vagina <<radiobutton "$harpergenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$harpergenitals" "vagina">>
+<</if>>
+ |
+<<if $harpergenitals is "penis">>
+Penis <<radiobutton "$harpergenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$harpergenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+Jordan the <<if $jordangender is "f">>nun<<else>>monk<</if>><br>
+<<if $jordangender is "f">>
+Female <<radiobutton "$jordangender" "f" checked>>
+<<else>>
+Female <<radiobutton "$jordangender" "f">>
+<</if>>
+ |
+<<if $jordangender is "m">>
+Male <<radiobutton "$jordangender" "m" checked>>
+<<else>>
+Male <<radiobutton "$jordangender" "m">>
+<</if>>
+<br>
+<<if $jordangenitals is "vagina">>
+Vagina <<radiobutton "$jordangenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$jordangenitals" "vagina">>
+<</if>>
+ |
+<<if $jordangenitals is "penis">>
+Penis <<radiobutton "$jordangenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$jordangenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+Briar the brothel owner<br>
+<<if $briargender is "f">>
+Female <<radiobutton "$briargender" "f" checked>>
+<<else>>
+Female <<radiobutton "$briargender" "f">>
+<</if>>
+ |
+<<if $briargender is "m">>
+Male <<radiobutton "$briargender" "m" checked>>
+<<else>>
+Male <<radiobutton "$briargender" "m">>
+<</if>>
+<br>
+<<if $briargenitals is "vagina">>
+Vagina <<radiobutton "$briargenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$briargenitals" "vagina">>
+<</if>>
+ |
+<<if $briargenitals is "penis">>
+Penis <<radiobutton "$briargenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$briargenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+Eden the hunter<br>
+<<if $edengender is "f">>
+Female <<radiobutton "$edengender" "f" checked>>
+<<else>>
+Female <<radiobutton "$edengender" "f">>
+<</if>>
+ |
+<<if $edengender is "m">>
+Male <<radiobutton "$edengender" "m" checked>>
+<<else>>
+Male <<radiobutton "$edengender" "m">>
+<</if>>
+<br>
+<<if $edengenitals is "vagina">>
+Vagina <<radiobutton "$edengenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$edengenitals" "vagina">>
+<</if>>
+ |
+<<if $edengenitals is "penis">>
+Penis <<radiobutton "$edengenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$edengenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+Sam the cafe owner<br>
+<<if $samgender is "f">>
+Female <<radiobutton "$samgender" "f" checked>>
+<<else>>
+Female <<radiobutton "$samgender" "f">>
+<</if>>
+ |
+<<if $samgender is "m">>
+Male <<radiobutton "$samgender" "m" checked>>
+<<else>>
+Male <<radiobutton "$samgender" "m">>
+<</if>>
+<br>
+<<if $samgenitals is "vagina">>
+Vagina <<radiobutton "$samgenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$samgenitals" "vagina">>
+<</if>>
+ |
+<<if $samgenitals is "penis">>
+Penis <<radiobutton "$samgenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$samgenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+Landry the criminal<br>
+<<if $landrygender is "f">>
+Female <<radiobutton "$landrygender" "f" checked>>
+<<else>>
+Female <<radiobutton "$landrygender" "f">>
+<</if>>
+ |
+<<if $landrygender is "m">>
+Male <<radiobutton "$landrygender" "m" checked>>
+<<else>>
+Male <<radiobutton "$landrygender" "m">>
+<</if>>
+<br>
+<<if $landrygenitals is "vagina">>
+Vagina <<radiobutton "$landrygenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$landrygenitals" "vagina">>
+<</if>>
+ |
+<<if $landrygenitals is "penis">>
+Penis <<radiobutton "$landrygenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$landrygenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+Whitney the bully<br>
+<<if $whitneygender is "f">>
+Female <<radiobutton "$whitneygender" "f" checked>>
+<<else>>
+Female <<radiobutton "$whitneygender" "f">>
+<</if>>
+ |
+<<if $whitneygender is "m">>
+Male <<radiobutton "$whitneygender" "m" checked>>
+<<else>>
+Male <<radiobutton "$whitneygender" "m">>
+<</if>>
+<br>
+<<if $whitneygenitals is "vagina">>
+Vagina <<radiobutton "$whitneygenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$whitneygenitals" "vagina">>
+<</if>>
+ |
+<<if $whitneygenitals is "penis">>
+Penis <<radiobutton "$whitneygenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$whitneygenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+<hr>
+<b>Teachers</b><br><br>
+
+Leighton the headteacher<br>
+<<if $leightongender is "f">>
+Female <<radiobutton "$leightongender" "f" checked>>
+<<else>>
+Female <<radiobutton "$leightongender" "f">>
+<</if>>
+ |
+<<if $leightongender is "m">>
+Male <<radiobutton "$leightongender" "m" checked>>
+<<else>>
+Male <<radiobutton "$leightongender" "m">>
+<</if>>
+<br>
+<<if $leightongenitals is "vagina">>
+Vagina <<radiobutton "$leightongenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$leightongenitals" "vagina">>
+<</if>>
+ |
+<<if $leightongenitals is "penis">>
+Penis <<radiobutton "$leightongenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$leightongenitals" "penis">>
+<</if>>
+
+<br><br>
+
+Sirris the science teacher<br>
+<<if $sirrisgender is "f">>
+Female <<radiobutton "$sirrisgender" "f" checked>>
+<<else>>
+Female <<radiobutton "$sirrisgender" "f">>
+<</if>>
+ |
+<<if $sirrisgender is "m">>
+Male <<radiobutton "$sirrisgender" "m" checked>>
+<<else>>
+Male <<radiobutton "$sirrisgender" "m">>
+<</if>>
+<br>
+<<if $sirrisgenitals is "vagina">>
+Vagina <<radiobutton "$sirrisgenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$sirrisgenitals" "vagina">>
+<</if>>
+ |
+<<if $sirrisgenitals is "penis">>
+Penis <<radiobutton "$sirrisgenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$sirrisgenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+River the maths teacher<br>
+<<if $rivergender is "f">>
+Female <<radiobutton "$rivergender" "f" checked>>
+<<else>>
+Female <<radiobutton "$rivergender" "f">>
+<</if>>
+ |
+<<if $rivergender is "m">>
+Male <<radiobutton "$rivergender" "m" checked>>
+<<else>>
+Male <<radiobutton "$rivergender" "m">>
+<</if>>
+<br>
+<<if $rivergenitals is "vagina">>
+Vagina <<radiobutton "$rivergenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$rivergenitals" "vagina">>
+<</if>>
+ |
+<<if $rivergenitals is "penis">>
+Penis <<radiobutton "$rivergenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$rivergenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+
+Doren the english teacher<br>
+<<if $dorengender is "f">>
+Female <<radiobutton "$dorengender" "f" checked>>
+<<else>>
+Female <<radiobutton "$dorengender" "f">>
+<</if>>
+ |
+<<if $dorengender is "m">>
+Male <<radiobutton "$dorengender" "m" checked>>
+<<else>>
+Male <<radiobutton "$dorengender" "m">>
+<</if>>
+<br>
+<<if $dorengenitals is "vagina">>
+Vagina <<radiobutton "$dorengenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$dorengenitals" "vagina">>
+<</if>>
+ |
+<<if $dorengenitals is "penis">>
+Penis <<radiobutton "$dorengenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$dorengenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+Winter the history teacher<br>
+<<if $wintergender is "f">>
+Female <<radiobutton "$wintergender" "f" checked>>
+<<else>>
+Female <<radiobutton "$wintergender" "f">>
+<</if>>
+ |
+<<if $wintergender is "m">>
+Male <<radiobutton "$wintergender" "m" checked>>
+<<else>>
+Male <<radiobutton "$wintergender" "m">>
+<</if>>
+<br>
+<<if $wintergenitals is "vagina">>
+Vagina <<radiobutton "$wintergenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$wintergenitals" "vagina">>
+<</if>>
+ |
+<<if $wintergenitals is "penis">>
+Penis <<radiobutton "$wintergenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$wintergenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+Mason the swimming teacher<br>
+<<if $masongender is "f">>
+Female <<radiobutton "$masongender" "f" checked>>
+<<else>>
+Female <<radiobutton "$masongender" "f">>
+<</if>>
+ |
+<<if $masongender is "m">>
+Male <<radiobutton "$masongender" "m" checked>>
+<<else>>
+Male <<radiobutton "$masongender" "m">>
+<</if>>
+<br>
+<<if $masongenitals is "vagina">>
+Vagina <<radiobutton "$masongenitals" "vagina" checked>>
+<<else>>
+Vagina <<radiobutton "$masongenitals" "vagina">>
+<</if>>
+ |
+<<if $masongenitals is "penis">>
+Penis <<radiobutton "$masongenitals" "penis" checked>>
+<<else>>
+Penis <<radiobutton "$masongenitals" "penis">>
+<</if>>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+<</nobr>><</widget>>
+
+
+
+:: Settings [nobr]
+<<settings>><br><br>
+
+<<click [[Next|Bedroom]]>><</click>><br>

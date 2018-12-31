@@ -1,0 +1,1043 @@
+:: ModJS [script]
+
+/*from FC, modified by me */
+
+//return random
+//if used with one value, it will be set as the maximum, while the minimum will be 0
+//with both values you will set the boundaries for possible random
+//this generator includes the value you specify, so random with argument 1 will generate between 0 and 1 (50%)
+//make sure it can generate at least more than one value because I didn't make a throw case if it doesn't
+window.jsRandom = function(min,max) {
+	if (max == undefined) max = min, min = 0;
+    return Math.floor(Math.random()*(max-min+1)+min);
+};
+
+/*from FC */
+window.jsRandomMany = function (arr, count) {
+	var result = [];
+	var _tmp = arr.slice();
+	for (var i = 0; i < count; i++) {
+		var index = Math.ceil(Math.random() * 10) % _tmp.length;
+		result.push(_tmp.splice(index, 1)[0]);
+	}
+	return result;
+};
+
+//rand for conditional branching
+//first arg is the minimum chance per branch
+//other arguments will increase the amount to check against random, giving every branch a uniform chance
+//equivalent to <<if (jsRand(arg + arg:1 + arg:2, etc) == 0)>>
+//first branch should have all conditions, and every other should remove them one by one
+//rough example - (1 branch) if ($cond1 && $cond2 && jsRandif(2, $cond3 + $cond4, $cond5))
+//(2 branch) else if ($cond3 + $cond4 && jsRandif(2, $cond5))
+//(3 branch) else if ($cond5 && jsRandif(2))
+//(4 branch) else if ($cond6 && jsRand(2))
+//(5 branch) else
+window.jsRandif = function() {
+	if (arguments.length <= 0) return 0;
+
+	var n = arguments[0]
+	for (var i = 1; i < arguments.length; i++) {
+		if (arguments[i] > 0) n++;
+	}
+	if (jsRandom(n) == 0) return 1;
+
+	return 0
+}
+
+//This function wants an array - which explains why it works like array.random(). Give it one or you'll face a NaN
+window.jsEither = function(choices) {
+    var index = Math.floor(Math.random() * choices.length);
+    return choices[index];
+};
+
+//find amount of occurrences within given string, supports regex
+window.jsStrcount = function(str, search) {
+	return (str.match(new RegExp(search, "g")) || []).length;
+}
+
+//unlike the previous function, this doesn't require strict formatting, accepting a simple string-type var
+//splitter can be specified, by default it's :
+window.jsSplitr = function(choices, splitter) {
+	if (splitter == undefined) var splitter = ":";
+    return choices.split(splitter)[jsRandom(jsStrcount(choices, splitter))];
+};
+
+//conditional random string
+//every odd argument is the text to display, every even argument is the condition
+//text can be split inside string with "/", 1 as a condition will always display it
+//with this you can set certain condition for the random arg to be shown, or you can set various rand checks for it to allow uneven chances for strings to appear
+//be sure to have a condition set or it will end you, also if you don't have any particular conditions, consider using simple splitr instead
+window.jsSplitRand = function() {
+/* this is diploma man tier, sorry*/
+/* define string to show and its condition */
+var origstr = [];
+var cond = [];
+var retcandidate = [];
+var retnum = 0;
+
+for (var i = 0; i < arguments.length; i++) {
+	if (!oddOrEven(i)) origstr.push(arguments[i]);
+	else cond.push(arguments[i]);
+}
+
+/* build a valid list */
+for (var i = 0; i < origstr.length; i++) {
+		if (!cond[i]) continue;
+		
+		var sepstr = origstr[i].split("/")
+		for (var n = 0; n < sepstr.length; n++) {
+			retcandidate[retnum++] = sepstr[n]
+		}
+}
+
+if (!retnum) throw "jsSplitRand returns nothing";
+
+return retcandidate[jsRandom(retnum-1)]
+};
+
+
+
+window.oddOrEven = function(x) {
+	return Boolean( x & 1 )
+  }
+
+//try to find specified string within every single split inside given string, splitter can't be specified (don't need it now)
+window.jsSplitcheck = function() {
+	var n = 0;
+    for (var i = 1; i < arguments.length; i++) {
+		if (jsStrcount(arguments[0], "(^|:)(" + arguments[i] + ")($|:)")) n++;
+	}
+	return n
+};
+
+String.prototype.deleteCharAt = function( index )
+{
+    return this.substring( 0, --index ) + this.substring( ++index );
+}
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+//capitalize first letter of a given string
+window.jsCapitalize = function(lower) {
+    return lower.replace(/^\w/, c => c.toUpperCase());
+};
+//capitalize every word in given string
+window.jsCapitalizeEv = function(lower) {
+    return lower.replace(/\b(\w)/g, c => c.toUpperCase());
+};
+//check whether string is capitalized
+window.jsCapCheck = function(str) {
+	if (jsStrcount(str, "^[A-Z]")) return 1;
+	return 0
+};
+//capitalize at random, GiVINg yOU CrAZy tExT
+window.jsRandCap = function(str) {
+    var output = "";
+    var setter = jsRandom(2);
+
+    for (var i = 0; i < str.length; i++) {
+        if (jsRandom(2) < setter ) {
+        output += str.charAt(i).toUpperCase();
+        setter --
+        } else {
+        output += str.charAt(i).toLowerCase();
+        setter ++
+    }
+}
+
+return output
+};
+
+//retarded hentai moan generator
+//mode can be specified - l or light, m or mild, h or heavy, r or random
+//by default uses light
+//second var is capitalization - 1 will give full caps, 2 will give lowercase, 3 will give random capitalization
+//todo - gender division? I mean boys probably moan differently
+window.jsMoan = function(mode, capitalization) {
+
+	/*check if there are splitters, choose one*/
+	mode = jsSplitr(mode)
+	
+	switch(mode) {
+		case 'rand': case 'r':
+			if (jsRandom(10) >= 4) {
+				mode = "l";
+			} else if (jsRandom(10) >= 6) {
+				mode = "m";
+			} else {
+				mode = "h";
+			}
+			break;
+		case undefined:
+			mode = "l";
+			break;
+		default:
+			break;
+	}
+	
+	switch(mode) {
+		case 'light': case 'l':
+			var str = jsEither(["Hn", "Hn", "Hn", "Ahn", "Ahn", "Ha", "Ha", "Ha", "Hah", "Ah", "Ah", "Ah", "Ah", "Mm", "Fuah", "Ogh", "Agh", "Ngh", "Haa", "Aah", "Nn", "Hya"])
+			break;
+		case 'mild': case 'm':
+			var str = jsEither(["Hngh", "Auhn", "Hnah", "Hnnn", "Hnng", "Aahn", "Mmmm", "Haaa", "Haah", "Aaah", "Aah", "Ahaan", "Nnnn", "Mmm", "Hyah"])
+			break;
+		case 'heavy': case 'h':
+			switch(jsRandom(10)) {
+				case 0:
+					//aunh
+					var str = "A"+"a".repeat(jsRandom(1,4))+"u".repeat(jsRandom(2))+"n".repeat(jsRandom(3))+"h".repeat(jsRandom(1,4))
+					break;
+				case 1:
+					//oohn
+					var str = "O"+"o".repeat(jsRandom(1,4))+"h".repeat(jsRandom(1,3))+"n".repeat(jsRandom(3))
+					break;
+				case 2:
+					//uuongh
+					var str = "U"+"u".repeat(jsRandom(1,4))+"o".repeat(jsRandom(3))+"n".repeat(jsRandom(2))+"h".repeat(jsRandom(1,3))
+					break;
+				case 3:
+					//hnah
+					var str = "H"+"n".repeat(jsRandom(4))+"a".repeat(jsRandom(3, 6))+"h".repeat(jsRandom(3))
+					break;
+				case 4:
+					//nngah
+					var str = "N"+"n".repeat(jsRandom(2, 4))+"g".repeat(jsRandom(3))+"a".repeat(jsRandom(3))+"h".repeat(jsRandom(1, 2))
+					break;
+				case 5:
+					//hyah/hiyahn
+					var str = "H" + jsEither(["iy", "y"]) + "a".repeat(jsRandom(2, 4))+"h".repeat(jsRandom(1,4))+"n".repeat(jsRandom(4))
+					break;
+				case 6:
+					//mmnh/mmph
+					var str = "M" + "m".repeat(jsRandom(2, 4))+ jsEither(["n", "p"]).repeat(jsRandom(4))+"h".repeat(jsRandom(3))
+					break;
+				case 7:
+					//aahn
+					var str = "A" + "a".repeat(jsRandom(2, 4))+"h".repeat(jsRandom(4))+"h".repeat(jsRandom(3))
+					break;
+				case 8:
+					//hnghi
+					var str = "H" + "n".repeat(jsRandom(4))+"g".repeat(jsRandom(1, 2))+"h".repeat(jsRandom(3))+"i".repeat(jsRandom(1, 4))
+					break;
+				case 9:
+					//h/ah(ii/ee)
+					var str = jsEither(["Ha", "A"]) + "a".repeat(jsRandom(4))+"h".repeat(jsRandom(1, 3)) + jsEither(["e", "i"]).repeat(jsRandom(2, 4))
+					break;
+				case 10:
+					//niyahn
+					var str = "Niy" + "a".repeat(jsRandom(2,8))+"h".repeat(jsRandom(1, 2))+"n".repeat(jsRandom(1, 3))
+					break;
+			}
+			break;
+	}
+
+	switch(capitalization) {
+		case 1:
+			return str.toUpperCase();
+		case 2:
+			return str.toLowerCase();
+		case 3:
+			return jsRandCap(str);
+		default:
+			return str
+	}
+	
+};
+
+//count
+window.jsCount = function(n) {
+	if (n >= 11 && n <= 13) {
+	    	return n + "th";
+	    }
+	    switch (n % 10) {
+	    	case 1:  return n + "st";
+	    	case 2:  return n + "nd";
+	    	case 3:  return n + "rd";
+	    	default: return n + "th";
+	    }
+};
+
+//puts an appropriate article to the given string
+window.jsArticle = function(str) {
+/* exceptions, add on demand */
+  if (str.toLowerCase().substring(0, 3) == "uni") return "a " + str;
+
+  if (jsStrcount(str.toLowerCase(), "^[aeiouy]")) {
+      return "an " + str;
+  } else {
+      return "a " + str;
+  }
+}
+//checks the occurrence at the end of the given word
+//for multiple words use function bellow
+//now that I know there's a built-in method in javascript exactly for this, I feel stupid
+window.jsWordEndsIn = function() {
+	var n = 0;
+    for (var i = 1; i < arguments.length; i++) {
+		if (jsStrcount(arguments[0], "^[^\\s]*(" + arguments[i] + ")(?=\\s|$)")) n++;
+	}
+	return n
+};
+
+window.jsStringEndsIn = function() {
+	var n = 0;
+    for (var i = 1; i < arguments.length; i++) {
+		if (jsStrcount(arguments[0], "(" + arguments[i] + ")$")) n++;
+	}
+	return n
+};
+//checks the occurrence at the start of the given word, can work with multiple
+window.jsWordStartsIn = function() {
+	var n = 0;
+    for (var i = 1; i < arguments.length; i++) {
+		if (jsStrcount(arguments[0], "^(" + arguments[i] + ")")) n++;
+	}
+	return n
+};
+//pluralizes given noun if plu is more than 1, works with multiple words, affecting the last
+//can be capitalized
+window.jsPlNoun = function(str, plu, cap) {
+if (plu > 1) {
+	var check = str.toLowerCase().replace(/^(?:a|an)\s/, "")
+    var check = check.split(" ").pop() /* grab last element */
+	switch (check){
+	case "child":
+		var output = "children"
+		break;
+	case "foot":
+		var output = "feet"
+		break;
+	case "it":
+		var output = "them"
+		break;
+	case "man":
+		var output = "men"
+		break;
+	case "ovum":
+		var output = "ova"
+		break;
+	case "person":
+		var output = "people"
+		break;
+	case "that":
+		var output = "those"
+		break;
+	case "this":
+		var output = "these"
+		break;
+	case "tooth":
+		var output = "teeth"
+		break;
+	case "woman":
+		var output = "women"
+		break;
+	case "themself":
+		var output = "themselves"
+		break;
+	default:
+		if (!jsWordEndsIn(check, "kai", "ngu", "ami", "ama", "ppa", "jaku")) { /*many of these Japanese words don't have plural forms*/
+			if (jsWordEndsIn(check, "[^aeiou]y")) { /*if last letter is "y" not preceded by a vowel, drop it and add "ies"*/
+				var output = check.replace(/(^[^\s]+[^aeiou])y(?=\s|$)/, "$1ies")
+			} else if (jsWordEndsIn(check, "[^f]f", "fe")) { /*if last letter is single "f" or "fe", replace with "ves"*/
+				var output = check.replace(/(^[^\s]+)(?:fe|f)(?=\s|$)/, "$1ves")
+			} else if (jsWordEndsIn(check, "x", "s", "ch", "sh")) { /*if word ends in "x", "s", "ss" "sh", or "ch" add "es"*/
+				var output = check.replace(/(^[^\s]+)(?=\s|$)/, "$1es")
+			} else {
+				var output = check.replace(/(^[^\s]+)(?=\s|$)/, "$1s")
+			}
+		}
+		break;
+	}
+	/* put everything back */
+    var check = "";
+    for (var i = 0; i < jsStrcount(str, " "); i++) {
+		check += str.split(" ")[i] + " "
+	}
+    output = check + output
+}
+
+if (output) var str = output;
+
+return (jsCapCheck(str) || cap) ? jsCapitalize(str) : str
+};
+//pluralizes given verb if plu is more than 1
+window.jsPlVerb = function(str, plu, cap) {
+if (plu > 1) {
+	var check = str.toLowerCase()
+	
+	switch (check){ /*"be" is very irregular*/
+	case "is": case "are": case "be":
+		var output = "are"
+		break;
+	case "was": case "were":
+		var output = "were"
+		break;
+	case "has": case "have":
+		var output = "have"
+		break;
+	default:
+		if (jsWordEndsIn(check, "(?:ss|x|sh|ch|o)es")) { /*drop "es", ★Added o for does*/
+			var output = check.replace(/(^[^\s]+(?:ss|x|sh|ch|o))es(?=\s|$)/, "$1")
+		} else if (jsWordEndsIn(check, "ies")) { /*replace "ies" with "y"*/
+			var output = check.replace(/(^[^\s]+)ies(?=\s|$)/, "$1y")
+		} else { /*drop "s"*/
+			var output = check.replace(/(^[^\s]+)s(?=\s|$)/, "$1")
+		}
+	}
+}
+
+if (output) var str = output;
+
+return (jsCapCheck(str) || cap) ? jsCapitalize(str) : str
+};
+//english present simple
+window.jsVerbtSimple = function(str) {
+
+if (jsWordEndsIn(str, "[^aeiou]y")) { /*;if last letter is "y" not preceded by a vowel, drop it and add "ies"*/
+	str = str.replace(/(^[^\s]+[^aeiou])y(?=\s|$)/, "$1ies")
+} else if (jsWordEndsIn(str, "x", "s", "ch", "sh", "o")) { /*;if word ends in "x", "s", "ss" "sh", "o" for does or "ch" add "es"*/
+	str = str.replace(/(^[^\s]+)(?=\s|$)/, "$1es")
+} else { /*;add "s"*/
+	str = str.replace(/(^[^\s]+)(?=\s|$)/, "$1s")
+}
+
+return str
+};
+//english present continuous
+window.jsVerbtContinuous = function(str) {
+
+if ( jsWordEndsIn(str, "[^aieou][aeiou][^aeiouwxy]") && !jsWordEndsIn(str, "er", "en") ) { /*complicated to explain... CVC rule for doubling last letter*/
+	str = str.replace(/(^[^\s]*[^aieou][aeiou]([^aeiouwxy]))(?=\s|$)/, "$1$2ing")
+} else if (jsWordEndsIn(str, "ie")) { /*if word ends in "ie", drop and add "ying"*/
+	str = str.replace(/(^[^\s]+)ie(?=\s|$)/, "$1ying")
+} else if (jsWordEndsIn(str, "[^aeiou]e")) { /*if word ends in silent "e", drop and add "ing"*/
+	str = str.replace(/(^[^\s]+[^aeiou])e(?=\s|$)/, "$1ing")
+} else { /*add "ing"*/
+	str = str.replace(/(^[^\s]+)(?=\s|$)/, "$1ing")
+}
+
+return str
+};
+//list of simple past irregular verbs for function below
+window.jsIrregularVerbs = function(str) {
+	switch (str){ 
+	case "cum":
+		return "came"
+	case "awake":
+		return "awoke"
+	case "be":
+		return "was"
+	case "beat":
+		return "beat"
+	case "become":
+		return "became"
+	case "begin":
+		return "began"
+	case "bend":
+		return "bent"
+	case "bet":
+		return "bet"
+	case "bid":
+		return "bid"
+	case "bind":
+		return "bound"
+	case "bite":
+		return "bit"
+	case "bleed":
+		return "bled"
+	case "blow":
+		return "blew"
+	case "break":
+		return "broke"
+	case "breed":
+		return "bred"
+	case "bring":
+		return "brought"
+	case "build":
+		return "built"
+	case "burn":
+		return "burnt"
+	case "burst":
+		return "burst"
+	case "buy":
+		return "bought"
+	case "can":
+		return "could"
+	case "cast":
+		return "cast"
+	case "catch":
+		return "caught"
+	case "choose":
+		return "chose"
+	case "cling":
+		return "clung"
+	case "come":
+		return "came"
+	case "cost":
+		return "cost"
+	case "cut":
+		return "cut"
+	case "deal":
+		return "dealt"
+	case "dig":
+		return "dug"
+	case "do":
+		return "did"
+	case "draw":
+		return "drew"
+	case "drink":
+		return "drank"
+	case "drive":
+		return "drove"
+	case "eat":
+		return "ate"
+	case "fall":
+		return "fell"
+	case "feed":
+		return "fed"
+	case "feel":
+		return "felt"
+	case "fight":
+		return "fought"
+	case "find":
+		return "found"
+	case "flee":
+		return "fled"
+	case "fly":
+		return "flew"
+	case "forbid":
+		return "forbade"
+	case "forecast":
+		return "forecast"
+	case "forget":
+		return "forgot"
+	case "forsake":
+		return "forsook"
+	case "freeze":
+		return "froze"
+	case "get":
+		return "got"
+	case "give":
+		return "gave"
+	case "go":
+		return "went"
+	case "grind":
+		return "ground"
+	case "grow":
+		return "grew"
+	case "hang":
+		return "hung"
+	case "have":
+		return "had"
+	case "hear":
+		return "heard"
+	case "hide":
+		return "hid"
+	case "hit":
+		return "hit"
+	case "hold":
+		return "held"
+	case "hurt":
+		return "hurt"
+	case "keep":
+		return "kept"
+	case "kneel":
+		return "knelt"
+	case "know":
+		return "knew"
+	case "lay":
+		return "laid"
+	case "lead":
+		return "led"
+	case "leave":
+		return "left"
+	case "lend":
+		return "lent"
+	case "let":
+		return "let"
+	case "lie":
+		return "lay"
+	case "light":
+		return "lit"
+	case "lose":
+		return "lost"
+	case "make":
+		return "made"
+	case "may":
+		return "might"
+	case "mean":
+		return "meant"
+	case "meet":
+		return "met"
+	case "pay":
+		return "paid"
+	case "put":
+		return "put"
+	case "quit":
+		return "quit"
+	case "read":
+		return "read"
+	case "rid":
+		return "rid"
+	case "ride":
+		return "rode"
+	case "ring":
+		return "rang"
+	case "rise":
+		return "rose"
+	case "run":
+		return "ran"
+	case "say":
+		return "said"
+	case "see":
+		return "saw"
+	case "seek":
+		return "sought"
+	case "sell":
+		return "sold"
+	case "send":
+		return "sent"
+	case "set":
+		return "set"
+	case "shake":
+		return "shook"
+	case "shall":
+		return "should"
+	case "shed":
+		return "shed"
+	case "shoot":
+		return "shot"
+	case "shit":
+		return "shat"
+	case "shrink":
+		return "shrank"
+	case "shut":
+		return "shut"
+	case "sing":
+		return "sang"
+	case "sink":
+		return "sank"
+	case "sit":
+		return "sat"
+	case "slay":
+		return "slew"
+	case "sleep":
+		return "slept"
+	case "slide":
+		return "slid"
+	case "sling":
+		return "slung"
+	case "slit":
+		return "slit"
+	case "smite":
+		return "smote"
+	case "speak":
+		return "spoke"
+	case "speed":
+		return "sped"
+	case "spend":
+		return "spent"
+	case "spin":
+		return "spun"
+	case "spit":
+		return "spat"
+	case "split":
+		return "split"
+	case "spread":
+		return "spread"
+	case "spring":
+		return "sprang"
+	case "stand":
+		return "stood"
+	case "steal":
+		return "stole"
+	case "stick":
+		return "stuck"
+	case "sting":
+		return "stung"
+	case "stink":
+		return "stank"
+	case "stride":
+		return "strode"
+	case "strike":
+		return "struck"
+	case "string":
+		return "strung"
+	case "strive":
+		return "strove"
+	case "swear":
+		return "swore"
+	case "sweat":
+		return "sweat"
+	case "sweep":
+		return "swept"
+	case "swim":
+		return "swam"
+	case "swing":
+		return "swung"
+	case "take":
+		return "took"
+	case "teach":
+		return "taught"
+	case "tear":
+		return "tore"
+	case "tell":
+		return "told"
+	case "think":
+		return "thought"
+	case "throw":
+		return "threw"
+	case "thrust":
+		return "thrust"
+	case "tread":
+		return "trod"
+	case "understand":
+		return "understood"
+	case "wake":
+		return "woke"
+	case "wear":
+		return "wore"
+	case "weave":
+		return "wove"
+	case "weep":
+		return "wept"
+	case "wet":
+		return "wet"
+	case "win":
+		return "won"
+	case "wind":
+		return "wound"
+	case "wring":
+		return "wrung"
+	case "write":
+		return "wrote"
+	}
+};
+//english past simple
+window.jsVerbtPast = function(str) {
+
+if (jsIrregularVerbs(str)) { /*if word is an irregular verb, replace it, doesn't work correctly for multiple words atm*/
+	str = str.replace(str, jsIrregularVerbs(str))
+} else if ( jsWordEndsIn(str, "[^aieou][aeiou][^aeiouwxy]") && !jsWordEndsIn(str, "er", "en") ) { /*complicated to explain... CVC rule for doubling last letter*/
+	str = str.replace(/(^[^\s]*[^aieou][aeiou]([^aeiouwxy]))(?=\s|$)/, "$1$2ed")
+} else if (jsWordEndsIn(str, "[^aieou]y")) { /*if word ends in a consonant and "y", change it to "i" and add "ed"*/
+	str = str.replace(/(^[^\s]+[^aeiou])y(?=\s|$)/, "$1ied")
+} else if (jsWordEndsIn(str, "[aieou]", "ue", "oe", "ie")) { /*if word ends in vowel, add "d", not entirely correct, might need some tweaking*/
+	str = str.replace(/(^[^\s]+)(?=\s|$)/, "$1d")
+} else { /*add "ing"*/
+	str = str.replace(/(^[^\s]+)(?=\s|$)/, "$1ed")
+}
+
+return str
+};
+//pluralize the word if second arg is more than 1
+window.jsPluralizer = function(str, i) {
+  if (i == 0 || i > 1) return jsPlNoun(str, 2);
+
+  return str
+};
+//conjugate the word depending on the given argument after the splitter
+window.jsConjugator = function(str) {
+  if (jsSplitcheck(str, "ing")) {
+	return jsVerbtContinuous(str.split(":")[0])
+  } else if (jsSplitcheck(str, "s")) {
+	return jsVerbtSimple(str.split(":")[0])
+  } else if (jsSplitcheck(str, "ed")) {
+	return jsVerbtPast(str.split(":")[0])
+  } else {
+	return str.split(":")[0]
+  }
+};
+
+/*original from LT by Innoxia, ported&modified by me */
+//string counting
+const numbersLessThanTwenty = [
+  "zero",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+  "eleven",
+  "twelve",
+  "thirteen",
+  "fourteen",
+  "fifteen",
+  "sixteen",
+  "seventeen",
+  "eighteen",
+  "nineteen"
+];
+
+const positionsLessThanTwenty = [
+  "zero",
+  "first",
+  "second",
+  "third",
+  "fourth",
+  "fifth",
+  "sixth",
+  "seventh",
+  "eighth",
+  "ninth",
+  "tenth",
+  "eleventh",
+  "twelfth",
+  "thirteenth",
+  "fourteenth",
+  "fifteenth",
+  "sixteenth",
+  "seventeenth",
+  "eighteenth",
+  "nineteenth"
+];
+
+const tensGreaterThanNineteen = [
+  "",
+  "",
+  "twenty",
+  "thirty",
+  "forty",
+  "fifty",
+  "sixty",
+  "seventy",
+  "eighty",
+  "ninety"
+];
+
+window.jsintToString = function(integer, mode, cap) {
+  var intToString = "";
+  
+while (true) {
+  if(integer<0) {
+    intToString = "minus ";
+  }
+  integer = Math.abs(integer);
+  if (integer >= 100000) {
+    intToString += " a lot";
+    break;
+  }
+
+
+  if(integer>=1000) {
+    if((integer/1000)<20) {
+      intToString+=numbersLessThanTwenty[Math.floor((integer/1000))]+" thousand";
+    } else {
+      intToString+=tensGreaterThanNineteen[Math.floor(integer/10000)] + (((Math.floor(integer/1000))%10!=0)?"-"+numbersLessThanTwenty[Math.floor((integer/1000)%10)]:"")+" thousand";
+    }
+  }
+
+  if(integer>=100) {
+    if(integer>=1000 && integer%1000 != 0) {
+    	if(integer*10%10000 % 1000 == 0) {
+     		intToString+=" and ";
+    	} else if (integer*10%10000 > 1000) {
+      		intToString+=", ";
+         }
+    }
+   
+    integer = integer % 1000;
+    if (!intToString.length || integer>=100) {
+      intToString += numbersLessThanTwenty[Math.floor(integer/100)]+" hundred";
+    }
+    if(integer%100!=0) {
+      intToString+=" and ";
+      integer = integer % 100;
+    }
+  }
+
+  if(integer%100<20) {
+    if (integer%100 == 0) {
+      if (!intToString.length) {
+        intToString = "zero";
+        break;
+      }
+    } else {
+      intToString+= (mode ? positionsLessThanTwenty[integer%100] : numbersLessThanTwenty[integer%100]);
+    }
+  } else {
+    intToString+=tensGreaterThanNineteen[Math.floor((integer%100)/10)] + ((integer%10!=0)?"-"+ (mode ? positionsLessThanTwenty[integer%10] : numbersLessThanTwenty[integer%10]):"");
+  }
+  break;
+}
+
+  switch (cap){ 
+	case 1:
+		return jsCapitalize(intToString);
+	case 2:
+		return jsCapitalizeEv(intToString);
+    default:
+		return intToString;
+  }
+};
+
+window.jsintToTally = function(integer) {
+	var numeralSB = "";
+	for(var i=0; i<Math.floor(integer/5); i++) {
+		numeralSB += "<strike>IIII</strike> ";
+	}
+	for(var i=0; i<integer%5; i++) {
+		numeralSB += "I";
+	}
+	
+	return numeralSB.toString();
+};
+
+window.jsaddStutter = function(sentence, frequency) {
+	var splitSentence = sentence.split(" ");
+	var builder = "";
+
+	// 1 in "frequency" words are stutters, with a minimum of 1.
+	var wordsToStutter = Math.floor(splitSentence.length / frequency) + 1;
+
+	var offset = 0;
+	for (var i = 0; i < wordsToStutter; i++) {
+		offset = jsRandom(frequency);
+		offset = (i * frequency + offset) >= splitSentence.length ? splitSentence.length - 1 : (i * frequency + offset);
+
+		// In case of an accidental comma position? also avoid apostrophe
+		if (splitSentence[offset].charAt(0) != ',' && splitSentence[offset].charAt(0) != '\'') 
+			splitSentence[offset] = splitSentence[offset].charAt(0) + "-" + splitSentence[offset];
+		else
+			if (splitSentence[offset].charAt(0) == ',')
+				splitSentence[offset] = "," + splitSentence[offset].charAt(1); //+ "-" + splitSentence[offset].substring(1, splitSentence[offset].length + 1)
+			else
+				splitSentence[offset] = "'" + splitSentence[offset].charAt(1) + "-" + splitSentence[offset].substring(1, splitSentence[offset].length + 1);
+
+		for (var j = 0; j < frequency && ((i * frequency + j) < splitSentence.length); j++)
+			builder += splitSentence[i * frequency + j] + " "
+	}
+
+	//remove the trailing space
+	return builder.substring(0, builder.length-1).toString()
+};
+
+const endOfSentence = new RegExp('[,.!?]', 'g'); 
+
+/*
+ * Determine whether a given string contains sentence-ending punctuation.
+ * @param text text to check whether
+ * @return boolean whether the text contains a period, exclamation or question mark
+ */
+window.jsisEndOfSentence = function(text) {
+	if(!text.length) {
+		return false;
+	}
+
+	return Boolean((text.substring(text.length-1).match(endOfSentence) || []).length);
+};
+
+window.jsinsertIntoSentences = function(sentence, frequency, inserts, middle) {
+	var splitSentence = sentence.split(" ");
+	//utilitiesStringBuilder.setLength(0);
+	var builder = "";
+		
+	// 1 in "frequency" words have an insert, with a minimum of 1.
+	var wordsToInsert = Math.floor(splitSentence.length / frequency + 1)
+	var offset = 0;
+		for (var i = 0; i < wordsToInsert; i++) {
+		var offset = Math.min(i * frequency + jsRandom(frequency), splitSentence.length - 1);
+		var insert = inserts[jsRandom(inserts.length-1)];
+		// If wanted, ensure not inserting to the start or end of a sentence
+		if (offset >= splitSentence.length -1 || jsisEndOfSentence(splitSentence[offset])) {
+		if (middle) {
+			// Skip if at end of string or sentence
+			continue;
+		}
+
+		// Add a full stop to the insert, creating its own sentence
+		insert += ".";
+		}
+
+		var len = splitSentence[offset].length;
+		// Remove duplicate commas if selected position ends with one and insert has one
+		if (insert.trim().charAt(0) == ',' && splitSentence[offset].charAt(len -1) == ',') {
+		splitSentence[offset] = splitSentence[offset].substring(0, len-1);
+		}
+
+		// Append the insert to this word:
+		splitSentence[offset] = splitSentence[offset] + insert;
+
+	}
+	//for (var word : splitSentence)
+	for (var i = 0; i < splitSentence.length; i++){
+		builder += splitSentence[i] + " ";
+	}
+
+	return builder.substring(0, builder.length-1).toString()
+};
+
+var sexSounds = [ " ~"+jsMoan("l")+"!~", " ~"+jsMoan("l")+"!~"," ~"+jsMoan("l")+"!~"," ~"+jsMoan("l")+"!~", " ~"+jsMoan("m")+"!~", " ~"+jsMoan("m")+"!~"," ~"+jsMoan("m")+"!~"," ~"+jsMoan("m")+"!~"];
+
+window.jsaddSexSounds = function(sentence, frequency) {
+		return jsinsertIntoSentences(sentence, frequency, sexSounds, true);
+};
+
+var muffledSounds = [ " ~Mrph~", " ~Mmm~", " ~Mrmm~", " ~Mphh~" ];
+
+window.jsaddMuffle = function(sentence, frequency) {
+		return jsinsertIntoSentences(sentence, frequency, muffledSounds, true);
+};
+
+var succSounds = [ " *Kiss*", " *Suck*", " *Lick*", " *Slurp*", " *Smooch*", " *Shlurp*" ];
+
+window.jsaddSuck = function(sentence, frequency) {
+		return jsinsertIntoSentences(sentence, frequency, succSounds, true);
+};
+
+var drunkSounds = [ " ~Hic!~" ];
+
+window.jsaddDrunkSlur = function(sentence, frequency) {
+	/* diploma man style here, maybe there's a better method?*/
+	var sentence = sentence.replaceAll("Hi", "Heeey")
+    var sentence = sentence.replaceAll("yes", "yesh")
+    var sentence = sentence.replaceAll("is", "ish")
+    var sentence = sentence.replaceAll("ss", "ssh")
+    var sentence = sentence.replaceAll("So", "Sho")
+    var sentence = sentence.replaceAll("so", "sho");
+  	return jsinsertIntoSentences(sentence, frequency, drunkSounds, false)
+};
+
+/* not a fan of bimbo shit, but maybe it will find its use*/
+var bimboWords = [ ", like,", ", like,", ", like,", ", um,", ", uh,", ", ah," ];
+
+window.jsaddBimbo = function(sentence,frequency) {
+  var sentence = jsinsertIntoSentences(sentence, frequency, bimboWords, true);
+  var builder = ""
+  builder += sentence
+
+  // 1/3 chance of having a bimbo sentence ending:
+  if(!sentence.endsWith("~") && !sentence.endsWith("-")) {
+    switch (jsRandom(6)) {
+      case 0:
+        var end = builder.charAt(builder.length - 1);
+        
+        
+        builder = builder.deleteCharAt(builder.length);
+        
+        builder += jsSplitr(" and stuff: or somethin: for real'") + end;
+        break;
+      case 1:
+        builder = builder.deleteCharAt(builder.length);
+
+        builder += jsSplitr(", y'know?:, ya hear?:, younamsayin'?:, 'kay?");
+        break;
+      default:
+        break;
+                             }
+  }
+
+  return builder.toString();
+};
+
+window.DayOfWeek = ["", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]

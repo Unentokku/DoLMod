@@ -1,0 +1,1934 @@
+﻿:: Robin's Room Entrance [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+<<if $robindebt gte $robindebtlimit and $robindebtintro isnot 1 and $robinpaid isnot 1>><<set $robindebtintro to 1>><<set $robindebtevent to 7>><<set $robintrauma to 100>><<set $robinmissing to 1>><<set $robinconsole to 0>><<set $robindebtknown to 1>>
+You go to Robin's room. You knock, but there's no response, nor is there a note on the door. You peek inside. There's no one there.<br><br>
+
+A <<robin>><<generatec2>><<person2>><<person>> walks by. You grasp <<his>> arm. "Robin always leaves a note," you say. "Has something happened?"<br><br>
+The boy looks frightened. "D-don't let anyone know I told you," <<he>> says. "But Robin couldn't afford to pay, so Bailey took <<person1>><<him>> somewhere." You wonder why Robin never told you <<he>> had to pay Bailey, and realise you never told Robin either.<br><br>
+
+"I'm not sure," the <<person2>><<person>> says. "But I think Bailey said something about the <span class="gold">docks.</span> I hope Robin's okay." You release <<person2>><<his>> arm.<br><br>
+<<endevent>>
+<<click [[Leave|Orphanage]]>><</click>><br>
+
+<<elseif $robinmissing is 1>>
+You go to Robin's room. You knock, but there's no response, nor is there a note on the door. You peek inside. There's no one there.<br><br>
+
+<<click [[Leave|Orphanage]]>><</click>><br>
+
+<<elseif $schoolday is 1 and $hour gte 8 and $hour lte 15 and $robinschoolafternoon isnot 1 or $hour lte 15 and $robinschoolmorning is 1 and $robinschoolafternoon isnot 1>>
+You go to Robin's room. There's a note on the door. "Gone to school!"<br><br>
+
+<<click [[Leave|Orphanage]]>><</click>><br>
+
+<<elseif $hour gte 21 or $hour lte 6>>
+You go to Robin's room. There's a note on the door. "Sleeping!"<br><br>
+
+<<click [[Leave|Orphanage]]>><</click>><br>
+
+
+<<elseif $weekday is 7 and $hour gte 9 and $hour lte 16 or $weekday is 1 and $hour gte 9 and $hour lte 16>>
+You go to Robin's room. There's a note on the door. "Out selling lemonade!"<br><br>
+
+<<click [[Leave|Orphanage]]>><</click>><br>
+
+
+<<else>>
+<<robinroom>>
+
+<</if>>
+
+
+:: Widgets Robin [widget]
+<<widget "robinroom">><<nobr>>
+<<robin>><<person1>>
+
+<<if $robineventnote is 1>><<set $robineventnote to 0>>
+<i>As long as Robin has to pay Bailey, <<hes>> going to keep getting hurt and ending up like this. Maybe you should speak to Bailey about it.</i><br><br>
+<</if>>
+
+<<if $robintrauma gte 95>>
+You knock on the door. There's a pause for a moment, then Robin opens it. <<He>> stares right through you, <<his>> eyes glazed.<br><br>
+<<He>> doesn't stop you entering and sitting on the bed. "Come sit with me," you say.<br><br>
+
+<<He>> sits beside you.<br><br>
+
+<<click [[Hug (0:30)|Robin Trauma Hug]]>><<set $robinlove += 1>><<set $robindom -= 1>><<set $robintrauma -= 6>><<pass30>><</click>><<glove>><<ldom>><br><br>
+<<elseif $robintrauma gte 80>>
+You knock on the door. Robin opens it and smiles. <<His>> eyes are red. "Hey," <<he>> says. "Come in." You enter and sit on the bed. <<He>> sits beside you.
+
+	<<His>> movements are awkward, as if <<hes>> in pain.<br><br>
+	
+	<<click [[Take Robin to the hospital (1:00)|Robin Hospital]]>><<pass60>><<set $robinlove += 1>><<set $robindom -= 1>><<set $robintrauma -= 16>><</click>><<glove>><<ldom>><br><br>
+
+<<elseif $robintrauma gte 40>>
+You knock on the door. Robin opens it and smiles. <<His>> eyes are red. "Hey," <<he>> says. "Come in." You enter and sit on the bed. <<He>> sits beside you.<br><br>
+
+
+
+<<elseif $robintrauma gte 10>>
+You knock on the door. Robin throws it open and hugs you. "Come in," <<he>> says. You enter and sit on the bed. <<He>> sits beside you.<br><br>
+
+
+	<<if $robinthank isnot 1>><<set $robinthank to 1>>
+	You open your mouth to speak, but Robin interrupts you. "Thank you," <<he>> says. "For everything." <<He>> rests <<his>> head on your shoulder.<br><br>
+	<<else>>
+	<</if>>
+	
+
+
+<<else>>
+	<<if $robinconsoleintro isnot 1>><<set $robinconsoleintro to 1>><<set $robinconsole to 1>>
+	You knock on the door, and hear a flurry of activity on the other side. Robin throws the door open and hugs you. "You came," <<he>> says. "Look." <<He>> pulls you into the room. In the corner beneath an old television is a new games console. "I've been saving up." <<He>> says, sitting on the bed. "What are you waiting for?" <<He>> pats the bed beside <<himstop>><<lstress>><<lstress60>><br><br>
+	
+	<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robindebt gte ($robindebtlimit - 1) and $robinconsolelost isnot 1>><<set $robinconsolelost to 1>><<set $robinconsole to 0>>
+
+	You knock on the door. Robin opens it and hugs you. "Come in," <<he>> says, pulling you inside. <<He>> sits on the bed. Something is different. There's no console.<br><br>
+	
+	"You've noticed," <<he>> says. "I was bored of it, so I sold it." <<He>> smiles, but it doesn't touch <<his>> eyes.<br><br>
+	
+	"But you loved it," you say.<br><br>
+	
+	"No I didn't!" <<he>> responds, irritated. "Just leave it."<br><br>
+	
+	"Is something wrong?" you say. "You're never like this."<br><br>
+	
+	"Everything's fine, honest," <<he>> says. <<He>> stares at <<his>> knees.<br><br>
+	
+	<<elseif $robinconsole is 0>>
+	You knock on the door. Robin throws it open and hugs you. "Come in," <<he>> says, pulling you inside. <<He>> sits on the bed and stares at the spot <<his>> console use to fill.<br><br>
+	
+	<<else>>
+	You knock on the door. Robin throws it open and hugs you. "Come in," <<he>> says, pulling you inside. <<He>> sits on the bed beside the television and picks up the controller.<br><br>
+	
+	
+	<</if>>
+<</if>>
+
+<<robinoptions>>
+
+<</nobr>><</widget>>
+
+
+
+<<widget "robinoptions">><<nobr>>
+
+
+<<if $schoolday is 1 and $hour is 8>>
+
+	<<if $robintrauma gte 80>>
+Robin looks at the clock on the wall. "It's school soon," <<he>> says. "I don't want to go."<br><br>
+
+You hug <<himstop>> "Everything will be fine," you say.<br><br>
+
+<<click [[Walk to school (0:40)|Robin Walk School]]>><<set $robinschoolmorning to 1>><<pass40>><</click>><br>
+	
+	<<else>>
+Robin looks at the clock on the wall. "It's school soon," <<he>> says. "Would you like to walk with me?"<br><br>
+
+<<click [[Walk to school (0:20)|Robin Walk School]]>><<set $robinschoolmorning to 1>><<pass20>><</click>><br>
+	<</if>>
+<<click [[Leave|Orphanage]]>><<endevent>><</click>><br>
+
+<<elseif $hour gte 21 or $hour lte 6>>
+Robin looks at the clock on the wall. "It's past my bed time," <<he>> says. <<He>> hugs you. "Goodnight."<br><br>
+
+	<<if $robinromance is 1>>
+	<<click [[Ask to stay|Robin Room Bed]]>><</click>><br>
+	<</if>>
+<<click [[Leave|Orphanage]]>><<endevent>><</click>><br>
+
+<<elseif $weekday is 7 and $hour gte 9 and $hour lte 16 or $weekday is 1 and $hour gte 9 and $hour lte 15>>
+
+"I need to get my lemonade stand set up," <<he>> says. "Come see me on the beach if you like."<br><br>
+
+<<click [[Offer to help set up (0:30)|Robin's Lemonade Set]]>><<pass30>><<set $robinlove += 1>><</click>><<glove>><br>
+<<click [[Leave|Orphanage]]>><<endevent>><</click>><br>
+
+<<else>>
+
+	<<if $robintrauma lt 80>>
+	<<if $robinlove gte 5 and $robinlovestage is undefined>><<set $robinlovestage to 0>>
+	"Thanks for spending time with me," <<he>> says. "It's less fun alone."<br><br>
+	<<elseif $robinlove gte 10 and $robinlovestage is 0>><<set $robinlovestage to 1>>
+	"I'll have to teach you how to make lemonade sometime," <<he>> says.<br><br>
+	<<elseif $robinlove gte 20 and $robinlovestage is 1>><<set $robinlovestage to 2>>
+	"Let me know if there's a game you'd like to play," <<he>> says. "You always let me choose."<br><br>
+	<<elseif $robinlove gte 40 and $robinlovestage is 2>><<set $robinlovestage to 3>>
+	"It's good Bailey doesn't mind us meeting like this," <<he>> says.<br><br>
+	<<elseif $robinlove gte 60 and $robinlovestage is 3>><<set $robinlovestage to 4>>
+	"I'm so lucky to have you as a friend," <<he>> says out of nowhere.<br><br>
+	<<elseif $robinlove gte 100 and $robinlovestage is 4>><<set $robinlovestage to 5>>
+	<<He>> hugs you. "You're the best," <<he>> says.<br><br>
+	<</if>>
+	<</if>>
+	
+	
+
+	<<if $robintrauma lt 80 and $robintrauma gte 10>>
+	<<click [[Talk (0:30)|Robin Trauma Talk]]>><<pass30>><<gstress30>><<set $robintrauma -= 1>><<set $robinlove += 1>><<set $robindom -= 1>><</click>><<glove>><<ldom>><<gstress>><br>
+	<</if>>
+	<<if $robinnote is 1 and $robinromance isnot 1>>
+	<<click [[Kiss|Robin Romance]]>><<set $robinromance to 1>><</click>><br>
+	<</if>>
+	<<if $robintrauma lt 80 and $robinwalk isnot 1>>
+	<<click [[Go for a walk (0:30)|Robin Walk]]>><<set $robinwalk to 1>><</click>><br>
+	<</if>>
+	<<if $robinconsole is 1>>
+	<<click [[Watch Robin play (0:30)|Robin Watch]]>><<lstress30>><<ltrauma30>><<pass30>><<set $robinlove += 1>><</click>><<glove>><<ltrauma>><<lstress>><br>
+	<<click [[Play with Robin (0:30)|Robin Play]]>><<ltrauma30>><<pass30>><<set $robinlove += 1>><</click>><<glove>><<ltrauma>><br>
+	<<elseif $money gte 40000 and $robintrauma lt 80 and $robindebtknown is 1>>
+	<<click [[Buy Robin a new console (£400 0:30)|Robin Console]]>><<pass30>><<set $robinlove += 10>><<set $robindom -= 1>><<set $robinconsole to 1>><<set $money -= 40000>><</click>><<glove>><<ldom>><br>
+	<</if>>
+	<<click [[Leave|Orphanage]]>><<endevent>><</click>><br>
+
+<</if>>
+
+<</nobr>><</widget>>
+
+
+
+
+
+<<widget "robinpay">><<nobr>>
+
+<i>Robin is safe for now. But Bailey will keep collecting the toll. Maybe you should speak to Bailey about it.</i><br><br>
+
+<</nobr>><</widget>>
+
+
+:: Robin Watch [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+You sit beside Robin and watch <<him>> play.<br><br>
+
+<<if $rng gte 81>>
+<<He>> gets stuck on a difficult part and drops the controller on your lap. "You try," <<he>> says as <<he>> lies on <<his>> back.<br><br>
+
+You succeed first attempt.<br><br>
+
+<<click [[Pass the controller back|Robin Watch Pass]]>><<set $robinlove += 1>><</click>><<glove>><br>
+<<click [[Tease|Robin Watch Tease]]>><<set $robinlove -= 1>><<set $robindom -= 1>><</click>><<llove>><<ldom>><br>
+
+<<elseif $rng gte 61>>
+<<He>> tries to get a laugh out of you by making <<his>> character do silly things. <<Hes>> successful.<br><br>
+
+<<robinoptions>>
+
+<<elseif $rng gte 41>>
+You chat with <<himstop>> The game looks pretty easy, and <<hes>> able to hold a conversation and play at the same time.<br><br>
+
+
+<<robinoptions>>
+
+<<elseif $rng gte 21>>
+You try to chat with <<himcomma>> but <<hes>> so engrossed in the game <<he>> can't look away.<br><br>
+
+<<robinoptions>>
+
+<<else>>
+<<He>> rests <<his>> head in your lap.<<garousal>><<garousal30>><br><br><br><br>
+
+<<click [[Stroke|Robin Stroke]]>><<set $robinlove += 1>><<set $robinlust += 1>><</click>><<glove>><<glust>><br>
+<<click [[Keep watching|Robin Options]]>><</click>><br>
+
+
+
+<br><br>
+<</if>>
+
+
+:: Robin Play [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+<<if $rng gte 81>>
+You play a cooperative game with <<himstop>><<lstress>><<lstress30>><br><br>
+
+<<robinoptions>>
+
+<<elseif $rng gte 61>>
+You play a game with <<himstop>> <<He>> completely stomps you.<br><br>
+
+<<click [[Accept defeat with grace|Robin Play Grace]]>><<set $robinlove += 1>><<set $robindom -= 1>><<gstress30>><</click>><<glove>><<ldom>><<gstress>><br>
+<<click [[Make excuses|Robin Play Excuses]]>><<set $robinlove -= 1>><</click>><<llove>><br>
+
+<<elseif $rng gte 41>>
+You play a game with <<himstop>> You win with ease. <<He>> seems irritated.<br><br>
+
+<<click [[Cheer Robin up|Robin Play Cheer]]>><<set $robinlove += 1>><</click>><<glove>><br>
+<<click [[Tease|Robin Play Tease]]>><<set $robindom += 1>><<set $robinlove -= 1>><</click>><<llove>><br>
+
+<<elseif $rng gte 21>>
+You play a game with <<himstop>> You draw. "I'll get you next time," <<he>> says.<br><br>
+
+<<robinoptions>>
+
+<<else>>
+You play against <<himstop>> <<He>> starts to win.<br><br>
+
+<<click [[Tickle attack|Robin Play Tickle]]>><<set $robindom -= 1>><<set $robinlust += 1>><</click>><<glust>><<ldom>><br>
+<<click [[Play fair|Robin Play Fair]]>><</click>><br>
+
+
+<</if>>
+
+
+:: Robin Trauma Hug [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+
+You hold Robin in your arms. For several minutes <<he>> doesn't move or make a sound. Then <<he>> starts to cry. Just a sob at first, but it builds until <<hes>> almost wailing into your shoulder.<br><br>
+
+"I, I," <<he>> says between sobs. "C-cant s-stop thinking abou-about it."<br><br>
+
+"It's okay," you say. "You're safe. I'm here for you."<br><br>
+
+<<He>> continues crying in your arms. <<set $pain += 40>>You realise you're tearing up too. "T-thank you." <<he>> says after some time. "I'm fine now." <<He>> smiles through <<his>> tears. "Can we go to the kitchen? I'm thirsty."<br><br>
+
+You take <<him>> by the hand and together walk to the kitchen. You pour <<him>> a glass of water while <<he>> leans against the counter, eyes downcast. "I know you're busy," <<he>> says as you hand it to <<himstop>> "I'm going to hide back in my room. I'll be fine. Honest." <<He>> smiles and leaves the kitchen.<br><br>
+
+<<endevent>>
+
+<<click [[Next|Orphanage]]>><</click>><br>
+
+
+:: Robin Console [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+"You sold the console to pay Bailey," you say. Robin nods. "I'm going to buy you a new one."<br><br>
+
+<<He>> looks at you, mouth agape. "No, it's too expensive," <<he>> says.<br><br>
+
+"It's my money," you reply. "Come on, you'll have to pick out the games you want."<br><br>
+
+<<He>> frowns and smiles at the same time, and jumps to <<his>> feet.<br><br>
+
+You walk to the High Street together. <<His>> pace picks up when the game shop comes into view. Five minutes later <<hes>> holding a large box in <<his>> arms, and you're £400 poorer. <<His>> face beams.
+
+<<He>> runs ahead of you once back on Domus Street, eager to set it up.<br><br>
+<<endevent>>
+<<click [[Next|Domus Street]]>><<set $eventskip to 1>><</click>><br>
+
+
+:: Robin Hospital [nobr]
+<<set $outside to 0>><<set $location to "town">><<effects>>
+
+"You're hurt," you say to Robin. "You need to see a doctor."<br><br>
+
+<<He>> shakes <<his>> head. "I want to stay here."<br><br>
+
+"It's okay," you say. "I'll stay with you. Promise." You stand and hold the door open. <<He>> doesn't budge. "Please," you say. <<He>> grimaces as <<he>> stands.<br><br>
+
+You don't know if <<he>> would be capable of walking, so you take the bus. <<He>> stares at the ground as you walk <<him>> into the hospital foyer.<br><br>
+
+<<generate2>><<person2>>It's not very busy. You walk up to reception. "How can I help you?" The <<person>> behind it asks.<br><br>
+
+"My friend has been hurt," you say. "But I'm not sure how badly. <<person1>><<He>> can't walk properly."<br><br>
+
+<<person2>>The <<person>> smiles and looks at Robin. "I'll see who's available to see you. Please take a seat."<br><br>
+
+You don't need to wait long. A <<generate3>><<person3>><<person>> enters the foyer and immediately picks you out. "Please come with me," <<he>> says.<br><br>
+
+You follow the doctor to <<his>> office, holding Robin's hand to make sure <<person1>><<he>> doesn't run off. Once inside and seated, the doctor examines Robin. <<He>> looks troubled. "I can't see the full extent of <<his>> injuries. You'll need to take your clothes off." Robin tenses and closes <<his>> eyes. You rest your hand on  <<himstop>> "It's okay," you say. "The doctor will help you."<br><br>
+
+You stand to leave and give Robin some privacy, but <<person1>><<he>> grabs your arm. "Please stay," <<he>> says. You sit back down.<br><br>
+
+The doctor turns away and types something into <<person3>><<his>> computer. Robin starts to strip.<<person1>><br><br>
+
+<<click [[Watch|Robin Hospital Watch]]>><<set $robinlust += 5>><</click>><<glust>><<promiscuous1>><br>
+<<click [[Look away|Robin Hospital 2]]>><</click>><br>
+
+
+:: Robin Trauma Talk [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+You talk with Robin. There are long periods of silence. You don't want to push <<himstop>> <<He>> sometimes mentions the abuse <<hes>> endured. You hold <<him>> when <<he>> cries.<br><br>
+
+<<robinoptions>>
+
+
+:: Robin Watch Pass [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+You pass the controller back to <<himstop>> <<He>> sits back up. "You did it! Thanks."<br><br>
+
+
+<<robinoptions>>
+
+
+:: Robin Watch Tease [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+
+<<if $submissive gte 1150>>
+"Are you alright?" you ask, smirking. "I think Bailey could have managed that one."
+<<elseif $submissive lte 850>>
+"I did it," you say. "I'm the champion now. I claim this console as my prize."
+<<else>>
+"Wow, that was really easy," you say, smirking.
+<</if>>
+<br><br>
+
+Robin sits back up. "You got lucky," <<he>> says as <<he>> snatches the controller back.<br><br>
+
+
+<<robinoptions>>
+
+
+:: Robin Play Grace [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+"You're good at this," you say. <<His>> chest puffs out slightly.<br><br>
+
+<<robinoptions>>
+
+
+:: Robin Play Excuses [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+"I-I let you win," you say. "And you almost lost anyway."<br><br>
+
+"Sure," <<he>> says sarcastically. "I bet you'll let me win the next one too."<br><br>
+
+<<robinoptions>>
+
+
+:: Robin Play Cheer [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+"I got lucky," you say.<br><br>
+
+"You made it look easy," <<he>> says. "But thanks for not rubbing it in."<br><br>
+
+<<robinoptions>>
+
+
+:: Robin Play Tease [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+<<if $submissive gte 1150>>
+"I won!" you exclaim. "And I'm not even any good."
+<<elseif $submissive lte 850>>
+"There's no shame in losing to the best," you say.
+<<else>>
+"You played well," you say. "Just not well enough."
+<</if>>
+<br><br>
+
+"I'll get you next time," <<he>> says. "Just you wait."<br><br>
+
+<<robinoptions>>
+
+
+:: Robin Hospital Watch [nobr]
+<<set $outside to 0>><<set $location to "town">><<effects>>
+
+
+<<if $pronoun is "f">>
+You watch as Robin strips <<his>> clothes. <<He>> pulls down <<his>> skirt first, revealing white panties spotted with pink hearts. <<He>> pulls them down next, and makes no move to conceal <<his>> genitals from you. They're bruised and swollen still.<br><br>
+
+<<else>>
+You watch as Robin strips <<his>> clothes. <<He>> pulls down <<his>> shorts first, revealing white briefs. <<He>> pulls them down next, and makes no move to conceal <<his>> genitals from you. They're bruised and swollen still.
+
+<</if>>
+<<promiscuity1>>
+<br><br>
+
+You realise <<hes>> looking right at you. "A-am I attractive?" <<he>> asks, keeping <<his>> voice quiet. "The way you were looking at me..." You feel guilty for checking <<him>> out and look away as <<he>> tugs off <<his>> shirt.<br><br>
+
+
+<<click [[Next|Robin Hospital 2]]>><</click>><br>
+
+
+:: Robin Hospital 2 [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+You doctor turns back to Robin, now stood naked. <<person3>><<He>> examines Robin from head to toe. "I don't think you need stitches," <<he>> says. "But this is an awful lot of bruising. Are you two siblings?"<br><br>
+
+"Yes," Robin says. "I mean, no. <<pShes>> like my big <<if $playergenderappearance is "f">>sister<<else>>brother<</if>> though."<br><br>
+
+"Where do you live?" the doctor asks.<br><br>
+
+"At the orphanage," Robin replies.<br><br>
+
+The doctor frowns. "Some of this needs bandaging. You'll also need painkillers..."<br><br>
+
+The doctor sees to Robin wounds while you sit and hold <<his>> hand. Robin turns to you once dressed. "I'm a mummy!" <<he>> says, tapping the bandage wrapped around <<his>> head. <<He>> looks cheerful again for just a moment.<br><br>
+
+Once home, Robin gives you a surprise hug. "Thank you," <<he>> says. <<Hes>> tearful, but smiling. "I feel better already." <<He>> heads back to <<his>> room.<br><br>
+<<endevent>>
+<<click [[Next|Orphanage]]>><</click>><br>
+
+
+:: Robin Walk School [nobr]
+<<set $outside to 1>><<set $location to "town">><<effects>>
+
+You leave the orphanage with Robin and walk to school.
+
+<<if $robinromance is 1>>
+<<He>> rubs the back of <<his>> hand against yours. You hold it. You chat with <<him>> as you walk.<<ltrauma>><<lstress>><<ltrauma20>><<lstress20>><br><br>
+
+<<else>>
+	<<if $robintrauma gte 80>>
+	<<Hes>> limping. You move slowly to let <<him>> keep up. <<He>> doesn't seem keen on talking, and stays close to you when other people are near.<br><br>
+
+	<<elseif $robintrauma gte 40>>
+	You chat with <<him>> on the way, though <<he>> falls silent when there are other people near.<br><br>
+
+	<<else>>
+	You chat with <<him>> on the way.<<ltrauma>><<lstress>><<ltrauma20>><<lstress20>><br><br>
+
+	<</if>>
+<</if>>
+<<endevent>>
+<<click [[Next|School Front Playground]]>><</click>><br>
+
+
+:: Robin Walk Home [nobr]
+<<set $outside to 1>><<set $location to "town">><<effects>>
+
+<<robin>><<person1>>You run up to Robin.
+
+
+
+<<if $robinromance is 1>>
+<<He>> hugs you. "Can we hold hands?" <<he>> says.<br><br>
+
+Together you walk back to the orphanage, chatting as you go.<<ltrauma>><<lstress>><<ltrauma20>><<lstress20>><br><br>
+
+<<else>>
+
+	<<if $robintrauma gte 80>>
+	<<He>> smiles when <<he>> sees you. "H-hey," <<he>> says.<br>.<br>
+
+	Together you walk back to the orphanage. <<He>> limps, and you move slowly to let <<him>> keep up. <<He>> doesn't seem keen on talking, and stays very close to you whenever other people are around.<br><br>
+
+	<<elseif $robintrauma gte 40>>
+	<<He>> smiles when <<he>> sees you. "Hey," <<he>> says. "I'm glad you're here. I don't feel safe walking home alone."<br><br>
+
+	Together you walk back to the orphanage. You chat a bit, but <<he>> tenses and falls silent whenever other people are around.<br><br>
+
+
+	<<else>>
+	<<He>> smiles when <<he>> sees you. "Hey," <<he>> says. "I'm glad you're here. I don't like walking home alone."<br><br>
+
+	Together you walk back to the orphanage, chatting as you go.<<ltrauma>><<lstress>><<ltrauma20>><<lstress20>><br><br>
+
+	<</if>>
+
+<</if>>
+<<set $robinlove += 1>>
+<<endevent>>
+<<click [[Next|Orphanage]]>><</click>><br>
+
+
+:: Docks_Robin [nobr]
+<<set $outside to 1>><<set $location to "docks">><<effects>>
+
+<<set $docksrobinintro to 1>><<set $robindebtknown to 1>>
+<<robin>><<person1>>You search the docks for Robin. You find <<him>> strapped naked to a table on board a yacht. <<His>> body is covered in welts and bruises. <<He>> looks right through you, <<his>> eyes glazed and empty.<br><br>
+
+<<endevent>>
+
+<<generate1>><<generate2>><<generate3>>There are three <<people>> on board. Two of them are arguing. "You fucking broke the toy already," the <<person1>><<person>> says. "We haven't even cast off yet."<br><br>
+
+"I was only testing it," the <<person2>><<person>> responds. "How was I to know it would break so easily?"<br><br>
+
+"You went completely mental with that whip," the <<person1>><<person>> says. "Now look." <<He>> grabs Robins genitals and tugs. It looks very painful, but Robin doesn't make a sound. "It's not gonna be any fun fucking that."<br><br>
+
+"What do you want me to do? It's not like we can get a refund."<br><br>
+
+"Ladies," the <<person3>><<person>> says. "We have company." They look at you.<br><br>
+
+	<<if $submissive gte 1150>>
+	"L-let my friend go," you say. "What you're doing is wrong."<br><br>
+	<<elseif $submissive lte 850>>
+	"Let my friend go," you say. "Or else."<br><br>
+	<<else>>
+	"Let my friend go," you say.<br><br>
+	<</if>>
+	<br><br>
+	
+They pause for a moment, then burst into laughter. "Sure thing," the <<person1>><<person>> says. "Just get your little butt on here, and we'll let your friend go. If not, piss off. We're about to cast off."<br><br>
+
+<<click [[Take Robin's place|Docks_Robin Swap]]>><</click>><br>
+<<click [[Fight|Docks_Robin Fight]]>><<set $fightstart to 1>><</click>><br>
+<<click [[Leave|Mer Street]]>><<endevent>><</click>><br>
+
+
+:: Docks_Robin Swap [nobr]
+<<set $outside to 1>><<set $location to "sea">><<effects>>
+
+<<set $robindebtevent to 0>><<set $robinmissing to 0>>
+
+The <<person1>><<person>> unties Robin, who doesn't seem to be aware of what's happening. They shove you on the table instead, and soon have you bound.<br><br>
+
+<<robinpay>>
+
+<<upperruined>><<lowerruined>><<underruined>>
+<<set $leftarm to "bound">><<set $rightarm to "bound">>
+"You won't be needing these," the <<person2>><<person>> says, tearing off your clothing. "Right, lets go."<br><br>
+
+The yacht starts to move. You see Robin lying on the dock, but the <<person3>><<person>> steps in the way. "So what will we do with you?"<br><br>
+
+"We could use <<phim>> as bait," the <<person2>><<person>> suggests. "Bet we'd catch something big."<br><br>
+
+"Don't be daft," the <<person1>><<person>> says. "We'd sink the boat. Anyway, I want to fuck <<phim>> properly at some point."<br><br>
+
+They argue for a while, the topic of conversation moving away from you. You're left alone as they drink and steer the yacht away from shore.<<pass30>><br><br>
+
+<<click [[Next|Docks_Robin Swap 2]]>><</click>><br>
+
+
+:: Docks_Robin Fight [nobr]
+<<if $fightstart is 1>>
+<<set $fightstart to 0>>
+
+<<neutral1>>
+<<set $event to "molestationhome">>
+<<man1init>><<set $enemyanger += 150>>
+You jump onto the boat. "Good <<girlcomma>> now-" you interrupt <<him>> with a punch to <<his>> stupid face.<<set $enemyhealth -= 20>>
+<br><br>
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><<man>>
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+<<if $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Docks_Robin Fight Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Docks_Robin Fight Finish]]>><</click>></span><<nexttext>>
+<<elseif $pain gte 100>>
+<span id="next"><<click [[Next|Docks_Robin Fight Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Docks_Robin Fight]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Docks_Robin Fight Finish [nobr]
+<<set $outside to 1>><<set $location to "docks">><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+You seize the opportunity and lead Robin off the yacht before they notice you escaping.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Docks_Robin Rescue]]>><</click>><br>
+
+<<elseif $enemyhealth lte 0>>
+
+The <<person1>><<person>> tumbles backwards off the boat. The others run over to help <<him>> back up. You seize the opportunity and lead Robin off the yacht before they notice you escaping.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Docks_Robin Rescue]]>><</click>><br>
+
+<<else>>
+
+You collapse in a heap. "Someone make room for the fresh one."<br><br>
+
+<<click [[Next|Docks_Robin Swap]]>><<clotheson>><</click>><br>
+
+<</if>>
+
+
+:: Docks_Robin Rescue [nobr]
+<<set $outside to 1>><<set $location to "docks">><<effects>>
+<<robin>><<person1>><<set $robindebtevent to 0>><<set $robinmissing to 0>>
+You hold Robin close and move away from the docks. You're trying to work out where to find something to keep Robin warm when a car pulls up. It's Bailey.<br><br>
+
+<<endevent>><<bailey>><<person1>>"You got away sooner than I expected," <<he>> says to Robin, who doesn't respond. Bailey looks at you. "I'll take <<endevent>><<robin>><<person1>><<him>> from here. Or would you rather <<he>> walk through town like that? You can walk."<br><br>
+
+Bailey shoves Robin into the back seat, and drives away.<br><br>
+<<endevent>>
+
+<<robinpay>>
+
+<<click [[Next|Mer Street]]>><</click>><br>
+
+
+:: Bailey's Office Robin [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+
+"You want to take on that worthless waif's debt? Why?" Bailey says. "Don't answer. I don't care." <<He>> smiles. "People pay more for your ass anyway."<br><br>
+
+<i>Taking on Robin's debt is irreversible.</i><br><br>
+
+<<click [[Confirm|Bailey's Office Robin 2]]>><</click>><br>
+<<click [[Leave|Orphanage]]>><<endevent>><</click>><br>
+
+
+:: Bailey's Office Robin 2 [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+<<set $robinpaid to 1>>
+<<set $rentmoney *= 2>>
+
+"Fine," Bailey says. "You owe me <span class="red">£<<print $rentmoney / 100>></span> for this week then. I'd get busy if I were you."<br><br>
+<<endevent>>
+<<click [[Next|Orphanage]]>><</click>><br>
+
+
+:: Docks_Robin Swap 2 [nobr]
+"So," the <<person1>><<person>> slurs. "If we did use <<phim>> as bait, I bet we'd catch a whale."<br><br>
+
+"There aren't whales here, idiot," the <<person2>><<person>> responds. "And they don't fish for whale like that."<br><br>
+
+"There are whales. I've seen one."<br><br>
+
+"Liar."<br><br>
+
+"I know," the <<person3>><<person>> says. "We lower <<phim>> into the water. If there are no whales, we pull <<phim>> back onto the boat. If there are, we can eat whale."<br><br>
+
+"That's a fantastic idea," the <<person1>><<person>> says as <<he>> staggers to <<his>> feet. They tie a length of rope to your arms and release you from the table. They shove you to the edge of the yacht.<br><br>
+
+"I've tied the rope down," the <<person3>><<person>> says.<br><br>
+
+The <<person1>><<person>> and <<person2>><<person>> lift you onto the railing. They push you overboard, and you plunge into the sea.<br><br>
+
+<<endcombat>>
+
+
+<<if $voredisable is "f">>
+
+You float to the surface and gasp for air. Something you grabs your thighs and tugs you back down. You feel the rope snap.<br><br>
+
+<<click [[Next|Sea Vore]]>><<unbind>><<set $molestationstart to 1>><<set $sea to 40>><</click>><br>
+
+<<else>>
+You feel the rope snap, and the boat speeds away from you.<br><br>
+
+<<click [[Next|Sea]]>><<set $sea to 80>><</click>><br>
+
+<</if>>
+
+
+:: Robin Note [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+You read the note.<br><br>
+
+"<i>I've wanted to tell you this but whenever I try it won't come out. I know you're paying Bailey for me. I feel so relieved and ashamed.<br><br>
+
+I've started feeling butterflies in my tummy when you talk to me, and when we hug it feels like my body is melting (In a good way). Do you want to be my <<if $playergender is "m">>boyfriend<<else>>girlfriend<</if>>? It's okay if you don't! If you don't though, pretend you never read this note or I'll die of embarrassment.<br><br>
+
+Thank you for looking after me,<br>
+Robin</i>"<br><br>
+
+<<click [[Next|Bedroom]]>><</click>><br>
+
+
+:: Robin Romance [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+"I read the note you left," you say. <<He>> tenses.
+
+<<if $submissive gte 1150>>
+"I'm happy you wrote it."
+<<elseif $submissive lte 850>>
+"It was brave of you to write it."
+<<else>>
+"It was very sweet."
+<</if>>
+<br><br>
+
+"I'm sorry," <<he>> says. "I didn't mean to embarrass you." You lean forward and kiss <<himstop>><<glove>><<set $robinlove += 1>><<garousal>><<ltrauma>><<lstress>><<garousal60>><<ltrauma60>><<lstress60>><br><br>
+
+You take <<his>> hands in your own, and hold them for a moment. You feel <<his>> pulse racing. You pull away, but <<he>> leans forward and kisses you again. <<His>> cheeks are wet with tears.<br><br>
+
+You pull away again, this time turning aside so <<his>> kiss lands on your cheek. <<He>> keeps kissing you. You laugh as <<he>> nuzzles your neck. "I love you," <<he>> whispers.<br><br>
+
+<<robinoptions>>
+
+
+:: Robin Stroke [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+
+<<if $robinromance is 1>>
+<<He>> makes a satisfied sound. "I feel so safe with you," <<he>> says.<br><br>
+<<else>>
+You stroke <<his>> hair. "Stop," <<he>> says. "You'll make me fall asleep." You move your hand away. "I didn't mean actually stop."<br><br>
+<</if>>
+
+<<robinoptions>>
+
+
+:: Robin Kiss [nobr]
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral1>>
+<<set $event to "molestationhome">>
+<<man1init>>
+<<set $enemytrust to $enemytrust + 200>><<npckiss>><<set $enemyarousalmax to 200>><<npcidlegenitals>>
+
+You lie down next to <<him>> and gently turn <<his>> head to face you. You kiss. <<He>> forgets about the game.<<promiscuity1>><br><br>
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><<man>>
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+<<if $finish is 1>>
+<span id="next"><<click [[Next|Robin Kiss Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Robin Kiss Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Robin Kiss Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Robin Kiss]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Robin Options [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+
+<<robinoptions>>
+
+
+:: Robin Kiss Finish [nobr]
+<<set $outside to 0>><<set $location to "forest">><<schooleffects>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+Robin clings to you. <<Hes>> smiling and looks content.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+
+
+<<elseif $enemyhealth lte 0>>
+
+"Not so rough!" Robin says.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<<elseif $finish is 1>>
+
+"I hope we continue later," Robin says, smiling.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<</if>>
+<<robin>><<person1>>
+<br><br>
+<<robinoptions>>
+
+
+:: Robin Play Tickle [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+You reach over and run your fingers over <<his>> tummy. "No fair!" <<he>> shouts, squirming away from you. It's enough to give you the upper hand, and you claim victory shortly after.<br><br>
+
+"You're lucky you're a guest in my room," <<he>> sulks.<br><br>
+
+<<click [[Apologize|Robin Play Apologise]]>><<set $robinlove += 1>><<set $robindom -= 1>><</click>><<glove>><<ldom>><br>
+<<if $robinromance is 1>>
+<<click [[Apologize with lewd|Robin Play Apologise Lewd]]>><<set $robinlove += 1>><<set $robinlust += 1>><</click>><<promiscuous1>><<glove>><<glust>><br>
+<</if>>
+<<click [[Bask in victory|Robin Options]]>><<set $robinlove -= 1>><<set $robindom -= 1>><</click>><<llove>><<ldom>><br>
+
+:: Robin Play Fair [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+
+<<if $rng gte 51>>
+<<He>> completely stomps you.<br><br>
+
+<<click [[Accept defeat with grace|Robin Play Grace]]>><<set $robinlove += 1>><<set $robindom += 1>><<gstress30>><</click>><<glove>><<gdom>><<gstress>><br>
+<<click [[Make excuses|Robin Play Excuses]]>><<set $robinlove -= 1>><</click>><<llove>><br>
+
+<<else>>
+You win with ease. <<He>> seems irritated.<br><br>
+
+<<click [[Cheer Robin up|Robin Play Cheer]]>><<set $robinlove += 1>><</click>><<glove>><br>
+<<click [[Tease|Robin Play Tease]]>><<set $robindom -= 1>><<set $robinlove -= 1>><</click>><<llove>><<ldom>><br>
+
+<</if>>
+
+
+:: Robin Play Apologise [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+<<if $submissive gte 1150>>
+"I'm sorry," you say. "It was the only way I could win."
+
+<<elseif $submissive lte 850>>
+"Sorry," you say. "That was uncalled for."
+
+<<else>>
+"Sorry," you say. "I know you wouldn't do that to me."
+
+<</if>>
+
+<br><br>
+
+"It's okay," Robin says. "It just surprised me."<br><br>
+
+<<robinoptions>>
+
+:: Robin Walk [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+<<if $submissive gte 1150>>
+"Would you like to go for a walk?" you ask.
+<<elseif $submissive lte 850>>
+"Time for some exercise," you say.
+<<else>>
+"Let's go for a walk," you say.
+<</if>>
+<br><br>
+
+<<if $robintrauma gte 40>>
+Robin smiles and nods.<br><br>
+
+<<else>>
+"Good idea," Robin says. "Where do you want to go?"<br><br>
+
+<</if>>
+
+
+<<click [[Forest|Robin Forest]]>><<pass30>><</click>><br>
+
+
+:: Robin Forest [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+
+<<if $weather is "rain">>
+You walk to the forest, running between shelter to avoid the worst of the rain. "I like the rain," Robin says. "It's fun running between cover like this."<br><br>
+
+It's less wet under the protective branches of the trees. "The ground is too muddy for a picnic," Robin says. <<He>> looks at the nearby trees. "Look at that one! I bet I can climb it." <<He>> runs over to it and starts hauling <<himself>> up.<br><br>
+
+	<<if $pronoun is "m">>
+	<<His>> shorts are baggy. You'd be able to see right up them if you stood closer.<br><br>
+	<<else>>
+	You'd be able to see right up <<his>> skirt if you stood closer.<br><br>
+	<</if>>
+	
+<<click [[Stand beneath|Robin Forest Beneath]]>><<set $robinlust += 1>><</click>><<glust>><<promiscuous1>><br>
+<<click [[Cheer from a distance|Robin Forest Cheer]]>><<set $robinlove += 1>><</click>><<glove>><br>
+
+<<else>>
+You walk to the forest. "Let's not go too deep," Robin says. "It's scary. I brought a picnic too. We'll need somewhere grassy to set up."<br><br>
+
+You find a flat patch of grass, surrounded by trees. Bees dance between nearby flowers. Robin lays out a rug. "Sit down before it blows away," <<he>> says.<br><br>
+
+There's not much food in the basket. "I took what I could get away with," <<he>> says. "It's more for the fun of it anyway."<br><br>
+
+<<if $robinromance is 1>>
+<<click [[Kiss|Robin Forest Kiss]]>><<set $robinlust += 1>><<set $robinlove += 1>><</click>><<glove>><<glust>><<promiscuous1>><br>
+<</if>>
+<<click [[Talk|Robin Forest Talk]]>><<set $robinlove += 1>><<lstress30>><<ltrauma30>><</click>><<glove>><<ltrauma>><<lstress>><br>
+
+
+<</if>>
+
+
+:: Robin Forest Beneath [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+You stand right beneath <<himstop>>
+
+<<if $pronoun is "m">>
+You see right up <<his>> shorts. <<Hes>> wearing blue underwear.
+<<else>>
+You see right up <<his>> skirt. <<Hes>> wearing pink underwear.
+<</if>>
+<<promiscuity1>><br><br>
+
+
+
+You cheer Robin on as <<he>> climbs the tree. <<He>> makes it to the top. "I knew I could do it," <<he>> shouts. You can barely make <<him>> out in the canopy. "It's pretty wet up here. I should come down."<br><br>
+
+
+<<Hes>> panting by the time <<he>> reaches the floor. "That was fun, but I got pretty wet," <<he>> says. "Lets go home or I'll catch a cold."<br><br>
+
+Together you return to the orphanage.<br><br>
+
+
+<<robinoptions>>
+
+
+:: Robin Forest Cheer [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+You cheer Robin on as <<he>> climbs the tree. <<He>> makes it to the top. "I knew I could do it," <<he>> shouts. You can barely make <<him>> out in the canopy. "It's pretty wet up here. I should come down."<br><br>
+
+
+<<Hes>> panting by the time <<he>> reaches the floor. "That was fun, but I got pretty wet," <<he>> says. "Lets go home or I'll catch a cold."<br><br>
+
+Together you return to the orphanage.<br><br>
+
+
+<<robinoptions>>
+
+
+:: Robin Forest Talk [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+You talk with Robin.
+
+
+
+<<if $rng gte 81>>
+"It's really peaceful here," <<he>> says.
+<<elseif $rng gte 61>>
+"I hear bad things happen to <<girls>> who wander in too deep," <<he>> says.
+<<elseif $rng gte 41>>
+"It's such a nice day," <<he>> says.
+<<elseif $rng gte 21>>
+"I wonder if it'll rain tomorrow," <<he>> says.
+<<else>>
+"I hope the picnic is okay," <<he>> says.
+<</if>>
+<br><br>
+
+<<Hes>> content at first, but soon grows restless. "That was fun," <<he>> says. "But let's go home." You help <<him>> pack up the picnic and together you make your way back to the orphanage.<br><br>
+
+<<robinoptions>>
+
+
+:: Robin Forest Kiss [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+"We're all alone out here," you say, leaning over and kissing <<his>> neck.<<promiscuity1>>
+
+<<He>> laughs and holds you close to <<himstop>> 
+
+You sit together for several minutes, before packing up the picnic and walking back to the orphanage.<br><br>
+
+<<robinoptions>>
+
+
+
+:: Canteen Lunch Intervene [nobr]
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+
+You walk over to Robin.
+
+
+<<if $submissive gte 1150>>
+"S-stop," you say. "That's my friend."
+<<elseif $submissive lte 850>>
+"Hey, losers." You shout.
+<<else>>
+You stand between Robin and the delinquents.
+<</if>>
+<br><br>
+One of them, a <<generatey1>><<person1>><<personcomma>> laughs. "Aww, is this your girlfriend? How cute." <<His>> fist clenches. "Looks like I get to show both of you your place."<br><br>
+
+<<click [[Next|Canteen Lunch Fight]]>><<set $fightstart to 1>><</click>><br>
+
+
+:: Canteen Lunch Robin [nobr]
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<robin>><<person1>>
+
+<<if $cool lte 40>>
+You sit down next to Robin. The other students at the table pick up their food and leave, afraid of being seen with you. Robin doesn't care. "Hey," <<he>> says.
+
+<<else>>
+You sit down next to Robin. "Hey," <<he>> says.
+
+<</if>>
+
+
+<<if $pain gte 40>>
+<<He>> looks concerned. "What's wrong?" <<He>> puts <<his>> arms around you. "It's okay, I think I have a tissue." You feel a bit better.<<set $pain -= 20>>
+<<elseif $rng gte 91>>
+"How was maths? I wish I was better at it."
+<<elseif $rng gte 81>>
+"I'm having a good day today."
+<<elseif $rng gte 71>>
+"I heard the funniest joke."
+<<elseif $rng gte 61>>
+	<<if $stress gte 6000>>
+	"Are you okay? You look a bit stressed out."
+	<<else>>
+	"I hope you're not pushing yourself too hard."
+	<</if>>
+<<elseif $rng gte 51>>
+	<<if $arousal gte 6000>>
+	"Your face is red. Are you too warm?"
+	<<else>>
+	"I always hope we get to eat together."
+	<</if>>
+<<elseif $rng gte 41>>
+"I'm not really hungry today."
+<<elseif $rng gte 31>>
+"The food here's better than at the orphanage."
+<<elseif $rng gte 21>>
+<<He>> looks happy. "An older <<girl>> said I was <<if $pronoun is "m">>handsome<<else>>pretty<</if>>!"
+<<elseif $rng gte 11>>
+"Thank you for sitting with me."
+<<else>>
+"I wish the other teachers were more like Doren."
+<</if>>
+<br><br>
+You have a pleasant chat with <<him>> while eating. "I'm going to wait in the classroom," <<he>> says when you're done. "I don't like being late." <<He>> hugs you.<br><br>
+<<endevent>>
+<<click [[Next|Canteen]]>><</click>><br>
+
+
+:: Canteen Lunch Fight [nobr]
+<<if $fightstart is 1>>
+<<set $fightstart to 0>>
+
+<<neutral1>>
+<<set $event to "molestationhome">>
+<<man1init>>
+<<set $enemytrust to $enemytrust - 100>>
+<<set $enemyhealthmax -= 100>>
+<<set $enemyhealth -= 100>>
+<<set $enemyanger += 150>>
+<<npcidlegenitals>>
+
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><<man>>
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+<<if $pain gte 100>>
+<span id="next"><<click [[Next|Canteen Lunch Fight Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Canteen Lunch Fight Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Canteen Lunch Fight Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Canteen Lunch Fight]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Canteen Lunch Fight Finish [nobr]
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+<<His>> friends laugh, "Did this little shit just make you cum?"<br><br>
+
+"N-no," <<he>> says, <<his>> face turning red. The other delinquents find it so amusing they forget about Robin.<br><br>
+
+<<endevent>><<robin>><<person1>>
+
+Robin's arms wrap around you from behind. "You saved me," <<he>> says. "My hero." You feel your face flush too. You sit and chat with Robin while you eat. "I'm going to wait in the classroom." <<He>> says when you finish. "I don't like being late."<<ltrauma>><<lstress>><<ltrauma20>><<lstress20>><<pass20>><br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+
+
+<<elseif $enemyhealth lte 0>>
+
+"Ow, that hurt," <<he>> says. "I think I need the nurse." <<His>> friends follow and tease <<him>> as <<he>> leaves the canteen. <<tearful>> you stand tall and triumphant.<<ltrauma>><<lstress>><<gcool>><<ltrauma60>><<lstress60>><<gcool1>><br><br>
+
+<<endevent>><<robin>><<person1>>
+
+Robin's arms wrap around you from behind. "You saved me," <<he>> says. "My hero." You feel your face flush. You sit and chat with Robin while you eat. "I'm going to wait in the classroom." <<He>> says when you finish. "I don't like being late."<<ltrauma>><<lstress>><<ltrauma20>><<lstress20>><<pass20>><br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<else>>
+
+
+You fall to the ground, too hurt to continue fighting. "That's right," the <<person1>><<person>> says. "Get on the ground like the bitch you are." <<He>> and <<his>> friends laugh their way from the canteen.<<lcool>><<lcool10>><br><br>
+
+
+<<endevent>><<robin>><<person1>>
+
+Robin's arms wrap around you from behind. "You saved me," <<he>> says. "My hero." You feel your face flush. You sit and chat with Robin while you eat. "I'm going to wait in the classroom." <<He>> says when you finish. "I don't like being late."<<ltrauma>><<lstress>><<ltrauma20>><<lstress20>><<pass20>><br><br>
+
+<<clotheson>>
+<<endcombat>>
+<</if>>
+
+<br><br>
+<<click [[Next|Canteen]]>><</click>>
+
+
+:: Robin's Lemonade [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+
+<<if $robinlemonadeintro isnot 1>><<set $robinlemonadeintro to 1>>
+<<robin>><<person1>>You see Robin stood behind <<his>> lemonade stand. <<He>> waves when <<he>> sees you.<br><br>
+
+"Hey," <<he>> says as you draw close. <<He>> beams. "It's nice to see you. I want you to try my lemonade." <<He>> mixes together water, lemon juice and sugar and hands you the glass. "On the house." It's very sweet.<br><br>
+
+
+<<else>>
+<<robin>><<person1>>You see Robin stood behind <<his>> lemonade stand. <<He>> waves when <<he>> sees you.<br><br>
+
+
+<</if>>
+<<endevent>>
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><<endevent>><</click>><br>
+
+
+:: Robin's Lemonade Help [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+<<robin>><<person1>>
+
+<<if $hour gte 17>>
+"I'd like help carrying my stuff home," Robin says. "People don't buy much lemonade once it's this late.<br><br>
+
+You walk with Robin back to the orphanage.<br><br>
+
+<<endevent>>
+
+<<click [[Next|Orphanage]]>><</click>><br>
+
+
+<<else>>
+
+<<He>> smiles.
+
+
+<<if $rng gte 61>>
+	<<if $robinsignintro isnot 1>><<set $robinsignintro to 1>>
+	<<He>> crouches behind the stand, and emerges holding a sign. It has "Robin's Lemonade" written on it, with directions beneath. "Could you walk across the beach carrying this? More customers would help a lot."<br><br>
+	<<else>>
+	"Could you advertise my stand again? It really helped last time."<br><br>
+	<</if>>
+
+You take the sign and walk down the beach.<br><br>
+
+You see people read the sign, but don't know if any are convinced by it.<<famebusiness1>><br><br>
+
+<<click [[Keep trying|Robin's Lemonade Sign]]>><</click>><br>
+<<if $promiscuity gte 15>>
+<<click [[Flirt with potential customers|Robin's Lemonade Flirt]]>><<famebusiness1>><</click>><<promiscuous2>><br>
+<</if>>
+
+<<elseif $rng gte 21>>
+"I need more water. I go through it so quickly. I don't like asking because it's heavy, but could you buy some more? You'll need to go to the High Street to find it cheap. They charge too much nearby." <<He>> hands you £2. "That's enough for a large bottle."<br><br>
+
+As you leave the beach you see a shop selling large bottles of water. Robin was right, it's expensive here. It would be much harder to carry the water all the way from the High Street though.<br><br>
+
+<<click [[Go to the High Street|Robin's Lemonade High]]>><</click>><br>
+	<<if $money gte 2000>>
+<<click [[Buy water with your own money (£20)|Robin's Lemonade Buy]]>><<set $money -= 2000>><</click>><br>
+	<</if>>
+<<set $skulduggerydifficulty to 200>>
+<<click [[Steal the water|Robin's Lemonade Steal]]>><<crime20>><</click>><<skulduggerydifficulty>><<crime>><br>
+<<if $promiscuity gte 15>>
+<<click [[Flirt for cheaper water|Robin's Lemonade Seduction]]>><</click>><<promiscuous2>><br>
+<</if>>
+
+<<else>>
+"I have everything I need. You're welcome to stay though. I would like the company."<br><br>
+
+
+	You keep Robin company while <<he>> runs the stand, and chat with <<him>> while there are no customers.<<set $robinlove += 1>><<glove>><<ltrauma>><<lstress>><<ltrauma30>><<lstress30>><br><br>
+<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+	<<if $danger gte (9900 - $allure)>>
+	<<endevent>><<generate1>><<generate2>><<person1>>A <<person>> and <<person2>><<personcomma>> both dressed in police uniforms, approach the stand. "Welcome," Robin begins. "One pound for fresh-"<br><br>
+	
+	"Shush," <<person1>>the <<person>> interrupts. "We're here to see your permit."<br><br>
+	
+	"P-permit?" Robin asks.<br><br>
+	
+	"That's right. Don't tell me you don't have one?"<br><br>
+	
+	"I don't think the kid has one," the <<person2>><<person>> says. "That's twenty years in prison, easy." The colour drains from Robin's face.<br><br>
+	
+	"Yeah," the <<person1>><<person>> says. "Or we can fine you £100. Up to you."<br><br>
+	
+	Robin starts counting out the money with shaking hands.<br><br>
+	
+	<<click [[Comfort Robin|Robin's Lemonade Comfort]]>><</click>><br>
+		<<if $money gte 10000>>
+	<<click [[Pay for Robin|Robin's Lemonade Pay]]>><<set $money -= 10000>><<famegood3>><</click>><br>
+		<</if>>
+		<<if $promiscuity gte 35>>
+	<<click [[Offer your body|Robin's Lemonade Offer]]>><<famegood3>><</click>><<promiscuous3>><br>
+		<</if>>
+		<<if $submissive lte 500>>
+	<<click [[Intimidate|Robin's Lemonade Intimidate]]>><<set $submissive -= 1>><</click>><<defianttext>><br>
+		<</if>>
+	
+	<<else>>
+	
+	"Thank you for spending time with me," <<he>> says after a while.<br><br>
+
+	<<endevent>>
+	
+	<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+	
+	<</if>>
+<</if>>
+<</if>>
+
+
+:: Robin's Lemonade Sign [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+<<generate2>><<person2>>
+You walk to the other end of the populated part of the beach, and then back to Robin. <<Hes>> servicing a <<personstop>><br><br>
+
+"That'll be one pound please."<br><br>
+
+"Thanks," the <<person>> says. "You interested in making a little extra? I know a quiet place we could go."<br><br>
+
+Robin looks confused. "But I need my stand in a busy place so people can see it. Thanks for trying to help though."<br><br>
+
+"No," the <<person>> says. "You know what, forget it."<br><br>
+
+Robin notices you as the <<person>> leaves.<<person1>> "Business has improved a lot." <<He>> says. "Thank you."<br><br>
+
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Flirt [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+
+<<set $seductiondifficulty to 4000>>
+<<seductioncheck>><br><br>
+<span class="gold">You feel more confident in your powers of seduction.</span><<seductionskilluse>><br><br>
+
+<<promiscuity2>><br><br>
+
+
+
+<<if $seductionrating gte $seductionrequired>>
+
+You decide to be more assertive, flirting with potential customers and disarming them with charm. When you return to Robin there's a queue. <<He>> smiles at you.<br><br>
+
+"I don't know how you did it, but thank you." <<He>> kisses you on the cheek.<<glove>><<set $robinlove += 1>><<ltrauma>><<lstress>><<ltrauma30>><<lstress30>><br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+<<else>>
+
+<<generate2>><<person2>>
+You turn on the charm, but still can't get anyone interested. You return to Robin. <<Hes>> servicing a <<personstop>><br><br>
+
+"That'll be one pound please."<br><br>
+
+"Thanks," the <<person>> says. "You interested in making a little extra? I know a quiet place we could go."<br><br>
+
+Robin looks confused. "But I need my stand in a busy place so people can see it. Thanks for trying to help though."<br><br>
+
+"That's not what I-," the <<person>> says. "You know what, forget it."<br><br>
+
+Robin notices you as the <<person>> leaves.<<person1>>"Business has improved a lot." <<He>> says. "Thank you."<br><br>
+
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+<</if>>
+
+
+:: Robin's Lemonade High [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+You walk to the High Street and buy a large bottle of water. You return to the beach. Robin waves at you. "Thank you. I'd need to close the stand if not for you." <<He>> hugs you.<br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Buy [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+
+
+You buy four large bottles of water and haul them back to Robin. Their weight makes it slow going as you need to take frequent breaks, but it's not too far. Robin rushes over to help when <<he>> sees you. "How did you-" <<he>> pauses. "You can't have carried these all that way."<br><br>
+
+"I found it discounted at a closer shop," you say.<br><br>
+
+"You're so good with money. Thank you." You quietly leave the £2 <<he>> gave you on the stand.<<set $robinlove += 1>><<glove>><br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Steal [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+<<endevent>><<generate1>><<person1>>
+
+<<skulduggerycheck>>
+<<if $skulduggerysuccess is 1>>
+You enter the shop and start loading up a trolley with large bottles of water. Once done, you pretend to browse and wait. A talkative customer strikes up a conversation with the <<person>> behind the counter, giving you your chance. You push the trolley from the shop.<br><br>
+
+<<endevent>><<robin>><<person1>>
+
+You keep pushing it all the way back to Robin. <<His>> eyes widen when <<he>> sees you. "I've never thought of that," <<he>> says. "You're so clever." You quietly leave the £2 <<he>> gave you on the counter.<<set $robinlove += 1>><<glove>><br><br>
+
+
+	<<if $skulduggery lte ($skulduggerydifficulty + 100)>>
+	<<skulduggeryskilluse>>
+	<<else>>
+	<span class="blue">That was too easy. You didn't learn anything.</span><br><br>
+	<</if>>
+	
+	
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+	
+<<else>>
+
+
+
+You enter the shop and start loading up a trolley with large bottles of water. Once done, you pretend to browse and wait. A talkative customer strikes up a conversation with the <<person>> behind the counter, giving you your chance. You push the trolley from the shop.<br><br>
+
+An arm grabs your shoulder. It's the <<personstop>> "You little shit. I'll teach you to steal from me."<br><br>
+
+	<<if $skulduggery lte ($skulduggerydifficulty + 100)>>
+	<<skulduggeryskilluse>>
+	<<else>>
+	<span class="blue">That was too easy. You didn't learn anything.</span><br><br>
+	<</if>>
+	
+<<click [[Next|Robin's Lemonade Steal Molestation]]>><<set $molestationstart to 1>><</click>><br>
+
+
+<</if>>
+
+
+:: Robin's Lemonade Seduction [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+<<endevent>><<generate1>><<person1>>
+
+<<set $seductiondifficulty to 6000>>
+<<seductioncheck>><br><br>
+<span class="gold">You feel more confident in your powers of seduction.</span><<seductionskilluse>><br><br>
+
+<<promiscuity2>><br><br>
+
+
+
+<<if $seductionrating gte $seductionrequired>>
+
+You lean on the counter in a nearby shop. A <<person>> stands behind it. You look <<him>> in the eyes and smile playfully. "I'm really thirsty," you say. "I need several large bottles of water, but I have no money." You lower your voice. "Maybe there's some other way I can pay?"<br><br>
+
+<<He>> walks to the door and locks it. "Alright, whore. Show me what you can do."<br><br>
+
+<<click [[Next|Robin's Lemonade Steal Molestation]]>><<set $sexstart to 1>><</click>><br>
+
+<<else>>
+
+You lean on the counter in a nearby shop. A <<person>> stands behind it. You look <<him>> in the eyes and smile playfully. "I'm really thirsty," you say. "I need several large bottles of water, but I have no money." You lower your voice. "Maybe there's some other way I can pay?"<br><br>
+
+<<He>> doesn't look impressed. "I can't give away shit to every slut who comes in here. Pay up or piss off."<br><br>
+
+<<click [[Go to the High Street|Robin's Lemonade High]]>><</click>><br>
+	<<if $money gte 2000>>
+<<click [[Buy water with your own money (£20)|Robin's Lemonade Buy]]>><<set $money -= 2000>><</click>><br>
+	<</if>>
+
+<</if>>
+
+
+:: Robin's Lemonade Steal Molestation [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "molestationhome">>
+<<man1init>><<set $enemyanger += 150>>
+<<set $rescue to 1>>
+
+
+
+<<elseif $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral1>>
+<<set $event to "molestationhome">>
+<<man1init>>
+
+<<endif>>
+
+<<effects>>
+
+
+
+
+<<effectsman>><<man>>
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+<<if $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Robin's Lemonade Steal Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Robin's Lemonade Steal Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $rescue is 1 and $alarm is 1>>
+<span id="next"><<click [[Next|Robin's Lemonade Steal Molestation Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Robin's Lemonade Steal Molestation]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Robin's Lemonade Steal Molestation Finish [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+
+"You can have the water," <<he>> says. "Fair price for a whore."<br><br>
+
+<<elseif $enemyhealth lte 0>>
+
+"Fucking <<bitchcomma>>" <<he>> says. "Keep your damn water. You'll get yours." <<He>> hobbles away.<br><br>
+
+<<else>><<set $rescued += 1>>
+
+Your cry attracts attention. Heads turn up and down the street. The <<person>> backs away from you, aware of how this must look. "Fucking <<bitchcomma>>" <<he>> says. "Keep your damn water. You'll get yours."<br><br>
+
+<</if>>
+
+
+<<clothesontowel>>
+<<endcombat>>
+
+<<robin>><<person1>>
+
+
+
+
+
+<<tearful>> you walk back to Robin, who rushes over to help when <<he>> sees you. "How did you-" <<he>> pauses. "You can't have carried these all that way."<br><br>
+
+	<<if $pain gte 40>>
+	<<He>> sees your tears. "What's wrong?" <<he>> asks, putting <<his>> arms around you. You sob into <<his>> shoulder and feel a little better.<<lpain>><<set $pain -= 20>><br><br>
+	<</if>>
+
+"I found it discounted at a closer shop," you say.<br><br>
+
+"You're so good with money. Thank you." You quietly leave the £2 <<he>> gave you on the stand.<<set $robinlove += 1>><<glove>><br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Comfort [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+<<endevent>><<robin>><<person1>>
+You put your arm around Robin's shoulders, which steadies <<him>> a bit. The crooked police take the money and leave.<br><br>
+
+Once they're gone, Robin bursts into tears and buries <<his>> head in your shoudler. "W-what am I going to do?" <<he>> sobs. You hold <<him>> tight until <<he>> calms down. "Th-thank you."<br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Pay [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+<<endevent>><<robin>><<person1>>
+
+"I'll pay," you say. Robin shakes <<his>> head, but can't seem to form words. You gently push <<him>> aside and hand your money to the police.<br><br>
+
+Once they're gone, Robin bursts into tears and buries <<his>> head in your shoudler. "I-I," <<he>> sobs. "I was so scared. Thank you." <<He>> calms down a bit <<he>> puts the money back beneath the stand.<br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Offer [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+You gently push Robin to the side and lean forward. "Wouldn't you rather have some fun with me?" you whisper.<<promiscuity3>>
+
+
+They smile. "Sure," the <<person1>><<person>> says. "That'd work."<br><br>
+
+Robin looks confused. "I'm going to work this out with them," you say. "I'll be back later."<br><br>
+
+Robin hugs you. "Okay. See you soon."<br><br>
+
+You walk off the beach with the police. Their car is parked in a nearby alley. "Get in," the <<person2>><<person>> says. You climb in the back seat and <<he>> follows close behind. The <<person1>><<person>> gets in on the other side.<br><br>
+
+<<click [[Next|Robin's Lemonade Offer Molestation]]>><<set $molestationstart to 1>><</click>><br>
+
+
+:: Robin's Lemonade Intimidate [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+You clench your fists in anger. "What would your superior think about you shaking down lemonade stands?"<br><br>
+
+The <<person1>><<person>> laughs. "Don't pretend anyone cares." <<He>> looks back at Robin. "Pay up!" <<He>> snaps, making Robin jump in fright.<br><br>
+
+"And I'm sure you've been giving them their cut, right?" The <<person2>><<person>> looks nervous.<br><br>
+
+"Shut up, slut," the <<person1>><<person>> says, but the <<person2>><<person>> turns to <<person1>><<himstop>>
+
+"This sounds like a headache. I think we leave this one."<br><br>
+
+"Fine," the <<person>> snarls. <<He>> looks at you. "I'll remember your face."<br><br>
+
+<<endevent>><<robin>><<person1>>
+
+Robin bursts into tears and buries <<his>> head in your shoudler. "I-I," <<he>> sobs. "I was so scared. Thank you." Once <<he>> calms down a bit <<he>> puts the money back beneath the stand.<br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Offer Molestation [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "molestationhome">>
+<<man1init>><<set $enemytrust -= 50>>
+<<endif>>
+
+<<effects>>
+
+
+
+
+<<effectsman>><<man>>
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+<<if $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Robin's Lemonade Offer Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Robin's Lemonade Offer Molestation Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Robin's Lemonade Offer Molestation]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Robin's Lemonade Offer Molestation Finish [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+
+"Cheaper than the brothel," the <<person1>><<person>> says. <<He>> opens the car door. "Go back to your friend."<br><br>
+
+<<elseif $enemyhealth lte 0>>
+
+You knock the <<person1>><<person>> into the brake. The car starts to roll out into the road, and they both scramble to fix it. You seize the opportuinity and escape.<<crime>><<crime100>><br><br>
+
+
+<</if>>
+
+
+<<clothesontowel>>
+<<endcombat>>
+
+<<robin>><<person1>>
+
+
+
+<<tearful>> you walk back to Robin. <<He>> runs up to you when <<he>> sees you.<br><br>
+
+<<if $pain gte 40>>
+<<He>> sees your tears and hugs you.
+<<else>>
+<<He>> hugs you.
+<</if>> "I hope they didn't hurt you," <<he>> says.<br><br>
+	
+"N-no," you say. "Everything's fine."<<set $robinlove += 1>><<glove>><br><br>
+
+<<endevent>>
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><</click>><br>
+
+
+:: Robin's Lemonade Set [nobr]
+<<set $outside to 1>><<set $location to "beach">><<effects>>
+
+You help Robin carry <<his>> equipment to the beach. "Thank you for the help," <<he>> says. "It's hard carrying it all on my own." <<He>> starts juicing lemons.<br><br>
+
+<<endevent>>
+
+
+<<click [[Offer help (0:30)|Robin's Lemonade Help]]>><<set $robinlove += 1>><<pass30>><</click>><<glove>><br>
+<<click [[Leave|Beach]]>><<endevent>><</click>><br>
+
+
+:: Bed Robin Sex [nobr]
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral1>>
+<<set $event to "molestationhome">>
+<<man1init>>
+<<set $enemytrust to $enemytrust + 500>><<npckiss>><<npcexpose>><<set $speechdisable to 1>>
+
+
+<<endif>>
+
+<<set $enemyanger to 0>>
+<<effects>>
+<<effectsman>><<man>>
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+<<if $finish is 1>>
+<span id="next"><<click [[Next|Bed Robin Sex Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Bed Robin Sex Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Bed Robin Sex Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Bed Robin Sex]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Bed Robin Sex Finish [nobr]
+<<set $outside to 0>><<set $location to "home">><<schooleffects>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<set $robinlust -= 20>>
+
+Robin clings to you and smiles.<br><br>
+
+
+<<elseif $enemyhealth lte 0>>
+
+"Ow!" Robin says. <<Hes>> still smiling.<br><br>
+
+
+<<elseif $finish is 1>>
+
+Robin clings to you and smiles.<br><br>
+
+
+<</if>>
+<<robin>><<person1>>
+<<He>> gazes into your eyes. "I love you." <<He>> kisses you again.
+	
+	<<if $virginloss || $pvirginloss>>
+		"I'm so happy you gave it to me." The loss of your virginity still physically hurts, but you never knew pain could feel so good.
+	<<else>>
+		<<if $penisfucked is 1>>
+		"It feels so good to have you inside me."
+		<<elseif $vaginafucked is 1>>
+		"It feels so good inside you."
+		<</if>>
+	<</if>>
+	<<His>> eyes shut, and <<he>> falls into a gentle sleep.
+<br><br>
+
+
+<<endcombat>>
+
+
+<<click [[Next|Bed]]>><</click>><br>
+
+
+:: Robin Room Bed [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+<<He>> blushes and looks away. "Y-yes," <<he>> says. "You can stay."<br><br>
+
+<<uppernaked>><<lowernaked>><<undernaked>>
+
+<<He>> turns off the light and you hear <<him>> shuffle around. Probably undressing. You undress yourself, and climb into the bed. <<He>> climbs in beside you. <br><br>
+
+
+<<He>> rolls over and hugs you. Your heart races as you feel <<his>> bare body against yours.<br><br>
+
+
+<<click [[Next|Robin Room Bed Sex]]>><<set $sexstart to 1>><</click>><br>
+
+
+:: Robin Room Bed Sex [nobr]
+<<if $sexstart is 1>>
+<<set $sexstart to 0>>
+<<consensual>>
+<<set $consensual to 1>>
+<<neutral1>>
+<<set $event to "molestationhome">>
+<<man1init>>
+<<set $enemytrust to $enemytrust + 500>><<npcexpose>><<set $speechdisable to 1>>
+
+
+<<endif>>
+
+<<set $enemyanger to 0>>
+<<effects>>
+<<effectsman>><<man>>
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+<<if $finish is 1>>
+<span id="next"><<click [[Next|Robin Room Bed Sex Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Robin Room Bed Sex Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Robin Room Bed Sex Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Robin Room Bed Sex]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Robin Room Bed Sex Finish [nobr]
+<<set $outside to 0>><<set $location to "home">><<schooleffects>><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>>
+
+Robin clings to you and smiles.<br><br>
+
+
+<<elseif $enemyhealth lte 0>>
+
+"Ow!" Robin says. <<Hes>> still smiling.<br><br>
+
+
+<<elseif $finish is 1>>
+
+Robin clings to you and smiles.<br><br>
+
+
+<</if>>
+
+<<He>> gazes into your eyes. "I love you." <<He>> kisses you again.
+	<<if $virginloss || $pvirginloss>>
+		"I'm so happy you gave it to me." The loss of your virginity still physically hurts, but you never knew pain could feel so good.
+	<<else>>
+		<<if $penisfucked is 1>>
+		"It feels so good to have you inside me."
+		<<elseif $vaginafucked is 1>>
+		"It feels so good inside you."
+		<</if>>
+	<</if>>
+	<<His>> eyes shut, and <<he>> falls into a gentle sleep.
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<<pass60>>
+<<robin>><<person1>>
+You lie with Robin, feeling <<him>> breathe beside you. After a time, you leave the bed and sneak back to your room.<br><br>
+
+<<click [[Next|Bedroom]]>><<endevent>><</click>><br>
+
+:: Robin Play Apologise Lewd [nobr]
+<<set $outside to 0>><<set $location to "home">><<effects>>
+
+
+
+"I'm sorry," you say. "Let me make it up to you."<br><br>
+
+You lift <<his>> shirt and kiss <<his>> tummy. <<Hes>> on guard, expecting another attack. You work your way up <<his>> abdomen, planting kisses as you go. When you reach <<his>> chest you lick <<his>> nipple. <<He>> squirms, but doesn't say anything. You tease <<his>> nipple with more persistence. <<He>> gasps and falls back onto the bed.<br><br>
+
+You climb on top of <<himcomma>> still licking. You feel <<his>> heart beat beneath you and listen to <<his>> sweet and heavy breathing. When you pull away you see <<his>> eyes are shut. <<He>> lies there a few moments before opening them.<<promiscuity1>>
+
+
+ 
+
+
+<<robinoptions>>

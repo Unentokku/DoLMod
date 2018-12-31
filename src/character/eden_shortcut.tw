@@ -1,0 +1,336 @@
+:: Eden Shortcut [nobr]
+<<effects>>
+<<switch $phase>>
+	<<case 0>>
+		<<if $edenfasttravelattempt == 1>>
+			<<eden>><<person1>>"Again? We already had this talk."
+		<<else>>
+			<<if $submissive gte 1150>>
+			"E-Eden, can you please talk with me?" you ask.
+			<<elseif $submissive lte 850>>
+			"Hey Eden," you say. "I have something to ask."
+			<<else>>
+			"Eden," you say. "Can I have a moment of your time?"
+			<</if>>
+			<br><br>
+
+			<<eden>><<person1>>"Sure," replies Eden, "<<print either("What's the deal", "What's the matter", "What is it")>>"?<br><br>
+
+			<<if $submissive gte 1150>>
+			"I-it's very hard to travel here and back..." you say. "Maybe you have some kind of shortcut...?"
+			<<elseif $submissive lte 850>>
+			"I get really annoyed by the nature of this forest." you say. "Everything seems to know I'm the prey. You must have a shortcut of some sort, right?"
+			<<else>>
+			"Is there any kind of shortcut leading to your place that you can teach me?" you ask. "It's very troublesome to make it back here."
+			<</if>>
+		<</if>>
+		<br><br>
+		<<set $edenfasttravelattempt to 1>>
+	<<if $edenlove gte 40>>
+		"Why did you assume I have something like that?" starts Eden somewhat surprised. "I'm very confident at navigating the forest, so obviously I have no need for some secret path or whatever," says Eden somewhat conceitedly, but instead <<he>> just meets your cold gaze, being completely unimpressed.<br><br>
+		"...Yeah, I guess lying won't do any good. I'm sorry," says Eden as <<he>> pats your head. "I do have a secret road though, but it's true that I don't use it all that often because I prefer to just stick around."<br><br>
+		"If this knowledge will help you, then... Very well. Your safety is the main concern of mine, so I'm ready to teach you. Just keep it secret, okay? I don't want any intruders in here."<br><br>
+
+		<<if $promiscuity gte 15>>
+			<i>Eden seems more than happy to teach you. But you can always try to pretend begging <<him>> for it instead...</i><br><br>
+			<<click [[Beg|Eden Shortcut Seduction]]>><<set $phase to 1>><</click>><<promiscuous2>><br>
+			<<click [[Just let Eden teach you|Eden Shortcut Learn]]>><<set $phase to 1>><</click>><br>
+		<<else>>
+			<<click [[Continue|Eden Shortcut Learn]]>><<set $phase to 1>><</click>><br>
+		<</if>>
+	<<else>>
+		"You see, I told you about the town," <<he>> starts with a stern tone. "And especially the forest. The outside world is dangerous, you know that. You're much safer here, with me. So let it stay that way. Maybe giving you freedom was a mistake after all..."<br><br>
+
+		<i>Eden seems to be very stubborn for some reason. Maybe there's a way to convince <<him>>?</i><br><br>
+
+		<<if $promiscuity gte 15>>
+			<<click [[Beg|Eden Shortcut Seduction]]>><<set $phase to 2>><</click>><<promiscuous2>><br>
+		<</if>>
+		<<click [[Persuade|Eden Shortcut]]>><<set $phase to 1>><</click>><br>
+		<<if $bus is "edenclearing">>
+			<<click [[Give Up|Eden Clearing]]>><<endevent>><</click>><br>
+		<<else>>
+			<<click [[Give Up|Eden Cabin]]>><<endevent>><</click>><br>
+		<</if>>
+	<</if>>
+
+	<<case 1>> /*come here when persuading*/
+		<<if $submissive gte 1150>>
+		"B-but I have to keep my school grades!," you start, almost whimpering. "I don't want to get into the detention again! So p-please, teach me!"
+		<<elseif $submissive lte 850>>
+		"You should understand, this will keep me safe and you wouldn't have to hunt me down every time. You get angry when I'm away, right?" you say confidently.
+		<<else>>
+		"That's why I want you to teach me so that I'd get back to you in one piece," you say.<br><br>
+		<</if>>
+		<br><br>
+
+		<<if $rng gte 71>>
+			"Okay, fine, I understand," says Eden tiredly, almost as if giving up. "You have your own life after all. But know that with this you will be the part of this place," ends Eden somewhat ominously.<br><br>
+			What did <<he>> mean by this?<br><br>
+
+			<<click [[Continue|Eden Shortcut Learn]]>><<set $phase to 2>><</click>><br>
+		<<else>>
+			"No can do. What if someone catches you and tortures you for this information? I can't have that, you have to understand," says Eden, trying to sound concerned, but obviously just not trusting you enough to teach.<br><br>
+
+			<<if $bus is "edenclearing">>
+				<<click [[Give Up|Eden Clearing]]>><<endevent>><</click>><br>
+			<<else>>
+				<<click [[Give Up|Eden Cabin]]>><<endevent>><</click>><br>
+			<</if>>
+		<</if>>
+<</switch>>
+
+:: Eden Shortcut Learn [nobr]
+<<effects>><<set $edenfasttravel to 1>>
+<<switch $phase>>
+	<<case 0 1 2>>
+		<<pass10>>
+		<<if $phase == 1>>
+			"Alright, listen closely," says Eden as <<he>> leans closer to you.
+		<<else>>
+			"I can't believe I'm actually teaching someone of this, especially someone I know only for couple of days," says Eden, almost astonished. "Know that only one person was supposed to know this. Now listen carefully."
+		<</if>>
+		<br><br>
+
+		<<He>> spends some time describing for which path to look for and which traps to avoid along the way. Surprisingly enough, it doesn't take much time to digest all of this. But you have a feeling that you would've never found this on your own, even with the proper knowledge.
+		<br><br>
+
+		"Here you go," <<he>> says, sounding quite pleased. "You should be safer with this. However you can only find this path if you're near my house or at the forest entrance. You can't get to it otherwise," warns Eden.<br>
+		 <span class="gold">I expect you to come back and never make me search for you from now on.</span> Deal?"<br><br>
+
+		<<click [[Hug|Eden Shortcut Learn]]>><<set $phase to 3>><<set $edenlove += 1>><</click>><br>
+		<<click [[Nod|Eden Shortcut Learn]]>><<set $phase to 4>><</click>><br>
+	<<case 3>>
+		<<if $edenfreedom < 2>>
+			You hug Eden, taking <<him>> by surprise and almost knocking <<him>> over.<br><br>
+		<<else>>
+			You hug Eden. <<He>> expects it and catches you. 
+		<</if>>
+		<br><br>
+		<<if $submissive gte 1150>>
+		"Thank you," you say, pressing your face against <<himstop>> "This will help a lot."
+		<<elseif $submissive lte 850>>
+		"I could do just fine without it you know," you say. "But it's just easier this way."
+		<<else>>
+		"Sure," you say, "I won't let you down."
+		<</if>>
+		<br><br>
+
+		"You're welcome," <<he>> squeezes you back.
+	<<case 4>>
+		You nod quietly, being confident that you won't lose your way in the forest anymore.
+<</switch>>
+
+/*ending buttons when learning*/
+<<if $phase >= 3>>
+	<br><br>
+	<<if $bus is "edenclearing">>
+	<<click [[Next|Eden Clearing]]>><<endevent>><</click>><br>
+	<<else>>
+	<<click [[Next|Eden Cabin]]>><<endevent>><</click>><br>
+	<</if>>
+<</if>>
+
+:: Eden Shortcut Seduction [nobr]
+<<effects>>
+
+<<switch $phase>>
+	<<case 1>>/*when pretending to beg, free sex scene*/
+		<<set $seductiondifficulty to (10000 - ($edenlust * 400))>>
+		<<seductioncheck>><br><br>
+		<span class="gold">You feel more confident in your powers of seduction.</span><<seductionskilluse>><br><br>
+
+		You drop down to your knees.<br>
+		<<if $submissive gte 1150>>
+		"I-I was taught to pay with kindness for kindness... S-so...!"
+		<<elseif $submissive lte 850>>
+		"I think you deserve a reward for this. Let me show you what I've learned so far."
+		<<else>>
+		"I prefer to pay for a good service. Let me show you how..."
+		<</if>>
+		<br>
+		You spread your legs, making a welcoming gesture to Eden.
+		<br><br>
+
+		<<if $seductionrating gte $seductionrequired>>
+		"A well-deserved relieve would be nice to have", says Eden as <<he>> pulls you closer.<br><br>
+		<<click [[Next|Eden Shortcut Sex]]>><<set $sexstart to 1>><</click>><br>
+
+		<<else>>
+		<<He>> lifts you up. "I'm sorry, but not now. That would ruin our focus, don't you think?"<br><br>
+		<i><<He>> will be more lusty, and easier to seduce, the longer <<hes>> gone without sex.</i><br><br>
+		<<click [[Next|Eden Shortcut Learn]]>><<set $phase to 1>><</click>><br>
+		<</if>>
+	<<case 2>>/*when begging for real, focus on oral*/
+		<<set $seductiondifficulty to (10000 - ($edenlust * 200))>>
+		<<seductioncheck>><br><br>
+		<span class="gold">You feel more confident in your powers of seduction.</span><<seductionskilluse>><br><br>
+
+		<<if $submissive gte 1150>>
+		"Umm... B-but... Uh... I... P-please, ex-excuse me...!"
+		<<elseif $submissive lte 850>>
+		"I'm getting really tired of the wolves. Shall I demonstrate you how I have to pacify them daily?"
+		<<else>>
+		"Sure, better let the only person who cares about you get shot by the poachers rather than teach them to stay safe. Great logic."
+		<</if>>
+		<br><br>
+		You quickly rush on Eden as <<he>> unexpectedly loses <<his>> posture and falls on <<his>> <<bottomcomma>> not expecting such an underhanded attack.<br><br>
+		<<if $pronoun is "f">>
+		Taking advantage of the turmoil, you rest your arms on <<his>> knees and quickly lift up <<his>> skirt, giving you a peek of <<his>> genitals.<<promiscuity2>><br>
+		<<else>>
+		Taking advantage of the turmoil, you rest your arms on <<his>> knees and quickly open <<his>> fly, giving you a peek of <<his>> genitals.<<promiscuity2>><br>
+		<</if>>
+		<<if $seductionrating gte $seductionrequired>>
+		"Whoa, hey! Stop it, you shouldn't..." <<he>> says, trying to keep you away, but it seems like <<hes>> actually liking where the things are going, which is apparent by the lack of <<his>> resistance.<br><br>
+		<<click [[Next|Eden Shortcut Oral]]>><<set $sexstart to 1>><</click>><br>
+		<<else>>
+		"What are you doing?!" <<He>> effortlessly lifts you up and quickly tidies <<himselfstop>> "I see you're trying to appeal to my carnal side, but that's not happening either, you slutty <<girlstop>> Do I have to be careful around you too?" asks Eden half-jokingly before returning back to what <<he>> was doing.<br><br>
+		<i><<He>> will be more lusty, and easier to seduce, the longer <<hes>> gone without sex.</i><br><br>
+		<<if $bus is "edenclearing">>
+		<<click [[Next|Eden Clearing]]>><<endevent>><</click>><br>
+		<<else>>
+		<<click [[Next|Eden Cabin]]>><<endevent>><</click>><br>
+		<</if>>
+
+		<</if>>
+<</switch>>
+
+:: Eden Shortcut Sex [nobr]
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral1>>
+	<<set $event to "molestationhome">>
+	<<man1init>>
+	<<set $enemytrust to $enemytrust + 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
+	<<promiscuity2>>
+<</if>>
+
+<<effects>>
+<<effectsman>><<man>>
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+<<if $finish is 1>>
+<span id="next"><<click [[Next|Eden Shortcut Sex Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Eden Shortcut Sex Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Eden Shortcut Sex Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Eden Shortcut Sex]]>><</click>></span><<nexttext>>
+<</if>>
+
+:: Eden Shortcut Sex Finish
+<<if $bus is "edenclearing">>
+<<set $outside to 1>>
+<<else>>
+<<set $outside to 0>>
+<</if>>
+<<set $location to "cabin">>
+
+<<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<set $edenlust -= 20>>
+<<if $virginloss || $pvirginloss>>
+"Crap," Eden says apologetically, "I didn't mean to deflorate you there. I hope you're not angry."<br><br>
+<<else>>
+"<<print jsMoan("m")>>...! Just what I needed," <<he>> moans. "But it's about time we get back to the main topic now."<br><br>
+<<endif>>
+<<clotheson>>
+<<endcombat>>
+<br><br>
+<<click [[Next|Eden Shortcut Learn]]>><<set $phase to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>>
+"What the hell," <<he>> groans. "Are you trying to kill me?" <<He>> winces and holds <<his>> side. "I need to get something for this."<br><br>
+<<tearful>> you run away.<br><br>
+<<clotheson>>
+<<endcombat>>
+<<if $bus is "edenclearing">>
+<br><br>
+<<click [[Next|Eden Clearing]]>><<endevent>><</click>><br>
+<<else>>
+<<click [[Next|Eden Cabin]]>><<endevent>><</click>><br>
+<</if>>
+<<elseif $finish is 1>>
+"Sheesh," <<he>> says. "Let's just get this over with."<br><br>
+<<clotheson>>
+<<endcombat>>
+<br><br>
+<<click [[Next|Eden Shortcut Learn]]>><<set $phase to 1>><</click>><br>
+<</if>>
+
+:: Eden Shortcut Oral [nobr]
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral1>>
+	<<set $event to "molestationhome">>
+	<<man1init>><<npcoral>>
+	<<set $enemytrust to $enemytrust + 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
+	<<promiscuity2>>
+<</if>>
+
+<<effects>>
+<<effectsman>><<man>>
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+<<if $finish is 1>>
+<span id="next"><<click [[Next|Eden Shortcut Oral Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Eden Shortcut Oral Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Eden Shortcut Oral Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Eden Shortcut Oral]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Eden Shortcut Oral Finish [nobr]
+<<if $bus is "edenclearing">>
+<<set $outside to 1>>
+<<else>>
+<<set $outside to 0>>
+<</if>>
+<<set $location to "cabin">>
+
+<<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<<ejaculation>><<set $edenlust -= 20>><<set $edenlove += 1>>
+"I knew I kept you around for a reason," <<he>> gasps.<br><br>
+<<clotheson>>
+<<endcombat>>
+<br><br>
+<<click [[Next|Eden Shortcut Learn]]>><<set $phase to 1>><</click>><br>
+
+<<elseif $enemyhealth lte 0>>
+"You ungrateful slut," <<he>> says. "Maybe I should throw you out and leave you to the wolves!" <<He>> winces and holds <<his>> side. "I need to get something for this."<br><br>
+<<tearful>> you run away.<br><br>
+<<clotheson>>
+<<endcombat>>
+<<if $bus is "edenclearing">>
+<br><br>
+<<click [[Next|Eden Clearing]]>><<endevent>><</click>><br>
+<<else>>
+<<click [[Next|Eden Cabin]]>><<endevent>><</click>><br>
+<</if>>
+
+<<elseif $finish is 1>>
+"You little tease," <<he>> says. "Guess you don't want me teach you after all."<br><br>
+<<clotheson>>
+<<endcombat>>
+<<if $bus is "edenclearing">>
+<br><br>
+<<click [[Next|Eden Clearing]]>><<endevent>><</click>><br>
+<<else>>
+<<click [[Next|Eden Cabin]]>><<endevent>><</click>><br>
+<</if>>
+
+<</if>>

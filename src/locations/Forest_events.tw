@@ -1,0 +1,1353 @@
+:: Forest Mushrooms [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+You eat one of the mushrooms. It tastes bitter, but somehow refreshing.<br><br>
+
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>>
+
+
+:: Forest Mushrooms2 [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+You eat one of the mushrooms, it's quite sweet. You feel more relaxed, and strangely heated.
+<br><br>
+
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>><br>
+
+
+:: Forest Wolf Molestation [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "dogpack">><<set $beasttype to "wolf">>
+<<beast1init>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemytrust -= 40>>
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><br><<beast>><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+
+
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Wolf Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Wolf Molestation Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Wolf Molestation]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Wolf Molestation Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<ejaculation>>
+
+
+
+The beast seems satisfied, but it isn't over. It grabs you by the scruff of your neck. It wants to take you somewhere.<br><br>
+
+<<click [[Let it happen|Forest Wolf Cave Intro]]>><<endcombat>><</click>><br>
+<<click [[Struggle|Forest Wolf Molestation Resist]]>><<set $enemyanger to $enemyanger + 200>><<set $molestationstart to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>><<set $foresthunt to 0>>
+
+Despite its power, you manage to defeat the beast. It flees into the forest, tail between its legs.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<tearful>> you gather yourself.<br><br>
+
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $eventskip to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Wolf Cave Intro [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+The wolf effortlessly bounds through the forest, and before long arrives at a cave, which it enters without slowing. It dumps you on the cold stone. Six pair of eyes stare at you through the dim light. The pack advances on you.<br><br>
+
+<<click [[Next|Forest Wolf Cave Rape]]>><<set $molestationstart to 1>><</click>><br>
+
+
+:: Forest Hunter Molestation [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "molestationhome">>
+<<man1init>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
+
+<<endif>>
+
+
+<<effects>>
+
+
+
+
+<<effectsman>><<man>>
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+<<if $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Hunter Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Hunter Molestation Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Hunter Molestation]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Hunter Molestation Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<ejaculation>>
+	<<if $hunterintro is 1>>
+	"I knew I'd be able catch you again. Come on, let's go home." <<He>> produces a length of rope from <<his>> bag. <<He>> is going to tie you up!
+	<<else>>
+		<<if $enemyanger gte 20>>
+		"You're a feisty one. I like that." The hunter produces a length of rope from <<his>> bag. You're going to be tied up!
+		<<else>>
+		"You're a gentle creature, aren't you? I'd best take you with me, it wouldn't do to leave you alone out here." The hunter produces a length of rope from <<his>> bag. You're going to be tied up!
+		<</if>>
+	<</if>>
+
+<br><br>
+
+
+
+
+
+
+
+<<click [[Don't struggle|Forest Hunter Intro]]>><<endcombat>><</click>><br>
+<<click [[Resist|Forest Hunter Resist Molestation]]>><<set $enemyanger to $enemyanger + 200>><<set $molestationstart to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>><<set $foresthunt to 0>>
+
+Despite <<his>> strength, you manage to send the hunter reeling, giving you the chance you need. <<tearful>> you escape into the forest.<br><br>
+
+<<if $upperoff isnot 0>>
+<<uppersteal>>
+<</if>>
+
+<<if $loweroff isnot 0>>
+<<lowersteal>>
+<</if>>
+
+<<if $underoff isnot 0>>
+<<understeal>>
+<</if>>
+
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $eventskip to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Hunter Intro [nobr]
+<<set $collared to 1>><<set $forestleashed to 1>>
+
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+
+
+<<eden>><<person1>>
+
+The hunter deftly ties your arms and legs together, then hoists you over <<his>> shoulder, before carrying you into the forest.<br><br>
+
+
+
+You soon arrive at a log cabin. Inside is a single, spartan room. <<He>> drops you on the hard floor and places a collar around your neck. It shuts with a click. <<He>> stands over you, and attaches a leash to your collar.<br><br>
+
+
+<<if $hunterintro isnot 1>><<set $hunterintro to 1>>
+"You're lucky I found you," <<he>> says. "The woods are dangerous, you'd have gotten hurt. My name is Eden." <<He>> pauses, as if unsure about something. <<He>> seems different to when <<he>> captured you, softer, despite you now being bound and collared at <<his>> feet.<br><br>
+
+<<He>> continues. "I've become self-sufficient out here. But it's lonely, sometimes. If I protect and provide for you, will you give me comfort and company?" You don't know if you really have a choice.<br><br>
+
+<<click [[Nod|Forest Hunter Nod]]>><</click>><br>
+<<click [[Refuse|Forest Hunter Refuse]]>><</click>><br>
+<<else>>
+"Welcome home. Now, time for your punishment." <<He>> bends you over <<his>> lap.<br><br>
+
+<<click [[Next|Forest Hunter Punishment]]>><<set $molestationstart to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Hunter Resist Molestation [nobr]
+<<if $molestationstart is 1>><<set $molestationstart to 0>>
+<<set $enemyarousal to 0>>
+<</if>>
+
+
+<<effects>>
+
+
+
+
+<<effectsman>><<man>>
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+<<if $enemyhealth lte 0>>
+<<click [[Next|Forest Hunter Resist Molestation Finish]]>><</click>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<<click [[Next|Forest Hunter Resist Molestation Finish]]>><</click>>
+<<elseif $pain gte 100>>
+<<click [[Next|Forest Hunter Resist Molestation Finish]]>><</click>>
+<<else>>
+<<click [[Next|Forest Hunter Resist Molestation]]>><</click>>
+<</if>>
+
+
+:: Forest Hunter Resist Molestation Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<ejaculation>>
+The hunter gasps, clearly not expecting to cum again so soon. It seems to be more than <<he>> can handle, giving you the chance you need. <<tearful>> you escape into the forest.<br><br>
+
+<<if $upperoff isnot 0>>
+<<uppersteal>>
+<</if>>
+
+<<if $loweroff isnot 0>>
+<<lowersteal>>
+<</if>>
+
+<<if $underoff isnot 0>>
+<<understeal>>
+<</if>>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $eventskip to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>><<set $foresthunt to 0>>
+
+Despite <<his>> strength, you manage to send the hunter reeling, giving you the chance you need. <<tearful>> you escape into the forest.<br><br>
+
+<<if $upperoff isnot 0>>
+<<uppersteal>>
+<</if>>
+
+<<if $loweroff isnot 0>>
+<<lowersteal>>
+<</if>>
+
+<<if $underoff isnot 0>>
+<<understeal>>
+<</if>>
+
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $eventskip to 1>><</click>><br>
+<<else>>
+
+Battered and bruised by <<his>> assault, you are helpless as <<he>> retrieves <<his>> rope from the ground.<br><br>
+
+<<if $upperoff isnot 0>>
+<<upperruined>>
+<</if>>
+
+<<if $loweroff isnot 0>>
+<<lowerruined>>
+<</if>>
+
+<<if $underoff isnot 0>>
+<<underruined>>
+<</if>>
+
+<<click [[Next|Forest Hunter Intro]]>><<endcombat>><</click>><br>
+<</if>>
+
+
+:: Forest Wolf Molestation Resist [nobr]
+<<if $molestationstart is 1>><<set $molestationstart to 0>>
+<<set $enemyarousal to 0>>
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><br><<beast>><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+
+
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Wolf Molestation Resist Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Wolf Molestation Resist Finish]]>><</click>></span><<nexttext>>
+<<elseif $pain gte 100>>
+<span id="next"><<click [[Next|Forest Wolf Molestation Resist Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Wolf Molestation Resist]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Wolf Molestation Resist Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<beastejaculation>>
+
+
+
+
+The second time is too much for the beast, and it collapses into a slumber.<br><br>
+
+<<tearful>> you gather yourself.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $eventskip to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>><<set $foresthunt to 0>>
+
+Despite its power, you manage to defeat the beast. It flees into the forest.<br><br>
+
+<<tearful>> you gather yourself.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $eventskip to 1>><</click>><br>
+<<else>>
+
+Battered and bruised by the beast's assault, you can do nothing but whimper as it grabs you by the neck and bounds into the forest.<br><br>
+
+<<if $upperoff isnot 0>>
+<<upperruined>>
+<</if>>
+
+<<if $loweroff isnot 0>>
+<<lowerruined>>
+<</if>>
+
+<<if $underoff isnot 0>>
+<<underruined>>
+<</if>>
+
+<<click [[Next|Forest Wolf Cave Intro]]>><<endcombat>><</click>><br>
+<</if>>
+
+
+:: Forest Avoid [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+<<if $phase is 0>>
+You leave the trail and walk into the dense forest. You avoid the pair, but your journey is slowed some.<br><br>
+
+<br><br>
+<<elseif $phase is 1>>
+<<generate1>><<generate2>>A <<person1>><<person>> and <<person2>><<person>> come into view. They eye you up as they walk past.<<gstress>><<gstress10>>
+<br><br>
+<<endevent>>
+
+
+
+
+
+
+
+<<elseif $phase is 2>>
+<<generate1>><<generate2>>A <<person1>><<person>> and <<person2>><<person>> come into view. They eye you up as they walk past, clearly enjoying the view.<<exhibitionism3>>
+<br><br>
+<<endevent>>
+
+
+
+
+<<elseif $phase is 3>>
+<<generate1>><<generate2>>A <<person1>><<person>> and <<person2>><<person>> come into view. They eye you up as they walk past, clearly shocked at seeing a naked <<girl>> in the middle of the forest, but not complaining.<<exhibitionism5>>
+<br><br>
+<<endevent>>
+
+
+
+
+
+<</if>>
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>><br>
+
+
+:: Forest Molestation [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "molestationhome">>
+<<generate1>><<generate2>><<man1init>>
+A <<person1>><<person>> and <<person2>><<person>> walk into view. <<person1>>As they walk by, they reach out and grab you!<br><br>
+<<endif>>
+
+
+<<effects>>
+
+
+
+
+<<effectsman>><<man>>
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+<<if $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Molestation Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Molestation]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Molestation Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<ejaculation>>
+
+Finished with you, they dump you unceremoniously into a ditch.<br><br>
+
+<<tearful>> you struggle to your feet.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+
+
+
+
+
+
+
+
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>><br>
+
+<<elseif $enemyhealth lte 0>>
+
+<<tearful>> you manage to free yourself from their clutches, and escape into the forest.<br><br>
+
+<<if $upperoff isnot 0>>
+<<uppersteal>>
+<</if>>
+
+<<if $loweroff isnot 0>>
+<<lowersteal>>
+<</if>>
+
+<<if $underoff isnot 0>>
+<<understeal>>
+<</if>>
+
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Wolf [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "dogpack">>
+<<beast1init>><<set $beasttype to "wolf">><<set $enemytrust -= 40>>
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><br><<beast>><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+
+
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Wolf Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Wolf Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Wolf]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Wolf2 [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "dogpack">>
+<<beast2init>><<set $beasttype to "wolf">><<set $enemytrust -= 40>>
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><br><<beast>><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+
+
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Wolf2 Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Wolf2 Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Wolf2]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Wolf Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<beastejaculation>>
+
+
+The beast grunts in satisfaction, and leaves you lying between the trees.<br><br>
+
+<<tearful>> you rise to your feet.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>>
+
+The beast yelps and flees into the forest.<br><br>
+
+<<tearful>> you gather yourself.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Wolf2 Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<beastejaculation>>
+
+	<<if $beastno gte 3>>
+	Satisfied, the beast leaves you be. Another takes its place.<<set $beastno to $beastno - 1>><br><br>
+
+	[[Next|Forest Wolf2]]
+
+	<<elseif $beastno is 2>>
+	Satisfied, the beast leaves you be. The other takes its place.<<set $beastno to $beastno - 1>><br><br>
+
+	[[Next|Forest Wolf2]]
+
+	<<elseif $beastno is 1>>
+	Satisfied, the beast leaves you be.<<set $beastno to $beastno - 1>><br><br>
+
+
+
+	[[Next|Forest Wolf2 End]]
+
+	<</if>>
+
+
+<<elseif $enemyhealth lte 0>>
+<<beastwound>>
+
+
+	<<if $beastno gte 3>>
+	The beast recoils in pain and fear, but another takes its place.<<set $beastno to $beastno - 1>><br><br>
+
+	[[Next|Forest Wolf2]]
+
+	<<elseif $beastno is 2>>
+	The beast recoils in pain and fear, but the other takes its place.<<set $beastno to $beastno - 1>><br><br>
+
+	[[Next|Forest Wolf2]]
+
+	<<elseif $beastno is 1>>
+	The beast recoils in pain and fear.<<set $beastno to $beastno - 1>><br><br>
+
+	[[Next|Forest Wolf2 End]]
+
+	<</if>>
+
+<</if>>
+
+
+:: Forest Wolf2 End [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+
+
+<<if $enemywounded is 1 and $enemyejaculated is 0>>
+The beast whimpers and flees into the forest.
+<<elseif $enemywounded is 0 and $enemyejaculated is 1>>
+The beast leaves you lying on the grass.
+<<elseif $enemywounded gte 2 and $enemyejaculated is 0>>
+Feeling that you're more trouble than you're worth, the beasts flee into the forest.
+<<elseif $enemywounded is 0 and $enemyejaculated gte 2>>
+The beasts leave you spent and shivering on the grass.
+<<elseif $enemywounded gte 1 and $enemyejaculated gte 1>>
+The beasts leave you spent and shivering on the grass. One is slowed by a limp.
+<</if>><br><br>
+
+
+
+
+
+<<tearful>> you rise to your feet.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>>
+
+
+:: Forest Swim [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>><<water>>
+
+<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+<<if $danger gte (9900 - ($allure * $forestmod)) and $eventskip is 0>>
+	<<if $bestialitydisable is "f">>
+	A large lizard rears out of the water!<br><br>
+	
+	<<click [[Next|Forest Swim Molestation]]>><<set $molestationstart to 1>><</click>>
+	<<else>>
+	A large lizard rears out of the water and grabs you in its maw! You manage to struggle free, but not unscathed.<<beastescape>><br><br>
+	
+	<<click [[Next|Forest Swim]]>><<set $eventskip to 1>><</click>><br>
+	<</if>>
+<<else>>
+	<<set $swimmingdifficulty to 200>><<swimmingcheck>>
+	<<if $swimmingcheck is "pass">>
+	The rushing water tears at you. <<set $stripintegrity to 20>><<set $stripobject to "jutting rock">><<stripobject>> Despite this, you <span class="green">successfully</span> swim across.<br><br>
+
+	<<click [[Next|Forest]]>><<set $eventskip to 1>><</click>>
+	<<elseif $swimmingcheck is "fail">>
+	The rushing water tears at you. <<set $stripintegrity to 20>><<set $stripobject to "jutting rock">><<stripobject>> The water is too violent, and you <span class="red">fail</span> to swim across the river, instead being swept downstream and deeper into the forest.<br><br>
+	
+	<<click [[Next|Forest]]>><<set $forest += 20>><</click>><br>
+	<</if>>
+<</if>>
+<<set $eventskip to 0>>
+
+
+:: Forest Swim Molestation [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "dogpack">><<set $beasttype to "lizard">>
+<<beast1init>>
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><br><<beast>><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+
+
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Swim Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Swim Molestation Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Swim Molestation]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Swim Molestation Finish [nobr]
+<<set $outside to 1>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<beastejaculation>>
+
+
+The lizard hisses its satisfaction, and dives back into the churning water.<br><br>
+
+<<tearful>> you gather yourself.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Swim]]>><<set $eventskip to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>>
+
+The lizard hisses in pain and dives back into the churning water.<br><br>
+
+<<tearful>> you gather yourself.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Swim]]>><<set $eventskip to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Wolf Cave Rape [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "dogpack">>
+	<<if $phase is 1>>
+<<beast2init>><<set $enemyanger += 30>>
+	<<else>>
+<<beast6init>>
+	<</if>>
+
+<<set $beasttype to "wolf">>
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><br><<beast>><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+
+
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Wolf Cave Rape Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Wolf Cave Rape Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Wolf Cave Rape]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Wolf Cave Rape Finish [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<beastejaculation>>
+
+	<<if $beastno gte 3>>
+	Satisfied, the beast leaves you be. Another takes its place.<<set $beastno to $beastno - 1>><<wolfpacktrust>><br><br>
+
+	[[Next|Forest Wolf Cave Rape]]
+
+	<<elseif $beastno is 2>>
+	Satisfied, the beast leaves you be. The other takes its place.<<set $beastno to $beastno - 1>><<wolfpacktrust>><br><br>
+
+	[[Next|Forest Wolf Cave Rape]]
+
+	<<elseif $beastno is 1>>
+	Satisfied, the beast leaves you be.<<wolfpacktrust>><<set $beastno to $beastno - 1>><br><br>
+
+
+
+	[[Next|Forest Wolf Cave Rape End]]
+
+	<</if>>
+
+
+<<elseif $enemyhealth lte 0>>
+<<beastwound>>
+
+
+	<<if $beastno gte 3>>
+	The beast recoils in pain and fear, but another takes its place.<<set $beastno to $beastno - 1>><<wolfpackfear>><br><br>
+
+	[[Next|Forest Wolf Cave Rape]]
+
+	<<elseif $beastno is 2>>
+	The beast recoils in pain and fear, but the other takes its place.<<set $beastno to $beastno - 1>><<wolfpackfear>><br><br>
+
+	[[Next|Forest Wolf Cave Rape]]
+
+	<<elseif $beastno is 1>>
+	The beast recoils in pain and fear.<<set $beastno to $beastno - 1>><<wolfpackfear>><br><br>
+
+	[[Next|Forest Wolf Cave Rape End]]
+
+	<</if>>
+
+<</if>>
+
+
+:: Forest Wolf Cave Rape End [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+
+
+
+
+
+
+
+
+
+<<if $enemywounded gte 2 and $enemyejaculated is 0>>
+In a display of power, you defeat the pack. <<tearful>> you escape from the cave.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $eventskip to 1>><</click>>
+
+
+
+
+<<elseif $enemywounded is 0 and $enemyejaculated gte 2>>
+Finished with you, the wolves leave you be. However, they rest between you and the cave entrance, and could easily block your escape. <<tearful>> you settle down.<br><br>
+
+<<if $phase is 1>>
+The other wolves soon return from their hunt.
+<</if>>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Wolf Cave]]>><<set $eventskip to 1>><</click>>
+
+
+
+
+<<elseif $enemywounded gte 1 and $enemyejaculated gte 1>>
+Finished with you, the wolves leave you be. However, they rest between you and the cave entrance, and could easily block your escape. <<tearful>> you settle down.<br><br>
+
+<<if $phase is 1>>
+The other wolves soon return from their hunt.
+<</if>>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Wolf Cave]]>><<set $eventskip to 1>><</click>>
+<</if>>
+
+
+:: Forest Wolf Cave [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+<<if $eventskip is 0>>
+<<eventwolfcave>>
+<<else>>
+The wolves are blocking your way out of the cave. A draft blows from the back.
+<br><br>
+<<click [[Rest (2:00)|Forest Wolf Cave Wait]]>><<set $tiredness -= 480>><<pass120>><</click>><br>
+
+<<click [[Try to escape|Forest Wolf Cave Escape]]>><</click>><br>
+	<<if $wolfcavedig gte 12>>
+	<<click [[Go down the hole|Forest Wolf Cave Hole]]>><</click>><br>
+	<<elseif $wolfcavedig gte 1>>
+	<<click [[Dig at the back of the cave (1:00)|Forest Wolf Cave Dig]]>><<pass60>><<set $wolfcavedig += 1>><</click>><br>
+	<<else>>
+	<<click [[Examine the back of the cave|Forest Wolf Cave Examine]]>><<set $wolfcavedig to 1>><</click>><br>
+	<</if>>
+<</if>>
+<<set $eventskip to 0>>
+
+
+:: Forest Wolf Cave Wait [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+You huddle at the back of the cave, and the wolves pay you little heed for a time.
+<br><br>
+<<click [[Next|Forest Wolf Cave]]>><</click>><br>
+
+
+:: Forest Wolf Cave Escape [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+<<if $wolfpacktrust gte 12>>
+The wolves look at you as you try to leave, but make no move to stop you. It seems they trust you enough to let you go.<<lstress>>
+
+<br><br>
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $forest to 80>><<set $eventskip to 1>><</click>><br>
+<<elseif $wolfpackfear gte 12>>
+The wolves growl at you as you try to leave, but make no move to stop you. It seems they fear you too much to try and stop you.<<lstress>>
+
+<br><br>
+<<click [[Next|Forest]]>><<set $stress -= 1000>><<set $eventskip to 1>><<set $forest to 80>><<set $eventskip to 1>><</click>><br>
+
+<<else>>
+The wolves immediately stir as you try to leave, and block your path. The pack stares at you, growling a warning.<<gstress60>><<gstress>>
+<br><br>
+<<click [[Try to escape anyway|Forest Wolf Cave Rape]]>><<set $molestationstart to 1>><</click>><br>
+<<click [[Back down|Forest Wolf Cave]]>><</click>><br>
+<</if>>
+
+
+:: Forest Wolf Cave Pair [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+The wolves immediately stir as you try to leave, and block your path. The pair stare at you, growling a warning.<<gstress30>><<gstress>>
+<br><br>
+<<click [[Try to escape anyway|Forest Wolf Cave Rape]]>><<set $molestationstart to 1>><<set $phase to 1>><</click>><br>
+<<click [[Back down (0:30)|Forest Wolf Cave Hunt]]>><<pass30>><</click>><br>
+
+
+:: Forest Wolf Cave Hunt [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+You decide not to risk it. You wait at the back of the cave. The wolves soon return from their hunt.
+<br><br>
+<<click [[Next|Forest Wolf Cave]]>><<set $eventskip to 1>><</click>><br>
+
+
+:: Forest Wolf Cave Molestation [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "dogpack">>
+<<beast1init>><<set $beasttype to "wolf">>
+
+<<endif>>
+
+
+<<effects>>
+<<effectsman>><br><<beast>><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+
+
+
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Wolf Cave Molestation Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Wolf Cave Molestation Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Wolf Cave Molestation]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Wolf Cave Molestation Finish [nobr]
+<<set $outside to 0>><<set $location to "forest">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<beastejaculation>>
+
+
+The wolf grunts in satisfaction, and heads back to the rest of the pack.<<wolfpacktrust>><br><br>
+
+<<tearful>> you settle down.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Wolf Cave]]>><<set $eventskip to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>>
+
+The wolf whines in pain and returns to the rest of the pack.<<wolfpackfear>><br><br>
+
+<<tearful>> you settle down.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Wolf Cave]]>><<set $eventskip to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Hunter Nod [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<He>> smiles. "Good. I can't take your leash off just yet, not until you're properly trained." <<He>> ties <<his>> end of the leash around a wooden beam. "There should be enough slack for you to roam the entire cabin though."
+
+<br><br>
+<<click [[Next|Forest Cabin]]>><<set $eventskip to 1>><<endevent>><</click>><br>
+
+
+:: Forest Hunter Refuse [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+"You don't mean that," <<he>> says. "This benefits you far more than me." <<He>> grabs you and bends you over <<his>> lap. "But I can't let you get away with being so insolent."
+<br><br>
+<<click [[Next|Forest Hunter Punishment]]>><<set $molestationstart to 1>><</click>><br>
+
+
+:: Forest Hunter Punishment [nobr]
+<<if $molestationstart is 1>>
+<<set $molestationstart to 0>>
+<<controlloss>>
+<<violence1>>
+<<neutral1>>
+<<molested>>
+<<set $event to "molestationhome">>
+<<man1init>><<npcspank>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemyanger += 200>>
+	<<if $phase is 1>>
+	<<npcoral>>
+	<</if>>
+<<endif>>
+
+
+<<effects>>
+
+
+
+
+<<effectsman>><<man>>
+
+
+
+
+
+
+
+
+<<stateman>><br>
+<br>
+<<actionsman>>
+
+
+<<if $enemyhealth lte 0>>
+<span id="next"><<click [[Next|Forest Hunter Punishment Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyarousal gte $enemyarousalmax>>
+<span id="next"><<click [[Next|Forest Hunter Punishment Finish]]>><</click>></span><<nexttext>>
+<<elseif $enemyanger lte 0>>
+<span id="next"><<click [[Next|Forest Hunter Punishment Finish]]>><</click>></span><<nexttext>>
+<<else>>
+<span id="next"><<click [[Next|Forest Hunter Punishment]]>><</click>></span><<nexttext>>
+<</if>>
+
+
+:: Forest Hunter Punishment Finish [nobr]
+<<set $outside to 1>><<set $location to "cabin">><<effects>>
+
+
+<<if $enemyarousal gte $enemyarousalmax>>
+
+
+
+<<ejaculation>>
+<<He>> pants from the exertion. "I hope you've learnt your lesson."<br><br>
+
+<<tearful>> you avoid <<his>> gaze.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Cabin]]>><<set $eventskip to 1>><</click>><br>
+<<elseif $enemyhealth lte 0>>
+
+"You ungrateful slut," <<he>> says. "Maybe I should throw you out and leave you to the wolves!" <<He>> winces and holds <<his>> side. "I need to get something for this."<br><br>
+
+<<tearful>> you gather yourself.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Cabin]]>><<set $eventskip to 1>><</click>><br>
+<<elseif $enemyanger lte 0>>
+<<He>> looks mollified, and releases you. "I hope you've learnt your lesson."<br><br>
+
+<<tearful>> you avoid <<his>> gaze.<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<click [[Next|Forest Cabin]]>><<set $eventskip to 1>><</click>><br>
+<</if>>
+
+
+:: Forest Cabin [nobr]
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<eden>><<person1>>
+<<if $exposed gte 1>>
+<<towelup>>
+<</if>>
+<<if $forestleashed is 1>>
+	<<if $edentrust gte 200>>
+	<span class="green">Eden unties the leash from the wooden beam.</span> "You've been a good <<girlcomma>> so I'm going to give you a bit more freedom. Don't you dare run out on me though. Stick to the cabin and the clearing just outside."<br><br><<set $forestleashed to 0>>
+	<<else>>
+	You are leashed tightly to a wooden beam, preventing escape.<br><br>
+	<</if>>
+<<else>>
+	<<if $edentrust lt 100>>
+	<span class="red">Eden ties your leash to a wooden beam.</span> "You've been a bad <<girlcomma>> so I'm going to make sure you don't go anywhere."<br><br><<set $forestleashed to 1>>
+	<</if>>
+<</if>>
+
+
+<<if $forestleashed isnot 1>>
+
+	<<if $syndromeeden is undefined>><<set $syndromeeden to 1>><<set $edenlust to 0>><<set $edenshrooms to 0>><<set $edengarden to 0>><<set $edenspring to 0>><br><br>
+	<span class="red"><i>Eden isn't so bad, <<hes>> just lonely. It must be hard living here in the woods on your own.</i><br>
+	You've gained the "Stockholm Syndrome: Eden" trait.</span><br><br>
+	<</if>>
+
+<<click [[Next|Eden Cabin]]>><<endevent>><</click>><br>
+<<else>>
+<<if $hour lte 6>>
+Eden carrys you to to the bed. 
+<<if $forestleashed is 1>>
+<<He>> wraps your leash around the bars of the headboard, practically pinning you in place.
+<</if>>
+<<He>> leers at you, a ravenous look in <<his>> eyes. "You're so hot. I'm gonna enjoy this."<br><br>
+
+<<click [[Next|Cabin Night Rape]]>><<set $molestationstart to 1>><</click>><br>
+
+<<elseif $hour lte 8>>
+
+
+Eden gives you instructions on how to prepare <<his>> breakfast.<br><br>
+
+<<click [[Prepare the food as instructed|Forest Cabin Food]]>><<set $edentrust += 10>><<set $submissive += 1>><<pass120>><</click>><<gtrust>><br>
+<<click [[Spit in the eggs|Forest Cabin Spit]]>><<set $edentrust -= 10>><<set $submissive -= 1>><<pass120>><</click>><<ltrust>><br>
+
+
+<<elseif $hour lte 16>>
+Eden leads you outside, and goes about <<his>> daily business.
+
+<<if $forestleashed is 1>>
+<<He>> keeps you close at all times, tying your leash around a tree when <<he>> needs to use both hands.
+<<else>>
+<<He>> keeps you close at all times.
+<</if>>
+<br><br>
+
+
+<<if $forestleashed is 1>>
+<<click [[Weaken the Leash|Forest Cabin Weaken]]>><<set $submissive -= 1>><</click>><br>
+<</if>>
+<<click [[Be good|Forest Cabin Good]]>><<set $submissive += 1>><</click>><br>
+
+
+
+
+
+<<elseif $hour lte 18>>
+Eden runs a bath. <<He>> eases <<his>> body into the water, and looks at you expectantly. "What are you waiting for? Strip, get in, and wash me."
+<br><br>
+<<click [[Wash|Cabin Bath]]>><<pass120>><<set $edentrust += 10>><<set $submissive += 1>><</click>><<gtrust>><br>
+<<click [[Refuse|Cabin Bath Refuse]]>><<pass120>><<set $edentrust -= 10>><<set $submissive -= 1>><</click>><<ltrust>><br>
+
+<<elseif $hour lte 22>>
+Eden settles down to read a book, occasionally pausing to stoke the fireplace.<br><br>
+
+
+<<click [[Cuddle|Cabin Cuddle]]>><<set $submissive += 1>><<set $edentrust += 20>><<set $edenlove += 1>><<pass120>><<pass120>><</click>><<gtrust>><br>
+<<click [[Catch some sleep|Forest Cabin]]>><<set $submissive -= 1>><<ltiredness60>><<ltiredness60>><<pass120>><<pass120>><<endevent>><</click>><<ltiredness>><br>
+<<else>>
+Eden carrys you to to the bed. 
+<<if $forestleashed is 1>>
+<<He>> wraps your leash around the bars of the headboard, practically pinning you in place.
+<</if>>
+<<He>> leers at you, a ravenous look in <<his>> eyes. "You're so hot. I'm gonna enjoy this."<br><br>
+
+<<click [[Next|Cabin Night Rape]]>><<set $molestationstart to 1>><</click>><br>
+<</if>>
+<</if>>

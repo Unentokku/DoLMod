@@ -1,0 +1,112 @@
+:: Widgets School [widget]
+<<widget "schooleffects">><<nobr>>
+<<effectstime>>
+/* double else - not allowed on newer sugarcube, so replaced with switch*/
+<<switch $schoolday>>
+<<case 1>>
+	<<if $hour lte 6>>
+	<<set $schoolstate to "early">><<set $schoollesson to 0>>
+	<<elseif $hour lte 8>>
+	<<set $schoolstate to "morning">><<set $schoollesson to 0>>
+	<<elseif $hour is 9>>
+	<<set $schoolstate to "first">><<set $schoollesson to 1>>
+	<<elseif $hour is 10>>
+	<<set $schoolstate to "second">><<set $schoollesson to 1>>
+	<<elseif $hour is 11>>
+	<<set $schoolstate to "third">><<set $schoollesson to 1>>
+	<<elseif $hour is 12>>
+	<<set $schoolstate to "lunch">><<set $schoollesson to 0>>
+	<<elseif $hour is 13>>
+	<<set $schoolstate to "fourth">><<set $schoollesson to 1>>
+	<<elseif $hour is 14>>
+	<<set $schoolstate to "fifth">><<set $schoollesson to 1>>
+	<<elseif $hour lte 16>>
+	<<set $schoolstate to "afternoon">><<set $schoollesson to 0>>
+	<<elseif $hour gte 17>>
+	<<set $schoolstate to "late">><<set $schoollesson to 0>>
+	<</if>>
+<<case 0>>
+	<<if $hour lte 6>>
+	<<set $schoolstate to "earlynoschool">><<set $schoollesson to 0>>
+	<<elseif $hour gte 17>>
+	<<set $schoolstate to "daynoschool">><<set $schoollesson to 0>>
+	<<else>>
+	<<set $schoolstate to "latenoschool">><<set $schoollesson to 0>>
+	<</if>>
+<<default>>
+	<<set $schoolstate to 0>>
+<</switch>>
+<</nobr>><</widget>>
+
+<<widget "schoolperiod">><<nobr>>
+<<if $exposed lte 0>>
+<<if $schoolstate is "morning">>
+<<click [[Go to your science lesson (0:01)|Science Classroom]]>><<pass1>><</click>><br><br>
+<<elseif $schoolstate is "first">>
+<<click [[Go to your science lesson (0:01)|Science Classroom]]>><<pass1>><</click>><br><br>
+<<elseif $schoolstate is "second">>
+<<click [[Go to your maths lesson (0:01)|Maths Classroom]]>><<pass1>><</click>><br><br>
+<<elseif $schoolstate is "third">>
+<<click [[Go to your english lesson (0:01)|English Classroom]]>><<pass1>><</click>><br><br>
+<<elseif $schoolstate is "lunch">>
+<<click [[Join the masses in the canteen (0:01)|Canteen]]>><<pass1>><</click>><br>
+<<click [[Wait in the history classroom (0:01)|History Classroom]]>><<pass1>><</click>><br><br>
+<<elseif $schoolstate is "fourth">>
+<<click [[Go to your history lesson (0:01)|History Classroom]]>><<pass1>><</click>><br><br>
+<<elseif $schoolstate is "fifth">>
+<<click [[Go to your swimming lesson (0:01)|School Pool Entrance]]>><<pass1>><</click>><br><br>
+<</if>>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "schoolperiodtext">><<nobr>>
+<<if $schoolstate is "morning">>
+Your science lesson starts at 9:00.<br><br>
+<<elseif $schoolstate is "first">>
+Your science lesson started at 9:00!<br><br>
+<<elseif $schoolstate is "second">>
+Your maths lesson started at 10:00!<br><br>
+<<elseif $schoolstate is "third">>
+Your english lesson started at 11:00!<br><br>
+<<elseif $schoolstate is "lunch">>
+Your history lesson starts at 13:00.<br><br>
+<<elseif $schoolstate is "fourth">>
+Your history lesson started at 13:00!<br><br>
+<<elseif $schoolstate is "fifth">>
+Your swimming lesson started at 14:00!<br><br>
+<</if>>
+<</nobr>><</widget>>
+
+<<widget "exhibitorgasm">><<nobr>>
+<<if $orgasmdown gte 1>><<set $orgasmdown to 0>>
+	<<if $orgasmcurrent lte 0>>
+	<<elseif $orgasmcurrent lte 1>>
+You spasm against the bindings.
+		<<if $enemyno gte 2>>
+			<<if $penisexist is 1 and $devstate is 1 and $orgasmcount lte 23>>
+			The pair's eyes light up as you squirm. "<<pShes>> cumming!" The <<person>> exclaims, stepping back to avoid your discharge while staring in awe.
+			<<else>>
+			The pair's eyes light up as you squirm. "<<pShes>> cumming!" The <<person>> exclaims.
+			<</if>>
+		<<else>>
+			<<if $penisexist is 1 and $devstate is 1 and $orgasmcount lte 23>>
+			<<else>>
+			<</if>>		
+		<</if>>
+	<<elseif $orgasmcurrent is 2>>
+	You spasm again against the bindings.
+		<<if $enemyno gte 2>>
+			<<if $penisexist is 1 and $devstate is 1 and $orgasmcount lte 23>>
+			"I didn't know it could happen more than once!" Says the <<personstop>> 
+			<<else>>
+			"I didn't know it could happen more than once!" Says the <<personstop>>
+			<</if>>
+		<<else>>
+			<<if $penisexist is 1 and $devstate is 1 and $orgasmcount lte 23>>
+			<<else>>
+			<</if>>		
+		<</if>>	
+	<<else>>
+	<</if>><br><br>
+<</if>>
+<</nobr>><</widget>>

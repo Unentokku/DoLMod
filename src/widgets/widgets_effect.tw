@@ -1,0 +1,385 @@
+:: Widgets Effects [widget]
+<<widget "effectstime">><<nobr>>
+
+<<time>>
+<<if $time gte 1440>><<set $time to $time - 1440>><<set $days to $days + 1>><<set $weekday to $weekday + 1>>
+<<if $weekday gte 8>><<set $weekday to $weekday - 7>><<week>><<endif>>
+<<day>>
+
+<<set $physiquechange to 1>>
+
+<<endif>>
+
+<<time>>
+
+<<if $minute gte 60>>
+<<hour>>
+<</if>>
+
+<</nobr>><</widget>>
+
+
+
+
+
+<<widget "effectswater">><<nobr>>
+<<set $wetintro to 0>>
+
+<<if $undertype isnot "naked">>
+<<if $upperwet gte 100 and $upperwetstage lt 3>><<set $upperwetstage to 3>><<set $wetintro to 2>>
+<span class="lewd">Water soaks through your $upperclothes, exposing your <<breastsstop>></span>
+
+<<elseif $upperwet lt 90 and $upperwetstage gte 3>><<set $upperwetstage to 2>>
+<span class="green">Your $upperclothes <<upperhas>> dried, concealing your <<breastsstop>></span>
+
+<<elseif $upperwet gte 80 and $upperwetstage lt 2>><<set $upperwetstage to 2>><<set $wetintro to 1>>
+<span class="purple">Your $upperclothes <<upperplural>> wet.</span>
+
+<<elseif $upperwet lt 70 and $upperwetstage gte 2>><<set $upperwetstage to 1>>
+<span class="green">Your $upperclothes <<upperplural>> drying out.</span>
+
+<<elseif $upperwet gte 50 and $upperwetstage lt 1>><<set $upperwetstage to 1>>
+<span class="blue">Your $upperclothes <<upperplural>> damp.</span>
+
+<<elseif $upperwet lt 40 and $upperwetstage gte 1>><<set $upperwetstage to 0>>
+<span class="green">Your $upperclothes <<upperplural>> dry.</span>
+
+<</if>>
+<</if>>
+
+<<if $lowertype isnot "naked">>
+<<if $lowerwet gte 100 and $lowerwetstage lt 3>><<set $lowerwetstage to 3>><<set $wetintro to 2>>
+<span class="lewd">Water soaks through your $lowerclothes, exposing your <<undiesstop>></span>
+
+<<elseif $lowerwet lt 90 and $lowerwetstage gte 3>><<set $lowerwetstage to 2>>
+<span class="green">Your $lowerclothes <<lowerhas>> dried, concealing your <<undiesstop>></span>
+
+<<elseif $lowerwet gte 80 and $lowerwetstage lt 2>><<set $lowerwetstage to 2>><<set $wetintro to 1>>
+<span class="purple">Your $lowerclothes <<lowerplural>> wet.</span>
+
+<<elseif $lowerwet lt 70 and $lowerwetstage gte 2>><<set $lowerwetstage to 1>>
+<span class="green">Your $lowerclothes <<lowerplural>> drying out.</span>
+
+<<elseif $lowerwet gte 50 and $lowerwetstage lt 1>><<set $lowerwetstage to 1>>
+<span class="blue">Your $lowerclothes <<lowerplural>> damp.</span>
+
+<<elseif $lowerwet lt 40 and $lowerwetstage gte 1>><<set $lowerwetstage to 0>>
+<span class="green">Your $lowerclothes <<lowerplural>> dry.</span>
+
+<</if>>
+<</if>>
+
+<<if $undertype isnot "naked" and $undertype isnot "chastity">>
+<<if $underwet gte 100 and $underwetstage lt 3>><<set $underwetstage to 3>><<set $wetintro to 2>>
+<span class="lewd">Water soaks through your $underclothes, exposing your <<genitalsstop>></span>
+
+<<elseif $underwet lt 90 and $underwetstage gte 3>><<set $underwetstage to 2>>
+<span class="green">Your $underclothes <<underhas>> dried, concealing your <<genitalsstop>></span>
+
+<<elseif $underwet gte 80 and $underwetstage lt 2>><<set $underwetstage to 2>><<set $wetintro to 1>>
+<span class="purple">Your $underclothes <<underplural>> wet.</span>
+
+<<elseif $underwet lt 70 and $underwetstage gte 2>><<set $underwetstage to 1>>
+<span class="green">Your $underclothes <<underplural>> drying out.</span>
+
+<<elseif $underwet gte 50 and $underwetstage lt 1>><<set $underwetstage to 1>>
+<span class="blue">Your $underclothes <<underplural>> damp.</span>
+
+<<elseif $underwet lt 40 and $underwetstage gte 1>><<set $underwetstage to 0>>
+<span class="green">Your $underclothes <<underplural>> dry.</span>
+
+<</if>>
+<</if>>
+
+<<if $wetintro gte 2>>
+<<exposure>>
+	<<if $exhibitionism gte 55>>
+	You feel a lewd thrill as you look down and see your clothes cling tightly to your body, completely transparent.
+	<<else>>
+	You look down in horror at your clothes, which cling tight to your body and are completely transparent.
+	<</if>>
+<<covered>><br><br>
+<<elseif $wetintro gte 1>>
+
+	<<if $exhibitionism gte 35>>
+	You feel a lewd thrill as you look down and see your clothes cling tightly to your body, giving a hint of transparency.
+	<<else>>
+	You look down anxiously at your clothes, now clinging tightly to your body and giving a hint of transparency.
+	<</if>>
+<br><br>
+<</if>>
+
+<</nobr>><</widget>>
+
+
+
+
+
+<<widget "effects">><<nobr>>
+<<compatibility>>
+
+
+<<effectstime>>
+<<effectswater>>
+
+<<if $assertiveaction isnot 0>><<set $assertivedefault to $assertiveaction>>
+	<<if $assertiveaction is "trauma">>
+	<<set $trauma -= $assertive>>
+	<<elseif $assertiveaction is "stress">>
+	<<set $stress -= ($assertive * 10)>>
+	<<elseif $assertiveaction is "submissive">>
+	<<set $submissive += ($assertive / 10)>>
+	<<elseif $assertiveaction is "defiant">>
+	<<set $submissive -= ($assertive / 10)>>
+	<</if>>
+<<set $assertiveaction to 0; $assertive to 0>>
+<</if>>
+
+<<if $eventskipoverrule is 1>>
+<<set $eventskipoverrule to 0>>
+	<<if $exposed is 0>>
+	<<set $eventskip to 0>>
+	<</if>>
+<</if>>
+
+
+<<if $hour gte 8 and $hour lt 21>>
+<<set $openinghours to 1>>
+<<else>>
+<<set $openinghours to 0>>
+<</if>>
+
+<<if $hour is 21>>
+<<set $closinghour to 1>>
+<<else>>
+<<set $closinghour to 0>>
+<</if>>
+
+
+
+
+
+
+
+
+
+
+<<if $trauma gte 1>>
+<<set $sleeptrouble to 1>>
+<<else>>
+<<set $sleeptrouble to 0>>
+<</if>>
+
+<<if $trauma gte ($traumamax / 10) * 1>>
+<<set $nightmares to 1>>
+<<else>>
+<<set $nightmares to 0>>
+<</if>>
+
+<<if $trauma gte ($traumamax / 10) * 7>>
+<<set $anxiety to 2>>
+<<elseif $trauma gte ($traumamax / 10) * 2>>
+<<set $anxiety to 1>>
+<<else>>
+<<set $anxiety to 0>>
+<</if>>
+
+<<if $trauma gte ($traumamax / 10) * 8>>
+<<set $flashbacks to 1>>
+<<else>>
+<<set $flashbacks to 0>>
+<</if>>
+
+<<if $trauma gte ($traumamax / 10) * 6>>
+<<set $panicattacks to 2>>
+<<elseif $trauma gte ($traumamax / 10) * 4>>
+<<set $panicattacks to 1>>
+<<else>>
+<<set $panicattacks to 0>>
+<</if>>
+
+<<if $trauma gte ($traumamax / 10) * 5>>
+<<set $hallucinations to 2>>
+<<elseif $trauma gte ($traumamax / 10) * 3>>
+<<set $hallucinations to 1>>
+<<else>>
+<<set $hallucinations to 0>>
+<</if>>
+
+<<if $awareness gte 400>>
+<<set $hallucinations to 2>>
+<<elseif $awareness gte 300 and $hallucinations lte 1>>
+<<set $hallucinations to 1>>
+<</if>>
+
+<<if $trauma gte $traumamax>>
+<<set $dissociation to 2>>
+<<elseif $trauma gte ($traumamax / 10) * 9>>
+<<set $dissociation to 1>>
+<<else>>
+<<set $dissociation to 0>>
+<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<if $location is "town">>
+	<<if $flashbacktownready is 1 and $control is 0>>
+	<<set $flashbacktownready to 0>>
+	<<flashbacktown>>
+	<</if>>
+<</if>>
+
+<<if $location is "home">>
+	<<if $flashbackhomeready is 1 and $control is 0>>
+	<<set $flashbackhomeready to 0>>
+	<<flashbackhome>>
+	<</if>>
+<</if>>
+
+<<if $location is "beach">>
+	<<if $flashbackbeachready is 1 and $control is 0>>
+	<<set $flashbackbeachready to 0>>
+	<<flashbackbeach>>
+	<</if>>
+<</if>>
+
+<<if $location is "underground">>
+	<<if $flashbackundergroundready is 1 and $control is 0>>
+	<<set $flashbackundergroundready to 0>>
+	<<flashbackunderground>>
+	<</if>>
+<</if>>
+
+<<if $location is "school">>
+	<<if $flashbackschoolready is 1 and $control is 0>>
+	<<set $flashbackschoolready to 0>>
+	<<flashbackschool>>
+	<</if>>
+<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<set $breastindicator to 0>>
+
+<<if $crossdressing isnot 1>>
+<<if $underexposed gte 1 and $lowerexposed gte 2>>
+<<set $playergenderappearance to $playergender>>
+<<elseif $lowervaginaexposed gte 1 and $undervaginaexposed gte 1>>
+<<set $playergenderappearance to $playergender>>
+<<elseif $upperexposed gte 2 and $breastsize gte 3>>
+<<set $playergenderappearance to "f">><<set $breastindicator to 1>>
+<<elseif $lowergender isnot "n">>
+<<set $playergenderappearance to $lowergender>>
+<<elseif $uppergender isnot "n">>
+<<set $playergenderappearance to $uppergender>>
+<<elseif $undergender isnot "n" and $lowerexposed gte 2>>
+<<set $playergenderappearance to $undergender>>
+<<elseif $upperexposed gte 2 and $breastsize lte 2>>
+<<set $playergenderappearance to "m">>
+<<else>>
+<<set $playergenderappearance to $playergender>>
+<</if>>
+<</if>>
+
+
+<<if $clothingrebuytext is 1>><<set $clothingrebuytext to 0>>
+<span class="lblue">Your ruined clothing signals for a replacement.</span>
+<</if>>
+
+
+
+<<if $clothingrebuyfailedtext is 1>><<set $clothingrebuyfailedtext to 0>>
+<span class="purple">Your ruined clothing tries to signal for a replacement, but you can't afford it.</span>
+<</if>>
+
+
+
+<<integritycheck>>
+<<exposure>>
+
+<<set $orgasmdown to $orgasmdown - 1>>
+
+<<if $exposed gte 1 and $exposedcheck is 1>><<set $exposedcheck to 0>>
+You feel selfconscious about your <<nuditystop>><br>
+<</if>>
+
+
+
+
+
+<<exposure>>
+
+
+
+
+<<if $timer gte 1>>
+<<set $timer to $timer - 1>>
+<</if>>
+
+
+<<bindings>>
+
+
+
+
+
+
+
+
+
+
+<<if $drunk is 1>>
+<<set $drunkeffect to $druggedtimer / 6>>
+<<else>>
+<<set $drunkeffect to 0>>
+<</if>>
+
+<<if $drugged is 1>><<set $arousal to $arousal + 200>>
+	<<if $druggedtimer lte 0>>
+	<<set $drugged to 0>><<set $drunk to 0>>
+	You feel your mind clear. The drugs have worn off.<br><br>
+	<<else>>
+		<<if $drunk is 1>>
+	The aphrodisiac is interacting with the alcohol. A warmth spreads through your groin.<br><br>
+		<<else>>
+	You are afflicted by an aphrodisiac. A warmth spreads through your groin.<br><br>
+		<</if>>
+	<</if>>
+<<elseif $drunk is 1>>
+	<<if $druggedtimer lte 0>><<set $drunk to 0>>
+	Your mind clears. The alcohol has worn off.<br><br>
+	<<else>>
+	You are inebriated.<br><br>
+	<</if>>
+<</if>>
+<br>
+<<set $menu to 0>>
+<<endnobr>><<endwidget>>

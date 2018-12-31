@@ -1,0 +1,1370 @@
+:: Widgets Actions Man [widget]
+<<widget "actionsman">><<nobr>>
+<<exposure>>
+<<set $face to 0>>
+
+<<if $enemyno gte 2>>
+<<set $pronoun to "n">>
+<<else>>
+
+<<if $pronoun1 is "m">>
+<<set $pronoun to "m">>
+<</if>>
+<<if $pronoun1 is "f">>
+<<set $pronoun to "f">>
+<</if>>
+<<if $pronoun1 is "i">>
+<<set $pronoun to "i">>
+<</if>>
+<<if $pronoun1 is "n">>
+<<set $pronoun to "n">>
+<</if>>
+<<if $pronoun1 is "t">>
+<<set $pronoun to "t">>
+<</if>>
+<</if>>
+
+<<if $images is 1>><<timed 100ms>>
+<div id="divsex">
+<<combatimg>>
+</div><br>
+<</timed>><</if>>
+
+<<if $traumafocus gte 1 and $traumafocusintro isnot 1>>
+<<set $traumafocusintro to 1>>
+<i>As you gain focus, you become more and more likely to escape your helpless state of dissociation.</i><br><br>
+<</if>>
+
+<<if $traumafocus gt random(1, 1000) and $dissociation gte 2 and $combat is 1>>
+<<set $traumafocus to 0>><<set $trauma -= 1000>><<set $dissociation to 1>>
+<span class="green">Your lucidity returns.</span> <<ltrauma>> <span class="red">The weight of reality crashes down on you.</span><br><br>
+<</if>>
+
+<<actioncarry>>
+<<actioncarrydrop>>
+
+<<if $trance lte 0>>
+<<if $dissociation lte 1>>
+<<if $panicparalysis is 0>>
+<<if $panicviolence is 0>>
+<<if $orgasmdown lte 0>>
+<<if $pain lt 100>>
+
+
+
+<<if $leftarm is 0>><br>Your left hand is free.<br>
+	<<if $leftactiondefault is "leftchest">>
+| <span class="sub">Stroke</span> <<radiobutton "$leftaction" "leftchest" checked>>	   
+	<<else>>
+| <span class="sub">Stroke</span> <<radiobutton "$leftaction" "leftchest">>	   
+	<</if>>
+	<<if $consensual isnot 1>>
+		<<if $leftactiondefault is "lefthit">>
+| <span class="def">Punch</span> <<radiobutton "$leftaction" "lefthit" checked>>
+		<<else>>
+| <span class="def">Punch</span> <<radiobutton "$leftaction" "lefthit">>
+		<</if>>
+	<</if>>
+	<<if $leftactiondefault is "leftcoverface">>
+| Cover your face <<radiobutton "$leftaction" "leftcoverface" checked>>
+	<<else>>
+| Cover your face <<radiobutton "$leftaction" "leftcoverface">>
+	<</if>>
+	
+<<leftgrab>>
+	
+<<leftplay>>
+	
+<<leftclothes>>
+	
+	
+	
+	<<if $lowervaginaexposed is 1 and $undervaginaexposed is 1 and $vaginause is 0>>
+		<<if $leftactiondefault is "leftcovervagina">>
+	| <span class="brat">Cover your pussy</span> <<radiobutton "$leftaction" "leftcovervagina" checked>>
+		<<else>>
+	| <span class="brat">Cover your pussy</span> <<radiobutton "$leftaction" "leftcovervagina">>		
+		<</if>>
+	<<endif>>
+	
+	<<if $lowervaginaexposed is 1 and $undervaginaexposed is 1 and $penisuse is 0>>
+		<<if $leftactiondefault is "leftcoverpenis">>
+	| <span class="brat">Cover your penis</span> <<radiobutton "$leftaction" "leftcoverpenis" checked>>
+		<<else>>
+	| <span class="brat">Cover your penis</span> <<radiobutton "$leftaction" "leftcoverpenis">>		
+		<</if>>
+	<<endif>>	
+
+	<<if $loweranusexposed is 1 and $underanusexposed is 1 and $anususe is 0>>
+		<<if $leftactiondefault is "leftcoveranus">>
+	| <span class="brat">Cover your <<bottom>></span> <<radiobutton "$leftaction" "leftcoveranus" checked>>
+		<<else>>
+	| <span class="brat">Cover your <<bottom>></span> <<radiobutton "$leftaction" "leftcoveranus">>		
+		<</if>>
+	<<endif>>
+	
+	<<if $underclothes isnot "naked">>
+	<<if $understate is "thighs">>
+		<<if $leftactiondefault is "leftunderpull">>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$leftaction" "leftunderpull" checked>>
+		<<else>>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$leftaction" "leftunderpull">>		
+		<</if>>
+	<<endif>>
+	
+	<<if $understate is "knees">>
+		<<if $leftactiondefault is "leftunderpull">>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$leftaction" "leftunderpull" checked>>
+		<<else>>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$leftaction" "leftunderpull">>		
+		<</if>>
+	<<endif>>
+	
+	<<if $understate is "ankles">>
+		<<if $leftactiondefault is "leftunderpull">>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$leftaction" "leftunderpull" checked>>
+		<<else>>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$leftaction" "leftunderpull">>		
+		<</if>>
+	<<endif>>
+	<</if>>
+	
+	<<if $skirt is 1>>
+		<<if $skirtdown is 0>>
+			<<if $lowerstate is "waist">>
+				<<if $leftactiondefault is "leftskirtpull">>
+			| <span class="brat">Cover your crotch with your $lowerclothes</span> <<radiobutton "$leftaction" "leftskirtpull" checked>>
+				<<else>>
+			| <span class="brat">Cover your crotch with your $lowerclothes</span> <<radiobutton "$leftaction" "leftskirtpull">>				
+				<</if>>
+			<<endif>>
+		<<endif>>
+	<<endif>>
+	
+	<<if $lowerclothes isnot "naked">>
+		<<if $upperset is $lowerset>>
+			<<if $lowerstate isnot $lowerstatebase and $upperstate is $upperstatebase and $upperstatetop is $upperstatetopbase>>
+				<<if $leftactiondefault is "leftlowerpull">>
+				| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$leftaction" "leftlowerpull" checked>>
+				<<else>>
+				| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$leftaction" "leftlowerpull">>		
+				<</if>>
+			<</if>>
+		<<elseif $lowerstate isnot $lowerstatebase>>
+			<<if $leftactiondefault is "leftlowerpull">>
+			| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$leftaction" "leftlowerpull" checked>>
+			<<else>>
+			| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$leftaction" "leftlowerpull">>		
+			<</if>>
+		<</if>>
+	<</if>>
+	
+	<<if $upperclothes isnot "naked">>
+		<<if $upperstate isnot $upperstatebase>>
+			<<if $leftactiondefault is "leftupperpull">>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$leftaction" "leftupperpull" checked>>
+			<<else>>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$leftaction" "leftupperpull">>		
+			<</if>>
+		<<elseif $upperstatetop isnot $upperstatetopbase>>
+			<<if $leftactiondefault is "leftupperpull">>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$leftaction" "leftupperpull" checked>>
+			<<else>>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$leftaction" "leftupperpull">>		
+			<</if>>		
+		<<endif>>
+	<<endif>>
+	
+	
+	
+	
+	
+	
+	
+<<elseif $leftarm is "penis">><br><br>Your left hand is holding <<his>> penis.<br>
+	<<if $leftactiondefault is "leftwork">>
+| <span class="sub">Work <<his>> shaft</span>   <<radiobutton "$leftaction" "leftwork" checked>><<handdifficulty>>	
+	<<else>>
+| <span class="sub">Work <<his>> shaft</span>   <<radiobutton "$leftaction" "leftwork">><<handdifficulty>>		
+	<</if>>
+	<<if $leftactiondefault is "leftstoppenis">>
+| Stop <<radiobutton "$leftaction" "leftstoppenis" checked>>
+	<<else>>
+| Stop <<radiobutton "$leftaction" "leftstoppenis">>		
+	<</if>>
+	
+
+<<elseif $leftarm is "grappled">>
+<br>Your left arm is being held down.<br>
+	<<if $leftactiondefault is "leftstruggle">>
+| <span class="def">Struggle</span> <<radiobutton "$leftaction" "leftstruggle" checked>>
+	<<else>>
+| <span class="def">Struggle</span> <<radiobutton "$leftaction" "leftstruggle">>	
+
+	<</if>>
+	<<if $leftactiondefault is "rest">>
+	| Rest <<radiobutton "$leftaction" "rest" checked>>
+	<<else>>
+	| Rest <<radiobutton "$leftaction" "rest">>	
+	<</if>>
+<<elseif $leftarm is "bound" and $rightarm is "bound">><br>Your arms are helplessly bound.<br>
+
+
+
+
+<<elseif $leftarm is "othervagina">><br><br>Your left hand is stroking <<his>> pussy.<br>
+	<<if $leftactiondefault is "leftclit">>
+| <span class="sub">Rub <<his>> clit</span> <<radiobutton "$leftaction" "leftclit" checked>><<handdifficulty>>
+	<<else>>
+| <span class="sub">Rub <<his>> clit</span> <<radiobutton "$leftaction" "leftclit">><<handdifficulty>>	
+	<</if>>
+	<<if $leftactiondefault is "leftothervaginastop">>
+| Stop <<radiobutton "$leftaction" "leftothervaginastop" checked>>	
+	<<else>>
+| Stop <<radiobutton "$leftaction" "leftothervaginastop">>		
+	<</if>>
+<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<if $rightarm is 0>><br><br>Your right hand is free.<br>
+	<<if $rightactiondefault is "rightchest">>
+| <span class="sub">Stroke</span> <<radiobutton "$rightaction" "rightchest" checked>>
+	<<else>>
+| <span class="sub">Stroke</span> <<radiobutton "$rightaction" "rightchest">>	
+	<</if>>
+	<<if $consensual isnot 1>>
+		<<if $rightactiondefault is "righthit">>
+| <span class="def">Punch</span> <<radiobutton "$rightaction" "righthit" checked>>
+		<<else>>
+| <span class="def">Punch</span> <<radiobutton "$rightaction" "righthit">>	
+		<</if>>
+	<</if>>
+	<<if $rightactiondefault is "rightcoverface">>
+| Cover your face <<radiobutton "$rightaction" "rightcoverface" checked>>
+	<<else>>
+| Cover your face <<radiobutton "$rightaction" "rightcoverface">>	
+	<</if>>
+
+<<rightgrab>>
+	
+	
+<<rightplay>>
+
+
+<<rightclothes>>
+	
+	<<if $lowervaginaexposed is 1 and $undervaginaexposed is 1 and $vaginause is 0>>
+		<<if $rightactiondefault is "rightcovervagina">>	
+| <span class="brat">Cover your pussy</span> <<radiobutton "$rightaction" "rightcovervagina" checked>>
+		<<else>>
+| <span class="brat">Cover your pussy</span> <<radiobutton "$rightaction" "rightcovervagina">>		
+		<</if>>
+	<<endif>>
+	
+	<<if $lowervaginaexposed is 1 and $undervaginaexposed is 1 and $penisuse is 0>>
+		<<if $rightactiondefault is "rightcoverpenis">>
+	| <span class="brat">Cover your penis</span> <<radiobutton "$rightaction" "rightcoverpenis" checked>>
+		<<else>>
+	| <span class="brat">Cover your penis</span> <<radiobutton "$rightaction" "rightcoverpenis">>		
+		<</if>>
+	<<endif>>	
+	
+	<<if $loweranusexposed is 1 and $underanusexposed is 1 and $anususe is 0>>
+		<<if $rightactiondefault is "rightcoveranus">>
+| <span class="brat">Cover your <<bottom>></span> <<radiobutton "$rightaction" "rightcoveranus" checked>>
+		<<else>>
+| <span class="brat">Cover your <<bottom>></span> <<radiobutton "$rightaction" "rightcoveranus">>		
+		<</if>>
+	<<endif>>
+	
+	<<if $underclothes isnot "naked">>
+	<<if $understate is "thighs">>
+		<<if $rightactiondefault is "rightunderpull">>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$rightaction" "rightunderpull" checked>>
+		<<else>>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$rightaction" "rightunderpull">>		
+		<</if>>
+	<<endif>>
+	
+	<<if $understate is "knees">>
+		<<if $rightactiondefault is "rightunderpull">>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$rightaction" "rightunderpull" checked>>	
+		<<else>>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$rightaction" "rightunderpull">>			
+		<</if>>
+	<<endif>>
+	
+	<<if $understate is "ankles">>
+		<<if $rightactiondefault is "rightunderpull">>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$rightaction" "rightunderpull" checked>>
+		<<else>>
+	| <span class="brat">Pull up your $underclothes</span> <<radiobutton "$rightaction" "rightunderpull">>		
+		<</if>>
+	<<endif>>
+	<</if>>
+	
+	<<if $skirt is 1>>
+		<<if $skirtdown is 0>>
+			<<if $lowerstate is "waist">>
+				<<if $rightactiondefault is "rightskirtpull">>
+			| <span class="brat">Cover your crotch with your $lowerclothes</span> <<radiobutton "$rightaction" "rightskirtpull" checked>>
+				<<else>>
+			| <span class="brat">Cover your crotch with your $lowerclothes</span> <<radiobutton "$rightaction" "rightskirtpull">>
+				<</if>>
+			<<endif>>
+		<<endif>>
+	<<endif>>
+	
+	<<if $lowerclothes isnot "naked">>
+		<<if $lowerset is $upperset>>
+			<<if $lowerstate isnot $lowerstatebase and $upperstate is $upperstatebase and $upperstatetop is $upperstatetopbase>>
+				<<if $rightactiondefault is "rightlowerpull">>
+			| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$rightaction" "rightlowerpull" checked>>
+				<<else>>
+			| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$rightaction" "rightlowerpull">>
+				<</if>>
+			<<endif>>
+		<<elseif $lowerstate isnot $lowerstatebase>>
+			<<if $rightactiondefault is "rightlowerpull">>
+		| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$rightaction" "rightlowerpull" checked>>
+			<<else>>
+		| <span class="brat">Fix your $lowerclothes</span> <<radiobutton "$rightaction" "rightlowerpull">>
+			<</if>>
+		<</if>>
+	<<endif>>
+		
+	<<if $upperclothes isnot "naked">>
+		<<if $upperstate isnot $upperstatebase>>
+			<<if $rightactiondefault is "rightupperpull">>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$rightaction" "rightupperpull" checked>>
+			<<else>>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$rightaction" "rightupperpull">>		
+			<</if>>
+		<<elseif $upperstatetop isnot $upperstatetopbase>>	
+			<<if $rightactiondefault is "rightupperpull">>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$rightaction" "rightupperpull" checked>>
+			<<else>>
+		| <span class="brat">Fix your $upperclothes</span> <<radiobutton "$rightaction" "rightupperpull">>		
+			<</if>>
+		<<endif>>
+	<<endif>>
+
+	
+	
+	
+	
+	
+	
+<<elseif $rightarm is "penis">><br><br>Your right hand is holding <<his>> penis.<br>
+	<<if $rightactiondefault is "rightwork">>
+| <span class="sub">Work <<his>> shaft</span> <<radiobutton "$rightaction" "rightwork" checked>><<handdifficulty>>	
+	<<else>>
+| <span class="sub">Work <<his>> shaft</span> <<radiobutton "$rightaction" "rightwork">><<handdifficulty>>		
+	<</if>>
+	<<if $rightactiondefault is "rightstoppenis">>
+| Stop <<radiobutton "$rightaction" "rightstoppenis" checked>>
+	<<else>>
+| Stop <<radiobutton "$rightaction" "rightstoppenis">>		
+	<</if>>
+
+<<elseif $rightarm is "grappled">><br><br>Your right arm is being held down.<br>
+	<<if $rightactiondefault is "rightstruggle">>
+| <span class="def">Struggle</span> <<radiobutton "$rightaction" "rightstruggle" checked>>
+	<<else>>
+| <span class="def">Struggle</span> <<radiobutton "$rightaction" "rightstruggle">>	
+	<</if>>
+	<<if $rightactiondefault is "rest">>
+	| Rest <<radiobutton "$rightaction" "rest" checked>>
+	<<else>>
+	| Rest <<radiobutton "$rightaction" "rest">>	
+	<</if>>
+<<elseif $rightarm is "bound">><br>
+
+
+
+
+<<elseif $rightarm is "othervagina">><br><br>Your right hand is stroking <<his>> pussy.<br>
+	<<if $rightactiondefault is "rightclit">>
+| <span class="sub">Rub <<his>> clit</span> <<radiobutton "$rightaction" "rightclit" checked>><<handdifficulty>>	
+	<<else>>
+| <span class="sub">Rub <<his>> clit</span> <<radiobutton "$rightaction" "rightclit">><<handdifficulty>>	
+	<</if>>
+	<<if $rightactiondefault is "rightothervaginastop">>
+| Stop <<radiobutton "$rightaction" "rightothervaginastop" checked>>	
+	<<else>>
+| Stop <<radiobutton "$rightaction" "rightothervaginastop">>		
+	<</if>>
+<</if>>
+
+
+
+
+<<if $leftarm is "vagina">><br>Your left hand is protecting your <<pussystop>><br>
+	<<if $leftactiondefault is "leftstopvagina">>
+| Stop <<radiobutton "$leftaction" "leftstopvagina" checked>>
+	<<else>>
+| Stop <<radiobutton "$leftaction" "leftstopvagina">>
+	<</if>>
+	<<if $leftactiondefault is "leftcovervagina">>
+| <span class="brat">Keep covering</span> <<radiobutton "$leftaction" "leftcovervagina" checked>>
+	<<else>>
+| <span class="brat">Keep covering</span> <<radiobutton "$leftaction" "leftcovervagina">>	
+	<</if>>
+<<endif>>	
+
+<<if $rightarm is "vagina">><br>Your right hand is protecting your <<pussystop>><br>
+	<<if $rightactiondefault is "rightstopvagina">>
+| Stop <<radiobutton "$rightaction" "rightstopvagina" checked>>
+	<<else>>
+| Stop <<radiobutton "$rightaction" "rightstopvagina">>
+	<</if>>
+	<<if $rightactiondefault is "rightcovervagina">>
+| <span class="brat">Keep covering</span> <<radiobutton "$rightaction" "rightcovervagina" checked>>
+	<<else>>
+| <span class="brat">Keep covering</span> <<radiobutton "$rightaction" "rightcovervagina">>	
+	<</if>>
+<<endif>>
+
+
+<<if $leftarm is "coverpenis">><br>Your left hand is protecting your <<penisstop>><br>
+	<<if $leftactiondefault is "leftstopcoverpenis">>
+| Stop <<radiobutton "$leftaction" "leftstopcoverpenis" checked>>
+	<<else>>
+| Stop <<radiobutton "$leftaction" "leftstopcoverpenis">>
+	<</if>>
+	<<if $leftactiondefault is "leftcoverpenis">>
+| <span class="brat">Keep covering</span> <<radiobutton "$leftaction" "leftcoverpenis" checked>>
+	<<else>>
+| <span class="brat">Keep covering</span> <<radiobutton "$leftaction" "leftcoverpenis">>	
+	<</if>>	
+<<endif>>
+
+<<if $rightarm is "coverpenis">><br>Your right hand is protecting your <<penisstop>><br>
+	<<if $rightactiondefault is "rightstopcoverpenis">>
+| Stop <<radiobutton "$rightaction" "rightstopcoverpenis" checked>>
+	<<else>>
+| Stop <<radiobutton "$rightaction" "rightstopcoverpenis">>
+	<</if>>
+	<<if $rightactiondefault is "rightcoverpenis">>
+| <span class="brat">Keep covering</span> <<radiobutton "$rightaction" "rightcoverpenis" checked>>
+	<<else>>
+| <span class="brat">Keep covering</span> <<radiobutton "$rightaction" "rightcoverpenis">>	
+	<</if>>
+<<endif>>
+
+
+
+<<if $leftarm is "anus">><br>Your left hand is protecting your <<bottomstop>><br>
+	<<if $leftactiondefault is "leftstopanus">>
+| Stop <<radiobutton "$leftaction" "leftstopanus" checked>>
+	<<else>>
+| Stop <<radiobutton "$leftaction" "leftstopanus">>	
+	<</if>>
+	<<if $leftactiondefault is "leftcoveranus">>
+| <span class="brat">Keep covering</span> <<radiobutton "$leftaction" "leftcoveranus" checked>>
+	<<else>>
+| <span class="brat">Keep covering</span> <<radiobutton "$leftaction" "leftcoveranus">>	
+	<</if>>
+<</if>>
+
+<<if $rightarm is "anus">><br>Your right hand is protecting your <<bottomstop>><br>
+	<<if $rightactiondefault is "rightstopanus">>
+| Stop <<radiobutton "$rightaction" "rightstopanus" checked>>
+	<<else>>
+| Stop <<radiobutton "$rightaction" "rightstopanus">>	
+	<</if>>
+	<<if $rightactiondefault is "rightcoveranus">>
+| <span class="brat">Keep covering</span> <<radiobutton "$rightaction" "rightcoveranus" checked>>
+	<<else>>
+| <span class="brat">Keep covering</span> <<radiobutton "$rightaction" "rightcoveranus">>	
+	<</if>>
+<<endif>>
+
+
+
+
+
+
+
+
+
+<br>
+<<if $feetuse isnot "grappled" and $feetuse isnot "bound">>
+	<<if $feetuse is 0>><br><br>Your feet are free.<br>
+	
+<<feetgrab>>
+		
+		
+		<<if $consensual isnot 1>>
+			<<if $feetactiondefault is "kick">>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick" checked>>
+			<<else>>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick">>		
+			<</if>>
+		<</if>>
+	<<elseif $feetuse is "penis">><br><br>Your feet are holding <<his>> penis.<br>
+		<<if $feetactiondefault is "grabrub">>
+	| <span class="sub">Rub</span> <<radiobutton "$feetaction" "grabrub" checked>><<feetdifficulty>>
+		<<else>>
+	| <span class="sub">Rub</span> <<radiobutton "$feetaction" "grabrub">><<feetdifficulty>>		
+		<</if>>
+		<<if $feetactiondefault is "stop">>
+		| Stop <<radiobutton "$feetaction" "stop" checked>>
+		<<else>>
+		| Stop <<radiobutton "$feetaction" "stop">>
+		<</if>>
+	<<elseif $feetuse is "othervagina">><br><br>Your feet are holding back <<his>> pussy.<br>
+		<<if $feetactiondefault is "vaginagrabrub">>
+	| <span class="sub">Rub</span> <<radiobutton "$feetaction" "vaginagrabrub" checked>><<feetdifficulty>>
+		<<else>>
+	| <span class="sub">Rub</span> <<radiobutton "$feetaction" "vaginagrabrub">><<feetdifficulty>>	
+		<</if>>
+		<<if $feetactiondefault is "stop">>
+		| Stop <<radiobutton "$feetaction" "stop" checked>>
+		<<else>>
+		| Stop <<radiobutton "$feetaction" "stop">>
+		<</if>>	
+	<<elseif $penis is "clothed">><br>
+		<<if $feetuse is 0>>Your feet are free.<br>
+			<<if $feetactiondefault is "rub">>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub" checked>>
+	  		<<else>>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub">>			
+			<</if>>
+			<<if $feetactiondefault is "kick">>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick" checked>>
+			<<else>>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick">>			
+			<</if>>
+		<<endif>>
+	
+	<<elseif $penis2 is "clothed">><br>
+		<<if $feetuse is 0>>Your feet are free.<br>
+			<<if $feetactiondefault is "rub">>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub" checked>>
+	  		<<else>>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub">>			
+			<</if>>
+			<<if $feetactiondefault is "kick">>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick" checked>>
+			<<else>>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick">>			
+			<</if>>
+		<<endif>>
+	
+	<<elseif $penis3 is "clothed">><br>
+		<<if $feetuse is 0>>Your feet are free.<br>
+			<<if $feetactiondefault is "rub">>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub" checked>>
+	  		<<else>>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub">>			
+			<</if>>
+			<<if $feetactiondefault is "kick">>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick" checked>>
+			<<else>>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick">>			
+			<</if>>
+		<<endif>>
+	
+	<<elseif $penis4 is "clothed">><br>
+		<<if $feetuse is 0>>Your feet are free.<br>
+			<<if $feetactiondefault is "rub">>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub" checked>>
+	  		<<else>>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub">>			
+			<</if>>
+			<<if $feetactiondefault is "kick">>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick" checked>>
+			<<else>>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick">>			
+			<</if>>
+		<<endif>>
+	
+	<<elseif $penis5 is "clothed">><br>
+		<<if $feetuse is 0>>Your feet are free.<br>
+			<<if $feetactiondefault is "rub">>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub" checked>>
+	  		<<else>>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub">>			
+			<</if>>
+			<<if $feetactiondefault is "kick">>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick" checked>>
+			<<else>>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick">>			
+			<</if>>
+		<<endif>>
+	
+	<<elseif $penis6 is "clothed">><br>
+		<<if $feetuse is 0>>Your feet are free.<br>
+			<<if $feetactiondefault is "rub">>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub" checked>>
+	  		<<else>>
+	  | <span class="sub">Rub <<his>> crotch</span> <<radiobutton "$feetaction" "rub">>			
+			<</if>>
+			<<if $feetactiondefault is "kick">>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick" checked>>
+			<<else>>
+	| <span class="def">Kick</span> <<radiobutton "$feetaction" "kick">>			
+			<</if>>
+		<<endif>>
+		
+		
+	<</if>>
+	<<if $feetuse is 0>>
+		<<if $feetactiondefault is "rest">>
+| Rest <<radiobutton "$feetaction" "rest" checked>>
+	<<else>>
+| Rest <<radiobutton "$feetaction" "rest">>	
+		<</if>>
+	<</if>>
+<<elseif $feetuse is "bound">>
+<br>Your legs are bound.
+<<else>><br>Your feet are free but unusable in this position.
+<<endif>>
+
+
+
+
+
+
+
+
+<<if $mouthuse is 0>><br><br>Your mouth is free.<br>
+
+<<speak>>
+
+	<<if $head isnot "grappled" and $head isnot "bound">>
+		<<if $chestuse is "penis">>
+			<<if $mouthactiondefault is "peniskiss">>
+		| <span class="sub">Kiss</span> <<radiobutton "$mouthaction" "peniskiss" checked>>
+			<<else>>
+		| <span class="sub">Kiss</span> <<radiobutton "$mouthaction" "peniskiss">>	
+			<</if>>
+		<<else>>
+			<<if $mouthactiondefault is "kiss">>
+			| <span class="sub">Kiss <<him>></span> <<radiobutton "$mouthaction" "kiss" checked>>
+			<<else>>
+			| <span class="sub">Kiss <<him>></span> <<radiobutton "$mouthaction" "kiss">>		
+			<</if>>
+		<</if>>
+		
+		
+		<<oral>>
+		
+		
+		
+		<<if $enemyanger gte 20 and $underwater lte 0>>
+			<<if $mouthactiondefault is "apologise">>
+	| Apologize <<radiobutton "$mouthaction" "apologise" checked>>
+			<<else>>
+	| Apologize <<radiobutton "$mouthaction" "apologise">>	
+			<</if>>
+		<<endif>>
+	<</if>>
+
+
+<<elseif $mouthstate is "entrance">><br><br><<His>> penis hovers in front of your mouth.<br>
+	<<if $mouthactiondefault is "peniskiss">>
+| <span class="sub">Kiss</span> <<radiobutton "$mouthaction" "peniskiss" checked>>
+	<<else>>
+| <span class="sub">Kiss</span> <<radiobutton "$mouthaction" "peniskiss">>	
+	<</if>>
+	<<if $consensual is 1 and $promiscuity lte 34>>
+	<<else>>
+		<<if $mouthactiondefault is "grasp">>
+| <span class="meek">Grab between breasts </span><<radiobutton "$mouthaction" "grasp" checked>><<chestdifficulty>> <<combatpromiscuous3>> 
+		<<else>>
+| <span class="meek">Grab between breasts </span><<radiobutton "$mouthaction" "grasp">><<chestdifficulty>><<combatpromiscuous3>>
+		<</if>>
+	<</if>>
+	<<if $mouthactiondefault is "pullaway">>
+		<<if $head isnot "grappled" and $head isnot "bound">>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullaway" checked>><<oraldifficulty>>	
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullaway">><<oraldifficulty>>
+		<</if>>
+	<</if>>
+<<speak>>
+
+
+<<elseif $mouthstate is "imminent">><br><br><<His>> penis presses against your lips.<br>
+	<<if $mouthactiondefault is "lick">>
+| <span class="sub">Lick</span> <<radiobutton "$mouthaction" "lick" checked>>
+	<<else>>
+| <span class="sub">Lick</span> <<radiobutton "$mouthaction" "lick">>	
+	<</if>>
+	<<if $mouthactiondefault is "pullaway">>
+		<<if $head isnot "grappled" and $head isnot "bound">>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullaway" checked>><<oraldifficulty>>	
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullaway">><<oraldifficulty>>
+		<</if>>
+	<</if>>
+
+<<speak>>
+
+
+<<elseif $mouthstate is "penetrated">><br><br><<His>> penis penetrates your mouth.<br>
+	<<if $mouthactiondefault is "suck">>
+| <span class="sub">Suck</span> <<radiobutton "$mouthaction" "suck" checked>>
+	<<else>>
+| <span class="sub">Suck</span> <<radiobutton "$mouthaction" "suck">>	
+	<</if>>
+	<<if $consensual isnot 1>>
+		<<if $mouthactiondefault is "bite">>
+| <span class="def">Bite</span> <<radiobutton "$mouthaction" "bite" checked>>
+		<<else>>
+| <span class="def">Bite</span> <<radiobutton "$mouthaction" "bite">>	
+		<</if>>
+	<</if>>
+	<<if $mouthactiondefault is "pullaway">>
+		<<if $head isnot "grappled" and $head isnot "bound">>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullaway" checked>><<oraldifficulty>>	
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullaway">><<oraldifficulty>>
+		<</if>>
+	<</if>>
+
+
+<<elseif $mouthuse is "othervagina">><br><br><<His>> pussy presses against your lips.<br>
+	<<if $mouthactiondefault is "vaginalick">>
+| <span class="sub">Lick</span> <<radiobutton "$mouthaction" "vaginalick" checked>>
+	<<else>>
+| <span class="sub">Lick</span> <<radiobutton "$mouthaction" "vaginalick">>
+	<</if>>
+	<<if $head isnot "grappled" and $head isnot "bound">>
+		<<if $mouthactiondefault is "pullawayvagina">>
+| <span class="brat">Pull Away</span> <<radiobutton "$mouthaction" "pullawayvagina" checked>>	
+		<<else>>
+| <span class="brat">Pull Away</span> <<radiobutton "$mouthaction" "pullawayvagina">>
+		<</if>>
+	<</if>>
+	
+<<speak>>
+
+
+	
+<<elseif $mouthuse is "kiss">><br><br>
+	<<if $mouthstate is "kissentrance">>
+	Your mouth is pressed by another's.<br>
+	<<elseif $mouthstate is "kissimminent">>
+	Your mouth is engulfed by another's.<br>
+	<<elseif $mouthstate is "kiss">>
+	Your mouth is engulfed by another's.<br>
+	<</if>>
+	<<if $mouthactiondefault is "pullawaykiss">>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullawaykiss" checked>><<oraldifficulty>>	
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$mouthaction" "pullawaykiss">><<oraldifficulty>>
+	<</if>>
+	<<if $mouthactiondefault is "kissback">>
+| <span class="sub">Kiss</span> <<radiobutton "$mouthaction" "kissback" checked>>
+	<<else>>
+| <span class="sub">Kiss</span> <<radiobutton "$mouthaction" "kissback">>
+	<</if>>
+	<<if $mouthstate isnot "kiss" and $mouthstate isnot "kissimminent">>
+	
+	<<speak>>
+	
+	<</if>>
+
+<<else>><br><br>Your mouth is blocked, muffling any noise you make.
+<</if>>
+
+
+
+
+
+
+
+
+<<if $penisstate is 0>><br><br>Your <<penis>> is free.<br>
+<<actionspenistovagina>>
+<<actionspenistoanus>>
+<</if>>
+
+
+
+<<if $penisstate is "othermouthentrance">><br><br>You feel breath on your <<penisstop>><br>
+	<<if $consensual is 1 and $promiscuity lt 0>>
+	<<else>>
+		<<if $penisactiondefault is "thighbay">>
+| <span class="meek">Press your thigh against <<his>> mouth</span> <<radiobutton "$penisaction" "thighbay" checked>><<thighdifficulty>> <<combatpromiscuous1>> 
+		<<else>>
+| <span class="meek">Press your thigh against <<his>> mouth</span> <<radiobutton "$penisaction" "thighbay">><<thighdifficulty>> <<combatpromiscuous1>> 
+		<</if>>
+	<</if>>
+	<<if $penisactiondefault is "othermouthtease">>
+| <span class="sub">Rub against <<his>> face</span> <<radiobutton "$penisaction" "othermouthtease" checked>>
+	<<else>>
+| <span class="sub">Rub against <<his>> face</span> <<radiobutton "$penisaction" "othermouthtease">>	
+	<</if>>
+<<endif>>
+
+
+<<if $penisstate is "othermouthimminent">><br><br>
+<<His>> lips press against the tip of your <<penisstop>><br>
+	<<if $penisactiondefault is "othermouthrub">>
+| <span class="sub">Rub against <<his>> lips</span> <<radiobutton "$penisaction" "othermouthrub" checked>>
+	<<else>>
+| <span class="sub">Rub against <<his>> lips</span> <<radiobutton "$penisaction" "othermouthrub">>	
+	<</if>>
+	<<if $penisactiondefault is "othermouthescape">>
+| <span class="brat">Pull away</span> <<radiobutton "$penisaction" "othermouthescape" checked>>
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$penisaction" "othermouthescape">>	
+	<</if>>
+<<endif>>
+
+<<if $penisstate is "othermouth">><br><br>
+<<His>> mouth envelopes your <<penisstop>><br>
+	<<if $penisactiondefault is "othermouthcooperate">>
+| <span class="sub">Cooperate</span> <<radiobutton "$penisaction" "othermouthcooperate" checked>>
+	<<else>>
+| <span class="sub">Cooperate</span> <<radiobutton "$penisaction" "othermouthcooperate">>	
+	<</if>>
+<<endif>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<if $penisstate is "entrance">><br><br><<His>> pussy hovers near your <<penisstop>><br>
+<<actionspenisvaginafuck>>
+	<<if $consensual is 1 and $promiscuity lte 54>>
+	<<else>>
+		<<if $penisactiondefault is "bay">>
+| <span class="meek">Frot against <<his>> clit</span> <<radiobutton "$penisaction" "bay" checked>><<peniledifficulty>> <<combatpromiscuous4>> 
+		<<else>>
+| <span class="meek">Frot against <<his>> clit</span> <<radiobutton "$penisaction" "bay">><<peniledifficulty>> <<combatpromiscuous4>> 
+		<</if>>
+	<</if>>
+	<<if $penisactiondefault is "tease">>
+| <span class="sub">Tease</span> <<radiobutton "$penisaction" "tease" checked>>
+	<<else>>
+| <span class="sub">Tease</span> <<radiobutton "$penisaction" "tease">>	
+	<</if>>
+<<endif>>
+
+
+<<if $penisstate is "imminent">><br><br>
+<<His>> pussy presses against your <<penisstop>><br>
+<<actionspenisvaginafuck>>
+	<<if $penisactiondefault is "rub">>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "rub" checked>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "rub">>	
+	<</if>>
+	<<if $penisactiondefault is "escape">>
+| <span class="brat">Pull away</span> <<radiobutton "$penisaction" "escape" checked>>
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$penisaction" "escape">>	
+	<</if>>
+<<endif>>
+
+<<if $penisstate is "penetrated">><br><br>
+<<His>> vagina envelopes your <<penisstop>><br>
+	<<if $penisactiondefault is "cooperate">>
+| <span class="sub">Cooperate</span> <<radiobutton "$penisaction" "cooperate" checked>>
+	<<else>>
+| <span class="sub">Cooperate</span> <<radiobutton "$penisaction" "cooperate">>	
+	<</if>>
+	<<if $penisactiondefault is "take">>
+| Take it <<radiobutton "$penisaction" "take" checked>>
+	<<else>>
+| Take it <<radiobutton "$penisaction" "take">>	
+	<</if>>	
+<<endif>>
+
+
+
+
+
+
+
+
+<<if $penisstate is "otheranusentrance">><br><br><<His>> ass hovers near your <<penisstop>><br>
+<<actionspenisanusfuck>>
+	<<if $consensual is 1 and $promiscuity lte 54>>
+	<<else>>
+		<<if $penisactiondefault is "otheranusbay">>
+| <span class="meek">Frot against <<his>> ass</span> <<radiobutton "$penisaction" "otheranusbay" checked>><<peniledifficulty>> <<combatpromiscuous4>> 
+		<<else>>
+| <span class="meek">Frot against <<his>> ass</span> <<radiobutton "$penisaction" "otheranusbay">><<peniledifficulty>> <<combatpromiscuous4>> 
+		<</if>>
+	<</if>>
+	<<if $penisactiondefault is "otheranustease">>
+| <span class="sub">Tease</span> <<radiobutton "$penisaction" "otheranustease" checked>>
+	<<else>>
+| <span class="sub">Tease</span> <<radiobutton "$penisaction" "otheranustease">>	
+	<</if>>
+<<endif>>
+
+
+<<if $penisstate is "otheranusimminent">><br><br>
+<<His>> ass presses against your <<penisstop>><br>
+<<actionspenisanusfuck>>
+	<<if $penisactiondefault is "otheranusrub">>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "otheranusrub" checked>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "otheranusrub">>	
+	<</if>>
+	<<if $penisactiondefault is "otheranusescape">>
+| <span class="brat">Pull away</span> <<radiobutton "$penisaction" "otheranusescape" checked>>
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$penisaction" "otheranusescape">>	
+	<</if>>
+<<endif>>
+
+<<if $penisstate is "otheranus">><br><br>
+<<His>> ass envelopes your <<penisstop>><br>
+	<<if $penisactiondefault is "otheranuscooperate">>
+| <span class="sub">Cooperate</span> <<radiobutton "$penisaction" "otheranuscooperate" checked>>
+	<<else>>
+| <span class="sub">Cooperate</span> <<radiobutton "$penisaction" "otheranuscooperate">>	
+	<</if>>
+	<<if $penisactiondefault is "otheranustake">>
+| Take it <<radiobutton "$penisaction" "otheranustake" checked>>
+	<<else>>
+| Take it <<radiobutton "$penisaction" "otheranustake">>	
+	<</if>>	
+<<endif>>
+
+
+
+
+<<if $penisstate is 0>>
+	<<if $penisactiondefault is "rest">>
+| Rest <<radiobutton "$penisaction" "rest" checked>>
+	<<else>>
+| Rest <<radiobutton "$penisaction" "rest">>		
+	<</if>>
+<</if>>
+
+
+
+
+
+
+
+<<if $vaginastate is 0>><br><br>Your <<pussy>> is free.<br>
+<<actionsvaginatopenis>>
+<</if>>
+
+
+<<if $vaginastate is "othermouthentrance">><br><br>You feel breath on your <<pussystop>><br>
+	<<if $consensual is 1 and $promiscuity lt 0>>
+	<<else>>
+		<<if $vaginaactiondefault is "thighbay">>
+| <span class="meek">Press your thigh against <<his>> mouth</span> <<radiobutton "$vaginaaction" "thighbay" checked>><<thighdifficulty>> <<combatpromiscuous1>> 
+		<<else>>
+| <span class="meek">Press your thigh against <<his>> mouth</span> <<radiobutton "$vaginaaction" "thighbay">><<thighdifficulty>> <<combatpromiscuous1>> 
+		<</if>>
+	<</if>>
+	<<if $vaginaactiondefault is "othermouthtease">>
+| <span class="sub">Rub against <<his>> face</span> <<radiobutton "$vaginaaction" "othermouthtease" checked>>
+	<<else>>
+| <span class="sub">Rub against <<his>> face</span> <<radiobutton "$vaginaaction" "othermouthtease">>	
+	<</if>>
+<<endif>>
+
+
+<<if $vaginastate is "othermouthimminent">><br><br>
+<<His>> lips press against your labia.<br>
+	<<if $vaginaactiondefault is "othermouthrub">>
+| <span class="sub">Rub against <<his>> lips</span> <<radiobutton "$vaginaaction" "othermouthrub" checked>>
+	<<else>>
+| <span class="sub">Rub against <<his>> lips</span> <<radiobutton "$vaginaaction" "othermouthrub">>	
+	<</if>>
+	<<if $vaginaactiondefault is "othermouthescape">>
+| <span class="brat">Pull away</span> <<radiobutton "$vaginaaction" "othermouthescape" checked>>
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$vaginaaction" "othermouthescape">>	
+	<</if>>
+<<endif>>
+
+<<if $vaginastate is "othermouth">><br><br>
+<<His>> tongue penetrates your <<pussystop>><br>
+	<<if $vaginaactiondefault is "othermouthcooperate">>
+| <span class="sub">Cooperate</span> <<radiobutton "$vaginaaction" "othermouthcooperate" checked>>
+	<<else>>
+| <span class="sub">Cooperate</span> <<radiobutton "$vaginaaction" "othermouthcooperate">>	
+	<</if>>
+<<endif>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<if $vaginastate is "entrance">><br><br><<His>> penis hovers near your <<pussystop>><br>
+<<actionsvaginapenisfuck>>
+	<<if $consensual is 1 and $promiscuity lte 54>>
+	<<else>>
+		<<if $thighuse is 0>>
+			<<if $vaginaactiondefault is "penisthighs">>
+		| <span class="meek">Try to keep <<his>> penis away with your thighs</span> <<radiobutton "$vaginaaction" "penisthighs" checked>><<thighdifficulty>> <<combatpromiscuous4>> 
+				<<else>>
+		| <span class="meek">Try to keep <<his>> penis away with your thighs</span> <<radiobutton "$vaginaaction" "penisthighs">><<thighdifficulty>> <<combatpromiscuous4>> 	
+			<</if>>
+		<</if>>
+	<</if>>
+	<<if $anususe is 0 and $analshield isnot 1>>
+		<<if $vaginaactiondefault is "penisanus">>
+	| <span class="meek">Offer your <<bottom>> instead</span> <<radiobutton "$vaginaaction" "penisanus" checked>><<analdifficulty>>
+		<<else>>
+	| <span class="meek">Offer your <<bottom>> instead</span> <<radiobutton "$vaginaaction" "penisanus">><<analdifficulty>>	
+		<</if>>
+	<<endif>>
+	<<if $vaginaactiondefault is "penistease">>
+| <span class="sub">Tease the tip</span> <<radiobutton "$vaginaaction" "penistease" checked>>
+	<<else>>
+| <span class="sub">Tease the tip</span> <<radiobutton "$vaginaaction" "penistease">>	
+	<</if>>
+<<endif>>
+
+
+<<if $vaginastate is "imminent">><br><br>
+<<His>> penis presses against your <<pussystop>><br>
+<<actionsvaginapenisfuck>>
+	<<if $vaginaactiondefault is "rub">>
+| <span class="sub">Rub</span> <<radiobutton "$vaginaaction" "rub" checked>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$vaginaaction" "rub">>	
+	<</if>>
+	<<if $vaginaactiondefault is "escape">>
+| <span class="brat">Pull away</span> <<radiobutton "$vaginaaction" "escape" checked>>
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$vaginaaction" "escape">>	
+	<</if>>
+<<endif>>
+
+<<if $vaginastate is "penetrated">><br><br>
+<<His>> penis penetrates your <<pussystop>><br>
+	<<if $vaginaactiondefault is "cooperate">>
+| <span class="sub">Cooperate</span> <<radiobutton "$vaginaaction" "cooperate" checked>>
+	<<else>>
+| <span class="sub">Cooperate</span> <<radiobutton "$vaginaaction" "cooperate">>	
+	<</if>>
+	<<if $vaginaactiondefault is "take">>
+| Take it <<radiobutton "$vaginaaction" "take" checked>>
+	<<else>>
+| Take it <<radiobutton "$vaginaaction" "take">>	
+	<</if>>	
+<<endif>>
+
+
+
+
+
+<<if $vaginastate is 0>>
+	<<if $vaginaactiondefault is "rest">>
+| Rest <<radiobutton "$vaginaaction" "rest" checked>>
+	<<else>>
+| Rest <<radiobutton "$vaginaaction" "rest">>		
+	<</if>>
+<</if>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<if $anusstate is "othermouthentrance">><br><br>You feel breath on your <<bottomstop>><br>
+	<<if $consensual is 1 and $promiscuity lt 0>>
+	<<else>>
+		<<if $anusactiondefault is "bottombay">>
+| <span class="meek">Press your butt against <<his>> mouth</span> <<radiobutton "$anusaction" "bottombay" checked>><<bottomdifficulty>> <<combatpromiscuous1>> 
+		<<else>>
+| <span class="meek">Press your butt against <<his>> mouth</span> <<radiobutton "$anusaction" "bottombay">><<bottomdifficulty>> <<combatpromiscuous1>> 
+		<</if>>
+	<</if>>
+	<<if $anusactiondefault is "othermouthtease">>
+| <span class="sub">Rub against <<his>> face</span> <<radiobutton "$anusaction" "othermouthtease" checked>>
+	<<else>>
+| <span class="sub">Rub against <<his>> face</span> <<radiobutton "$anusaction" "othermouthtease">>	
+	<</if>>
+<<endif>>
+
+
+<<if $anusstate is "othermouthimminent">><br><br>
+<<His>> lips press against your anus.<br>
+	<<if $anusactiondefault is "othermouthrub">>
+| <span class="sub">Rub against <<his>> lips</span> <<radiobutton "$anusaction" "othermouthrub" checked>>
+	<<else>>
+| <span class="sub">Rub against <<his>> lips</span> <<radiobutton "$anusaction" "othermouthrub">>	
+	<</if>>
+	<<if $anusactiondefault is "othermouthescape">>
+| <span class="brat">Pull away</span> <<radiobutton "$anusaction" "othermouthescape" checked>>
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$anusaction" "othermouthescape">>	
+	<</if>>
+<<endif>>
+
+<<if $anusstate is "othermouth">><br><br>
+<<His>> tongue penetrates your <<bottomstop>><br>
+	<<if $anusactiondefault is "othermouthcooperate">>
+| <span class="sub">Cooperate</span> <<radiobutton "$anusaction" "othermouthcooperate" checked>>
+	<<else>>
+| <span class="sub">Cooperate</span> <<radiobutton "$anusaction" "othermouthcooperate">>	
+	<</if>>
+<<endif>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<if $anusstate is "entrance">><br><br><<His>> penis hovers near your <<bottomstop>><br>
+	<<if $consensual is 1 and $promiscuity lte 54>>
+	<<else>>
+		<<if $bottomuse is 0>>
+			<<if $anusactiondefault is "penischeeks">>
+	| <span class="meek">Try to keep <<his>> penis away with your cheeks</span> <<radiobutton "$anusaction" "penischeeks" checked>><<analdifficulty>> <<combatpromiscuous4>> 
+			<<else>>
+	| <span class="meek">Try to keep <<his>> penis away with your cheeks</span> <<radiobutton "$anusaction" "penischeeks">><<analdifficulty>> <<combatpromiscuous4>> 	
+			<</if>>
+		<</if>>
+	<</if>>
+	<<if $vaginause is 0 and $undertype isnot "chastity">>
+		<<if $anusactiondefault is "penispussy">>
+	| <span class="meek">Offer your pussy instead</span> <<radiobutton "$anusaction" "penispussy" checked>><<vaginaldifficulty>>
+		<<else>>
+	| <span class="meek">Offer your pussy instead</span> <<radiobutton "$anusaction" "penispussy">><<vaginaldifficulty>>
+		<</if>>
+	<<endif>>
+	<<if $anusactiondefault is "penistease">>
+| <span class="sub">Tease the tip</span> <<radiobutton "$anusaction" "penistease" checked>>
+	<<else>>
+| <span class="sub">Tease the tip</span> <<radiobutton "$anusaction" "penistease">>	
+	<</if>>
+<<endif>>
+
+
+<<if $anusstate is "imminent">><br><br>
+<<His>> penis presses against your anus.<br>
+	<<if $anusactiondefault is "rub">>
+| <span class="sub">Rub</span> <<radiobutton "$anusaction" "rub" checked>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$anusaction" "rub">>	
+	<</if>>
+	<<if $anusactiondefault is "escape">>
+| <span class="brat">Pull away</span> <<radiobutton "$anusaction" "escape" checked>>
+	<<else>>
+| <span class="brat">Pull away</span> <<radiobutton "$anusaction" "escape">>	
+	<</if>>
+<<endif>>
+
+<<if $anusstate is "penetrated">><br><br>
+<<His>> penis penetrates your anus.<br>
+	<<if $anusactiondefault is "cooperate">>
+| <span class="sub">Cooperate</span> <<radiobutton "$anusaction" "cooperate" checked>>
+	<<else>>
+| <span class="sub">Cooperate</span> <<radiobutton "$anusaction" "cooperate">>	
+	<</if>>
+	<<if $anusactiondefault is "take">>
+| Take it <<radiobutton "$anusaction" "take" checked>>
+	<<else>>
+| Take it <<radiobutton "$anusaction" "take">>	
+	<</if>>
+<<endif>>
+
+
+
+<<if $bottomuse is "mouth">><br><br>
+You press your <<bottom>> against <<his>> face.<br>
+	<<if $cheekactiondefault is "othermouthrub">>
+| <span class="sub">Rub</span> <<radiobutton "$cheekaction" "othermouthrub" checked>><<analdifficulty>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$cheekaction" "othermouthrub">><<analdifficulty>>	
+	<</if>>
+	<<if $cheekactiondefault is "othermouthstop">>
+| Stop <<radiobutton "$cheekaction" "othermouthstop" checked>>
+	<<else>>
+| Stop <<radiobutton "$cheekaction" "othermouthstop">>	
+	<</if>>
+<<endif>>
+
+
+
+
+<<if $bottomuse is "penis">><br><br>
+You hold <<his>> penis between your buttocks.<br>
+	<<if $cheekactiondefault is "rub">>
+| <span class="sub">Rub</span> <<radiobutton "$cheekaction" "rub" checked>><<analdifficulty>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$cheekaction" "rub">><<analdifficulty>>	
+	<</if>>
+	<<if $cheekactiondefault is "stop">>
+| Stop <<radiobutton "$cheekaction" "stop" checked>>
+	<<else>>
+| Stop <<radiobutton "$cheekaction" "stop">>	
+	<</if>>
+<<endif>>
+
+
+
+
+
+
+
+<<if $thighuse is "mouth">><br><br>
+You press your thigh against <<his>> mouth.<br>
+	<<if $thighactiondefault is "othermouthrub">>
+| <span class="sub">Continue</span> <<radiobutton "$thighaction" "othermouthrub" checked>><<thighdifficulty>>
+	<<else>>
+| <span class="sub">Continue</span> <<radiobutton "$thighaction" "othermouthrub">><<thighdifficulty>>	
+	<</if>>
+	<<if $thighactiondefault is "othermouthstop">>
+| Stop <<radiobutton "$thighaction" "othermouthstop" checked>>
+	<<else>>
+| Stop <<radiobutton "$thighaction" "othermouthstop">>	
+	<</if>>
+<<endif>>
+
+
+
+<<if $thighuse is "penis">><br><br>
+You hold <<his>> penis between your thighs.<br>
+	<<if $thighactiondefault is "rub">>
+| <span class="sub">Rub</span> <<radiobutton "$thighaction" "rub" checked>><<thighdifficulty>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$thighaction" "rub">><<thighdifficulty>>	
+	<</if>>
+	<<if $thighactiondefault is "stop">>
+| Stop <<radiobutton "$thighaction" "stop" checked>>
+	<<else>>
+| Stop <<radiobutton "$thighaction" "stop">>	
+	<</if>>
+<<endif>>
+
+<<if $penisuse is "clit">><br><br>
+You press your <<penis>> against <<his>> clit.<br>
+	<<if $penisactiondefault is "rub">>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "clitrub" checked>><<peniledifficulty>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "clitrub">><<peniledifficulty>>	
+	<</if>>
+	<<if $penisactiondefault is "stop">>
+| Stop <<radiobutton "$penisaction" "stop" checked>>
+	<<else>>
+| Stop <<radiobutton "$penisaction" "stop">>	
+	<</if>>
+<<endif>>
+
+
+
+<<if $penisuse is "otheranusrub">><br><br>
+You hold your <<penis>> between <<his>> ass cheeks.<br>
+	<<if $penisactiondefault is "otheranusrub">>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "otheranusrub" checked>><<peniledifficulty>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$penisaction" "otheranusrub">><<peniledifficulty>>	
+	<</if>>
+	<<if $penisactiondefault is "otheranusstop">>
+| Stop <<radiobutton "$penisaction" "otheranusstop" checked>>
+	<<else>>
+| Stop <<radiobutton "$penisaction" "otheranusstop">>	
+	<</if>>
+<<endif>>
+
+
+
+
+<<if $chestuse is "penis">><br><br>
+	<<if $breastcup is "none">>
+<<His>> penis rests against your <<breastsstop>><br>
+	<<else>>
+<<His>> penis rests between your <<breasts>><br>	
+	<</if>>
+	<<if $chestactiondefault is "rub">>
+| <span class="sub">Rub</span> <<radiobutton "$chestaction" "rub" checked>><<chestdifficulty>>
+	<<else>>
+| <span class="sub">Rub</span> <<radiobutton "$chestaction" "rub">><<chestdifficulty>>
+	<</if>>
+<<endif>>
+
+
+
+
+
+
+<br><br>
+<<endif>>
+<<endif>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+
+<<combatstate>>
+<<carryblock>>
+<br>
+
+<<set $face to 0>>
+
+
+<</nobr>><</widget>>

@@ -1,0 +1,99 @@
+to build/watch in osx(probably same in linux) navigate to this folder in terminal and enter
+./tweego_osx64 -s "Init" -o "Degrees_of_Lewdity_mod2.html" "./src" -w
+could try to figure out how to do something like the call thingy that the _watch.bat does
+
+todo?:
+try making events and money have limited numbers,
+  only 1 of door to door events per day/week/game or x number of houses
+  school locker budget, adjusted with delay by thefts
+  track notable stolen money and require paying it back when caught
+  dancing too fast/easy?
+    is seducing useful? it also takes just 1 min
+  robbing houses might be too quick too, iirc 5min
+    kind of reasonable if you just think about open lock check for valuables and leave
+    maybe instead each house robbing will call police and reduce the time they need to show up
+      then they hang around in the street for a while preventing you from doing anything weird
+      also catch you if they know you're a criminal
+  haven't tried how good prostitutioning is might want to adjust it if it's too good
+    one idea would be to have reputation for how easy it is to have sex with you which would reduce how much people are willing to pay.
+
+  diminishing coolness gains from partying/playing volleyball in the same day?
+  event frequency good or bad for money if promiscuous?
+    maybe less money opportunities if already rich
+profit stats based on activities? graphable data?
+can widgets take arguments?
+I know there are some fame stats but not really what they do.
+
+If we were to break the mansions up so that we could say you've already asked everyone what'd they look like?
+Mansion 1, Doll guy
+  Parents basically never home, goes to school or is tutored?
+  What'd happen if parents came while you were around? Angry at you trying to seduce their darling? Option to pretend to be a doll.
+  Acquaintances or relative of same age coming over to bully him or something and discovering you.
+  Dunno how to but I'd like being expected come over and pretend to be a doll on your own without him having to "deal" with you.
+  Should doll transformation be a thing?
+  Dog doll if collar or ears?
+Mansion 2, Heirloom guy
+  (Antique) collector of some sort or some other excuse for asking you to visit attic often enough to see spiders
+    followup events to spiders? pay for damages? Actually a rare pet that escaped?
+    Also spider event is kind of meh, giant spider with a dick would be nicer, also webs and poison could play a role.
+  Random item to fetch
+  chance to steal stuff
+  Some sort of modeling task maybe if he has an artist friend over or something?
+Mansion 3, Party arrangers
+  Surely can't be throwing parties every day? Just say no work when no party?
+  After a successful party or two they like you and offer working as a maid in same clothing?
+  Option to become regular and get message about each party?
+Mansion 4, weeding place
+  Keep track of garden progress and number of creepy stares?
+    Eventually get used to the stares? Leading to something different, kidnapping?
+  Beating up the dog once or twice will teach it to leave you in peace while opposite will encourage it.
+  Maybe watching you work innocently is considered enjoyable and thus get a bonus if angelic/virgin
+    Eventually they'd get used to it and send the butler to fetch you if you don't show up.
+  Chance to get drenched due to sprinkler
+Mansion 5, tea guy
+  only home at specific time?
+  remember if he thinks you're a whore but maybe look at more things to decide if he's fine with it
+    check if you look outwardly proper, no collar, cleanish and clothes in good condition also check reputation.
+    refuse even paid sex if look is improper or bad reputation
+    otherwise jump to sex if already considered a whore
+  only force molestation if some sign of sluttiness or flirting, otherwise apologize with maybe an option to do it anyway while feeling pity or promiscuous
+  not asking extra will prevent being considered a whore even if sex happens
+  love stat which will make him meet you even if you look improper or have a reputation but then if you don't sex him he might drug you
+
+Random mansions?
+make it so most mansions can give most of the event types but still be recognizable as different places?
+  so garden, attic, "babysitting", chat and party all should have different ways to be asked.
+
+How does the npc generator work and how would I remember a generated npc?
+
+homework and exercise at home with dumbbells.
+
+events to do
+  shop mannequin event add chance for more stuff to happen
+    longer duration due to some reason, forgot, no replacement, fun, shop owner gets replaced
+    bikini gets bought
+    other clothing options
+    get recognized by someone? maybe will just think it looks like you
+      maybe mention your skin was powdered to look more doll like
+      Robin would just notice you and later comment on seeing a doll like you
+        Or you could try making noise and get him in trouble for trying to help you
+      If hypnotized deeply Doctor could make you orgasm or believe that you are a mannequin
+        And/Or get an idea for next sessions
+    if strong enough break the restraints and have to run away wearing bikini/top only
+    new mannequin molded based on you?
+
+
+2018-09-08
+For hypnosis would be nice if getting over stressed had a chance of entering a trance
+  which would at least sometimes force you to get to the hospital, simply doing a blackout event variation would be easy
+  but somehow making it so that you play as normally but only options are ones that lead to hospital might be nice
+  so bus or 1-3 streets toward hospital but have exposure and maybe events have a chance of breaking the trance based on exhibitionism and such
+  could force no events also maybe make it so you think you have more clothes than you do
+  masturbation and blowjob could also be hypnosis tasks if you're familiar with them
+  
+
+
+
+done:
+doubled dancing time to 0:02
+set mansion robbing time to 0:10

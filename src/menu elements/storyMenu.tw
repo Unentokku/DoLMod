@@ -1,0 +1,276 @@
+:: StoryMenu
+<<if $intro is 0 and $menu is 0 and $dancing is 0 and $combat is 0>>[[Characteristics]]
+[[Statistics]]
+[[Traits]]
+[[Cheats][$passageback to passage()]] //todo - maybe change the behavior
+<<endif>>
+<<if $intro && !$menu>>[[Mod Version Info]]<</if>>
+
+:: StoryCaption [nobr]
+<<if $intro is 0>>
+
+<<if $cheatsidebar is 1>>
+<<cheatsidebar>>
+<<else>>
+
+<<weatherdisplay>>
+<<exposure>>
+<<if $images is 1>><<img>><br>
+<br>
+<br>
+<br>
+<br><br><br>
+<</if>>
+
+<<exposure>>
+<<combateffects>>
+
+
+<<if $physiquechange is 1>><<set $physiquechange to 0>>
+	<<if $physiqueuse gte $physique / 1000>>
+<span class="gold">Your physique is improving due to all the exercise you are getting.</span><<set $physiqueuse to 0>><br><br>
+	<<else>>
+<span class="pink">You didn't get enough exercise yesterday, your physique has deteriorated slightly as a result.</span><<set $physiqueuse to 0>><br><br>
+	<</if>>
+<</if>>
+<<if $swimmingmissedtext isnot 1 and $mathsmissedtext isnot 1 and $sciencemissedtext isnot 1 and $englishmissedtext isnot 1 and $historymissedtext isnot 1>>
+<<else>>
+	<<if $swimmingmissedtext is 1>><<set $swimmingmissedtext to 0>>
+		<<if $swimmingmissed gte 10>>
+		<span class="red">You've missed so many swimming lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's swimming lesson.</span><br>
+		<</if>>
+
+	<</if>>
+	<<if $mathsmissedtext is 1>><<set $mathsmissedtext to 0>>
+		<<if $mathsmissed gte 10>>
+		<span class="red">You've missed so many maths lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's maths lesson!</span><br>
+		<</if>>
+
+	<</if>>
+	<<if $sciencemissedtext is 1>><<set $sciencemissedtext to 0>>
+		<<if $sciencemissed gte 10>>
+		<span class="red">You've missed so many science lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's science lesson!</span><br>
+		<</if>>
+
+	<</if>>
+	<<if $englishmissedtext is 1>><<set $englishmissedtext to 0>>
+		<<if $englishmissed gte 10>>
+		<span class="red">You've missed so many english lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's english lesson!</span><br>
+		<</if>>
+
+	<</if>>
+	<<if $historymissedtext is 1>><<set $historymissedtext to 0>>
+		<<if $historymissed gte 10>>
+		<span class="red">You've missed so many history lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's history lesson!</span><br>
+		<</if>>
+
+	<</if>>
+<</if>>
+<<set $money = Math.trunc($money)>>
+You have £<<print ($money / 100)>><br>
+<<time>>
+It is $hour:<<if $time - $hour * 60 lte 9>>0<<endif>><<print $time - $hour * 60>> on <<texts 'weekday'>>.<br>
+<<schoolday>><br><<if $compactsidebar lte 1>><br><</if>>
+<<clothingcaption>>
+<<stripcaption>>
+
+<<if $playergender is "m">>
+	<<if $playergender isnot $playergenderappearance>>
+		<<if $compactsidebar gte 1>>
+			<span class="pink">You look like a girl!</span>
+		<<else>>
+			<<if $breastindicator is 1>>
+					<span class="pink">Your exposed breasts will make people think you're a girl!</span><br>
+			<<else>>
+			<span class="pink">The way you're dressed, people will think you're a girl!</span><br>
+			<</if>>
+		<</if>>
+	<</if>>
+<<elseif $playergender is "f">>
+	<<if $playergender isnot $playergenderappearance>>
+		<<if $compactsidebar gte 1>>
+			<span class="pink">You look like a boy!</span>
+		<<else>>
+			<<if $breastindicator is 0 and $upperexposed is 2>>
+			<span class="pink">Your exposed flat chest will make people think you're a boy!</span><br>
+			<<else>>
+			<span class="pink">The way you're dressed, people will think you're a boy!</span><br>
+			<</if>>
+		<</if>>
+	<</if>>
+<</if>>
+
+<<preclamp>>
+<<clamp>>
+
+<<if $daystate is "night">>
+<<set $nightmod to 1.5>>
+<<else>>
+<<set $nightmod to 1>>
+<</if>>
+
+<<if $exposed gte 2>>
+<<set $exposedmod to 1.5>>
+<<elseif $exposed gte 1>>
+<<set $exposedmod to 1.2>>
+<<else>>
+<<set $exposedmod to 1>>
+<</if>>
+
+
+
+<<set $allure to (($beauty / 3) + $hairlength / 4 + $upperreveal + $underreveal + $lowerreveal) * $nightmod * $exposedmod>>
+<<if $collared gte 1>><<set $allure to $allure + 1000>><</if>>
+<<if $wolfgirl gte 6>><<set $allure += 500>><</if>>
+<<goocount>><<set $allure to $allure + ($goocount * 50) + ($semencount * 50)>>
+<<if $legsacc is "stockings">><<set $allure += 300>><</if>>
+<<if $legsacc is "fishnet stockings">><<set $allure += 300>><</if>>
+<<if $allure gte 8000>><<set $allure to 8000>><</if>>
+<<if $alluretest is 1>>
+<<set $allure += 100000>>
+<</if>>
+<<set $attractiveness to ($beauty / 3) + $hairlength / 4 + $upperreveal + $underreveal + $lowerreveal>>
+<<if $wolfgirl gte 6>><<set $attractiveness += 500>><</if>>
+<<if $legsacc is "stockings">><<set $attractiveness += 300>><</if>>
+<<if $legsacc is "fishnet stockings">><<set $attractiveness += 300>><</if>>
+<<set $rng to random(1, 100)>>
+
+<<if $compactsidebar gte 1>>
+	<<if $vaginalchastityparasite isnot 0 or $analchastityparasite isnot 0 or $penilechastityparasite isnot 0 or $clitparasite isnot 0 or $penisparasite isnot 0>>
+	<br>Parasites:<</if>>
+	<<if $vaginalchastityparasite isnot 0>>
+	<span class="pink">V:$vaginalchastityparasite </span>
+	<</if>>
+	<<if $penilechastityparasite isnot 0>>
+	<span class="pink">P:$penilechastityparasite </span>
+	<</if>>
+	<<if $analchastityparasite isnot 0>>
+	<span class="pink">A:$analchastityparasite </span>
+	<</if>>
+	<<if $chestparasite isnot 0>>
+	<span class="pink">N:$chestparasite </span>
+	<</if>>
+	<<if $penisparasite isnot 0>>
+	<span class="pink">P:$penisparasite </span>
+	<</if>>
+	<<if $clitparasite isnot 0>>
+	<span class="pink">C:$clitparasite </span>
+	<</if>>
+	<<if $collared gte 1 or $leftarm is "bound" or $rightarm is "bound" or $feetuse is "bound">>
+	<br>Binds:
+		<<if $collared gte 1>>
+		<span class="pink">Collar </span>
+		<</if>>
+		<<if $leftarm is "bound" and $rightarm is "bound">>
+		<span class="pink">Arms </span>
+		<<elseif $leftarm is "bound">>
+		<span class="purple">LeftArm </span>
+		<<elseif $rightarm is "bound">>
+		<span class="purple">RightArm </span>
+		<</if>>
+		<<if $feetuse is "bound">>
+		<span class="pink">Legs </span>
+		<</if>>
+		<br>
+	<</if>>
+<<else>>
+	<<if $collared gte 1>>
+	<span class="pink">A collar with a leash attached encases your neck.</span><br>
+	<</if>>
+	<<if $vaginalchastityparasite isnot 0>>
+	<span class="pink">You feel $vaginalchastityparasite squirming inside your vagina.</span><br>
+	<</if>>
+	<<if $penilechastityparasite isnot 0>>
+	<span class="pink">You feel $penilechastityparasite squirming around your penis.</span><br>
+	<</if>>
+	<<if $analchastityparasite isnot 0>>
+	<span class="pink">You feel $analchastityparasite squirming inside your lower intestine.</span><br>
+	<</if>>
+	<<if $chestparasite isnot 0>>
+	<span class="pink">The parasites clinging to your nipples suck and massage you.</span><br>
+	<</if>>
+	<<if $penisparasite isnot 0>>
+	<span class="pink">The parasite clinging to your penis sucks and massages you.</span><br>
+	<</if>>
+	<<if $clitparasite isnot 0>>
+	<span class="pink">The parasite clinging to your clit sucks and massages you.</span><br>
+	<</if>>
+	<br>
+	<<if $leftarm is "bound" and $rightarm is "bound">>
+	<span class="pink">Your arms are bound.</span>
+	<<elseif $leftarm is "bound">>
+	<span class="purple">Your left arm is bound.</span>
+	<<elseif $rightarm is "bound">>
+	<span class="purple">Your right arm is bound.</span>
+	<</if>>
+	<<if $feetuse is "bound">><br>
+	<span class="pink">Your legs are bound.</span>
+	<</if>>
+	<br>
+<</if>>
+
+
+
+
+
+
+<<goo>>
+<<if $control gte 1>>
+<span class="teal">You feel in control</span>
+<</if>>
+<br><<drunk>><<pain>>
+Arousal: <<arousal>>
+Fatigue: <<tiredness>>
+Stress: <<stress>>
+Trauma: <<trauma>>
+Allure: <<allurecaption>>
+
+<<if $tipdisable is "f">>
+<span class="gold">Tip:</span> <<tips>>
+<br><br>
+<</if>>
+
+<<silently>>
+
+
+<<if $hungerenabled is 1>>
+	<<if $hunger gte 2000>><<set $stress to $stress + ($hunger - 2000)>><<set $physique to $physique - (($hunger - 2000) / 200)>>
+	<<endif>>
+<</if>>
+<<if $thirstenabled is 1>>
+	<<if $thirst gte 2000>><<set $stress to $stress + ($thirst - 2000)>><<set $physique to $physique - (($thirst - 2000) / 200)>>
+	<<endif>>
+<</if>>
+
+<<if $hygieneenabled is 1>>
+	<<if $hygiene gte 2000>><<set $stress to $stress + ($hygiene - 2000)>>
+	<<endif>>
+<</if>>
+
+
+
+
+
+
+
+<<endsilently>>
+	<<if $debug is 1>>
+<<debug>>
+	<</if>>
+
+<</if>>
+<<else>>
+
+<<versioninfo>>
+
+<</if>>

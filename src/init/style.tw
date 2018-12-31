@@ -1,0 +1,1048 @@
+:: Story Stylesheet [stylesheet]
+mouse.tooltip {font-weight: normal;} 
+
+mouse.tooltip span {
+    z-index:210;
+    display:none; 
+    padding:14px 10px;
+    margin-top:50px; margin-left:-40px;
+    min-width: 50px;
+    max-width: 450px !important;
+    line-height:20px;
+    border-radius:2px;        
+    box-shadow: 0px 0px 8px 4px #000;
+}
+
+mouse.tooltip:hover span{
+    display:inline; 
+    position:absolute;
+    border:2px solid #000000;  
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-size:1.0em;
+    background:#C4C4C4 repeat-x 0 0;
+}
+
+
+
+
+.red {
+	color: #EC3535;
+}
+
+.pink {
+	color: #E40081;
+}
+
+.purple {
+	color: #AA4BC8;
+}
+
+.blue {
+	color: #4372FF;
+}
+
+.lblue {
+	color: #559BC0;
+}
+
+.teal {
+	color: #08C1C1;
+}
+
+.green {
+	color: #38B20A;
+}
+
+.brat {
+	color: #B74141;
+}
+
+.meek {
+	color: #C44B8B;
+}
+
+.def {
+	color: #D20000;
+}
+
+.sub {
+	color: #AA4BC8;
+}
+
+.gold {
+	color: #FFD700;
+}
+
+.tangerine {
+	color: #f28500
+}
+
+.black {
+	color: #929292
+}
+
+.brown {
+	color: #aa7243
+}
+
+.lewd {
+	color: #E04880
+}
+
+
+
+
+
+
+
+
+.general {
+    opacity: 0.99;
+
+}
+
+
+
+
+.wetstage2 {
+    opacity: 0.90;
+		filter: brightness: 0.95;
+
+}
+
+.wetstage3 {
+    opacity: 0.75;
+		filter: brightness: 0.90;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#statbar {
+		position: relative;
+		left: 0px;
+		top: 0px;
+	z-index: 0;
+}
+
+
+
+
+
+#bg {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+	z-index: 0;
+}
+
+
+#daystate {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+	z-index: 10;
+}
+
+#weather {
+		position: fixed;
+		left: 0px;
+		top: 64px;
+	z-index: 10;
+}
+
+#location {
+		position: fixed;
+		left: 0px;
+		top: 128px;
+	z-index: 10;
+}
+
+
+#xrayvaginal {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 1;
+}
+
+#xrayvaginalcum {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 3;
+}
+
+#xraypenile {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 2;
+}
+
+#xrayanal {
+		position: relative;
+		left: 512px;
+		top: 0px;
+	z-index: 1;
+}
+
+#backhair {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 10;
+}
+
+#base {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 20;
+}
+
+#eyes {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 30;
+}
+
+#sclera {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 31;
+}
+
+#mouth {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 40;
+}
+
+#blush {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 50;
+}
+
+#tears {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 60;
+}
+
+#hair {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 65;
+}
+
+#under {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 70;
+}
+
+#lower {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 80;
+}
+
+#upper {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 90;
+}
+
+
+
+#brow {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 110;
+}
+
+#lashes {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 120;
+}
+
+#collar {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 115;
+}
+
+#rightarm {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 130;
+}
+
+#rightarmclothes {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 140;
+}
+
+#leftarm {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 150;
+}
+
+#leftarmclothes {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 150;
+}
+
+#faceacc {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 166;
+}
+
+#headacc {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 168;
+}
+
+#legsacc {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 76;
+}
+
+#feetacc {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 78;
+}
+
+
+
+
+
+
+
+
+#divsex {
+		position: relative;
+		display: inline-block;
+		height: 256px;
+		width: 768px;
+
+}
+
+#voreback {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: -20;
+}
+
+
+
+#sexbaseback {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 1;
+}
+
+#sexpenis {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 5;
+}
+
+#beastback {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 6;
+}
+
+#sexbase {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 10;
+}
+
+#sexbaseoverlay {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 12;
+}
+
+#sexeyes {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 20;
+}
+
+#sexsclera {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 30;
+}
+
+#sexmouth {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 40;
+}
+
+
+#sexblush {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 50;
+}
+
+
+
+#sextears {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 60;
+}
+
+#beastfront {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 65;
+}
+
+#sexhair {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 70;
+}
+
+
+#sexbrow {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 80;
+}
+
+#sexlashes {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 90;
+}
+
+#sexbasefront {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 100;
+}
+
+
+#sexunder {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 102;
+}
+
+#sexlower {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 104;
+}
+
+#sexupper {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 106;
+}
+
+
+
+#foreground {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 200;
+}
+
+
+
+
+
+#map {
+		position: relative;
+		left: 0px;
+		top: 0px;
+	z-index: 10;
+}
+
+#maparrow {
+		position: relative;
+		left: -256px;
+		top: 0px;
+	z-index: 20;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#hirsute {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	z-index: 21;
+}
+
+
+
+
+#doggyhirsute {
+		position: absolute;
+		left: 256px;
+		top: 0px;
+	z-index: 101;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*! <<numberpool>> macro set for SugarCube v2 */
+div[id|="numberbox-body"] {
+	display: inline-block;
+}
+div[id|="numberbox-body"] input {
+	min-width: 3em;
+	width: 3em;
+	text-align: center;
+}
+div[id|="numberbox-body"] button {
+	font-family: "tme-fa-icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: normal;
+	speak: none;
+	padding: 0.4em 0.6em;
+}
+div[id|="numberbox-body"] button[id|="numberbox-minus"] {
+	margin-right: 0.4em;
+}
+div[id|="numberbox-body"] button[id|="numberbox-plus"] {
+	margin-left: 0.4em;
+}
+
+div[id|="numberslider-body"] {
+	display: inline-block;
+}
+div[id|="numberslider-body"] span {
+	display: inline-block;
+	/*font-size: 1.25em;*/
+	margin-left: 0.25em;
+	min-width: 3em;
+	text-align: center;
+	vertical-align: middle;
+}
+div[id|="numberslider-body"] input {
+	-webkit-appearance: none;
+	cursor: pointer;
+	height: 1.25em;
+	min-width: 20em;
+	vertical-align: middle;
+}
+div[id|="numberslider-body"] input:focus {
+	outline: none;
+}
+div[id|="numberslider-body"] input::-webkit-slider-runnable-track {
+	background: #14171A;
+	border: 1px solid #444;
+	border-radius: 0;
+	cursor: pointer;
+	height: 10px;
+	width: 100%;
+}
+div[id|="numberslider-body"] input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 18px;
+	margin-top: -5px;
+	width: 33px;
+}
+div[id|="numberslider-body"] input:focus::-webkit-slider-runnable-track {
+	background: #14171A;
+}
+div[id|="numberslider-body"] input::-moz-range-track {
+	background: #14171A;
+	border: 1px solid #444;
+	border-radius: 0;
+	cursor: pointer;
+	height: 10px;
+	width: 100%;
+}
+div[id|="numberslider-body"] input::-moz-range-thumb {
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 18px;
+	width: 33px;
+}
+div[id|="numberslider-body"] input::-ms-track {
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+	cursor: pointer;
+	height: 10px;
+	width: 99%; /* fallback for MS browsers without support for calc() */
+	width: calc(100% - 1px);
+}
+div[id|="numberslider-body"] input::-ms-fill-lower {
+	background: #14171A;
+	border: 1px solid #444;
+	border-radius: 0;
+}
+div[id|="numberslider-body"] input::-ms-fill-upper {
+	background: #14171A;
+	border: 1px solid #444;
+	border-radius: 0;
+}
+div[id|="numberslider-body"] input::-ms-thumb {
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 16px;
+	width: 33px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.meter {
+    position: relative;
+    height: 0.3em;
+    width: 100%;
+    background-color: gray;
+    text-align: center;
+	z-index: -10;
+}
+.redbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #EC3535;
+	z-index: -10;
+}
+
+
+
+.pinkbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #E40081;
+	z-index: -10;
+}
+
+
+.purplebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #AA4BC8;
+	z-index: -10;
+}
+
+
+
+.bluebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #4372FF;
+	z-index: -10;
+}
+
+
+
+
+.lbluebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #559BC0;
+	z-index: -10;
+}
+
+
+.tealbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #08C1C1;
+	z-index: -10;
+}
+
+.greenbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #38B20A;
+	z-index: -10;
+}
+
+.goldbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.3em;
+    background-color: #FFD700;
+	z-index: -10;
+}
+
+//for cheats
+.red a.link-internal {
+	color: #EC3535;
+}
+
+.pink a.link-internal {
+	color: #E40081;
+}
+
+.purple a.link-internal {
+	color: #AA4BC8;
+}
+
+.blue a.link-internal {
+	color: #4372FF;
+}
+
+.lblue a.link-internal {
+	color: #559BC0;
+}
+
+.teal a.link-internal {
+	color: #08C1C1;
+}
+
+.green a.link-internal {
+	color: #38B20A;
+}
+
+.brat a.link-internal {
+	color: #B74141;
+}
+
+.meek a.link-internal {
+	color: #C44B8B;
+}
+
+.def a.link-internal {
+	color: #D20000;
+}
+
+.sub a.link-internal {
+	color: #AA4BC8;
+}
+
+.gold a.link-internal {
+	color: #FFD700;
+}
+
+.tangerine a.link-internal {
+	color: #f28500
+}
+
+.black a.link-internal {
+	color: #929292
+}
+
+.brown a.link-internal {
+	color: #aa7243
+}
+
+.lewd a.link-internal {
+	color: #E04880
+}
+
+
+.bggray
+{
+	background: #14171A;
+}
+
+.testtest{
+	background: #14171A;
+	border: 10px solid #14171A;
+}
+
+.block1 { 
+width: 48%; 
+background: #14171A;
+padding: 1%;
+float: left;
+}
+.block2 { 
+width: 48%; 
+background: #14171A;
+padding: 1%;
+float: left; 
+position: relative;
+}
+
+.block3 { 
+width: 98%; 
+background: #14171A;
+padding: 1%;
+float: left;
+}
+
+.block4 { 
+width: 28%; 
+background: #14171A;
+padding: 1%;
+float: left;
+}
+
+.block5 { 
+width: 68%; 
+background: #14171A;
+padding: 1%;
+float: left; 
+position: relative; 
+}
+
+.block6 { 
+width: 33%; 
+background: #14171A;
+padding: 1%;
+float: left;
+}
+
+.block7 { 
+width: 63%; 
+background: #14171A;
+padding: 1%;
+float: left; 
+position: relative; 
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    //border-right: 2px dotted #444; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 10000;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,2871 @@
+:: Cheats [nobr]
+<<clamp>><<set $menu to 1>>
+
+<<if ($passageback isnot "Cheats") and ($passageback isnot "Semen and goo") and ($passageback isnot "Char Stat") and ($passageback isnot "Trait Stat")>>
+<<set $passagecopy to $passageback>>
+<</if>>
+Back to [[$passagecopy]]<br>
+
+<br>
+<span class="testtest">State</span> | [[Semen and goo]] | [[Characteristics|Char Stat]] | [[Traits|Trait Stat]]
+<br>
+
+<div class="bggray">
+
+<div class="block1">
+
+<<if $drunk gte 1>>[[remove|Cheats][$drunk to 0]] | set
+<<else>>remove | [[set|Cheats][$drunk to 1]]<</if>>
+($drunk)
+Drunk
+<br>
+
+<<if $drugged gte 1>>[[remove|Cheats][$drugged to 0]] | set
+<<else>>remove | [[set|Cheats][$drugged to 1]]<</if>>
+($drugged)
+Drugged
+<br>
+
+[[MIN|Cheats][$druggedtimer to 0]] | 
+[[less|Cheats][$druggedtimer -= 10]] | 
+[[more|Cheats][$druggedtimer += 10]] | 
+[[MAX|Cheats][$druggedtimer to 1000]] 
+($druggedtimer) 
+<div class="tooltip"> 
+Detox time∴
+	<span class="tooltiptext">
+
+	<<if $drunk is 1>>
+		<<if $druggedtimer lte 120>>
+		<span class="blue">You are woozy.</span>
+		<<elseif $druggedtimer lte 240>>
+		<span class="purple">You are tipsy.</span>
+		<<elseif $druggedtimer lte 360>>
+		<span class="purple">You are drunk.</span>
+		<<elseif $druggedtimer lte 480>>
+		<span class="pink">You are smashed</span>
+		<<else>>
+		<span class="pink">You are wasted</span>
+		<</if>>
+	<<elseif $drugged is 1>><span class="red">You've been drugged!</span>
+	<<else>>You need to be drunk or drugged first.
+	<</if>>
+
+</span>
+</div>
+<br>
+<br>
+
+<<set $painsaved to $pain>>
+[[MIN|Cheats][$pain to 0]] | 
+[[less|Cheats][$pain -= 10]] | 
+[[more|Cheats][$pain += 10]] | 
+[[MAX|Cheats][$pain to 100]]  
+($pain)
+<div class="tooltip"> 
+Pain∴
+	<span class="tooltiptext">
+
+<<if $pain gte 100>><span class="red">You sob uncontrollably, tears streaming down your face.</span>
+<<elseif $pain gte 80>><span class="pink">You are crying and whimpering.</span>
+<<elseif $pain gte 60>><span class="purple">You are crying.</span>
+<<elseif $pain gte 40>><span class="blue">Tears are running down your face.</span>
+<<elseif $pain gte 20>><span class="lblue">Tears are welling in your eyes.</span>
+<<elseif $pain gte 1>><span class="teal">You are upset.</span>
+<<else>><span class="green">You feel okay.</span>
+<<endif>>
+
+</span>
+</div>
+<br>
+
+<<set $arousalsaved to $arousal>>
+[[MIN|Cheats][$arousal to 0]] | 
+[[less|Cheats][$arousal -= 1000]] | 
+[[more|Cheats][$arousal += 1000]] | 
+[[MAX|Cheats][$arousal to 10000]] 
+($arousal) 
+<div class="tooltip"> 
+Arousal∴
+	<span class="tooltiptext">
+
+<<if $arousal gte 10000>><span class="red">You're shaking with arousal.</span>
+<<elseif $arousal gte 8000>><span class="pink">You feel a heat rising within you.</span>
+<<elseif $arousal gte 6000>><span class="purple">You feel horny.</span>
+<<elseif $arousal gte 4000>><span class="blue">You feel lustful.</span>
+<<elseif $arousal gte 2000>><span class="lblue">You feel aroused.</span>
+<<elseif $arousal gte 1>><span class="teal">You feel sensual.</span>
+<<else>><span class="green">You feel cold.</span>
+<<endif>>
+
+</span>
+</div>
+<br>
+
+[[MIN|Cheats][$tiredness to 0]] | 
+[[less|Cheats][$tiredness -= 200]] | 
+[[more|Cheats][$tiredness += 200]] | 
+[[MAX|Cheats][$tiredness to 2000]]  
+($tiredness) 
+<div class="tooltip"> 
+Fatigue∴
+	<span class="tooltiptext">
+
+<<if $tiredness gte 2000>><span class="red">You are exhausted.</span>
+<<elseif $tiredness gte 1600>><span class="pink">You are fatigued.</span>
+<<elseif $tiredness gte 1200>><span class="purple">You are tired.</span>
+<<elseif $tiredness gte 800>><span class="blue">You are wearied.</span>
+<<elseif $tiredness gte 400>><span class="lblue">You are alert.</span>
+<<elseif $tiredness gte 1>><span class="teal">You are wide awake.</span>
+<<else>><span class="green">You are refreshed.</span>
+<<endif>>
+
+</span>
+</div>
+<br>
+
+[[MIN|Cheats][$stress to 0]] | 
+[[less|Cheats][$stress -= 1000]] | 
+[[more|Cheats][$stress += 1000]] | 
+[[MAX|Cheats][$stress to 10000]]  
+($stress) 
+<div class="tooltip"> 
+Stress∴
+	<span class="tooltiptext">
+
+<<if $stress gte 10000>><span class="red">You are overwhelmed!</span>
+<<elseif $stress gte 8000>><span class="pink">You are distressed.</span>
+<<elseif $stress gte 6000>><span class="purple">You are strained.</span>
+<<elseif $stress gte 4000>><span class="blue">You are tense.</span>
+<<elseif $stress gte 2000>><span class="lblue">You are calm.</span>
+<<elseif $stress gte 1>><span class="teal">You are placid.</span>
+<<else>><span class="green">You are serene.</span>
+<<endif>>
+
+</span>
+</div>
+<br>
+
+<<set $traumasaved to $trauma>>
+[[MIN|Cheats][$trauma to 0]] | 
+[[less|Cheats][$trauma -= 500]] | 
+[[more|Cheats][$trauma += 500]] | 
+[[MAX|Cheats][$trauma to $traumamax]]  
+($trauma) 
+<div class="tooltip"> 
+Trauma∴
+	<span class="tooltiptext">
+
+<<if $trauma gte $traumamax>><span class="red">You feel numb.</span>
+<<elseif $trauma gte ($traumamax / 5) * 4>><span class="pink">You are tormented.</span>
+<<elseif $trauma gte ($traumamax / 5) * 3>><span class="purple">You are disturbed.</span>
+<<elseif $trauma gte ($traumamax / 5) * 2>><span class="blue">You are troubled.</span>
+<<elseif $trauma gte ($traumamax / 5) * 1>><span class="lblue">You are nervous.</span>
+<<elseif $trauma gte 1>><span class="teal">You are uneasy.</span>
+<<else>><span class="green">You are healthy.</span>
+<<endif>>
+
+</span>
+</div>
+<br>
+
+
+<<set $allure to ($beauty + $hairlength / 4 + $upperreveal + $underreveal + $lowerreveal) * $nightmod * $exposedmod>>
+<<if $collared gte 1>><<set $allure to $allure + 1000>><</if>>
+<<if $wolfgirl gte 6>><<set $allure += 500>><</if>>
+<<goocount>><<set $allure to $allure + ($goocount * 50) + ($semencount * 50)>>
+<<if $legsacc is "stockings">><<set $allure += 300>><</if>>
+<<if $legsacc is "fishnet stockings">><<set $allure += 300>><</if>>
+<<if $allure gte 8000>><<set $allure to 8000>><</if>>
+<<if $alluretest is 1>>
+<<set $allure += 100000>>
+<</if>>
+(<<print Math.round($allure)>>)
+<div class="tooltip"> 
+Allure∴
+	<span class="tooltiptext">
+
+<<if $allure gte 5000>><span class="red">You look like you need to be ravaged.</span>
+<<elseif $allure gte 3000>><span class="pink">You look perverted.</span>
+<<elseif $allure gte 2000>><span class="purple">You look lewd.</span>
+<<elseif $allure gte 1500>><span class="blue">You stand out.</span>
+<<elseif $allure gte 1000>><span class="lblue">You attract attention.</span>
+<<elseif $allure gte 500>><span class="teal">You attract glances.</span>
+<<else>><span class="green">You look unremarkable.</span>
+<<endif>>
+<br>
+
+Recipe: higher beauty, longer hair, revealing clothes (or nude), night, collar, wolfgirl, semen/goo, stockings
+
+
+</span>
+</div>
+
+; pheromones
+<<if $alluretest is 1>>on | [[off|Cheats][$alluretest to 0]]
+<<else>>[[on|Cheats][$alluretest to 1]] | off
+<<endif>>
+<br>
+
+(<<print Math.round($attractiveness)>>)
+<div class="tooltip"> 
+Attractiveness∴
+	<span class="tooltiptext">
+	
+Recipe: higher beauty, longer hair, revealing clothes (or nude), wolfgirl, stockings
+
+</span>
+</div>
+
+<<if $attractiveness gte 5000>>
+<span class="green">S</span>
+<<elseif $attractiveness gte 4000>>
+<span class="teal">A</span>
+<<elseif $attractiveness gte 3000>>
+<span class="lblue">B</span>
+<<elseif $attractiveness gte 2000>>
+<span class="blue">C</span>
+<<elseif $attractiveness gte 1000>>
+<span class="purple">D</span>
+<<else>>
+<span class="pink">F</span>
+<</if>>
+<br>
+
+</div>
+
+<div class="block2">
+
+(<<print ($money / 100)>>) Money: [[+£1000|Cheats][$money+=100000]] | [[+£10000|Cheats][$money+=1000000]] | [[+£1000000|Cheats][$money+=100000000]]
+<br>
+<br>
+
+[[MIN|Cheats][$blackmoney to 0]] | 
+[[less|Cheats][$blackmoney -= 1000]] | 
+[[more|Cheats][$blackmoney += 1000]] | 
+[[MAX|Cheats][$blackmoney to 1000000]] 
+($blackmoney)
+<div class="tooltip"> 
+Black money∴
+	<span class="tooltiptext">
+	
+You are carrying £$blackmoney in stolen goods.
+
+</span>
+</div>
+<br>
+
+[[MIN|Cheats][$crime to 0]] | 
+[[less|Cheats][$crime -= 100]] | 
+[[more|Cheats][$crime += 100]] | 
+[[MAX|Cheats][$crime to 5000]] 
+($crime) 
+Crime
+<br>
+<br>
+
+[[MIN|Cheats][$time to 0]] | 
+[[less|Cheats][$time -= 60]] | 
+[[more|Cheats][$time += 60]] | 
+[[MAX|Cheats][$time to 1439]]  
+($time)
+Time (in minutes)
+<br>
+
+set:
+[[Clear|Cheats][$weather to "clear"]] |
+[[Overcast|Cheats][$weather to "overcast"]] |
+[[Rain|Cheats][$weather to "rain"]]
+($weather) Weather
+<br>
+<br>
+
+<<if $playergender is "m">>
+[[female|Cheats][$playergender to "f", $penisexist to 0, $vaginaexist to 1, $penisstate = "none", $vaginastate = 0]] | male
+<<elseif $playergender is "f">>
+female | [[male|Cheats][$playergender to "m", $penisexist to 1, $vaginaexist to 0, $penisstate = 0, $vaginastate = "none"]]
+<</if>>
+($playergender) Gender/sex
+<br>
+
+<<if $vaginaexist is 1>>
+[[remove|Cheats][$vaginaexist to 0, $vaginastate = "none"]] | grow
+<<else>>
+remove | [[grow|Cheats][$vaginaexist to 1, $vaginastate = 0]]
+<</if>>
+($vaginaexist) Vagina
+<br>
+
+
+<<if $penisexist is 1>>
+[[remove|Cheats][$penisexist to 0, $penisstate = "none"]] | grow
+<<else>>
+remove | [[grow|Cheats][$penisexist to 1, $penisstate = 0]]
+<</if>>
+($penisexist) Penis
+<br>
+
+</div>
+
+<div style="clear:both"></div>
+
+<div class="block4">
+Parasites
+<<if ($clitparasite is 1) or ($penisparasite is 1) or ($chestparasite is 1)>>
+[[remove all|Cheats][$clitparasite to 0, $penisparasite to 0, $chestparasite to 0]] 
+<</if>>
+<br>
+
+<<if $vaginaexist is 1>>
+<<if $clitparasite is 1>>
+[[remove|Cheats][$clitparasite to 0]] | add
+<<else>>
+remove | [[add|Cheats][$clitparasite to 1]]
+<</if>>
+($clitparasite)
+Clit 
+<br> 
+<</if>>
+
+<<if $penisexist is 1>>
+<<if $penisparasite is 1>>
+[[remove|Cheats][$penisparasite to 0]] | add
+<<else>>
+remove | [[add|Cheats][$penisparasite to 1]]
+<</if>>
+($penisparasite)
+Penis
+<br> 
+<</if>>
+
+<<if $chestparasite is 1>>
+[[remove|Cheats][$chestparasite to 0]] | add
+<<else>>
+remove | [[add|Cheats][$chestparasite to 1]]
+<</if>>
+($chestparasite)
+Chest
+<br>
+<br>
+Characters
+<br>
+
+Eden  [[MIN|Cheats][$edenlove to 0]] | 
+[[less|Cheats][$edenlove -= 10]] | 
+[[more|Cheats][$edenlove += 10]] | 
+[[MAX|Cheats][$edenlove to 1000]]  ($edenlove)
+<br>
+
+Robin  [[MIN|Cheats][$robinlove to 0]] | 
+[[less|Cheats][$robinlove -= 10]] | 
+[[more|Cheats][$robinlove += 10]] | 
+[[MAX|Cheats][$robinlove to 1000]]  ($robinlove)
+<br>
+
+<br>
+<<if $cheatsidebar is 1>>
+[[off|Cheats][$cheatsidebar to 0]] | on
+<<else>>
+off | [[on|Cheats][$cheatsidebar to 1]]
+<</if>>
+<<if def $cheatsidebar>>($cheatsidebar)
+<<else>>(0)
+<</if>>
+Cheat sidebar
+<br>
+
+<<if $debug is 1>>
+[[off|Cheats][$debug to 0]] | on
+<<else>>
+off | [[on|Cheats][$debug to 1]]
+<</if>>
+<<if def $debug>>($debug)
+<<else>>(0)
+<</if>>
+Debug
+<br>
+
+</div>
+
+<div class="block5">
+Chastity parasites
+<<if ($vaginalchastityparasite isnot 0) or ($penilechastityparasite isnot 0) or ($analchastityparasite isnot 0)>>
+[[remove all|Cheats][$vaginalchastityparasite to 0, $penilechastityparasite to 0, $analchastityparasite to 0]]
+<</if>>
+<br>
+
+<<if $vaginaexist is 1>>
+<<if $vaginalchastityparasite isnot 0>>
+[[remove|Cheats][$vaginalchastityparasite to 0]] 
+<<else>>remove
+<</if>>
+| set: 
+[[worms|Cheats][$vaginalchastityparasite to "worms"]] | 
+[[eels|Cheats][$vaginalchastityparasite to "eels"]] | 
+[[spiders|Cheats][$vaginalchastityparasite to "spiders"]] | 
+[[slimes|Cheats][$vaginalchastityparasite to "slimes"]] 
+($vaginalchastityparasite)
+Vagina 
+<br>
+<</if>>
+
+<<if $penisexist is 1>>
+<<if $penilechastityparasite isnot 0>>
+[[remove|Cheats][$penilechastityparasite to 0]] 
+<<else>>remove
+<</if>>
+| set:
+[[worms|Cheats][$penilechastityparasite to "worms"]] | 
+[[eels|Cheats][$penilechastityparasite to "eels"]] | 
+[[spiders|Cheats][$penilechastityparasite to "spiders"]] | 
+[[slimes|Cheats][$penilechastityparasite to "slimes"]] 
+($penilechastityparasite) 
+Penis
+<br>
+<</if>>
+
+
+<<if $analchastityparasite isnot 0>>
+[[remove|Cheats][$analchastityparasite to 0]] 
+<<else>>remove
+<</if>>
+| set: 
+[[worms|Cheats][$analchastityparasite to "worms"]] | 
+[[eels|Cheats][$analchastityparasite to "eels"]] | 
+[[spiders|Cheats][$analchastityparasite to "spiders"]] | 
+[[slimes|Cheats][$analchastityparasite to "slimes"]] 
+($analchastityparasite) 
+Anus 
+<br>
+
+</div>
+
+<div style="clear:both"></div>
+
+</div>
+
+
+:: Semen and goo [nobr]
+<<clamp>>
+
+Back to [[$passagecopy]]<br>
+<br>
+
+[[State|Cheats]] | <span class="testtest">Semen and goo</span> | [[Characteristics|Char Stat]] | [[Traits|Trait Stat]]
+
+<br>
+
+<div class="block1">
+<<click "Wash all" "Semen and goo">> <<wash>> <</click>> 
+<<goocount>>
+<<goooutsidecount>>
+<br>
+Semen on skin
+<br>
+
+[[MIN|Semen and goo][$necksemen to 0]] | 
+[[less|Semen and goo][$necksemen -= 1]] | 
+[[more|Semen and goo][$necksemen += 1]] | 
+[[MAX|Semen and goo][$necksemen to 5]]  
+($necksemen) Neck
+<br>
+
+[[MIN|Semen and goo][$rightarmsemen to 0]] | 
+[[less|Semen and goo][$rightarmsemen -= 1]] | 
+[[more|Semen and goo][$rightarmsemen += 1]] | 
+[[MAX|Semen and goo][$rightarmsemen to 5]]  
+($rightarmsemen) Right arm
+<br>
+
+[[MIN|Semen and goo][$leftarmsemen to 0]] | 
+[[less|Semen and goo][$leftarmsemen -= 1]] | 
+[[more|Semen and goo][$leftarmsemen += 1]] | 
+[[MAX|Semen and goo][$leftarmsemen to 5]]  
+($leftarmsemen) Left arm
+<br>
+
+[[MIN|Semen and goo][$thighsemen to 0]] | 
+[[less|Semen and goo][$thighsemen -= 1]] | 
+[[more|Semen and goo][$thighsemen += 1]] | 
+[[MAX|Semen and goo][$thighsemen to 5]] 
+($thighsemen) Thighs
+<br>
+
+[[MIN|Semen and goo][$bottomsemen to 0]] | 
+[[less|Semen and goo][$bottomsemen -= 1]] | 
+[[more|Semen and goo][$bottomsemen += 1]] | 
+[[MAX|Semen and goo][$bottomsemen to 5]] 
+($bottomsemen) Bottom
+<br>
+
+[[MIN|Semen and goo][$tummysemen to 0]] | 
+[[less|Semen and goo][$tummysemen -= 1]] | 
+[[more|Semen and goo][$tummysemen += 1]] | 
+[[MAX|Semen and goo][$tummysemen to 5]] 
+($tummysemen) Tummy
+<br>
+
+[[MIN|Semen and goo][$chestsemen to 0]] | 
+[[less|Semen and goo][$chestsemen -= 1]] | 
+[[more|Semen and goo][$chestsemen += 1]] | 
+[[MAX|Semen and goo][$chestsemen to 5]]  
+($chestsemen) Chest
+<br>
+
+[[MIN|Semen and goo][$facesemen to 0]] | 
+[[less|Semen and goo][$facesemen -= 1]] | 
+[[more|Semen and goo][$facesemen += 1]] | 
+[[MAX|Semen and goo][$facesemen to 5]]  
+($facesemen) Face
+<br>
+
+[[MIN|Semen and goo][$hairsemen to 0]] | 
+[[less|Semen and goo][$hairsemen -= 1]] | 
+[[more|Semen and goo][$hairsemen += 1]] | 
+[[MAX|Semen and goo][$hairsemen to 5]]  
+($hairsemen) Hair
+<br>
+
+[[MIN|Semen and goo][$feetsemen to 0]] | 
+[[less|Semen and goo][$feetsemen -= 1]] | 
+[[more|Semen and goo][$feetsemen += 1]] | 
+[[MAX|Semen and goo][$feetsemen to 5]]  
+($feetsemen) Feet
+<br>
+
+<<if $vaginaexist is 1>>
+[[MIN|Semen and goo][$vaginaoutsidesemen to 0]] | 
+[[less|Semen and goo][$vaginaoutsidesemen -= 1]] | 
+[[more|Semen and goo][$vaginaoutsidesemen += 1]] | 
+[[MAX|Semen and goo][$vaginaoutsidesemen to 5]] 
+($vaginaoutsidesemen) Vagina
+<br>
+<</if>>
+
+<<if $penisexist is 1>>
+[[MIN|Semen and goo][$penissemen to 0]] | 
+[[less|Semen and goo][$penissemen -= 1]] | 
+[[more|Semen and goo][$penissemen += 1]] | 
+[[MAX|Semen and goo][$penissemen to 5]] 
+($penissemen) Penis
+<br>
+<</if>>
+
+Semen inside
+<br>
+
+[[MIN|Semen and goo][$mouthsemen to 0]] | 
+[[less|Semen and goo][$mouthsemen -= 1]] | 
+[[more|Semen and goo][$mouthsemen += 1]] |
+[[MAX|Semen and goo][$mouthsemen to 5]]
+($mouthsemen) Mouth
+<br> 
+
+<<if $vaginaexist is 1>>
+[[MIN|Semen and goo][$vaginasemen to 0]] | 
+[[less|Semen and goo][$vaginasemen -= 1]] | 
+[[more|Semen and goo][$vaginasemen += 1]] |
+[[MAX|Semen and goo][$vaginasemen to 5]]
+($vaginasemen) Vagina
+<br> 
+<</if>>
+
+[[MIN|Semen and goo][$anussemen to 0]] | 
+[[less|Semen and goo][$anussemen -= 1]] | 
+[[more|Semen and goo][$anussemen += 1]] |
+[[MAX|Semen and goo][$anussemen to 5]]
+($anussemen) Anus
+
+</div>
+
+<div class="block2">
+<br>
+Goo on skin
+<br>
+
+[[MIN|Semen and goo][$neckgoo to 0]] | 
+[[less|Semen and goo][$neckgoo -= 1]] | 
+[[more|Semen and goo][$neckgoo += 1]] | 
+[[MAX|Semen and goo][$neckgoo to 5]] 
+($neckgoo) Neck 
+<br>
+
+[[MIN|Semen and goo][$rightarmgoo to 0]] | 
+[[less|Semen and goo][$rightarmgoo -= 1]] | 
+[[more|Semen and goo][$rightarmgoo += 1]] | 
+[[MAX|Semen and goo][$rightarmgoo to 5]] 
+($rightarmgoo) Right arm
+<br>
+
+[[MIN|Semen and goo][$leftarmgoo to 0]] | 
+[[less|Semen and goo][$leftarmgoo -= 1]] | 
+[[more|Semen and goo][$leftarmgoo += 1]] | 
+[[MAX|Semen and goo][$leftarmgoo to 5]] 
+($leftarmgoo) Left arm
+<br>
+
+[[MIN|Semen and goo][$thighgoo to 0]] | 
+[[less|Semen and goo][$thighgoo -= 1]] | 
+[[more|Semen and goo][$thighgoo += 1]] | 
+[[MAX|Semen and goo][$thighgoo to 5]] 
+($thighgoo) Thighs 
+<br>
+
+[[MIN|Semen and goo][$bottomgoo to 0]] | 
+[[less|Semen and goo][$bottomgoo -= 1]] | 
+[[more|Semen and goo][$bottomgoo += 1]] | 
+[[MAX|Semen and goo][$bottomgoo to 5]] 
+($bottomgoo) Bottom
+<br>
+
+[[MIN|Semen and goo][$tummygoo to 0]] | 
+[[less|Semen and goo][$tummygoo -= 1]] | 
+[[more|Semen and goo][$tummygoo += 1]] | 
+[[MAX|Semen and goo][$tummygoo to 5]] 
+($tummygoo) Tummy 
+<br>
+
+[[MIN|Semen and goo][$chestgoo to 0]] | 
+[[less|Semen and goo][$chestgoo -= 1]] | 
+[[more|Semen and goo][$chestgoo += 1]] | 
+[[MAX|Semen and goo][$chestgoo to 5]] 
+($chestgoo) Chest 
+<br>
+
+[[MIN|Semen and goo][$facegoo to 0]] | 
+[[less|Semen and goo][$facegoo -= 1]] | 
+[[more|Semen and goo][$facegoo += 1]] | 
+[[MAX|Semen and goo][$facegoo to 5]] 
+($facegoo) Face 
+<br>
+
+[[MIN|Semen and goo][$hairgoo to 0]] | 
+[[less|Semen and goo][$hairgoo -= 1]] | 
+[[more|Semen and goo][$hairgoo += 1]] | 
+[[MAX|Semen and goo][$hairgoo to 5]] 
+($hairgoo) Hair
+<br>
+
+[[MIN|Semen and goo][$feetgoo to 0]] | 
+[[less|Semen and goo][$feetgoo -= 1]] | 
+[[more|Semen and goo][$feetgoo += 1]] | 
+[[MAX|Semen and goo][$feetgoo to 5]] 
+($feetgoo) Feet
+<br>
+
+<<if $vaginaexist is 1>>
+[[MIN|Semen and goo][$vaginaoutsidegoo to 0]] | 
+[[less|Semen and goo][$vaginaoutsidegoo -= 1]] | 
+[[more|Semen and goo][$vaginaoutsidegoo += 1]] | 
+[[MAX|Semen and goo][$vaginaoutsidegoo to 5]] 
+($vaginaoutsidegoo) Vagina
+<br>
+<</if>>
+
+<<if $penisexist is 1>>
+[[MIN|Semen and goo][$penisgoo to 0]] | 
+[[less|Semen and goo][$penisgoo -= 1]] | 
+[[more|Semen and goo][$penisgoo += 1]] | 
+[[MAX|Semen and goo][$penisgoo to 5]] 
+($penisgoo) Penis
+<br>
+<</if>>
+
+Goo inside
+<br>
+
+[[MIN|Semen and goo][$mouthgoo to 0]] | 
+[[less|Semen and goo][$mouthgoo -= 1]] | 
+[[more|Semen and goo][$mouthgoo += 1]] |
+[[MAX|Semen and goo][$mouthgoo to 5]]
+($mouthgoo) Mouth
+<br> 
+
+<<if $vaginaexist is 1>>
+[[MIN|Semen and goo][$vaginagoo to 0]] | 
+[[less|Semen and goo][$vaginagoo -= 1]] | 
+[[more|Semen and goo][$vaginagoo += 1]] |
+[[MAX|Semen and goo][$vaginagoo to 5]]
+($vaginagoo) Vagina
+<br> 
+<</if>> 
+
+[[MIN|Semen and goo][$anusgoo to 0]] | 
+[[less|Semen and goo][$anusgoo -= 1]] | 
+[[more|Semen and goo][$anusgoo += 1]] |
+[[MAX|Semen and goo][$anusgoo to 5]]
+($anusgoo) Anus
+
+</div> 
+
+<div style="clear:both"></div>
+
+
+:: Char Stat [nobr]
+<<clamp>>
+
+Back to [[$passagecopy]]<br>
+<br>
+
+[[State|Cheats]] | [[Semen and goo]] | <span class="testtest">Characteristics</span> | [[Traits|Trait Stat]]
+<br>
+
+<div class="bggray">
+
+<div class="block1">
+
+[[MIN|Char Stat][$devlevel to 6]] | 
+[[less|Char Stat][$devlevel -= 1]] | 
+[[more|Char Stat][$devlevel += 1]] | 
+[[MAX|Char Stat][$devlevel to 20]]
+<<if $devlevel lt 0>>
+<<set $devlevel to 0>>
+<</if>>
+<<set $physiqueage to (1000 * $devlevel)>>
+($devlevel)
+Age? (easiness)
+<br>
+
+
+[[MIN|Char Stat][$angelbuild to 0]] | 
+[[less|Char Stat][$angelbuild -= 5]] | 
+[[more|Char Stat][$angelbuild += 5]] | 
+[[MAX|Char Stat][$angelbuild to 100]] 
+<<if $angelbuild lt 0>>
+<<set $angelbuild to 0>>
+<</if>>
+<<if $angelbuild lt 25>>
+<<set $angel to 0, $angeltext to "none">>
+<</if>>
+<<if ($angelbuild gte 25) and ($angelbuild lt 30)>>
+<<set $angel to 1, $angeltext to "Despite everything, you have managed to remain a pure <<genderstop>> The thought makes you happy.">>
+<</if>>
+<<if ($angelbuild gte 30) and ($angelbuild lt 35)>>
+<<set $angel to 2, $angeltext to "You are pure and feel determined to keep it that way.">>
+<</if>>
+<<if ($angelbuild gte 35) and ($angelbuild lt 40)>>
+<<set $angel to 3, $angeltext to "You feel a weight lift from your shoulders.">>
+<</if>>
+<<if ($angelbuild gte 40) and ($angelbuild lt 45)>>
+<<set $angel to 4, $angeltext to "A golden light shines down you.">>
+<</if>>
+<<if ($angelbuild gte 45) and ($angelbuild lt 50)>>
+<<set $angel to 5, $angeltext to "You feel a soothing warmth in your back.">>
+<</if>>
+<<if $angelbuild gte 50>>
+<<set $angel to 6, $angeltext to "You feel lighter. Your new wings caress your face.">>
+<</if>>
+($angelbuild)
+<div class="tooltip"> 
+Angel∴
+	<span class="tooltiptext"> 
+Level $angel. $angeltext
+</span>
+</div>
+
+</div>
+
+<div class="block2">
+
+[[MIN|Char Stat][$wolfbuild to 0]] | 
+[[less|Char Stat][$wolfbuild -= 5]] | 
+[[more|Char Stat][$wolfbuild += 5]] | 
+[[MAX|Char Stat][$wolfbuild to 100]] 
+<<if $wolfbuild lt 0>>
+<<set $wolfbuild to 0>>
+<</if>>
+<<if $wolfbuild lt 5>>
+<<set $wolfgirl to 0, $wolftext to "none">>
+<</if>>
+<<if ($wolfbuild gte 5) and ($wolfbuild lt 10)>>
+<<set $wolfgirl to 1, $wolftext to "You have a strange toothache.">>
+<</if>>
+<<if ($wolfbuild gte 10) and ($wolfbuild lt 15)>>
+<<set $wolfgirl to 2, $wolftext to "Your mouth feels different. You explore your mouth and wince as your tongue presses against your new fangs.">>
+<</if>>
+<<if ($wolfbuild gte 15) and ($wolfbuild lt 20)>>
+<<set $wolfgirl to 3>>
+<<if $hirsutedisable is "f">>
+<<set $wolftext to "Your scalp and pubic area itch.">>
+<<else>>
+<<set $wolftext to "Your scalp itches.">>
+<</if>>
+<</if>>
+<<if ($wolfbuild gte 20) and ($wolfbuild lt 25)>>
+<<set $wolfgirl to 4>>
+<<if $hirsutedisable is "f">>
+<<set $wolftext to "You feel something on your head. You reach up and tug, but it hurts. You have a new pair of wolf ears. You also notice long and fluffy hair has grown in your pubic area.">>
+<<else>>
+<<set $wolftext to "You feel something on your head. You reach up and tug, but it hurts. You have a new pair of wolf ears.">>
+<</if>>
+<</if>>
+<<if ($wolfbuild gte 25) and ($wolfbuild lt 30)>>
+<<set $wolfgirl to 5, $wolftext to "Your lower back itches.">>
+<</if>>
+<<if $wolfbuild gte 30>>
+<<set $wolfgirl to 6, $wolftext to "Your bottom feels heavier than usual. You reach behind you and feel your new wolf tail.">>
+<</if>>
+($wolfbuild)
+<div class="tooltip"> 
+Wolfgirl∴
+	<span class="tooltiptext"> 
+Level $wolfgirl. $wolftext
+</span>
+</div>
+
+<br>
+
+[[None|Char Stat][$fallenangelbuild to 0]] | 
+[[Forgiven|Char Stat][$fallenangelbuild to 1]] | 
+[[Fallen|Char Stat][$fallenangelbuild to 2]]
+<<if $fallenangelbuild is undefined>>
+<<set $fallenangelbuild to 0, $fallenangeltext to "none">>
+<</if>>
+<<if $fallenangelbuild lte 0>>
+<<set $fallenangelbuild to 0, $fallenangel to 0, $fallenangeltext to "You had never fallen as an angel.">>
+<</if>>
+<<if $fallenangelbuild is 1>>
+<<set $fallenangel to 1, $fallenangeltext to "You were forgiven by the temple.">>
+<</if>>
+<<if ($fallenangelbuild is 2)>>
+<<set $fallenangel to 2, $fallenangeltext to "Your halo shatters and your wings blacken. An overwhelming sense of loss overcomes you.", $angel to 0>>
+<</if>>
+($fallenangelbuild)
+<div class="tooltip"> 
+Fallen Angel ∴
+	<span class="tooltiptext"> 
+Level $fallenangel. $fallenangeltext
+</span>
+</div>
+
+</div>
+
+<div style="clear:both"></div>
+
+
+<div style="clear:both"></div>
+
+<div class="block6">
+
+[[MIN|Char Stat][$hairlength to 0]] | 
+[[less|Char Stat][$hairlength -= 100]] | 
+[[more|Char Stat][$hairlength += 100]] | 
+[[MAX|Char Stat][$hairlength to 1000]]  
+($hairlength)
+<div class="tooltip"> 
+Hair∴
+	<span class="tooltiptext"> 
+	
+<<if $hairlength gte 0 and $hairlength lt 100>>Your $haircolour hair is short.
+<<elseif $hairlength gte 100 and $hairlength lt 200>>Your $haircolour hair passes your chin.
+<<elseif $hairlength gte 200 and $hairlength lt 300>>Your $haircolour hair comes down to your shoulders.
+<<elseif $hairlength gte 300 and $hairlength lt 400>>Your $haircolour hair is quite long, and comes down to the top of your chest.
+<<elseif $hairlength gte 400 and $hairlength lt 500>>Your long $haircolour hair hangs down to your nipples.
+<<elseif $hairlength gte 500 and $hairlength lt 600>>Your long $haircolour hair reaches the top of your tummy.
+<<elseif $hairlength gte 600 and $hairlength lt 700>>Your long $haircolour hair reaches your navel.
+<<elseif $hairlength gte 700 and $hairlength lt 800>>Your very long $haircolour hair reaches your thighs.
+<<elseif $hairlength gte 800 and $hairlength lt 900>>Your very long $haircolour hair reaches your knees.
+<<elseif $hairlength gte 900 and $hairlength lte 999>>Your extremely long $haircolour hair reaches your ankles.
+<<elseif $hairlength gte 1000>>Your $haircolour hair is so long you need be careful lest you trip on it!<<endif>>
+
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$breastsize to 0]] | 
+[[less|Char Stat][$breastsize -= 1]] | 
+[[more|Char Stat][$breastsize += 1]] | 
+[[MAX|Char Stat][$breastsize to 12]]
+<<if $breastsize isnot $breastsizeold>>
+	<<if $breastsize is 0>><<set $breastcup to "none">>
+	<<elseif $breastsize is 1>><<set $breastcup to "budding">>
+	<<elseif $breastsize is 2>><<set $breastcup to "AA">>
+	<<elseif $breastsize is 3>><<set $breastcup to "B">>
+	<<elseif $breastsize is 4>><<set $breastcup to "C">>
+	<<elseif $breastsize is 5>><<set $breastcup to "D">>
+	<<elseif $breastsize is 6>><<set $breastcup to "DD">>
+	<<elseif $breastsize is 7>><<set $breastcup to "DDD">>
+	<<elseif $breastsize is 8>><<set $breastcup to "F">>
+	<<elseif $breastsize is 9>><<set $breastcup to "G">>
+	<<elseif $breastsize is 10>><<set $breastcup to "H">>
+	<<elseif $breastsize is 11>><<set $breastcup to "I">>
+	<<elseif $breastsize gte 12>><<set $breastcup to "J">>
+	<<if $breastsize gt 12>><<set $breastsize to 12>><</if>>
+	<</if>>
+	<<set $breastsizeold to $breastsize>>
+<</if>>
+($breastsize)
+<div class="tooltip"> 
+Breasts∴
+	<span class="tooltiptext"> 
+(Cup: $breastcup)
+<<if $breastsize gte 1>>You have <<breastsstop>><</if>>
+
+</span>
+</div>
+<br>
+
+</div>
+
+<div class="block7">
+
+<span class="red"> [[Red|Char Stat][$haircolour to "red"]] </span> | 
+<span class="black"> [[Black|Char Stat][$haircolour to "black"]] </span> | 
+<span class="brown"> [[Brown|Char Stat][$haircolour to "brown"]] </span> | 
+<span class="gold"> [[Blond|Char Stat][$haircolour to "blond"]] </span> | 
+<span class="tangerine"> [[Ginger|Char Stat][$haircolour to "ginger"]] </span> 
+($haircolour) Hair
+<br>
+
+<span class="purple">[[Purple|Char Stat][$eyecolour to "purple"]]</span> | 
+<span class="blue">[[Dark Blue|Char Stat][$eyecolour to "dark blue"]]</span> |
+<span class="lblue">[[Light Blue|Char Stat][$eyecolour to "light blue"]]</span> | 
+<span class="tangerine">[[Amber|Char Stat][$eyecolour to "amber"]]</span> | 
+<span class="brown">[[Hazel|Char Stat][$eyecolour to "hazel"]]</span> | 
+<span class="green">[[Green|Char Stat][$eyecolour to "green"]]</span> 
+($eyecolour) Eyes
+
+<br>
+</div>
+
+<div style="clear:both"></div>
+
+<div class="block1">
+
+[[MIN|Char Stat][$awareness to 0]] | 
+[[less|Char Stat][$awareness -= 100]] | 
+[[more|Char Stat][$awareness += 100]] | 
+[[MAX|Char Stat][$awareness to 1000]]  
+($awareness) 
+<div class="tooltip"> 
+Awareness∴
+	<span class="tooltiptext"> 
+<<if $awareness lte 0>><span class="green">You are entirely innocent.</span>
+<<elseif $awareness gte 1 and $awareness lt 100>><span class="teal">You are almost entirely innocent.</span>
+<<elseif $awareness gte 100 and $awareness lt 200>><span class="lblue">You have a limited understanding of sexuality.</span>
+<<elseif $awareness gte 200 and $awareness lt 300>><span class="blue">You have a normal understanding of sexuality.</span>
+<<elseif $awareness gte 300 and $awareness lt 400>><span class="purple">Your knowledge of sexual depravity extends beyond that of most people.</span>
+<<elseif $awareness gte 400 and $awareness lt 500>><span class="pink">You have seen things that few are privy to.</span>
+<<elseif $awareness gte 500 and $awareness lte 999>><span class="red">You have peered into the depths of depravity.</span>
+<<elseif $awareness gte 1000>><span class="red">Your understanding is transcendental.</span><<endif>>
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$purity to 0]] | 
+[[less|Char Stat][$purity -= 100]] | 
+[[more|Char Stat][$purity += 100]] | 
+[[MAX|Char Stat][$purity to 1000]]  
+($purity) 
+<div class="tooltip"> 
+Purity∴
+	<span class="tooltiptext"> 
+<<if $purity gte 1000>><span class="green">You are angelic.</span>
+<<elseif $purity lte 999 and $purity gt 900>><span class="teal">You don't feel entirely pure.</span>
+<<elseif $purity lte 900 and $purity gt 800>><span class="lblue">You feel slightly soiled.</span>
+<<elseif $purity lte 800 and $purity gt 700>><span class="blue">You feel soiled.</span>
+<<elseif $purity lte 700 and $purity gt 600>><span class="purple">You feel somewhat defiled.</span>
+<<elseif $purity lte 600 and $purity gt 500>><span class="pink">You feel defiled.</span>
+<<elseif $purity lte 500 and $purity gte 1>><span class="red">You feel utterly defiled.</span>
+<<elseif $purity gte 0>><span class="red">You are beyond defiled.</span><<endif>>
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$physique to 0]] | 
+[[less|Char Stat][$physique -= 1000]] | 
+[[more|Char Stat][$physique += 1000]] | 
+[[MAX|Char Stat][$physique to $physiqueage]] 
+(<<print Math.round($physique)>>)
+<div class="tooltip"> 
+Physique∴
+	<span class="tooltiptext"> 
+<<if $physique gte ($physiqueage / 7) * 6>><span class="green">Your body is toned and powerful.</span>
+<<elseif $physique gte ($physiqueage / 7) * 5>><span class="teal">Your body toned and firm.</span>
+<<elseif $physique gte ($physiqueage / 7) * 4>><span class="lblue">Your body is slim and athletic.</span>
+<<elseif $physique gte ($physiqueage / 7) * 3>><span class="blue">Your body is slim.</span>
+<<elseif $physique gte($physiqueage / 7) * 2>><span class="purple">Your body is lithe and slender.</span>
+<<elseif $physique gte ($physiqueage / 7)>><span class="pink">You are skinny.</span>
+<<else>><span class="red">You are emaciated.</span><<endif>>
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$beauty to 0]] | 
+[[less|Char Stat][$beauty -= 1000]] | 
+[[more|Char Stat][$beauty += 1000]] | 
+[[MAX|Char Stat][$beauty to $beautymax]]  
+(<<print Math.round($beauty)>>)
+<div class="tooltip"> 
+Beauty∴
+	<span class="tooltiptext"> 
+<<if $beauty gte ($beautymax / 7) * 6>><span class="green">Your beauty is divine.</span>
+<<elseif $beauty gte ($beautymax / 7) * 5>><span class="teal">You are stunning.</span>
+<<elseif $beauty gte ($beautymax / 7) * 4>><span class="lblue">You are gorgeous.</span>
+<<elseif $beauty gte ($beautymax / 7) * 3>><span class="blue">You are beautiful.</span>
+<<elseif $beauty gte($beautymax / 7) * 2>><span class="purple">You are pretty.</span>
+<<elseif $beauty gte ($beautymax / 7)>><span class="pink">You are cute.</span>
+<<else>><span class="red">You are plain.</span><<endif>>
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$promiscuity to 0]] | 
+[[less|Char Stat][$promiscuity -= 5]] | 
+[[more|Char Stat][$promiscuity += 5]] | 
+[[MAX|Char Stat][$promiscuity to 100]]  
+($promiscuity)
+<div class="tooltip"> 
+Promiscuity∴
+	<span class="tooltiptext"> 
+<<if $promiscuity lt 1>><span class="green">You are chaste and pure.</span>
+<<elseif $promiscuity lt 15>><span class="teal">You are prudish.</span>
+<<elseif $promiscuity lt 35>><span class="lblue">You are sexually curious.</span>
+<<elseif $promiscuity lt 55>><span class="blue">The thought of sexual contact excites you.</span>
+<<elseif $promiscuity lt 75>><span class="purple">You crave sexual contact.</span>
+<<elseif $promiscuity lt 95>><span class="pink">You are a slut.</span>
+<<else>><span class="red">Your sexual appetite is insatiable.</span>
+<</if>>
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$exhibitionism to 0]] | 
+[[less|Char Stat][$exhibitionism -= 5]] | 
+[[more|Char Stat][$exhibitionism += 5]] | 
+[[MAX|Char Stat][$exhibitionism to 100]]
+($exhibitionism)
+<div class="tooltip">  
+Exhibitionism∴
+	<span class="tooltiptext"> 
+<<if $exhibitionism lt 1>><span class="green">You are coy.</span>
+<<elseif $exhibitionism lt 15>><span class="teal">You are shy.</span>
+<<elseif $exhibitionism lt 35>><span class="lblue">You like being sexualized.</span>
+<<elseif $exhibitionism lt 55>><span class="blue">You enjoy lewd attention.</span>
+<<elseif $exhibitionism lt 75>><span class="purple">Feeling exposed excites you.</span>
+<<elseif $exhibitionism lt 95>><span class="pink">You are shameless.</span>
+<<else>><span class="red">The thought of exposure fills you with wild abandon.</span>
+<</if>>
+</span>
+</div>
+<br>
+<br>
+
+[[MIN|Char Stat][$skulduggery to 0]] | 
+[[less|Char Stat][$skulduggery -= 100]] | 
+[[more|Char Stat][$skulduggery += 100]] | 
+[[MAX|Char Stat][$skulduggery to 1000]]  
+($skulduggery) Skulduggery: <<if $skulduggery lte 0>><span class="red">None</span>
+<<elseif $skulduggery gte 1 and $skulduggery lt 100>><span class="pink">F</span>  <span class="black"><<print $skulduggery>>%</span>
+<<elseif $skulduggery gte 100 and $skulduggery lt 200>><span class="pink">F+</span>  <span class="black"><<print $skulduggery - 100>>%</span>
+<<elseif $skulduggery gte 200 and $skulduggery lt 300>><span class="purple">D</span>  <span class="black"><<print $skulduggery - 200>>%</span>
+<<elseif $skulduggery gte 300 and $skulduggery lt 400>><span class="purple">D+</span>  <span class="black"><<print $skulduggery - 300>>%</span>
+<<elseif $skulduggery gte 400 and $skulduggery lt 500>><span class="blue">C</span>  <span class="black"><<print $skulduggery - 400>>%</span>
+<<elseif $skulduggery gte 500 and $skulduggery lt 600>><span class="blue">C+</span>  <span class="black"><<print $skulduggery - 500>>%</span>
+<<elseif $skulduggery gte 600 and $skulduggery lt 700>><span class="lblue">B</span>  <span class="black"><<print $skulduggery - 600>>%</span>
+<<elseif $skulduggery gte 700 and $skulduggery lt 800>><span class="lblue">B+</span>  <span class="black"><<print $skulduggery - 700>>%</span>
+<<elseif $skulduggery gte 800 and $skulduggery lt 900>><span class="teal">A</span>  <span class="black"><<print $skulduggery - 800>>%</span>
+<<elseif $skulduggery gte 900 and $skulduggery lt 1000>><span class="teal">A+</span>  <span class="black"><<print $skulduggery - 900>>%</span>
+<<elseif $skulduggery gte 1000>><span class="green">S</span>
+<</if>>
+<br>
+
+[[MIN|Char Stat][$danceskill to 0]] | 
+[[less|Char Stat][$danceskill -= 200]] | 
+[[more|Char Stat][$danceskill += 200]] | 
+[[MAX|Char Stat][$danceskill to 1000]]  
+($danceskill) Dancing: <<if $danceskill lte 0>><span class="red">None</span>
+<<elseif $danceskill gte 1 and $danceskill lt 200>><span class="pink">F</span>  <span class="black"><<print $danceskill / 2>>%</span>
+<<elseif $danceskill gte 200 and $danceskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($danceskill - 200) / 2)>>%</span>
+<<elseif $danceskill gte 400 and $danceskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($danceskill - 400) / 2)>>%</span>
+<<elseif $danceskill gte 600 and $danceskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($danceskill - 600) / 2)>>%</span>
+<<elseif $danceskill gte 800 and $danceskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($danceskill - 800) / 2)>>%</span>
+<<elseif $danceskill gte 1000>><span class="green">S</span>
+<</if>>
+<br>
+
+[[MIN|Char Stat][$swimmingskill to 0]] | 
+[[less|Char Stat][$swimmingskill -= 100]] | 
+[[more|Char Stat][$swimmingskill += 100]] | 
+[[MAX|Char Stat][$swimmingskill to 1000]]  
+($swimmingskill) Swimming: <<if $swimmingskill lte 0>><span class="red">None</span>
+<<elseif $swimmingskill gte 1 and $swimmingskill lt 100>><span class="pink">F</span>  <span class="black"><<print $swimmingskill>>%</span>
+<<elseif $swimmingskill gte 100 and $swimmingskill lt 200>><span class="pink">F+</span>  <span class="black"><<print $swimmingskill - 100>>%</span>
+<<elseif $swimmingskill gte 200 and $swimmingskill lt 300>><span class="purple">D</span>  <span class="black"><<print $swimmingskill - 200>>%</span>
+<<elseif $swimmingskill gte 300 and $swimmingskill lt 400>><span class="purple">D+</span>  <span class="black"><<print $swimmingskill - 300>>%</span>
+<<elseif $swimmingskill gte 400 and $swimmingskill lt 500>><span class="blue">C</span>  <span class="black"><<print $swimmingskill - 400>>%</span>
+<<elseif $swimmingskill gte 500 and $swimmingskill lt 600>><span class="blue">C+</span>  <span class="black"><<print $swimmingskill - 500>>%</span>
+<<elseif $swimmingskill gte 600 and $swimmingskill lt 700>><span class="lblue">B</span>  <span class="black"><<print $swimmingskill - 600>>%</span>
+<<elseif $swimmingskill gte 700 and $swimmingskill lt 800>><span class="lblue">B+</span>  <span class="black"><<print $swimmingskill - 700>>%</span>
+<<elseif $swimmingskill gte 800 and $swimmingskill lt 900>><span class="teal">A</span>  <span class="black"><<print $swimmingskill - 800>>%</span>
+<<elseif $swimmingskill gte 900 and $swimmingskill lt 1000>><span class="teal">A+</span>  <span class="black"><<print $swimmingskill - 900>>%</span>
+<<elseif $swimmingskill gte 1000>><span class="green">S</span>
+<</if>>
+<br>
+
+<br>
+
+[[MIN|Char Stat][$delinquency to -100]] | 
+[[less|Char Stat][$delinquency -= 100]] | 
+[[more|Char Stat][$delinquency += 100]] | 
+[[MAX|Char Stat][$delinquency to 1000]]  
+($delinquency)
+<div class="tooltip"> 
+Delinquency∴
+	<span class="tooltiptext"> 
+You are considered
+<<if $delinquency gte 1000>>
+<span class="red">a terror</span>
+<<elseif $delinquency gte 800>>
+<span class="pink">a delinquent</span>
+<<elseif $delinquency gte 600>>
+<span class="purple">a delinquent</span>
+<<elseif $delinquency gte 400>>
+<span class="blue">a delinquent</span>
+<<elseif $delinquency gte 200>>
+<span class="lblue">a bad student</span>
+<<elseif $delinquency gte 10>>
+<span class="teal">a normal student</span>
+<<else>>
+<span class="green">an ideal student</span>
+<</if>>
+by the teachers...
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$cool to 0]] | 
+[[less|Char Stat][$cool -= 40]] | 
+[[more|Char Stat][$cool += 40]] | 
+[[MAX|Char Stat][$cool to 400]]  
+($cool)
+<div class="tooltip"> 
+Cool∴
+	<span class="tooltiptext"> 
+... and
+<<if $cool gte 400>>
+<span class="green">most of your fellow students aspire to be seen with you.</span>
+<<elseif $cool gte 240>>
+<span class="teal">cool</span> by your fellow students.
+<<elseif $cool gte 160>>
+<span class="lblue">cool</span> by your fellow students.
+<<elseif $cool gte 120>>
+<span class="blue">okay</span> by your fellow students.
+<<elseif $cool gte 80>>
+<span class="purple">dorky</span> by your fellow students.
+<<elseif $cool gte 40>>
+<span class="pink">odd</span> by your fellow students.
+<<else>>
+<span class="red">you are avoided</span> by your fellow students.
+<</if>>
+</span>
+</div>
+<br>
+
+[[MIN|Char Stat][$school to 0]] | 
+[[less|Char Stat][$school -= 400]] | 
+[[more|Char Stat][$school += 400]] | 
+[[MAX|Char Stat][$school to 4000]]  
+($school)
+<div class="tooltip"> 
+Performance∴
+	<span class="tooltiptext">
+Your overall performance is
+<<if $school gte 2800>>
+<span class="green">exemplary.</span>
+<<elseif $school gte 2000>>
+<span class="teal">excellent.</span>
+<<elseif $school gte 1600>>
+<span class="lblue">good.</span>
+<<elseif $school gte 1200>>
+<span class="blue">okay.</span>
+<<elseif $school gte 800>>
+<span class="purple">bad.</span>
+<<elseif $school gte 400>>
+<span class="pink">awful.</span>
+<<else>>
+<span class="red">appalling.</span>
+<</if>>
+</span>
+</div>
+<br>
+
+<<if $school gte 2800>>
+<<set $schooltrait to 4>>
+<<elseif $school gte 2000>>
+<<set $schooltrait to 3>>
+<<elseif $school gte 1600>>
+<<set $schooltrait to 2>>
+<<elseif $school gte 1200>>
+<<set $schooltrait to 1>>
+<<else>>
+<<set $schooltrait to 0>>
+<</if>>	
+
+</div>
+
+<div class="block2">
+
+[[MIN|Char Stat][$seductionskill to 0]] | 
+[[less|Char Stat][$seductionskill -= 200]] | 
+[[more|Char Stat][$seductionskill += 200]] | 
+[[MAX|Char Stat][$seductionskill to 1000]]  
+($seductionskill) Seduction: <<if $seductionskill lte 0>><span class="red">None</span>
+<<elseif $seductionskill gte 1 and $seductionskill lt 200>><span class="pink">F</span>  <span class="black"><<print $seductionskill / 2>>%</span>
+<<elseif $seductionskill gte 200 and $seductionskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($seductionskill - 200) / 2)>>%</span>
+<<elseif $seductionskill gte 400 and $seductionskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($seductionskill - 400) / 2)>>%</span>
+<<elseif $seductionskill gte 600 and $seductionskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($seductionskill - 600) / 2)>>%</span>
+<<elseif $seductionskill gte 800 and $seductionskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($seductionskill - 800) / 2)>>%</span>
+<<elseif $seductionskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$oralskill to 0]] | 
+[[less|Char Stat][$oralskill -= 200]] | 
+[[more|Char Stat][$oralskill += 200]] | 
+[[MAX|Char Stat][$oralskill to 1000]]  
+($oralskill) Oral: <<if $oralskill lte 0>><span class="red">None</span>
+<<elseif $oralskill gte 1 and $oralskill lt 200>><span class="pink">F</span>  <span class="black"><<print $oralskill / 2>>%</span>
+<<elseif $oralskill gte 200 and $oralskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($oralskill - 200) / 2)>>%</span>
+<<elseif $oralskill gte 400 and $oralskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($oralskill - 400) / 2)>>%</span>
+<<elseif $oralskill gte 600 and $oralskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($oralskill - 600) / 2)>>%</span>
+<<elseif $oralskill gte 800 and $oralskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($oralskill - 800) / 2)>>%</span>
+<<elseif $oralskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+
+<<if $vaginaexist is 1>>
+[[MIN|Char Stat][$vaginalskill to 0]] | 
+[[less|Char Stat][$vaginalskill -= 200]] | 
+[[more|Char Stat][$vaginalskill += 200]] | 
+[[MAX|Char Stat][$vaginalskill to 1000]]  
+($vaginalskill) Vaginal: <<if $vaginalskill lte 0>><span class="red">None</span>
+<<elseif $vaginalskill gte 1 and $vaginalskill lt 200>><span class="pink">F</span>  <span class="black"><<print $vaginalskill / 2>>%</span>
+<<elseif $vaginalskill gte 200 and $vaginalskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($vaginalskill - 200) / 2)>>%</span>
+<<elseif $vaginalskill gte 400 and $vaginalskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($vaginalskill - 400) / 2)>>%</span>
+<<elseif $vaginalskill gte 600 and $vaginalskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($vaginalskill - 600) / 2)>>%</span>
+<<elseif $vaginalskill gte 800 and $vaginalskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($vaginalskill - 800) / 2)>>%</span>
+<<elseif $vaginalskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+<</if>>
+
+<<if $penisexist is 1>>
+[[MIN|Char Stat][$penileskill to 0]] | 
+[[less|Char Stat][$penileskill -= 200]] | 
+[[more|Char Stat][$penileskill += 200]] | 
+[[MAX|Char Stat][$penileskill to 1000]]  
+($penileskill) Penile: <<if $penileskill lte 0>><span class="red">None</span>
+<<elseif $penileskill gte 1 and $penileskill lt 200>><span class="pink">F</span>  <span class="black"><<print $penileskill / 2>>%</span>
+<<elseif $penileskill gte 200 and $penileskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($penileskill - 200) / 2)>>%</span>
+<<elseif $penileskill gte 400 and $penileskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($penileskill - 400) / 2)>>%</span>
+<<elseif $penileskill gte 600 and $penileskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($penileskill - 600) / 2)>>%</span>
+<<elseif $penileskill gte 800 and $penileskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($penileskill - 800) / 2)>>%</span>
+<<elseif $penileskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+<</if>>
+
+[[MIN|Char Stat][$analskill to 0]] | 
+[[less|Char Stat][$analskill -= 200]] | 
+[[more|Char Stat][$analskill += 200]] | 
+[[MAX|Char Stat][$analskill to 1000]]  
+($analskill) Anal: <<if $analskill lte 0>><span class="red">None</span>
+<<elseif $analskill gte 1 and $analskill lt 200>><span class="pink">F</span>  <span class="black"><<print $analskill / 2>>%</span>
+<<elseif $analskill gte 200 and $analskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($analskill - 200) / 2)>>%</span>
+<<elseif $analskill gte 400 and $analskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($analskill - 400) / 2)>>%</span>
+<<elseif $analskill gte 600 and $analskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($analskill - 600) / 2)>>%</span>
+<<elseif $analskill gte 800 and $analskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($analskill - 800) / 2)>>%</span>
+<<elseif $analskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$handskill to 0]] | 
+[[less|Char Stat][$handskill -= 200]] | 
+[[more|Char Stat][$handskill += 200]] | 
+[[MAX|Char Stat][$handskill to 1000]]  
+($handskill) Hands: <<if $handskill lte 0>><span class="red">None</span>
+<<elseif $handskill gte 1 and $handskill lt 200>><span class="pink">F</span>  <span class="black"><<print $handskill / 2>>%</span>
+<<elseif $handskill gte 200 and $handskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($handskill - 200) / 2)>>%</span>
+<<elseif $handskill gte 400 and $handskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($handskill - 400) / 2)>>%</span>
+<<elseif $handskill gte 600 and $handskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($handskill - 600) / 2)>>%</span>
+<<elseif $handskill gte 800 and $handskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($handskill - 800) / 2)>>%</span>
+<<elseif $handskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$feetskill to 0]] | 
+[[less|Char Stat][$feetskill -= 200]] | 
+[[more|Char Stat][$feetskill += 200]] | 
+[[MAX|Char Stat][$feetskill to 1000]]  
+($feetskill) Feet: <<if $feetskill lte 0>><span class="red">None</span>
+<<elseif $feetskill gte 1 and $feetskill lt 200>><span class="pink">F</span>  <span class="black"><<print $feetskill / 2>>%</span>
+<<elseif $feetskill gte 200 and $feetskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($feetskill - 200) / 2)>>%</span>
+<<elseif $feetskill gte 400 and $feetskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($feetskill - 400) / 2)>>%</span>
+<<elseif $feetskill gte 600 and $feetskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($feetskill - 600) / 2)>>%</span>
+<<elseif $feetskill gte 800 and $feetskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($feetskill - 800) / 2)>>%</span>
+<<elseif $feetskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$bottomskill to 0]] | 
+[[less|Char Stat][$bottomskill -= 200]] | 
+[[more|Char Stat][$bottomskill += 200]] | 
+[[MAX|Char Stat][$bottomskill to 1000]]  
+($bottomskill) Buttocks: <<if $bottomskill lte 0>><span class="red">None</span>
+<<elseif $bottomskill gte 1 and $bottomskill lt 200>><span class="pink">F</span>  <span class="black"><<print $bottomskill / 2>>%</span>
+<<elseif $bottomskill gte 200 and $bottomskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($bottomskill - 200) / 2)>>%</span>
+<<elseif $bottomskill gte 400 and $bottomskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($bottomskill - 400) / 2)>>%</span>
+<<elseif $bottomskill gte 600 and $bottomskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($bottomskill - 600) / 2)>>%</span>
+<<elseif $bottomskill gte 800 and $bottomskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($bottomskill - 800) / 2)>>%</span>
+<<elseif $bottomskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$thighskill to 0]] | 
+[[less|Char Stat][$thighskill -= 200]] | 
+[[more|Char Stat][$thighskill += 200]] | 
+[[MAX|Char Stat][$thighskill to 1000]]  
+($thighskill) Thighs: <<if $thighskill lte 0>><span class="red">None</span>
+<<elseif $thighskill gte 1 and $thighskill lt 200>><span class="pink">F</span>  <span class="black"><<print $thighskill / 2>>%</span>
+<<elseif $thighskill gte 200 and $thighskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($thighskill - 200) / 2)>>%</span>
+<<elseif $thighskill gte 400 and $thighskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($thighskill - 400) / 2)>>%</span>
+<<elseif $thighskill gte 600 and $thighskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($thighskill - 600) / 2)>>%</span>
+<<elseif $thighskill gte 800 and $thighskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($thighskill - 800) / 2)>>%</span>
+<<elseif $thighskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$chestskill to 0]] | 
+[[less|Char Stat][$chestskill -= 200]] | 
+[[more|Char Stat][$chestskill += 200]] | 
+[[MAX|Char Stat][$chestskill to 1000]]  
+($chestskill) Chest: <<if $chestskill lte 0>><span class="red">None</span>
+<<elseif $chestskill gte 1 and $chestskill lt 200>><span class="pink">F</span>  <span class="black"><<print $chestskill / 2>>%</span>
+<<elseif $chestskill gte 200 and $chestskill lt 400>><span class="purple">D</span>  <span class="black"><<print (($chestskill - 200) / 2)>>%</span>
+<<elseif $chestskill gte 400 and $chestskill lt 600>><span class="blue">C</span>  <span class="black"><<print (($chestskill - 400) / 2)>>%</span>
+<<elseif $chestskill gte 600 and $chestskill lt 800>><span class="lblue">B</span>  <span class="black"><<print (($chestskill - 600) / 2)>>%</span>
+<<elseif $chestskill gte 800 and $chestskill lt 1000>><span class="teal">A</span>  <span class="black"><<print (($chestskill - 800) / 2)>>%</span>
+<<elseif $chestskill gte 1000>><span class="green">S</span><<endif>>
+<br>
+<br>
+
+[[MIN|Char Stat][$science to 0]] | 
+[[less|Char Stat][$science -= 100]] | 
+[[more|Char Stat][$science += 100]] | 
+[[MAX|Char Stat][$science to 1000]]  
+($science) Science: <<if $science lte 99>><span class="red">F</span>  <span class="black"><<print $science>>%</span>
+<<elseif $science gte 100 and $science lt 200>><span class="pink">E</span>  <span class="black"><<print $science - 100>>%</span>
+<<elseif $science gte 200 and $science lt 300>><span class="purple">D</span>  <span class="black"><<print $science - 200>>%</span>
+<<elseif $science gte 300 and $science lt 400>><span class="blue">C</span>  <span class="black"><<print $science - 300>>%</span>
+<<elseif $science gte 400 and $science lt 500>><span class="lblue">B</span>  <span class="black"><<print $science - 400>>%</span>
+<<elseif $science gte 500 and $science lt 700>><span class="teal">A</span>  <span class="black"><<print (($science - 500) / 2)>>%</span>
+<<elseif $science gte 700>><span class="green">A*</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$maths to 0]] | 
+[[less|Char Stat][$maths -= 100]] | 
+[[more|Char Stat][$maths += 100]] | 
+[[MAX|Char Stat][$maths to 1000]]  
+($maths) Maths: <<if $maths lte 99>><span class="red">F</span>  <span class="black"><<print $maths>>%</span>
+<<elseif $maths gte 100 and $maths lt 200>><span class="pink">E</span>  <span class="black"><<print $maths - 100>>%</span>
+<<elseif $maths gte 200 and $maths lt 300>><span class="purple">D</span>  <span class="black"><<print $maths - 200>>%</span>
+<<elseif $maths gte 300 and $maths lt 400>><span class="blue">C</span>  <span class="black"><<print $maths - 300>>%</span>
+<<elseif $maths gte 400 and $maths lt 500>><span class="lblue">B</span>  <span class="black"><<print $maths - 400>>%</span>
+<<elseif $maths gte 500 and $maths lt 700>><span class="teal">A</span>  <span class="black"><<print (($maths - 500) / 2)>>%</span>
+<<elseif $maths gte 700>><span class="green">A*</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$english to 0]] | 
+[[less|Char Stat][$english -= 100]] | 
+[[more|Char Stat][$english += 100]] | 
+[[MAX|Char Stat][$english to 1000]]  
+($english) English: <<if $english lte 99>><span class="red">F</span>  <span class="black"><<print $english>>%</span>
+<<elseif $english gte 100 and $english lt 200>><span class="pink">E</span>  <span class="black"><<print $english - 100>>%</span>
+<<elseif $english gte 200 and $english lt 300>><span class="purple">D</span>  <span class="black"><<print $english - 200>>%</span>
+<<elseif $english gte 300 and $english lt 400>><span class="blue">C</span>  <span class="black"><<print $english - 300>>%</span>
+<<elseif $english gte 400 and $english lt 500>><span class="lblue">B</span>  <span class="black"><<print $english - 400>>%</span>
+<<elseif $english gte 500 and $english lt 700>><span class="teal">A</span>  <span class="black"><<print (($english - 500) / 2)>>%</span>
+<<elseif $english gte 700>><span class="green">A*</span><<endif>>
+<br>
+
+[[MIN|Char Stat][$history to 0]] | 
+[[less|Char Stat][$history -= 100]] | 
+[[more|Char Stat][$history += 100]] | 
+[[MAX|Char Stat][$history to 1000]]  
+($history) History: <<if $history lte 99>><span class="red">F</span>  <span class="black"><<print $history>>%</span>
+<<elseif $history gte 100 and $history lt 200>><span class="pink">E</span>  <span class="black"><<print $history - 100>>%</span>
+<<elseif $history gte 200 and $history lt 300>><span class="purple">D</span>  <span class="black"><<print $history - 200>>%</span>
+<<elseif $history gte 300 and $history lt 400>><span class="blue">C</span>  <span class="black"><<print $history - 300>>%</span>
+<<elseif $history gte 400 and $history lt 500>><span class="lblue">B</span>  <span class="black"><<print $history - 400>>%</span>
+<<elseif $history gte 500 and $history lt 700>><span class="teal">A</span>  <span class="black"><<print (($history - 500) / 2)>>%</span>
+<<elseif $history gte 700>><span class="green">A*</span><<endif>>
+<br>
+
+<<if $english gte 700>>
+<<set $englishtrait to 4>>
+<<elseif $english gte 500>>
+<<set $englishtrait to 3>>
+<<elseif $english gte 400>>
+<<set $englishtrait to 2>>
+<<elseif $english gte 300>>
+<<set $englishtrait to 1>>
+<<else>>
+<<set $englishtrait to 0>>
+<</if>>
+
+<<if $maths gte 700>>
+<<set $mathstrait to 4>>
+<<elseif $maths gte 500>>
+<<set $mathstrait to 3>>
+<<elseif $maths gte 400>>
+<<set $mathstrait to 2>>
+<<elseif $maths gte 300>>
+<<set $mathstrait to 1>>
+<<else>>
+<<set $mathstrait to 0>>
+<</if>>
+
+<<if $science gte 700>>
+<<set $sciencetrait to 4>>
+<<elseif $science gte 500>>
+<<set $sciencetrait to 3>>
+<<elseif $science gte 400>>
+<<set $sciencetrait to 2>>
+<<elseif $science gte 300>>
+<<set $sciencetrait to 1>>
+<<else>>
+<<set $sciencetrait to 0>>
+<</if>>
+
+<<if $history gte 700>>
+<<set $historytrait to 4>>
+<<elseif $history gte 500>>
+<<set $historytrait to 3>>
+<<elseif $history gte 400>>
+<<set $historytrait to 2>>
+<<elseif $history gte 300>>
+<<set $historytrait to 1>>
+<<else>>
+<<set $historytrait to 0>>
+<</if>>
+
+</div>
+
+<div style="clear:both"></div>
+
+</div>
+
+
+:: Trait Stat [nobr]
+<<clamp>>
+
+Back to [[$passagecopy]]<br>
+<br>
+
+[[State|Cheats]] | [[Semen and goo]] | [[Characteristics|Char Stat]] | <span class="testtest">Traits</span>  
+<br>
+
+<div class="bggray">
+
+<div class="block4">
+
+	/* all */
+	<<if $vaginalvirginity && $penilevirginity && $analvirginity && $oralvirginity>><<set _local = 1>>[[remove|Trait Stat][$vaginalvirginity = 0, $penilevirginity = 0, $analvirginity = 0, $oralvirginity = 0]] | set
+	<<else>><<set _local = 0>>remove | [[set|Trait Stat][$vaginalvirginity = 1, $penilevirginity = 1, $analvirginity = 1, $oralvirginity = 1]]<</if>>  
+	(<<print (_local)>>)
+	<div class="tooltip">
+	<span class="green">Virginities</span>∴
+		<span class="tooltiptext">Your purity might be worth something.</span>
+	</div>
+	<br><br>
+	/* vaginal */
+	<<if $vaginaexist>>
+		<<if $vaginalvirginity>>[[remove|Trait Stat][$vaginalvirginity = 0, $vaginalstat = 1]] | set
+		<<else>>remove | [[set|Trait Stat][$vaginalvirginity = 1, $vaginalstat = 0]]<</if>>  
+		(<<print ($vaginalvirginity)>>)
+		<div class="tooltip">
+		<span class="green">Vag Virgin</span>∴
+			<span class="tooltiptext">Your vagina has been never penetrated and your hymen is intact.\nGives Virgin trait if both Vaginal and Penile virginities are intact.</span>
+		</div>
+		<br>
+	<</if>>
+	/* anal */
+	<<if $analvirginity>>[[remove|Trait Stat][$analvirginity = 0, $analstat = 1]] | set
+	<<else>>remove | [[set|Trait Stat][$analvirginity = 1, $analstat = 0]]<</if>>  
+	(<<print ($analvirginity)>>)
+	<div class="tooltip">
+	<span class="green">Anal Virgin</span>∴
+		<span class="tooltiptext">Your anus has been never penetrated.</span>
+	</div>
+	<br><br>
+
+<<if $collared gte 1>>[[remove|Trait Stat][$collared to 0]] | set
+<<else>>remove | [[set|Trait Stat][$collared to 1]]<</if>>
+($collared)
+<div class="tooltip"> 
+Collared∴
+	<span class="tooltiptext">More likely to attract attention</span>
+</div>
+<br>
+<br>
+
+<<if $orgasmtrait gte 1>>[[remove|Trait Stat][$orgasmstat -= ($orgasmstat/1000 >> 0)*1000, $orgasmtrait to 0]] | set
+<<else>>remove | [[set|Trait Stat][$orgasmstat += 1000, $orgasmtrait to 1]]
+<</if>>
+<<if def $orgasmtrait>>($orgasmtrait)
+<<else>>(0)
+<</if>>
+<div class="tooltip"> 
+<span class="lewd">Orgasm Addict</span>∴
+	<span class="tooltiptext">
+So many orgasms has had a physiological effect. Cumming is more difficult but pleasurable orgasms relieve more stress and painful orgasms no longer increase stress.
+</span>
+</div>
+<br>
+
+<<if $ejactrait gte 1>>[[remove|Trait Stat][$ejacstat -= ($ejacstat/1000 >> 0)*1000, $ejactrait to 0]] | set
+<<else>>remove | [[set|Trait Stat][$ejacstat += 1000, $ejactrait to 1]]
+<</if>>
+<<if def $ejactrait>>($ejactrait)
+<<else>>(0)
+<</if>>
+<div class="tooltip">
+<span class="lewd">Cum Dump</span>∴
+	<span class="tooltiptext">
+You've become accustomed to the scent of ejaculate and can take advantage of its calming effect. Your stress is reduced hourly depending on how much slime and semen covers you.<br>
+</span>
+</div>
+<br>
+
+<<if $molesttrait gte 1>>[[remove|Trait Stat][$moleststat -= ($moleststat/1000 >> 0)*1000, $molesttrait to 0]] | set
+<<else>>remove | [[set|Trait Stat][$moleststat += 1000, $molesttrait to 1]]
+<</if>>
+<<if def $molesttrait>>($molesttrait)
+<<else>>(0)
+<</if>>
+<div class="tooltip">
+<span class="lewd">Plaything</span>∴
+	<span class="tooltiptext">
+You've learned to better cope with psychological trauma. Being molested no longer removes your sense of control (rape still does).
+</span>
+</div>
+<br>
+
+<<if $rapetrait gte 1>>[[remove|Trait Stat][$rapestat -= ($rapestat/500 >> 0)*500, $rapetrait to 0]] | set
+<<else>>remove | [[set|Trait Stat][$rapestat += 500, $rapetrait to 1]]
+<</if>>
+<<if def $rapetrait>>($rapetrait)
+<<else>>(0)
+<</if>>
+<div class="tooltip">
+<span class="lewd">Fucktoy</span>∴
+	<span class="tooltiptext">
+You've been raped so much, but you've learned how to cope. Trauma increases more slowly.
+</span>
+</div>
+<br>
+
+<<if $bestialitytrait gte 1>>[[remove|Trait Stat][$beastrapestat -= ($beastrapestat/100 >> 0)*100, $bestialitytrait to 0]] | set
+<<else>>remove | [[set|Trait Stat][$beastrapestat += 100, $bestialitytrait to 1]]
+<</if>>
+<<if def $bestialitytrait>>($bestialitytrait)
+<<else>>(0)
+<</if>>
+<div class="tooltip">
+<span class="lewd">Bitch</span>∴
+	<span class="tooltiptext">
+Animals have tried to breed with you so often that you're used to it. Trauma increases more slowly when attacked by animals.
+</span>
+</div>
+<br>
+
+<<if $tentacletrait gte 1>>[[remove|Trait Stat][$tentaclerapestat -= ($tentaclerapestat/50 >> 0)*50, $tentacletrait to 0]] | set
+<<else>>remove | [[set|Trait Stat][$tentaclerapestat += 50, $tentacletrait to 1]]
+<</if>>
+<<if def $tentacletrait>>($tentacletrait)
+<<else>>(0)
+<</if>>
+<div class="tooltip">
+<span class="lewd">Prey</span>∴
+	<span class="tooltiptext">
+Many tentacles have had their way with your body. Trauma increases more slowly when attacked by tentacles.
+</span>
+</div>
+<br>
+
+<<if $voretrait gte 1>>[[remove|Trait Stat][$swallowedstat -= ($swallowedstat/20 >> 0)*20, $voretrait to 0]] | set
+<<else>>remove | [[set|Trait Stat][$swallowedstat += 20, $voretrait to 1]]
+<</if>>
+<<if def $voretrait>>($voretrait)
+<<else>>(0)
+<</if>>
+<div class="tooltip">
+<span class="lewd">Tasty</span>∴
+	<span class="tooltiptext">
+You've found your way into the belly of many a creature. They'll have a harder time swallowing you as they savour your taste.
+</span>
+</div>
+<br>
+<br>
+
+
+
+<<if $control is 0>>remove | [[set|Trait Stat][$control to 1]]
+<<else>>[[remove|Trait Stat][$control to 0]] | set
+<</if>>
+($control)
+<span class="blue">Control</span>
+<br>
+
+<<if $sleeptrouble is 0>>remove | [[set|Trait Stat][$sleeptrouble to 1]]
+<<else>>[[remove|Trait Stat][$sleeptrouble to 0]] | set
+<</if>>
+($sleeptrouble)
+<div class="tooltip">
+Insomnia∴
+	<span class="tooltiptext">
+<span class="red">Sleep less effective<br>Needs 1 trauma, current - <<print $trauma>></span>
+</span>
+</div>
+<br>
+
+<<if $nightmares is 0>>remove | [[set|Trait Stat][$nightmares to 1]]
+<<else>>[[remove|Trait Stat][$nightmares to 0]] | set
+<</if>>
+($nightmares)
+<div class="tooltip">
+Nightmares∴
+	<span class="tooltiptext">
+<span class="red">Sleep is stressful<br>Needs <<print ($traumamax / 10) * 1>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+<br>
+
+<<if $flashbacks is 0>>remove | [[set|Trait Stat][$flashbacks to 1]]
+<<else>>[[remove|Trait Stat][$flashbacks to 0]] | set
+<</if>>
+($flashbacks)
+<div class="tooltip">
+Flashbacks∴
+	<span class="tooltiptext">
+<span class="red">May relive nasty experiences<br>Needs <<print ($traumamax / 10) * 8>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+<br>
+
+
+</div>
+
+<div class="block5">
+
+<br><br>
+/* penile */
+	<<if $penisexist>>
+		<<if $penilevirginity>>[[remove|Trait Stat][$penilevirginity = 0, $penilestat = 1]] | set
+		<<else>>remove | [[set|Trait Stat][$penilevirginity = 1, $penilestat = 0]]<</if>>  
+		(<<print ($penilevirginity)>>)
+		<div class="tooltip">
+		<span class="green">Penile Virgin</span>∴
+			<span class="tooltiptext">You had never penetrated anyone.<br>Gives Virgin trait if both Vaginal and Penile virginities are intact.</span>
+		</div>
+		<br>
+	<<else>>
+	<br>
+	<</if>>
+
+	/* oral */
+	<<if $oralvirginity>>[[remove|Trait Stat][$oralvirginity = 0, $oralstat = 1]] | set
+	<<else>>remove | [[set|Trait Stat][$oralvirginity = 1, $oralstat = 0]]<</if>>  
+	(<<print ($oralvirginity)>>)
+	<div class="tooltip">
+	<span class="green">Oral Virgin</span>∴
+		<span class="tooltiptext">You've never given head before.</span>
+	</div><br><br>
+
+<<if $submissive lte 850 or $submissive gte 1150>>[[remove|Trait Stat][$submissive to 1000]]
+<<else>>remove<</if>>
+| set:
+<div class="tooltip">
+<span class="def">[[Defiant|Trait Stat][$submissive to 375]]</span>∴
+	<span class="tooltiptext">Unlocks the "Demand" action.<br></span>
+</div>
+|
+<div class="tooltip">
+<span class="brat">[[Bratty|Trait Stat][$submissive to 625]]</span>∴
+	<span class="tooltiptext">Unlocks the "Demand" action.</span>
+</div>
+|
+<div class="tooltip">
+<span class="meek">[[Meek|Trait Stat][$submissive to 1325]]</span>∴
+	<span class="tooltiptext">Unlocks the "Moan" action.</span>
+</div>
+|
+<div class="tooltip">
+<span class="sub">[[Submissive|Trait Stat][$submissive to 1675]]</span>∴
+	<span class="tooltiptext">Unlocks the "Moan" action.</span>
+</div> 
+<<if $submissive gte 1150 and $submissive lte 1499>>
+(<span class="meek">Meek</span>)
+<<elseif $submissive gte 1500>>
+(<span class="sub">Submissive</span>)
+<<elseif $submissive lte 850 and $submissive gte 501>>
+(<span class="brat">Bratty</span>)
+<<elseif $submissive lte 500>>
+(<span class="def">Defiant</span>)
+<<else>>
+(none)
+<</if>>
+<br>
+
+
+
+<<if $wolfgirl lt 2>>remove
+<<else>>[[remove|Trait Stat][$wolfbuild to 0, $wolfgirl to 0]]<</if>>
+| set:
+<div class="tooltip"> 
+[[Fangs|Trait Stat][$wolfbuild to 14, $wolfgirl to 2]]∴ 
+	<span class="tooltiptext">
+Biting is three times as effective.</span>
+</div> 
+|
+<div class="tooltip"> 
+[[Wolfy (includes Fangs)|Trait Stat][$wolfbuild to 100, $wolfgirl to 6]]∴
+	<span class="tooltiptext">
+The spirit of the wild lives within you, making you more defiant over time. Your ears and tail make you more conspicuous.</span>
+</div>
+<<if $wolfgirl gte 6>>(Wolfy)
+<<elseif $wolfgirl gte 2>>(Fangs)
+<<else>>(none)<</if>>
+<br>
+<br>
+
+<<if $englishtrait lt 1>>remove
+<<else>>[[remove|Trait Stat][$englishtrait to 0, $english to 290]]<</if>>
+| set:
+<div class="tooltip">
+<span class="blue">[[Passable|Trait Stat][$englishtrait to 1, $english to 390]]</span>∴
+	<span class="tooltiptext">
+Speech actions (plead, moan, demand, apologise) are twice as effective.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="lblue">[[Decent|Trait Stat][$englishtrait to 2, $english to 490]]</span>∴
+	<span class="tooltiptext">
+Speech actions (plead, moan, demand, apologise) are three times as effective.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="teal">[[Good|Trait Stat][$englishtrait to 3, $english to 690]]</span>∴
+	<span class="tooltiptext">
+Speech actions (plead, moan, demand, apologise) are four times as effective.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="green">[[Excellent|Trait Stat][$englishtrait to 4, $english to 1000]]</span>∴
+	<span class="tooltiptext">
+Speech actions (plead, moan, demand, apologise) are five times as effective.
+</span>
+</div>
+English
+<<if $englishtrait is 1>>
+(<span class="blue">Passable</span>)
+<<elseif $englishtrait is 2>>
+(<span class="lblue">Decent</span>)
+<<elseif $englishtrait is 3>>
+(<span class="teal">Good</span>)
+<<elseif $englishtrait is 4>>
+(<span class="green">Excellent</span>)
+<<else>>
+(none)
+<</if>>
+<br>
+
+<<if $sciencetrait lt 1>>remove
+<<else>>[[remove|Trait Stat][$sciencetrait to 0, $science to 290]]<</if>>
+| set:
+<div class="tooltip">
+<span class="blue">[[Passable|Trait Stat][$sciencetrait to 1, $science to 390]]</span>∴
+	<span class="tooltiptext">
+Pain is slightly easier to cope with.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="lblue">[[Decent|Trait Stat][$sciencetrait to 2, $science to 490]]</span>∴
+	<span class="tooltiptext">
+Pain is moderately easier to cope with.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="teal">[[Good|Trait Stat][$sciencetrait to 3, $science to 690]]</span>∴
+	<span class="tooltiptext">
+Pain is easier to cope with.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="green">[[Excellent|Trait Stat][$sciencetrait to 4, $science to 1000]]</span>∴
+	<span class="tooltiptext">
+Pain is much easier to cope with.
+</span>
+</div>
+Science
+<<if $sciencetrait is 1>>
+(<span class="blue">Passable</span>)
+<<elseif $sciencetrait is 2>>
+(<span class="lblue">Decent</span>)
+<<elseif $sciencetrait is 3>>
+(<span class="teal">Good</span>)
+<<elseif $sciencetrait is 4>>
+(<span class="green">Excellent</span>)
+<<else>>
+(none)
+<</if>>
+<br>
+
+<<if $historytrait lt 1>>remove
+<<else>>[[remove|Trait Stat][$historytrait to 0, $history to 290]]<</if>>
+| set:
+<div class="tooltip">
+<span class="blue">[[Passable|Trait Stat][$historytrait to 1, $history to 390]]</span>∴
+	<span class="tooltiptext">
+You know there are secret paths around town.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="lblue">[[Decent|Trait Stat][$historytrait to 2, $history to 490]]</span>∴
+	<span class="tooltiptext">
+You know of a few secret paths around town
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="teal">[[Good|Trait Stat][$historytrait to 3, $history to 690]]</span>∴
+	<span class="tooltiptext">
+You know of several secret paths around town.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="green">[[Excellent|Trait Stat][$historytrait to 4, $history to 1000]]</span>∴
+	<span class="tooltiptext">
+You know of many secret paths around town.
+</span>
+</div>
+History
+<<if $historytrait is 1>>
+(<span class="blue">Passable</span>)
+<<elseif $historytrait is 2>>
+(<span class="lblue">Decent</span>)
+<<elseif $historytrait is 3>>
+(<span class="teal">Good</span>)
+<<elseif $historytrait is 4>>
+(<span class="green">Excellent</span>)
+<<else>>
+(none)
+<</if>>
+<br>
+
+<<if $mathstrait lt 1>>remove
+<<else>>[[remove|Trait Stat][$mathstrait to 0, $maths to 290]]<</if>>
+| set:
+<div class="tooltip">
+<span class="blue">[[Passable|Trait Stat][$mathstrait to 1, $maths to 390]]</span>∴
+	<span class="tooltiptext">
+You make 25% more from tips and negotiated fees.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="lblue">[[Decent|Trait Stat][$mathstrait to 2, $maths to 490]]</span>∴
+	<span class="tooltiptext">
+You make 50% more from tips and negotiated fees.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="teal">[[Good|Trait Stat][$mathstrait to 3, $maths to 690]]</span>∴
+	<span class="tooltiptext">
+You make 75% more from tips and negotiated fees.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="green">[[Excellent|Trait Stat][$mathstrait to 4, $maths to 1000]]</span>∴
+	<span class="tooltiptext">
+You make 100% more from tips and negotiated fees.
+</span>
+</div>
+Maths
+<<if $mathstrait is 1>>
+(<span class="blue">Passable</span>)
+<<elseif $mathstrait is 2>>
+(<span class="lblue">Decent</span>)
+<<elseif $mathstrait is 3>>
+(<span class="teal">Good</span>)
+<<elseif $mathstrait is 4>>
+(<span class="green">Excellent</span>)
+<<else>>
+(none)
+<</if>>
+<br>
+
+<<if $schooltrait lt 1>>remove
+<<else>>[[remove|Trait Stat][$schooltrait to 0, $school to 1190]]<</if>>
+| set:
+<div class="tooltip">
+<span class="blue">[[Okay|Trait Stat][$schooltrait to 1, $school to 1590]]</span>∴
+	<span class="tooltiptext">
+Your performance at school has improved your self-esteem, slightly increasing your daily trauma decay.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="lblue">[[Decent|Trait Stat][$schooltrait to 2, $school to 1990]]</span>∴
+	<span class="tooltiptext">
+Your performance at school has improved your self-esteem, moderately increasing your daily trauma decay.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="teal">[[Good|Trait Stat][$schooltrait to 3, $school to 2790]]</span>∴
+	<span class="tooltiptext">
+Your performance at school has improved your self-esteem, increasing your daily trauma decay.
+</span>
+</div>
+|
+<div class="tooltip">
+<span class="green">[[Excellent|Trait Stat][$schooltrait to 4, $school to 4000]]</span>∴
+	<span class="tooltiptext">
+Your performance at school has improved your self-esteem, greatly increasing your daily trauma decay.
+</span>
+</div>
+at school
+<<if $schooltrait is 1>>
+(<span class="blue">Okay</span>)
+<<elseif $schooltrait is 2>>
+(<span class="lblue">Decent</span>)
+<<elseif $schooltrait is 3>>
+(<span class="teal">Good</span>)
+<<elseif $schooltrait is 4>>
+(<span class="green">Excellent</span>)
+<<else>>
+(none)
+<</if>>
+<br>
+
+<br>
+
+
+<<if $syndromeeden is 1>>[[remove|Trait Stat][$syndromeeden to 0, $edentrust to 0]] | set
+<<else>>remove | [[set|Trait Stat][$syndromeeden to 1, $edentrust to 200, $forestleashed to 0]]
+<</if>>
+<<if def $syndromeeden>>($syndromeeden)
+<<else>>(0)
+<</if>>
+<div class="tooltip">
+Stockholm Syndrome: Eden∴
+	<span class="tooltiptext">
+<span class="red">It must be lonely living on your own in the woods.</span>
+</span>
+</div>
+<br>
+<br>
+
+Note that Trauma traits require minimum Trauma level to stay and they will all apply at the same time if conditions are met.
+<br>
+<<if $anxiety isnot 0>>[[remove|Trait Stat][$anxiety to 0]]
+<<else>>remove
+<</if>>
+| set:
+<div class="tooltip">
+[[Anxiety Disorder|Trait Stat][$anxiety to 1]]∴
+	<span class="tooltiptext">
+<span class="red">Stress won't automatically decrease over time<br>Needs <<print ($traumamax / 10) * 2>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+|
+<div class="tooltip">
+[[Severe Anxiety Disorder|Trait Stat][$anxiety to 2]]∴
+	<span class="tooltiptext">
+<span class="red">Stress increases over time<br>Needs <<print ($traumamax / 10) * 7>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+<<if $anxiety is 2>>(Severe)
+<<elseif $anxiety is 1>>(Anxiety Disorder)
+<<else>>(none)
+<</if>>
+<br>
+
+<<if $panicattacks isnot 0>>[[remove|Trait Stat][$panicattacks to 0]]
+<<else>>remove
+<</if>>
+| set:
+<div class="tooltip">
+[[Panic Attacks|Trait Stat][$panicattacks to 1]]∴
+	<span class="tooltiptext">
+<span class="red">Chance of paralysis<br>Needs <<print ($traumamax / 10) * 4>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+|
+<div class="tooltip">
+[[Severe Panic Attacks|Trait Stat][$panicattacks to 2]]∴
+	<span class="tooltiptext">
+<span class="red">Chance of uncontrollable violent outbursts<br>Needs <<print ($traumamax / 10) * 6>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+<<if $panicattacks is 2>>(Severe)
+<<elseif $panicattacks is 1>>(Panic Attacks)
+<<else>>(none)
+<</if>>
+<br>
+
+<<if $hallucinations is 2>>[[remove|Trait Stat][$hallucinations to 0]]
+<<elseif $hallucinations is 1>>[[remove|Trait Stat][$hallucinations to 0]]
+<<else>>remove
+<</if>>
+| set:
+<div class="tooltip">
+[[Hallucinations|Trait Stat][$hallucinations to 1]]∴
+	<span class="tooltiptext">
+<span class="red">More dangers during encounters<br>Needs <<print ($traumamax / 10) * 3>> trauma, current - <<print $trauma>>,<br>Needs 300 awareness, current - <<print $awareness>></span>
+</span>
+</div>
+|
+<div class="tooltip">
+[[Severe Hallucinations|Trait Stat][$hallucinations to 2]]∴
+	<span class="tooltiptext">
+<span class="red">More dangerous world<br>Needs <<print ($traumamax / 10) * 5>> trauma, current - <<print $trauma>>,<br>Needs 400 awareness, current - <<print $awareness>></span>
+</span>
+</div>
+<<if $hallucinations is 2>>(Severe)
+<<elseif $hallucinations is 1>>(Hallucinations)
+<<else>>(none)
+<</if>>
+<br>
+
+<<if $dissociation isnot 0>>[[remove|Trait Stat][$dissociation to 0]]
+<<else>>remove
+<</if>>
+| set:
+<div class="tooltip">
+[[Visibly Disturbed|Trait Stat][$dissociation to 1]]∴
+	<span class="tooltiptext">
+<span class="red">There's something wrong with you, and people can tell<br>Needs <<print ($traumamax / 10) * 9>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+|
+<div class="tooltip">
+[[Dissociation|Trait Stat][$dissociation to 2]]∴
+	<span class="tooltiptext">
+<span class="red">Nothing feels real<br>Needs <<print $traumamax>> trauma, current - <<print $trauma>></span>
+</span>
+</div>
+<<if $dissociation is 2>>(Dissociation)
+<<elseif $dissociation is 1>>(Visibly Disturbed)
+<<else>>(none)
+<</if>>
+<br>
+
+</div>
+
+<div style="clear:both"></div>
+
+</div>
+
+
+:: Widgets CheatSideBar [widget]
+<<widget "cheatsidebar">>
+<<nobr>>
+
+<<weatherdisplay>>
+<<if $images is 1>><<img>><br>
+<br>
+<br>
+<br>
+<</if>>
+<<exposure>>
+<<combateffects>>
+
+[[clear|passage()][$weather to "clear"]] |
+[[overcast|passage()][$weather to "overcast"]] |
+[[rain|passage()][$weather to "rain"]]
+<br>
+<br>
+
+<<if $physiquechange is 1>><<set $physiquechange to 0>>
+	<<if $physiqueuse gte $physique / 1000>>
+<span class="gold">Your physique is improving due to all the exercise you are getting.</span><<set $physiqueuse to 0>><br><br>
+	<<else>>
+<span class="pink">You didn't get enough exercise yesterday, your physique has deteriorated slightly as a result.</span><<set $physiqueuse to 0>><br><br>
+	<</if>>
+<</if>>
+<<if $swimmingmissedtext isnot 1 and $mathsmissedtext isnot 1 and $sciencemissedtext isnot 1 and $englishmissedtext isnot 1 and $historymissedtext isnot 1>>
+<<else>>
+	<<if $swimmingmissedtext is 1>><<set $swimmingmissedtext to 0>>
+		<<if $swimmingmissed gte 10>>
+		<span class="red">You've missed so many swimming lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's swimming lesson.</span><br>
+		<</if>>
+		
+	<</if>>
+	<<if $mathsmissedtext is 1>><<set $mathsmissedtext to 0>>
+		<<if $mathsmissed gte 10>>
+		<span class="red">You've missed so many maths lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's maths lesson!</span><br>
+		<</if>>
+	
+	<</if>>
+	<<if $sciencemissedtext is 1>><<set $sciencemissedtext to 0>>
+		<<if $sciencemissed gte 10>>
+		<span class="red">You've missed so many science lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's science lesson!</span><br>
+		<</if>>
+	
+	<</if>>
+	<<if $englishmissedtext is 1>><<set $englishmissedtext to 0>>
+		<<if $englishmissed gte 10>>
+		<span class="red">You've missed so many english lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's english lesson!</span><br>
+		<</if>>
+	
+	<</if>>
+	<<if $historymissedtext is 1>><<set $historymissedtext to 0>>
+		<<if $historymissed gte 10>>
+		<span class="red">You've missed so many history lessons that the police have been informed.</span><<crime5>><br>
+		<<else>>
+		<span class="pink">You missed yesterday's history lesson!</span><br>
+		<</if>>
+	
+	<</if>>
+<br>
+<</if>>
+
+
+<<set $money = Math.trunc($money)>>
+You have £<<print ($money / 100)>>
+[[>|passage()][$money+=100000]]
+<br>
+<br>
+
+
+<<time>>
+[[<<|passage()][$time to 0]]
+[[<|passage()][$time-=60]]
+It is $hour:<<if $time - $hour * 60 lte 9>>0<<endif>><<print $time - $hour * 60>>
+[[>|passage()][$time+=60]]
+[[>>|passage()][$time to 1439]]
+<br>
+[[<|passage()][$weekday = ($weekday+5) % 7 + 1]]
+It is <<texts 'weekday'>>.
+[[>|passage()][$weekday = $weekday % 7 + 1]]
+<br>
+<<schoolday>>
+<br>
+<br>
+
+clothes durability
+<br>
+[[<|passage()][$upperintegrity-=10]]
+(upper $upperintegrity)
+[[>|passage()][$upperintegrity+=10]]
+<br>
+[[<|passage()][$lowerintegrity-=10]]
+(lower $lowerintegrity)
+[[>|passage()][$lowerintegrity+=10]]
+<br>
+[[<|passage()][$underintegrity-=10]]
+(under $underintegrity)
+[[>|passage()][$underintegrity+=10]]
+<br>
+
+<<clothingcaption>>
+<br>
+<<stripcaption>>
+<<if $playergender is "m">>
+	<<if $playergender isnot $playergenderappearance>>
+		<<if $breastindicator is 1>>
+		<span class="pink">Your exposed breasts will make people think you're a girl!</span><br>
+		<<else>>
+		<span class="pink">The way you're dressed, people will think you're a girl!</span><br>
+		<</if>>
+	<</if>>
+<<elseif $playergender is "f">>
+	<<if $playergender isnot $playergenderappearance>>
+		<<if $breastindicator is 0 and $upperexposed is 2>>
+		<span class="pink">Your exposed flat chest will make people think you're a boy!</span><br>
+		<<else>>
+		<span class="pink">The way you're dressed, people will think you're a boy!</span><br>
+		<</if>>
+	<</if>>
+<</if>>
+
+<<preclamp>>
+<<clamp>>
+
+<<if $daystate is "night">>
+<<set $nightmod to 1.5>>
+<<else>>
+<<set $nightmod to 1>>
+<</if>>
+
+<<if $exposed gte 2>>
+<<set $exposedmod to 1.5>>
+<<elseif $exposed gte 1>>
+<<set $exposedmod to 1.2>>
+<<else>>
+<<set $exposedmod to 1>>
+<</if>>
+
+
+
+<<set $allure to ($beauty + $hairlength / 4 + $upperreveal + $underreveal + $lowerreveal) * $nightmod * $exposedmod>>
+<<if $collared gte 1>><<set $allure to $allure + 1000>><</if>>
+<<if $wolfgirl gte 6>><<set $allure += 500>><</if>>
+<<goocount>><<set $allure to $allure + ($goocount * 50) + ($semencount * 50)>>
+<<if $legsacc is "stockings">><<set $allure += 300>><</if>>
+<<if $legsacc is "fishnet stockings">><<set $allure += 300>><</if>>
+<<if $allure gte 8000>><<set $allure to 8000>><</if>>
+<<if $alluretest is 1>>
+<<set $allure += 100000>>
+<</if>>
+<<set $attractiveness to $beauty + $hairlength / 4 + $upperreveal + $underreveal + $lowerreveal>>
+<<if $wolfgirl gte 6>><<set $attractiveness += 500>><</if>>
+<<if $legsacc is "stockings">><<set $attractiveness += 300>><</if>>
+<<if $legsacc is "fishnet stockings">><<set $attractiveness += 300>><</if>>
+<<set $rng to random(1, 100)>>
+
+<<if $collared gte 1>>
+<span class="pink">A collar with a leash attached encases your neck.</span><br>
+<</if>>
+<<if $vaginalchastityparasite isnot 0>>
+<span class="pink">You feel $vaginalchastityparasite squirming inside your vagina.</span><br>
+<</if>>
+<<if $penilechastityparasite isnot 0>>
+<span class="pink">You feel $penilechastityparasite squirming around your penis.</span><br>
+<</if>>
+<<if $analchastityparasite isnot 0>>
+<span class="pink">You feel $analchastityparasite squirming inside your lower intestine.</span><br>
+<</if>>
+<<if $chestparasite isnot 0>>
+<span class="pink">The parasites clinging to your nipples suck and massage you.</span><br>
+<</if>>
+<<if $penisparasite isnot 0>>
+<span class="pink">The parasite clinging to your penis sucks and massages you.</span><br>
+<</if>>
+<<if $clitparasite isnot 0>>
+<span class="pink">The parasite clinging to your clit sucks and massages you.</span><br>
+<</if>>
+
+<<if $leftarm is "bound" and $rightarm is "bound">>
+<span class="pink">Your arms are bound.</span>
+<<elseif $leftarm is "bound">>
+<span class="purple">Your left arm is bound.</span>
+<<elseif $rightarm is "bound">>
+<span class="purple">Your right arm is bound.</span>
+<</if>><br>
+<<if $feetuse is "bound">>
+<span class="pink">Your legs are bound.</span>
+<br>
+<</if>>
+
+<<goo>>
+
+[[<<|passage()][$control to 0]]
+(control $control)
+[[>>|passage()][$control to 1]]
+<br>
+<<if $control gte 1>>
+<span class="teal">You feel in control</span><br>
+<</if>>
+
+[[<<|passage()][$drugged to 0]]
+(drugged $drugged)
+[[>>|passage()][$drugged to 1]]
+<br>
+[[<<|passage()][$drunk to 0]]
+(drunk $drunk)
+[[>>|passage()][$drunk to 1]]
+<br>
+<<if $drugged isnot 1>>
+	<<if $drunk is 1>>
+		<div class="tooltip"> 
+		[[<<|passage()][$druggedtimer to 0]]
+		[[<|passage()][$druggedtimer-=60]]
+		Drunk∴
+		[[>|passage()][$druggedtimer+=60]]
+		[[>>|passage()][$druggedtimer to 1000]]
+			<span class="tooltiptext"> 
+		<<if $druggedtimer lte 120>>
+		<span class="blue">You are woozy.</span>
+		<<elseif $druggedtimer lte 240>>
+		<span class="purple">You are tipsy.</span>
+		<<elseif $druggedtimer lte 360>>
+		<span class="purple">You are drunk.</span>
+		<<elseif $druggedtimer lte 480>>
+		<span class="pink">You are smashed</span>
+		<<else>>
+		<span class="pink">You are wasted</span>
+		<</if>>
+		</span>
+		</div>
+	<br>
+	<div class="meter">
+        <<set $percent=Math.floor(($druggedtimer/1000)*100)>>
+		<<if $druggedtimer gte 500>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 400>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 300>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 200>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 100>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+	<</if>>
+<</if>>
+
+<<if $drugged is 1>>
+
+<div class="tooltip"> 
+[[<<|passage()][$druggedtimer to 0]]
+[[<|passage()][$druggedtimer-=100]]
+Drugged∴
+[[>|passage()][$druggedtimer+=100]]
+[[>>|passage()][$druggedtimer to 500]]
+	<span class="tooltiptext"> 
+<span class="red">You've been drugged!</span>
+</span>
+</div>
+
+<<else>>
+<<set $painsaved to $pain>>
+<div class="tooltip"> 
+[[<<|passage()][$pain to 0]]
+[[<|passage()][$pain-=10]]
+Pain∴
+[[>|passage()][$pain+=10]]
+[[>>|passage()][$pain to 100]]
+	<span class="tooltiptext"> 
+<<if $pain gte 100>><span class="red">You sob uncontrollably, tears streaming down your face.</span>
+<<elseif $pain gte 80>><span class="pink">You are crying and whimpering.</span>
+<<elseif $pain gte 60>><span class="purple">You are crying.</span>
+<<elseif $pain gte 40>><span class="blue">Tears are running down your face.</span>
+<<elseif $pain gte 20>><span class="lblue">Tears are welling in your eyes.</span>
+<<elseif $pain gte 1>><span class="teal">You are upset.</span>
+<<else>><span class="green">You feel okay.</span>
+<<endif>>
+</span>
+</div>
+
+<<endif>>
+
+<<if $drugged isnot 1>>
+    <div class="meter">
+        <<set $percent=Math.floor(($pain/100)*100)>>
+		<<if $pain gte 100>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $pain gte 80>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $pain gte 60>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $pain gte 40>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $pain gte 20>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $pain gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+<<else>>
+    <div class="meter">
+        <<set $percent=Math.floor(($druggedtimer/500)*100)>>
+		<<if $druggedtimer gte 500>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 400>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 300>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 200>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 100>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $druggedtimer gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+<</if>>
+
+<<set $arousalsaved to $arousal>>
+<div class="tooltip"> 
+[[<<|passage()][$arousal to 0]] 
+[[<|passage()][$arousal -= 1000]]
+Arousal∴
+[[>|passage()][$arousal += 1000]] 
+[[>>|passage()][$arousal to 10000]] 
+	<span class="tooltiptext"> 
+<<if $arousal gte 10000>><span class="red">You're shaking with arousal.</span>
+<<elseif $arousal gte 8000>><span class="pink">You feel a heat rising within you.</span>
+<<elseif $arousal gte 6000>><span class="purple">You feel horny.</span>
+<<elseif $arousal gte 4000>><span class="blue">You feel lustful.</span>
+<<elseif $arousal gte 2000>><span class="lblue">You feel aroused.</span>
+<<elseif $arousal gte 1>><span class="teal">You feel sensual.</span>
+<<else>><span class="green">You feel cold.</span>
+<<endif>>
+</span>
+</div>
+
+    <div class="meter">
+        <<set $percent=Math.floor(($arousal/10000)*100)>>
+		<<if $arousal gte 10000>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $arousal gte 8000>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $arousal gte 6000>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $arousal gte 4000>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $arousal gte 2000>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $arousal gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+
+<div class="tooltip"> 
+[[<<|passage()][$tiredness to 0]] 
+[[<|passage()][$tiredness -= 100]]
+Fatigue∴
+[[>|passage()][$tiredness += 100]] 
+[[>>|passage()][$tiredness to 2000]] 
+	<span class="tooltiptext"> 
+	<<if $tiredness gte 2000>><span class="red">You are exhausted.</span>
+<<elseif $tiredness gte 1600>><span class="pink">You are fatigued.</span>
+<<elseif $tiredness gte 1200>><span class="purple">You are tired.</span>
+<<elseif $tiredness gte 800>><span class="blue">You are wearied.</span>
+<<elseif $tiredness gte 400>><span class="lblue">You are alert.</span>
+<<elseif $tiredness gte 1>><span class="teal">You are wide awake.</span>
+<<else>><span class="green">You are refreshed.</span>
+<<endif>>
+</span>
+</div>
+
+<<if $tiredness gte 2000>><<set $stress to $stress + (($tiredness - 2000) * 4)>><<set $trauma to $trauma + (($tiredness - 2000) / 200)>>
+<<endif>>
+<<set $tiredness = Math.clamp($tiredness, 0, $tirednessmax)>>
+    <div class="meter">
+        <<set $percent=Math.floor(($tiredness/2000)*100)>>
+		<<if $tiredness gte 2000>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $tiredness gte 1600>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $tiredness gte 1200>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $tiredness gte 800>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $tiredness gte 400>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $tiredness gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+
+<div class="tooltip"> 
+[[<<|passage()][$stress to 0]] 
+[[<|passage()][$stress -= 1000]]
+Stress∴
+[[>|passage()][$stress += 1000]] 
+[[>>|passage()][$stress to 10000]] 
+	<span class="tooltiptext"> 
+<<if $stress gte 10000>><span class="red">You are overwhelmed!</span>
+<<elseif $stress gte 8000>><span class="pink">You are distressed.</span>
+<<elseif $stress gte 6000>><span class="purple">You are strained.</span>
+<<elseif $stress gte 4000>><span class="blue">You are tense.</span>
+<<elseif $stress gte 2000>><span class="lblue">You are calm.</span>
+<<elseif $stress gte 1>><span class="teal">You are placid.</span>
+<<else>><span class="green">You are serene.</span>
+<<endif>>
+</span>
+</div>
+
+    <div class="meter">
+        <<set $percent=Math.floor(($stress/10000)*100)>>
+		<<if $stress gte 10000>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $stress gte 8000>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $stress gte 6000>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $stress gte 4000>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $stress gte 2000>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $stress gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+
+<<set $traumasaved to $trauma>>
+<div class="tooltip"> 
+[[<<|passage()][$trauma to 0]] 
+[[<|passage()][$trauma -= 1000]]
+Trauma∴
+[[>|passage()][$trauma += 1000]] 
+[[>>|passage()][$trauma to $traumamax]] 
+	<span class="tooltiptext"> 
+<<if $trauma gte $traumamax>><span class="red">You feel numb.</span>
+<<elseif $trauma gte ($traumamax / 5) * 4>><span class="pink">You are tormented.</span>
+<<elseif $trauma gte ($traumamax / 5) * 3>><span class="purple">You are disturbed.</span>
+<<elseif $trauma gte ($traumamax / 5) * 2>><span class="blue">You are troubled.</span>
+<<elseif $trauma gte ($traumamax / 5) * 1>><span class="lblue">You are nervous.</span>
+<<elseif $trauma gte 1>><span class="teal">You are uneasy.</span>
+<<else>><span class="green">You are healthy.</span>
+<<endif>>
+</span>
+</div>
+
+    <div class="meter">
+        <<set $percent=Math.floor(($trauma/$traumamax)*100)>>
+		<<if $trauma gte $traumamax>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $trauma gte ($traumamax / 5) * 4>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $trauma gte ($traumamax / 5) * 3>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $trauma gte ($traumamax / 5) * 2>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $trauma gte ($traumamax / 5) * 1>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $trauma gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+
+<div class="tooltip"> 
+Allure∴
+	<span class="tooltiptext"> 
+<<if $allure gte 5000>><span class="red">You look like you need to be ravaged.</span>
+<<elseif $allure gte 3000>><span class="pink">You look perverted.</span>
+<<elseif $allure gte 2000>><span class="purple">You look lewd.</span>
+<<elseif $allure gte 1500>><span class="blue">You stand out.</span>
+<<elseif $allure gte 1000>><span class="lblue">You attract attention.</span>
+<<elseif $allure gte 500>><span class="teal">You attract glances.</span>
+<<else>><span class="green">You look unremarkable.</span>
+<<endif>>
+</span>
+</div>
+
+    <div class="meter">
+        <<set $percent=Math.floor(($allure/8000)*100)>>
+		<<if $allure gte 5000>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $allure gte 3000>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $allure gte 2000>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $allure gte 1500>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $allure gte 1000>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $allure gte 500>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+	
+<br>
+
+<<if $tipdisable is "f">>
+<span class="gold">Tip:</span> <<tips>>
+<br>
+<</if>>
+
+<<silently>>
+
+<<if $hungerenabled is 1>>
+	<<if $hunger gte 2000>><<set $stress to $stress + ($hunger - 2000)>><<set $physique to $physique - (($hunger - 2000) / 200)>>
+	<<endif>>
+<</if>>
+<<if $thirstenabled is 1>>
+	<<if $thirst gte 2000>><<set $stress to $stress + ($thirst - 2000)>><<set $physique to $physique - (($thirst - 2000) / 200)>>
+	<<endif>>
+<</if>>
+
+<<if $hygieneenabled is 1>>
+	<<if $hygiene gte 2000>><<set $stress to $stress + ($hygiene - 2000)>>
+	<<endif>>
+<</if>>
+
+<<endsilently>>
+
+
+
+<hr>
+You are at: <<print passage()>>
+<br>
+
+<<charbar>>
+<br>
+
+[[Enemy health to 0|passage()][$enemyhealth to 0]]
+<br>
+
+[[Enemy arousal to MAX|passage()][$enemyarousal to $enemyarousalmax]]
+
+<hr>
+<</nobr>>
+<</widget>>
+
+<<widget "charbar">>
+<<nobr>>
+
+<div class="tooltip"> 
+[[<<|passage()][$awareness to 0]] 
+[[<|passage()][$awareness -= 100]]
+Awareness∴
+[[>|passage()][$awareness += 100]] 
+[[>>|passage()][$awareness to 1000]] 
+	<span class="tooltiptext"> 
+<<if $awareness lte 0>><span class="green">You are entirely innocent.</span>
+<<elseif $awareness gte 1 and $awareness lt 100>><span class="teal">You are almost entirely innocent.</span>
+<<elseif $awareness gte 100 and $awareness lt 200>><span class="lblue">You have a limited understanding of sexuality.</span>
+<<elseif $awareness gte 200 and $awareness lt 300>><span class="blue">You have a normal understanding of sexuality.</span>
+<<elseif $awareness gte 300 and $awareness lt 400>><span class="purple">Your knowledge of sexual depravity extends beyond that of most people.</span>
+<<elseif $awareness gte 400 and $awareness lt 500>><span class="pink">You have seen things that few are privy to.</span>
+<<elseif $awareness gte 500 and $awareness lte 999>><span class="red">You have peered into the depths of depravity.</span>
+<<elseif $awareness gte 1000>><span class="red">Your understanding is transcendental.</span><<endif>>
+</span>
+</div>
+<br>
+
+    <div class="meter">
+        <<set $percent=Math.floor(($awareness/1000)*100)>>
+		<<if $awareness gte 500>>
+        <<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $awareness gte 400>>
+		<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $awareness gte 300>>
+		<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $awareness gte 200>>
+		<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $awareness gte 100>>
+		<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+		<<elseif $awareness gte 1>>
+		<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+		<<else>>
+		<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+		<</if>>
+    </div>
+
+<div class="tooltip"> 
+[[<<|passage()][$purity to 0]]
+[[<|passage()][$purity -= 100]]
+Purity∴
+[[>|passage()][$purity += 100]]
+[[>>|passage()][$purity to 1000]]
+	<span class="tooltiptext"> 
+<<if $purity gte 1000>><span class="green">You are angelic.</span>
+<<elseif $purity lte 999 and $purity gt 900>><span class="teal">You don't feel entirely pure.</span>
+<<elseif $purity lte 900 and $purity gt 800>><span class="lblue">You feel slightly soiled.</span>
+<<elseif $purity lte 800 and $purity gt 700>><span class="blue">You feel soiled.</span>
+<<elseif $purity lte 700 and $purity gt 600>><span class="purple">You feel somewhat defiled.</span>
+<<elseif $purity lte 600 and $purity gt 500>><span class="pink">You feel defiled.</span>
+<<elseif $purity lte 500 and $purity gte 1>><span class="red">You feel utterly defiled.</span>
+<<elseif $purity gte 0>><span class="red">You are beyond defiled.</span><<endif>>
+</span>
+</div>
+<br>
+
+<div class="meter">
+<<set $percent=Math.floor(($purity/1000)*100)>>
+<<if $purity lte 500>>
+<<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $purity lte 600>>
+<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $purity lte 700>>
+<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $purity lte 800>>
+<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $purity lte 900>>
+<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $purity lte 999>>
+<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+<<else>>
+<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+<</if>>
+</div>
+
+<div class="tooltip"> 
+[[<<|passage()][$physique to 0]]
+[[<|passage()][$physique -= 1000]]
+Physique∴
+[[>|passage()][$physique += 1000]]
+[[>>|passage()][$physique to $physiqueage]]
+	<span class="tooltiptext"> 
+<<if $physique gte ($physiqueage / 7) * 6>><span class="green">Your body is toned and powerful.</span>
+<<elseif $physique gte ($physiqueage / 7) * 5>><span class="teal">Your body toned and firm.</span>
+<<elseif $physique gte ($physiqueage / 7) * 4>><span class="lblue">Your body is slim and athletic.</span>
+<<elseif $physique gte ($physiqueage / 7) * 3>><span class="blue">Your body is slim.</span>
+<<elseif $physique gte($physiqueage / 7) * 2>><span class="purple">Your body is lithe and slender.</span>
+<<elseif $physique gte ($physiqueage / 7)>><span class="pink">You are skinny.</span>
+<<else>><span class="red">You are emaciated.</span><<endif>>
+</span>
+</div>
+<br>
+
+<div class="meter">
+<<set $percent=Math.floor(($physique/$physiqueage)*100)>>
+<<if $physique lt ($physiqueage / 7)>>
+<<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $physique lt ($physiqueage / 7) * 2>>
+<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $physique lt ($physiqueage / 7) * 3>>
+<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $physique lt ($physiqueage / 7) * 4>>
+<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $physique lt ($physiqueage / 7) * 5>>
+<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $physique lt ($physiqueage / 7) * 6>>
+<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+<<else>>
+<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+<</if>>
+</div>
+
+<div class="tooltip"> 
+[[<<|passage()][$beauty to 0]]
+[[<|passage()][$beauty -= 1000]]
+Beauty∴
+[[>|passage()][$beauty += 1000]]
+[[>>|passage()][$beauty to beautymax]]
+	<span class="tooltiptext"> 
+<<if $beauty gte ($beautymax / 7) * 6>><span class="green">Your beauty is divine.</span>
+<<elseif $beauty gte ($beautymax / 7) * 5>><span class="teal">You are stunning.</span>
+<<elseif $beauty gte ($beautymax / 7) * 4>><span class="lblue">You are gorgeous.</span>
+<<elseif $beauty gte ($beautymax / 7) * 3>><span class="blue">You are beautiful.</span>
+<<elseif $beauty gte($beautymax / 7) * 2>><span class="purple">You are pretty.</span>
+<<elseif $beauty gte ($beautymax / 7)>><span class="pink">You are cute.</span>
+<<else>><span class="red">You are plain.</span><<endif>>
+</span>
+</div>
+<br>
+
+<div class="meter">
+<<set $percent=Math.floor(($beauty/$beautymax)*100)>>
+<<if $beauty lt ($beautymax / 7)>>
+<<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $beauty lt ($beautymax / 7) * 2>>
+<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $beauty lt ($beautymax / 7) * 3>>
+<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $beauty lt ($beautymax / 7) * 4>>
+<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $beauty lt ($beautymax / 7) * 5>>
+<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $beauty lt ($beautymax / 7) * 6>>
+<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+<<else>>
+<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+<</if>>
+</div>
+
+<div class="tooltip"> 
+[[<<|passage()][$promiscuity to 0]]
+[[<|passage()][$promiscuity -= 5]]
+Promiscuity∴
+[[>|passage()][$promiscuity += 5]] 
+[[>>|passage()][$promiscuity to 100]] 
+	<span class="tooltiptext"> 
+<<if $promiscuity lt 1>><span class="green">You are chaste and pure.</span>
+<<elseif $promiscuity lt 15>><span class="teal">You are prudish.</span>
+<<elseif $promiscuity lt 35>><span class="lblue">You are sexually curious.</span>
+<<elseif $promiscuity lt 55>><span class="blue">The thought of sexual contact excites you.</span>
+<<elseif $promiscuity lt 75>><span class="purple">You crave sexual contact.</span>
+<<elseif $promiscuity lt 95>><span class="pink">You are a slut.</span>
+<<else>><span class="red">Your sexual appetite is insatiable.</span>
+<</if>>
+</span>
+</div>
+<br>
+
+<div class="meter">
+<<set $percent=Math.floor(($promiscuity/100)*100)>>
+<<if $promiscuity gte 95>>
+<<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $promiscuity gte 75>>
+<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $promiscuity gte 55>>
+<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $promiscuity gte 35>>
+<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $promiscuity gte 15>>
+<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $promiscuity gte 1>>
+<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+<<else>>
+<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+<</if>>
+</div>
+
+<div class="tooltip"> 
+[[<<|passage()][$exhibitionism to 0]]
+[[<|passage()][$exhibitionism -= 5]] 
+Exhibitionism∴
+[[>|passage()][$exhibitionism += 5]] 
+[[>>|passage()][$exhibitionism to 100]]
+	<span class="tooltiptext"> 
+<<if $exhibitionism lt 1>><span class="green">You are coy.</span>
+<<elseif $exhibitionism lt 15>><span class="teal">You are shy.</span>
+<<elseif $exhibitionism lt 35>><span class="lblue">You like being sexualized.</span>
+<<elseif $exhibitionism lt 55>><span class="blue">You enjoy lewd attention.</span>
+<<elseif $exhibitionism lt 75>><span class="purple">Feeling exposed excites you.</span>
+<<elseif $exhibitionism lt 95>><span class="pink">You are shameless.</span>
+<<else>><span class="red">The thought of exposure fills you with wild abandon.</span>
+<</if>>
+</span>
+</div>
+<br>
+
+<div class="meter">
+<<set $percent=Math.floor(($exhibitionism/100)*100)>>
+<<if $exhibitionism gte 95>>
+<<print '<div class="redbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $exhibitionism gte 75>>
+<<print '<div class="pinkbar" style="width:' + $percent + '%"></div>'>>
+<<elseif $exhibitionism gte 55>>
+<<print '<div class="purplebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $exhibitionism gte 35>>
+<<print '<div class="bluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $exhibitionism gte 15>>
+<<print '<div class="lbluebar" style="width:' + $percent + '%"></div>'>>
+<<elseif $exhibitionism gte 1>>
+<<print '<div class="tealbar" style="width:' + $percent + '%"></div>'>>
+<<else>>
+<<print '<div class="greenbar" style="width:' + $percent + '%"></div>'>>
+<</if>>
+</div>
+
+<</nobr>>
+<</widget>>
+
+
